@@ -1,0 +1,41 @@
+2019.02.08 AutoPico 10.0.0.0 
+10:19:19:997 Time Start: 2/8/2019 10:19:19 AM 
+10:19:20:013 Checking Internet Connection... 
+10:19:20:310 Error: Unable to ping because a network connection is not available. CheckInternetConnection 
+10:19:20:310 No Internet Connection Detected 
+10:19:20:832 Windows Detected: Windows 10 Pro : Professional : 6.3 : 17134 
+10:19:21:572 [SC] CreateService SUCCESS 
+10:19:21:797 Port: 1688 is BUSY, killing process... 
+10:19:21:972 Opening Firewall Port... 
+10:19:22:371 Opening Firewall App... 
+10:19:22:756 KMSEmulator started 
+10:19:22:825  OK! 
+10:19:22:839 Loading WinDivert... 
+10:19:22:861 WinDivert Started: 10.198.238.213 
+10:19:22:901 KMSEmulator running on port 1688 
+10:19:22:911 Waiting for client connection... 
+10:19:23:031 Office 2010 Skipped 
+10:19:23:044 Office 2013 Found: C:\Program Files\Microsoft Office\Office15\ 
+10:19:26:225 Found Windows Products: 1 
+10:19:26:234 Name: Windows(R), Professional edition
+Description: Windows(R) Operating System, VOLUME_KMSCLIENT channel
+GracePeriodRemaining: 3652
+LicenseStatus: 1
+PartialProductKey: T83GX
+GenuineStatus: 0
+ 
+10:19:30:291 Found Office 2013 Products: 1 
+10:19:30:297 DisableKeyManagementServiceHostCaching 0 
+10:19:30:305 Set Registry : SoftwareProtectionPlatform:KeyManagementServiceName 
+10:19:30:315 Set Registry : SoftwareProtectionPlatform:KeyManagementServicePort 
+10:19:32:221 DisableKeyManagementServiceHostCaching 0 
+10:19:32:229 Set Registry : SoftwareProtectionPlatform\0ff1ce15-a989-479d-af46-f275c6370663\4a5d124a-e620-44ba-b6ff-658961b33b9a:KeyManagementServiceName 
+10:19:32:236 Set Registry : SoftwareProtectionPlatform\0ff1ce15-a989-479d-af46-f275c6370663\4a5d124a-e620-44ba-b6ff-658961b33b9a:KeyManagementServicePort 
+10:19:32:247 Set Registry : SoftwareProtectionPlatform\0ff1ce15-a989-479d-af46-f275c6370663\b322da9c-a2e2-4058-9e4e-f59a6970bd69:KeyManagementServiceName 
+10:19:32:255 Set Registry : SoftwareProtectionPlatform\0ff1ce15-a989-479d-af46-f275c6370663\b322da9c-a2e2-4058-9e4e-f59a6970bd69:KeyManagementServicePort 
+10:19:32:267 Set Registry : SoftwareProtectionPlatform\0ff1ce15-a989-479d-af46-f275c6370663\e13ac10e-75d0-4aff-a0cd-764982cf541c:KeyManagementServiceName 
+10:19:32:274 Set Registry : SoftwareProtectionPlatform\0ff1ce15-a989-479d-af46-f275c6370663\e13ac10e-75d0-4aff-a0cd-764982cf541c:KeyManagementServicePort 
+10:19:32:285 Activating Windows 
+10:19:32:574 SetKeyManagementServiceMachine 0 
+10:19:32:605 SetVLActivationTypeEnabled 0 
+10:19:33:097 Connection accepted from [::ffff:10.198.238.213]:49681 
