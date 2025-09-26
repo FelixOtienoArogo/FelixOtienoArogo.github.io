@@ -42,3 +42,21 @@ defaults:
       layout: single
       author_profile: true
 
+# Social links
+social:
+  github: "https://github.com/felixotienoarogo"
+  linkedin: "https://www.linkedin.com/in/felix-otieno-arogo/"
+  twitter: "https://twitter.com/felix_arogo"
+  email: "mailto:felixarogo@gmail.com"
+
+# Font Awesome
+fontawesome: true
+
+# Site navigation
+header_pages:
+  - /about/
+  - /projects/
+  - /cv/
+
+navigation: "_data/navigation.yml"
+
