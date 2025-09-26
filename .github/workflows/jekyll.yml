@@ -1,9 +1,9 @@
-name: Deploy Jekyll with GitHub Pages
+name: Deploy Jekyll site to Pages
 
 on:
   push:
     branches:
-      - main   # or 'master' if your repo uses that
+      - main   # change if you use 'master'
   workflow_dispatch:
 
 permissions:
@@ -15,27 +15,26 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1'
+          bundler-cache: true
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Install dependencies
-        run: |
-          bundle install
+        run: bundle install
 
-      - name: Build with Jekyll
-        run: |
-          bundle exec jekyll build --destination ./_site
+      - name: Build site with Jekyll
+        run: bundle exec jekyll build --destination ./_site
 
       - name: Upload site artifact
-        uses: actions/upload-pages-artifact@v2   # ✅ no deprecation
+        uses: actions/upload-pages-artifact@v2
         with:
           path: ./_site
 
