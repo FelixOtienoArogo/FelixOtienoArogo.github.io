@@ -58,5 +58,11 @@ header_pages:
   - /projects/
   - /cv/
 
+# Navigation links
+header_pages:
+  - /about/
+  - /projects/
+  - /cv/
+
 navigation: "_data/navigation.yml"
 
