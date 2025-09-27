@@ -15,7 +15,7 @@ plugins:
 author:
   name: "Felix Otieno Arogo"
   bio: "Software Engineer | Security Enthusiast"
-  avatar: "/assets/images/profile.jpg"
+  avatar: "/assets/images/felix_image.jpg"
   links:
     - label: "Email"
       icon: "fas fa-envelope"
@@ -66,3 +66,16 @@ header_pages:
 
 navigation: "_data/navigation.yml"
 
+# Tell theme to use custom nav
+collections:
+  pages:
+    output: true
+
+# Optional but helps
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: single
+      author_profile: true

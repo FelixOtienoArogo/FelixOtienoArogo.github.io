@@ -5,5 +5,12 @@ main:
     url: /about/
   - title: "Projects"
     url: /projects/
+    children:
+      - title: "Cloud"
+        url: /projects/cloud/
+      - title: "Security"
+        url: /projects/security/
+      - title: "Development"
+        url: /projects/development/
   - title: "CV"
     url: /cv/
