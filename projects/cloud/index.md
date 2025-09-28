@@ -34,3 +34,7 @@ Welcome to my cloud portfolio. Here you will find hands-on projects demonstratin
   **Role:** Cloud Solutions Architect  
   **Skills:** AWS VPC, EC2 Auto Scaling, Application Load Balancer (ALB), Launch Templates, NAT Gateway, CloudWatch, Systems Manager
 
+- [Highly Available Web Application on AWS](/projects/cloud/high-availability-app/)
+  ![High Availability App](/assets/images/projects/cloud/high-availability-app/image7.png)
+  **Role:** Cloud Solutions Architect  
+  **Skills:** AWS VPC, EC2, Auto Scaling, Application Load Balancer, Security Groups, RDS, High Availability Design

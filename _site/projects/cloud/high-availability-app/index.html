@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Cloud Projects - Felix Otieno Arogo</title>
+<!-- begin _includes/seo.html --><title>Highly Available Web Application on AWS - Felix Otieno Arogo</title>
 <meta name="description" content="Solutions Architect &amp; Software Engineer">
 
 
@@ -21,8 +21,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Felix Otieno Arogo">
-<meta property="og:title" content="Cloud Projects">
-<meta property="og:url" content="http://localhost:4000/projects/cloud/">
+<meta property="og:title" content="Highly Available Web Application on AWS">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/high-availability-app/">
 
 
   <meta property="og:description" content="Solutions Architect &amp; Software Engineer">
@@ -38,7 +38,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/projects/cloud/">
+<link rel="canonical" href="http://localhost:4000/projects/cloud/high-availability-app/">
 
 
 
@@ -284,7 +284,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Cloud Projects">
+    <meta itemprop="headline" content="Highly Available Web Application on AWS">
     
     
     
@@ -293,7 +293,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/projects/cloud/" itemprop="url">Cloud Projects
+            <a href="http://localhost:4000/projects/cloud/high-availability-app/" itemprop="url">Highly Available Web Application on AWS
 </a>
           </h1>
           
@@ -304,44 +304,110 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="cloud-projects">Cloud Projects</h2>
+        <h2 id="project-highly-available-web-application-on-aws">Project: Highly Available Web Application on AWS</h2>
 
-<p>Welcome to my cloud portfolio. Here you will find hands-on projects demonstrating cloud architecture, security, and deployment using AWS and Azure.</p>
+<p><strong>Timeline:</strong> September 2025<br />
+<strong>Role:</strong> Cloud Solutions Architect<br />
+<strong>Skills:</strong> AWS VPC, Subnets, EC2, Auto Scaling, Application Load Balancer, Security Groups, RDS, NAT Gateway, High Availability Design</p>
 
-<h3 id="projects">Projects</h3>
+<hr />
 
+<h3 id="project-summary">Project Summary</h3>
+<p>Designed and implemented a highly available and fault-tolerant web application architecture on AWS. The project focused on eliminating single points of failure, distributing workloads across multiple Availability Zones, and enabling automatic recovery during demand spikes or infrastructure failures.</p>
+
+<p>This hands-on implementation demonstrates cloud-native architectural principles to ensure resiliency, scalability, and production-grade service continuity.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
 <ul>
-  <li>
-    <p><a href="/projects/cloud/cognito-auth/">Secure Web Application with AWS Cognito</a><br />
-<img src="/assets/images/projects/cloud/cognito-auth/image15.png" alt="Cognito Auth" /><br />
-<strong>Role:</strong> Solutions Architect &amp; Software Engineer<br />
-<strong>Skills:</strong> AWS Cognito, S3, CloudFront, DynamoDB, Node.js</p>
-  </li>
-  <li>
-    <p><a href="/projects/cloud/aws-encryption/">Encrypting Data at Rest with AWS KMS, S3, and EBS</a><br />
-<img src="/assets/images/projects/cloud/aws-encryption/image16.png" alt="AWS Encryption" /><br />
-<strong>Role:</strong> Cloud Security Engineer<br />
-<strong>Skills:</strong> AWS KMS, S3 Encryption, EBS Encryption, CloudTrail, Key Rotation</p>
-  </li>
-  <li>
-    <p><a href="/projects/cloud/vpc-peering/">Creating a VPC Peering Connection in AWS</a>
-<img src="/assets/images/projects/cloud/vpc-peering/image1.png" alt="VPC Peering" />
-<strong>Role:</strong> Cloud Solutions Architect<br />
-<strong>Skills:</strong> AWS VPC, Subnets, Routing, Security Groups, VPC Flow Logs, CloudWatch</p>
-  </li>
-  <li>
-    <p><a href="/projects/cloud/cafe-autoscaling/">Scalable and Highly Available Web Application for Café</a>
-<img src="/assets/images/projects/cloud/cafe-autoscaling/image8.png" alt="Café Auto Scaling" />
-<strong>Role:</strong> Cloud Solutions Architect<br />
-<strong>Skills:</strong> AWS VPC, EC2 Auto Scaling, Application Load Balancer (ALB), Launch Templates, NAT Gateway, CloudWatch, Systems Manager</p>
-  </li>
-  <li>
-    <p><a href="/projects/cloud/high-availability-app/">Highly Available Web Application on AWS</a>
-<img src="/assets/images/projects/cloud/high-availability-app/image7.png" alt="High Availability App" />
-<strong>Role:</strong> Cloud Solutions Architect<br />
-<strong>Skills:</strong> AWS VPC, EC2, Auto Scaling, Application Load Balancer, Security Groups, RDS, High Availability Design</p>
-  </li>
+  <li>Design a multi-AZ architecture to ensure fault tolerance.</li>
+  <li>Deploy an Application Load Balancer (ALB) for traffic distribution.</li>
+  <li>Implement an Auto Scaling Group (ASG) to dynamically adjust capacity.</li>
+  <li>Harden security with least-privilege security group rules.</li>
+  <li>Test recovery from failures and validate high availability.</li>
 </ul>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-vpc--networking-design">1. VPC &amp; Networking Design</h4>
+<ul>
+  <li>Reviewed VPC setup with subnets, route tables, IGW, and NACLs.</li>
+  <li>Confirmed multi-AZ public/private subnet design for resiliency.</li>
+</ul>
+
+<p><img src="./assets/images/image6.png" alt="VPC Architecture" /></p>
+
+<hr />
+
+<h4 id="2-application-load-balancer-deployment">2. Application Load Balancer Deployment</h4>
+<ul>
+  <li>Provisioned an ALB across two public subnets.</li>
+  <li>Configured listener rules and health checks for web app targets.</li>
+  <li>Created a dedicated security group allowing HTTP/HTTPS traffic.</li>
+</ul>
+
+<p><img src="./assets/images/image11.png" alt="ALB Configuration" /></p>
+
+<hr />
+
+<h4 id="3-auto-scaling-group--launch-template">3. Auto Scaling Group &amp; Launch Template</h4>
+<ul>
+  <li>Created an AMI of the web server for standardized deployments.</li>
+  <li>Defined a launch template (EC2 + user data for app setup).</li>
+  <li>Configured ASG across two private subnets with desired capacity = 2, scaling between 2–6 instances.</li>
+  <li>Attached ASG to ALB target group.</li>
+</ul>
+
+<p><img src="./assets/images/image18.png" alt="Auto Scaling" /></p>
+
+<hr />
+
+<h4 id="4-security-hardening">4. Security Hardening</h4>
+<ul>
+  <li>Restricted app security group to accept HTTP traffic only from ALB.</li>
+  <li>Restricted database security group to accept MySQL traffic only from the application tier.</li>
+  <li>Ensured principle of least privilege across all layers.</li>
+</ul>
+
+<p><img src="./assets/images/image3.png" alt="Security Groups" />
+<img src="./assets/images/image10.png" alt="Security Groups" /></p>
+
+<hr />
+
+<h4 id="5-testing--validation">5. Testing &amp; Validation</h4>
+<ul>
+  <li>Verified web app availability through ALB DNS name (requests served from multiple AZs).</li>
+  <li>Simulated instance failure: ASG replaced terminated instance automatically.</li>
+  <li>Observed traffic failover and uninterrupted availability.</li>
+</ul>
+
+<p><img src="./assets/images/image4.png" alt="Testing Results" />
+<img src="./assets/images/image14.png" alt="Testing Results" /></p>
+
+<hr />
+
+<h4 id="6-optional-enhancements">6. Optional Enhancements</h4>
+<ul>
+  <li>Enabled RDS Multi-AZ deployment for database resilience.</li>
+  <li>Configured second NAT Gateway in another AZ for redundancy in private subnets.</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome--impact">Outcome &amp; Impact</h3>
+<ul>
+  <li>Delivered a fault-tolerant, production-ready architecture.</li>
+  <li>Ensured zero single points of failure across compute, network, and database tiers.</li>
+  <li>Gained practical expertise with Auto Scaling, ALB, and resilient networking on AWS.</li>
+  <li>Strengthened ability to design and implement cloud architectures aligned with AWS Well-Architected Framework.</li>
+</ul>
+
+<hr />
+
+<p><a href="/projects/cloud/">Back to Projects</a></p>
 
         
       </section>
