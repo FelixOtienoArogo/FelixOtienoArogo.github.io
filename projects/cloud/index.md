@@ -29,3 +29,8 @@ Welcome to my cloud portfolio. Here you will find hands-on projects demonstratin
   **Role:** Cloud Solutions Architect  
   **Skills:** AWS VPC, Subnets, Routing, Security Groups, VPC Flow Logs, CloudWatch
 
+- [Scalable and Highly Available Web Application for Café](/projects/cloud/cafe-autoscaling/)
+  ![Café Auto Scaling](/assets/images/projects/cloud/cafe-autoscaling/image8.png)
+  **Role:** Cloud Solutions Architect  
+  **Skills:** AWS VPC, EC2 Auto Scaling, Application Load Balancer (ALB), Launch Templates, NAT Gateway, CloudWatch, Systems Manager
+

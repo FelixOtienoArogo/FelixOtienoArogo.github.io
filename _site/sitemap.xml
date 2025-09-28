@@ -22,6 +22,9 @@
 <loc>http://localhost:4000/projects/cloud/cognito-auth/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/projects/cloud/cafe-autoscaling/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/</loc>
 </url>
 <url>

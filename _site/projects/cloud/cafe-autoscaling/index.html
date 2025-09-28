@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Cloud Projects - Felix Otieno Arogo</title>
+<!-- begin _includes/seo.html --><title>Scalable and Highly Available Web Application for Café - Felix Otieno Arogo</title>
 <meta name="description" content="Solutions Architect &amp; Software Engineer">
 
 
@@ -21,8 +21,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Felix Otieno Arogo">
-<meta property="og:title" content="Cloud Projects">
-<meta property="og:url" content="http://localhost:4000/projects/cloud/">
+<meta property="og:title" content="Scalable and Highly Available Web Application for Café">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/cafe-autoscaling/">
 
 
   <meta property="og:description" content="Solutions Architect &amp; Software Engineer">
@@ -38,7 +38,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/projects/cloud/">
+<link rel="canonical" href="http://localhost:4000/projects/cloud/cafe-autoscaling/">
 
 
 
@@ -284,7 +284,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Cloud Projects">
+    <meta itemprop="headline" content="Scalable and Highly Available Web Application for Café">
     
     
     
@@ -293,7 +293,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/projects/cloud/" itemprop="url">Cloud Projects
+            <a href="http://localhost:4000/projects/cloud/cafe-autoscaling/" itemprop="url">Scalable and Highly Available Web Application for Café
 </a>
           </h1>
           
@@ -304,39 +304,105 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="cloud-projects">Cloud Projects</h2>
+        <h2 id="project-scalable-and-highly-available-web-application-for-café">Project: Scalable and Highly Available Web Application for Café</h2>
 
-<p>Welcome to my cloud portfolio. Here you will find hands-on projects demonstrating cloud architecture, security, and deployment using AWS and Azure.</p>
+<p><strong>Timeline:</strong> September 2025<br />
+<strong>Role:</strong> Cloud Solutions Architect<br />
+<strong>Skills:</strong> AWS VPC, EC2 Auto Scaling, Application Load Balancer (ALB), Launch Templates, NAT Gateway, CloudWatch Alarms, Systems Manager</p>
 
-<h3 id="projects">Projects</h3>
+<hr />
 
+<h3 id="project-summary">Project Summary</h3>
+<p>Designed and deployed a <strong>scalable, fault-tolerant, and cost-efficient web application architecture</strong> for a café anticipating a surge in traffic after media exposure. The solution leverages <strong>Amazon EC2 Auto Scaling</strong> and an <strong>Application Load Balancer (ALB)</strong> across multiple Availability Zones, ensuring high availability, resilience, and responsiveness under varying workloads.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
 <ul>
-  <li>
-    <p><a href="/projects/cloud/cognito-auth/">Secure Web Application with AWS Cognito</a><br />
-<img src="/assets/images/projects/cloud/cognito-auth/image15.png" alt="Cognito Auth" /><br />
-<strong>Role:</strong> Solutions Architect &amp; Software Engineer<br />
-<strong>Skills:</strong> AWS Cognito, S3, CloudFront, DynamoDB, Node.js</p>
-  </li>
-  <li>
-    <p><a href="/projects/cloud/aws-encryption/">Encrypting Data at Rest with AWS KMS, S3, and EBS</a><br />
-<img src="/assets/images/projects/cloud/aws-encryption/image16.png" alt="AWS Encryption" /><br />
-<strong>Role:</strong> Cloud Security Engineer<br />
-<strong>Skills:</strong> AWS KMS, S3 Encryption, EBS Encryption, CloudTrail, Key Rotation</p>
-  </li>
-  <li>
-    <p><a href="/projects/cloud/vpc-peering/">Creating a VPC Peering Connection in AWS</a>
-<img src="/assets/images/projects/cloud/vpc-peering/image1.png" alt="VPC Peering" />
-<strong>Role:</strong> Cloud Solutions Architect<br />
-<strong>Skills:</strong> AWS VPC, Subnets, Routing, Security Groups, VPC Flow Logs, CloudWatch</p>
-  </li>
-  <li>
-    <p><a href="/projects/cloud/cafe-autoscaling/">Scalable and Highly Available Web Application for Café</a>
-<img src="/assets/images/projects/cloud/cafe-autoscaling/image8.png" alt="Café Auto Scaling" />
-<strong>Role:</strong> Cloud Solutions Architect<br />
-<strong>Skills:</strong> AWS VPC, EC2 Auto Scaling, Application Load Balancer (ALB), Launch Templates, NAT Gateway, CloudWatch, Systems Manager</p>
-  </li>
+  <li>Inspect and evaluate the existing VPC and application environment.</li>
+  <li>Extend the network architecture across multiple Availability Zones.</li>
+  <li>Create a reusable <strong>Launch Template</strong> for EC2 instances.</li>
+  <li>Deploy an <strong>Auto Scaling Group</strong> with scaling policies based on CPU utilization.</li>
+  <li>Configure an <strong>Application Load Balancer (ALB)</strong> for cross-AZ traffic distribution.</li>
+  <li>Validate fault tolerance through <strong>load testing</strong> and CloudWatch alarms.</li>
 </ul>
 
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-multi-az-network-update">1. Multi-AZ Network Update</h4>
+<ul>
+  <li>Configured a <strong>NAT Gateway</strong> in the second Availability Zone.</li>
+  <li>Updated route tables to ensure private subnets in both AZs could securely reach the internet.</li>
+</ul>
+
+<p><img src="./assets/images/image3.png" alt="Multi-AZ Network" /></p>
+
+<hr />
+
+<h4 id="2-created-launch-template">2. Created Launch Template</h4>
+<ul>
+  <li>Standardized EC2 deployments with AMI, instance type, IAM role, security group, and tagging.</li>
+  <li>Template ensured consistent configurations for all Auto Scaling instances.</li>
+</ul>
+
+<p><img src="./assets/images/image17.png" alt="Launch Template" /></p>
+
+<hr />
+
+<h4 id="3-deployed-auto-scaling-group">3. Deployed Auto Scaling Group</h4>
+<ul>
+  <li>Configured with <strong>desired = 2, min = 2, max = 6 instances</strong>.</li>
+  <li>Scaling policy: add/remove instances when <strong>Average CPU &gt; 25%</strong>.</li>
+  <li>Instances deployed across <strong>Private Subnet 1 and 2</strong> for high availability.</li>
+</ul>
+
+<p><img src="./assets/images/image2.png" alt="Auto Scaling Group" /></p>
+
+<hr />
+
+<h4 id="4-configured-application-load-balancer">4. Configured Application Load Balancer</h4>
+<ul>
+  <li>Created an <strong>ALB</strong> in two public subnets.</li>
+  <li>Configured security group to allow HTTP (port 80) access.</li>
+  <li>Linked target group to the Auto Scaling group for dynamic registration.</li>
+</ul>
+
+<p><img src="./assets/images/image9.png" alt="Application Load Balancer" /></p>
+
+<hr />
+
+<h4 id="5-testing--validation">5. Testing &amp; Validation</h4>
+
+<p><strong>Without Load:</strong></p>
+<ul>
+  <li>Verified that café web application was accessible via the ALB DNS (<code class="language-plaintext highlighter-rouge">/cafe</code>).</li>
+</ul>
+
+<p><img src="./assets/images/image7.png" alt="Café App Access" /></p>
+
+<p><strong>With Load (Auto Scaling):</strong></p>
+<ul>
+  <li>Simulated CPU stress using <strong>Systems Manager Session Manager</strong>.</li>
+  <li>Observed scale-out activity in EC2 console as Auto Scaling launched additional instances.</li>
+</ul>
+
+<p><img src="./assets/images/image5.png" alt="Scaling Event" /></p>
+
+<hr />
+
+<h3 id="outcome--impact">Outcome &amp; Impact</h3>
+<ul>
+  <li>Delivered a <strong>fault-tolerant, multi-AZ web architecture</strong> for the café.</li>
+  <li>Improved resilience: no single point of failure, traffic distributed evenly.</li>
+  <li>Enabled cost optimization with Auto Scaling—instances added only under demand.</li>
+  <li>Gained practical experience with <strong>AWS Auto Scaling, ALB, CloudWatch alarms, and Systems Manager load simulation</strong>.</li>
+</ul>
+
+<hr />
+
+<p><a href="/projects/">Back to Projects</a></p>
 
         
       </section>
