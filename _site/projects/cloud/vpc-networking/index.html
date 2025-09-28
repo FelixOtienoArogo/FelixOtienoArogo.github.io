@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Cloud Projects - Felix Otieno Arogo</title>
+<!-- begin _includes/seo.html --><title>Secure VPC Networking Environment for Café Application - Felix Otieno Arogo</title>
 <meta name="description" content="Solutions Architect &amp; Software Engineer">
 
 
@@ -21,8 +21,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Felix Otieno Arogo">
-<meta property="og:title" content="Cloud Projects">
-<meta property="og:url" content="http://localhost:4000/projects/cloud/">
+<meta property="og:title" content="Secure VPC Networking Environment for Café Application">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/vpc-networking/">
 
 
   <meta property="og:description" content="Solutions Architect &amp; Software Engineer">
@@ -38,7 +38,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/projects/cloud/">
+<link rel="canonical" href="http://localhost:4000/projects/cloud/vpc-networking/">
 
 
 
@@ -284,7 +284,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Cloud Projects">
+    <meta itemprop="headline" content="Secure VPC Networking Environment for Café Application">
     
     
     
@@ -293,7 +293,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/projects/cloud/" itemprop="url">Cloud Projects
+            <a href="http://localhost:4000/projects/cloud/vpc-networking/" itemprop="url">Secure VPC Networking Environment for Café Application
 </a>
           </h1>
           
@@ -304,50 +304,93 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="cloud-projects">Cloud Projects</h2>
+        <h2 id="project-secure-vpc-networking-environment-for-café-application">Project: Secure VPC Networking Environment for Café Application</h2>
 
-<p>Welcome to my cloud portfolio. Here you will find hands-on projects demonstrating cloud architecture, security, and deployment using AWS and Azure.</p>
+<p><strong>Timeline:</strong> September 2025<br />
+<strong>Role:</strong> Cloud Solutions Architect<br />
+<strong>Skills:</strong> AWS VPC, Subnets, Bastion Host, NAT Gateway, EC2, Security Groups, Network ACLs</p>
 
-<h3 id="projects">Projects</h3>
+<h3 id="project-summary">Project Summary</h3>
+<p>Designed and deployed a secure Amazon VPC architecture for a café’s application. The solution ensured administrative access via a bastion host, placed application workloads in private subnets, and implemented layered security controls with NAT Gateway, security groups, and custom Network ACLs. The project demonstrates hands-on AWS networking, access control, and secure environment design.</p>
 
+<hr />
+
+<h3 id="objectives">Objectives</h3>
 <ul>
-  <li>
-    <p><a href="/projects/cloud/cognito-auth/">Secure Web Application with AWS Cognito</a><br />
-<img src="/assets/images/projects/cloud/cognito-auth/image15.png" alt="Cognito Auth" /><br />
-<strong>Role:</strong> Solutions Architect &amp; Software Engineer<br />
-<strong>Skills:</strong> AWS Cognito, S3, CloudFront, DynamoDB, Node.js</p>
-  </li>
-  <li>
-    <p><a href="/projects/cloud/aws-encryption/">Encrypting Data at Rest with AWS KMS, S3, and EBS</a><br />
-<img src="/assets/images/projects/cloud/aws-encryption/image16.png" alt="AWS Encryption" /><br />
-<strong>Role:</strong> Cloud Security Engineer<br />
-<strong>Skills:</strong> AWS KMS, S3 Encryption, EBS Encryption, CloudTrail, Key Rotation</p>
-  </li>
-  <li>
-    <p><a href="/projects/cloud/vpc-peering/">Creating a VPC Peering Connection in AWS</a><br />
-<img src="/assets/images/projects/cloud/vpc-peering/image1.png" alt="VPC Peering" /><br />
-<strong>Role:</strong> Cloud Solutions Architect<br />
-<strong>Skills:</strong> AWS VPC, Subnets, Routing, Security Groups, VPC Flow Logs, CloudWatch</p>
-  </li>
-  <li>
-    <p><a href="/projects/cloud/vpc-networking/">Café VPC Networking Environment</a><br />
-<img src="/assets/images/projects/cloud/vpc-networking/image8.png" alt="Café VPC" /><br />
-<strong>Role:</strong> Cloud Solutions Architect<br />
-<strong>Skills:</strong> AWS VPC, Public &amp; Private Subnets, Bastion Host, NAT Gateway, Security Groups, Network ACLs</p>
-  </li>
-  <li>
-    <p><a href="/projects/cloud/cafe-autoscaling/">Scalable and Highly Available Web Application for Café</a><br />
-<img src="/assets/images/projects/cloud/cafe-autoscaling/image8.png" alt="Café Auto Scaling" /><br />
-<strong>Role:</strong> Cloud Solutions Architect<br />
-<strong>Skills:</strong> AWS VPC, EC2 Auto Scaling, Application Load Balancer (ALB), Launch Templates, NAT Gateway, CloudWatch, Systems Manager</p>
-  </li>
-  <li>
-    <p><a href="/projects/cloud/high-availability-app/">Highly Available Web Application on AWS</a><br />
-<img src="/assets/images/projects/cloud/high-availability-app/image7.png" alt="High Availability App" /><br />
-<strong>Role:</strong> Cloud Solutions Architect<br />
-<strong>Skills:</strong> AWS VPC, EC2, Auto Scaling, Application Load Balancer, Security Groups, RDS, High Availability Design</p>
-  </li>
+  <li>Build a VPC with public and private subnets for workload separation.</li>
+  <li>Deploy a bastion host for secure administrative access.</li>
+  <li>Enable outbound internet connectivity for private resources via NAT Gateway.</li>
+  <li>Enforce resource- and subnet-level security with security groups and custom NACLs.</li>
+  <li>Validate connectivity and access restrictions across resources.</li>
 </ul>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-public-subnet--bastion-host">1. Public Subnet &amp; Bastion Host</h4>
+<ul>
+  <li>Created a public subnet with route to Internet Gateway.</li>
+  <li>Deployed bastion host EC2 with SSH restricted to admin IP.</li>
+</ul>
+
+<p><img src="./assets/images/image9.png" alt="Bastion Host Setup" /></p>
+
+<hr />
+
+<h4 id="2-private-subnet--application-server">2. Private Subnet &amp; Application Server</h4>
+<ul>
+  <li>Created a private subnet for application workloads.</li>
+  <li>Deployed private EC2 instance, accessible only via bastion host.</li>
+</ul>
+
+<p><img src="./assets/images/image13.png" alt="Private Instance" /></p>
+
+<hr />
+
+<h4 id="3-nat-gateway-for-outbound-connectivity">3. NAT Gateway for Outbound Connectivity</h4>
+<ul>
+  <li>Launched a NAT Gateway in the public subnet with Elastic IP.</li>
+  <li>Configured route table to allow private instance outbound access for updates.</li>
+</ul>
+
+<p><img src="./assets/images/image17.png" alt="NAT Gateway" /></p>
+
+<hr />
+
+<h4 id="4-secure-ssh-passthrough">4. Secure SSH Passthrough</h4>
+<ul>
+  <li>Enabled SSH agent forwarding to access private instance via bastion host.</li>
+  <li>Verified successful login and outbound connectivity (ping test).</li>
+</ul>
+
+<p><img src="./assets/images/image3.png" alt="SSH Passthrough" />
+<img src="./assets/images/image18.png" alt="SSH Passthrough" /></p>
+
+<hr />
+
+<h4 id="5-custom-network-acl">5. Custom Network ACL</h4>
+<ul>
+  <li>Created and applied custom NACL to private subnet.</li>
+  <li>Configured rule to block ICMP traffic → verified denial of ping after rule applied.</li>
+</ul>
+
+<p><img src="./assets/images/image7.png" alt="NACL Rules" />
+<img src="./assets/images/image14.png" alt="NACL Rules" /></p>
+
+<hr />
+
+<h3 id="outcome--impact">Outcome &amp; Impact</h3>
+<ul>
+  <li>Delivered a secure VPC environment with layered security controls.</li>
+  <li>Achieved isolation of workloads in private subnet while maintaining required internet access.</li>
+  <li>Implemented best practices for administrative access via bastion host.</li>
+  <li>Gained practical skills in designing production-ready AWS VPC architectures.</li>
+</ul>
+
+<hr />
+
+<p><a href="/projects/">Back to Projects</a></p>
 
         
       </section>

@@ -24,17 +24,22 @@ Welcome to my cloud portfolio. Here you will find hands-on projects demonstratin
   **Role:** Cloud Security Engineer  
   **Skills:** AWS KMS, S3 Encryption, EBS Encryption, CloudTrail, Key Rotation  
 
-- [Creating a VPC Peering Connection in AWS](/projects/cloud/vpc-peering/)
-  ![VPC Peering](/assets/images/projects/cloud/vpc-peering/image1.png)
+- [Creating a VPC Peering Connection in AWS](/projects/cloud/vpc-peering/)  
+  ![VPC Peering](/assets/images/projects/cloud/vpc-peering/image1.png)  
   **Role:** Cloud Solutions Architect  
-  **Skills:** AWS VPC, Subnets, Routing, Security Groups, VPC Flow Logs, CloudWatch
+  **Skills:** AWS VPC, Subnets, Routing, Security Groups, VPC Flow Logs, CloudWatch  
 
-- [Scalable and Highly Available Web Application for Café](/projects/cloud/cafe-autoscaling/)
-  ![Café Auto Scaling](/assets/images/projects/cloud/cafe-autoscaling/image8.png)
+- [Café VPC Networking Environment](/projects/cloud/vpc-networking/)  
+  ![Café VPC](/assets/images/projects/cloud/vpc-networking/image8.png)  
   **Role:** Cloud Solutions Architect  
-  **Skills:** AWS VPC, EC2 Auto Scaling, Application Load Balancer (ALB), Launch Templates, NAT Gateway, CloudWatch, Systems Manager
+  **Skills:** AWS VPC, Public & Private Subnets, Bastion Host, NAT Gateway, Security Groups, Network ACLs  
 
-- [Highly Available Web Application on AWS](/projects/cloud/high-availability-app/)
-  ![High Availability App](/assets/images/projects/cloud/high-availability-app/image7.png)
+- [Scalable and Highly Available Web Application for Café](/projects/cloud/cafe-autoscaling/)  
+  ![Café Auto Scaling](/assets/images/projects/cloud/cafe-autoscaling/image8.png)  
   **Role:** Cloud Solutions Architect  
-  **Skills:** AWS VPC, EC2, Auto Scaling, Application Load Balancer, Security Groups, RDS, High Availability Design
+  **Skills:** AWS VPC, EC2 Auto Scaling, Application Load Balancer (ALB), Launch Templates, NAT Gateway, CloudWatch, Systems Manager  
+
+- [Highly Available Web Application on AWS](/projects/cloud/high-availability-app/)  
+  ![High Availability App](/assets/images/projects/cloud/high-availability-app/image7.png)  
+  **Role:** Cloud Solutions Architect  
+  **Skills:** AWS VPC, EC2, Auto Scaling, Application Load Balancer, Security Groups, RDS, High Availability Design  
