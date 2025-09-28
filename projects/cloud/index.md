@@ -14,9 +14,13 @@ Welcome to my cloud portfolio. Here you will find hands-on projects demonstratin
 
 ### Projects
 
-- [Secure Web Application with AWS Cognito](/projects/cloud/cognito-auth/)
-  ![Cognito Auth](/assets/images/projects/cloud/cognito-auth/image15.png)
+- [Secure Web Application with AWS Cognito](/projects/cloud/cognito-auth/)  
+  ![Cognito Auth](/assets/images/projects/cloud/cognito-auth/image15.png)  
   **Role:** Solutions Architect & Software Engineer  
-  **Skills:** AWS Cognito, S3, CloudFront, DynamoDB, Node.js
+  **Skills:** AWS Cognito, S3, CloudFront, DynamoDB, Node.js  
 
-<!-- Add more projects here as you go -->
+- [Encrypting Data at Rest with AWS KMS, S3, and EBS](/projects/cloud/aws-encryption/)  
+  ![AWS Encryption](/assets/images/projects/cloud/aws-encryption/image16.png)  
+  **Role:** Cloud Security Engineer  
+  **Skills:** AWS KMS, S3 Encryption, EBS Encryption, CloudTrail, Key Rotation  
+

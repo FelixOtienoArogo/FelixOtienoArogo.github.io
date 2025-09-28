@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Cloud Projects - Felix Otieno Arogo</title>
+<!-- begin _includes/seo.html --><title>Encrypting Data at Rest with AWS KMS, S3, and EBS - Felix Otieno Arogo</title>
 <meta name="description" content="Solutions Architect &amp; Software Engineer">
 
 
@@ -21,8 +21,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Felix Otieno Arogo">
-<meta property="og:title" content="Cloud Projects">
-<meta property="og:url" content="http://localhost:4000/projects/cloud/">
+<meta property="og:title" content="Encrypting Data at Rest with AWS KMS, S3, and EBS">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/aws-encryption/">
 
 
   <meta property="og:description" content="Solutions Architect &amp; Software Engineer">
@@ -38,7 +38,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/projects/cloud/">
+<link rel="canonical" href="http://localhost:4000/projects/cloud/aws-encryption/">
 
 
 
@@ -258,33 +258,12 @@
 </div>
 
   
-    
-      
-      
-      
-      
-    
-    
-      <nav class="nav__list">
-  
-  <input id="ac-toc" name="accordion-toc" type="checkbox" />
-  <label for="ac-toc">Toggle Menu</label>
-  <ul class="nav__items">
-    
-      
-      
-    
-  </ul>
-</nav>
-
-    
-  
   </div>
 
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Cloud Projects">
+    <meta itemprop="headline" content="Encrypting Data at Rest with AWS KMS, S3, and EBS">
     
     
     
@@ -293,7 +272,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/projects/cloud/" itemprop="url">Cloud Projects
+            <a href="http://localhost:4000/projects/cloud/aws-encryption/" itemprop="url">Encrypting Data at Rest with AWS KMS, S3, and EBS
 </a>
           </h1>
           
@@ -304,26 +283,100 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="cloud-projects">Cloud Projects</h2>
+        <h2 id="-project-overview">📌 Project Overview</h2>
+<p>I implemented AWS encryption services to protect sensitive data at rest across different storage services. The project demonstrates how to use <strong>Amazon S3</strong>, <strong>AWS Key Management Service (KMS)</strong>, and <strong>Amazon EBS encryption</strong> together to meet compliance and security best practices.</p>
 
-<p>Welcome to my cloud portfolio. Here you will find hands-on projects demonstrating cloud architecture, security, and deployment using AWS and Azure.</p>
+<p>This involved creating and managing a <strong>customer managed KMS key</strong>, applying it to encrypted EBS volumes, reviewing CloudTrail logs for key usage, and testing the impact of disabling/re-enabling the key.</p>
 
-<h3 id="projects">Projects</h3>
+<hr />
 
+<h2 id="-key-outcomes">🔹 Key Outcomes</h2>
 <ul>
-  <li>
-    <p><a href="/projects/cloud/cognito-auth/">Secure Web Application with AWS Cognito</a><br />
-<img src="/assets/images/projects/cloud/cognito-auth/image15.png" alt="Cognito Auth" /><br />
-<strong>Role:</strong> Solutions Architect &amp; Software Engineer<br />
-<strong>Skills:</strong> AWS Cognito, S3, CloudFront, DynamoDB, Node.js</p>
-  </li>
-  <li>
-    <p><a href="/projects/cloud/aws-encryption/">Encrypting Data at Rest with AWS KMS, S3, and EBS</a><br />
-<img src="/assets/images/projects/cloud/aws-encryption/image16.png" alt="AWS Encryption" /><br />
-<strong>Role:</strong> Cloud Security Engineer<br />
-<strong>Skills:</strong> AWS KMS, S3 Encryption, EBS Encryption, CloudTrail, Key Rotation</p>
+  <li>Implemented <strong>default S3 encryption (SSE-S3)</strong> and verified object access.</li>
+  <li>Created a <strong>customer managed KMS key</strong> with usage permissions.</li>
+  <li>Encrypted and attached an <strong>EBS volume</strong> using the KMS key.</li>
+  <li>Observed the impact of <strong>disabling a KMS key</strong> on encrypted resources.</li>
+  <li>Analyzed <strong>CloudTrail logs</strong> for key usage (CreateGrant, Decrypt, GenerateDataKeyWithoutPlaintext).</li>
+  <li>Enabled <strong>automatic key rotation</strong> for compliance.</li>
+</ul>
+
+<hr />
+
+<h2 id="-project-steps">🔹 Project Steps</h2>
+
+<h3 id="1-reviewing-default-encryption-for-s3-objects">1. Reviewing Default Encryption for S3 Objects</h3>
+<ul>
+  <li>Uploaded <code class="language-plaintext highlighter-rouge">clock.png</code> to S3 bucket.</li>
+  <li>Verified encryption applied automatically with <strong>SSE-S3</strong>.</li>
+  <li>Confirmed public access decrypted object correctly.</li>
+</ul>
+
+<p><img src="./assets/images/image2.png" alt="S3 Default Encryption Screenshot" /></p>
+
+<hr />
+
+<h3 id="2-creating-an-aws-kms-key">2. Creating an AWS KMS Key</h3>
+<ul>
+  <li>Created a <strong>customer managed symmetric key (MyKMSKey)</strong>.</li>
+  <li>Assigned admin and usage permissions.</li>
+  <li>Verified in KMS console.</li>
+</ul>
+
+<p><img src="./assets/images/image12.png" alt="KMS Key Screenshot" /></p>
+
+<hr />
+
+<h3 id="3-creating-and-attaching-an-encrypted-ebs-volume">3. Creating and Attaching an Encrypted EBS Volume</h3>
+<ul>
+  <li>Created a 1 GiB <strong>encrypted EBS volume</strong> using MyKMSKey.</li>
+  <li>Attached to EC2 instance with existing unencrypted root volume.</li>
+</ul>
+
+<p><img src="./assets/images/image9.png" alt="EBS Volumes Screenshot" /></p>
+
+<hr />
+
+<h3 id="4-disabling-the-kms-key-and-observing-effects">4. Disabling the KMS Key and Observing Effects</h3>
+<ul>
+  <li>Disabled MyKMSKey in KMS console.</li>
+  <li>Tried re-attaching encrypted volume → operation failed (expected).</li>
+</ul>
+
+<p><img src="./assets/images/image2.png" alt="Disabled Key Screenshot" /></p>
+
+<hr />
+
+<h3 id="5-analyzing-aws-kms-activity-with-cloudtrail">5. Analyzing AWS KMS Activity with CloudTrail</h3>
+<ul>
+  <li>Used CloudTrail to review KMS events:
+    <ul>
+      <li><strong>CreateGrant</strong></li>
+      <li><strong>Decrypt</strong></li>
+      <li><strong>GenerateDataKeyWithoutPlaintext</strong></li>
+    </ul>
   </li>
 </ul>
+
+<p><img src="./assets/images/image9.png" alt="CloudTrail Logs Screenshot" /></p>
+
+<hr />
+
+<h3 id="6-reviewing-key-rotation">6. Reviewing Key Rotation</h3>
+<ul>
+  <li>Enabled <strong>automatic annual key rotation</strong> for MyKMSKey.</li>
+  <li>Verified in console.</li>
+</ul>
+
+<p><img src="./assets/images/image9.png" alt="Key Rotation Screenshot" /></p>
+
+<hr />
+
+<h2 id="-conclusion">🔹 Conclusion</h2>
+<p>This project demonstrates how AWS services protect <strong>data at rest</strong> with encryption. By integrating S3 default encryption, KMS key management, EBS encryption, CloudTrail monitoring, and key rotation, I gained hands-on experience with securing cloud workloads while maintaining compliance and operational visibility.</p>
+
+<hr />
+
+<p><a href="/projects/">Back to Projects</a></p>
 
 
         
