@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Cloud Projects - Felix Otieno Arogo</title>
+<!-- begin _includes/seo.html --><title>VPC Peering and Secure Networking in AWS - Felix Otieno Arogo</title>
 <meta name="description" content="Solutions Architect &amp; Software Engineer">
 
 
@@ -21,8 +21,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Felix Otieno Arogo">
-<meta property="og:title" content="Cloud Projects">
-<meta property="og:url" content="http://localhost:4000/projects/cloud/">
+<meta property="og:title" content="VPC Peering and Secure Networking in AWS">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/vpc-peering/">
 
 
   <meta property="og:description" content="Solutions Architect &amp; Software Engineer">
@@ -38,7 +38,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/projects/cloud/">
+<link rel="canonical" href="http://localhost:4000/projects/cloud/vpc-peering/">
 
 
 
@@ -284,7 +284,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Cloud Projects">
+    <meta itemprop="headline" content="VPC Peering and Secure Networking in AWS">
     
     
     
@@ -293,7 +293,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/projects/cloud/" itemprop="url">Cloud Projects
+            <a href="http://localhost:4000/projects/cloud/vpc-peering/" itemprop="url">VPC Peering and Secure Networking in AWS
 </a>
           </h1>
           
@@ -304,33 +304,97 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="cloud-projects">Cloud Projects</h2>
+        <h2 id="project-vpc-peering-and-secure-networking-in-aws">Project: VPC Peering and Secure Networking in AWS</h2>
 
-<p>Welcome to my cloud portfolio. Here you will find hands-on projects demonstrating cloud architecture, security, and deployment using AWS and Azure.</p>
+<p><strong>Timeline:</strong> September 2025<br />
+<strong>Role:</strong> Solutions Architect &amp; Cloud Engineer<br />
+<strong>Skills:</strong> AWS VPC, Subnets, Route Tables, NAT Gateway, VPC Flow Logs, EC2, RDS, CloudWatch</p>
 
-<h3 id="projects">Projects</h3>
+<hr />
 
+<h3 id="project-summary">Project Summary</h3>
+<p>Designed and implemented secure networking between two Virtual Private Clouds (VPCs) using VPC Peering. The project demonstrates secure traffic routing between application and database tiers across isolated networks. Flow logs were enabled to monitor and validate cross-VPC communication. This solution reflects real-world AWS networking practices for hybrid and multi-tier architectures.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
 <ul>
-  <li>
-    <p><a href="/projects/cloud/cognito-auth/">Secure Web Application with AWS Cognito</a><br />
-<img src="/assets/images/projects/cloud/cognito-auth/image15.png" alt="Cognito Auth" /><br />
-<strong>Role:</strong> Solutions Architect &amp; Software Engineer<br />
-<strong>Skills:</strong> AWS Cognito, S3, CloudFront, DynamoDB, Node.js</p>
-  </li>
-  <li>
-    <p><a href="/projects/cloud/aws-encryption/">Encrypting Data at Rest with AWS KMS, S3, and EBS</a><br />
-<img src="/assets/images/projects/cloud/aws-encryption/image16.png" alt="AWS Encryption" /><br />
-<strong>Role:</strong> Cloud Security Engineer<br />
-<strong>Skills:</strong> AWS KMS, S3 Encryption, EBS Encryption, CloudTrail, Key Rotation</p>
-  </li>
-  <li>
-    <p><a href="/projects/cloud/vpc-peering/">Creating a VPC Peering Connection in AWS</a>
-<img src="/assets/images/projects/cloud/vpc-peering/image1.png" alt="VPC Peering" />
-<strong>Role:</strong> Cloud Solutions Architect<br />
-<strong>Skills:</strong> AWS VPC, Subnets, Routing, Security Groups, VPC Flow Logs, CloudWatch</p>
-  </li>
+  <li>Design and deploy custom VPCs with public and private subnets.</li>
+  <li>Configure Internet Gateway and NAT Gateway for controlled external access.</li>
+  <li>Establish VPC peering to enable cross-VPC communication.</li>
+  <li>Launch and connect EC2 instances to validate connectivity.</li>
+  <li>Use VPC Flow Logs for traffic monitoring and analysis.</li>
 </ul>
 
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-created-custom-vpcs">1. Created Custom VPCs</h4>
+<ul>
+  <li>Deployed two custom VPCs (<code class="language-plaintext highlighter-rouge">Lab VPC</code> and <code class="language-plaintext highlighter-rouge">Shared VPC</code>) with non-overlapping CIDR blocks.</li>
+  <li>Configured routing tables for public and private subnets.</li>
+</ul>
+
+<p><img src="./assets/images/image3.png" alt="VPC Configuration" /></p>
+
+<hr />
+
+<h4 id="2-configured-subnets--gateways">2. Configured Subnets &amp; Gateways</h4>
+<ul>
+  <li>Created public and private subnets in each VPC.</li>
+  <li>Deployed Internet Gateway and NAT Gateway for controlled access.</li>
+  <li>Verified routing for both internal and internet-bound traffic.</li>
+</ul>
+
+<p><img src="./assets/images/image7.png" alt="Subnet Setup" /></p>
+
+<hr />
+
+<h4 id="3-established-vpc-peering">3. Established VPC Peering</h4>
+<ul>
+  <li>Configured VPC peering between Lab VPC and Shared VPC.</li>
+  <li>Updated route tables to allow private traffic flow between VPCs.</li>
+  <li>Verified secure database connectivity without using the internet.</li>
+</ul>
+
+<p><img src="./assets/images/image6.png" alt="VPC Peering Connection" /></p>
+
+<hr />
+
+<h4 id="4-tested-application-connectivity">4. Tested Application Connectivity</h4>
+<ul>
+  <li>Launched a public EC2 instance hosting an inventory app in the Lab VPC.</li>
+  <li>Connected the app to an RDS database in the Shared VPC using private endpoints.</li>
+  <li>Application successfully retrieved and displayed data.</li>
+</ul>
+
+<p><img src="./assets/images/image2.png" alt="App Connected to RDS" /></p>
+
+<hr />
+
+<h4 id="5-enabled-and-analyzed-vpc-flow-logs">5. Enabled and Analyzed VPC Flow Logs</h4>
+<ul>
+  <li>Enabled flow logs for the Shared VPC.</li>
+  <li>Sent logs to CloudWatch for monitoring.</li>
+  <li>Observed <code class="language-plaintext highlighter-rouge">ACCEPT</code> traffic on port <strong>3306 (MySQL)</strong> between app and database instances.</li>
+</ul>
+
+<p><img src="./assets/images/image4.png" alt="Flow Logs" /></p>
+
+<hr />
+
+<h3 id="outcome--impact">Outcome &amp; Impact</h3>
+<ul>
+  <li>Built a secure, production-style networking environment in AWS.</li>
+  <li>Demonstrated how to connect application and database tiers across VPCs without exposing data to the internet.</li>
+  <li>Gained practical skills in VPC design, subnet isolation, routing, and traffic monitoring.</li>
+  <li>Produced a reusable reference for secure AWS networking architectures.</li>
+</ul>
+
+<hr />
+
+<p><a href="/projects/">Back to Projects</a></p>
 
         
       </section>

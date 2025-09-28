@@ -24,3 +24,8 @@ Welcome to my cloud portfolio. Here you will find hands-on projects demonstratin
   **Role:** Cloud Security Engineer  
   **Skills:** AWS KMS, S3 Encryption, EBS Encryption, CloudTrail, Key Rotation  
 
+- [Creating a VPC Peering Connection in AWS](/projects/cloud/vpc-peering/)
+  ![VPC Peering](/assets/images/projects/cloud/vpc-peering/image1.png)
+  **Role:** Cloud Solutions Architect  
+  **Skills:** AWS VPC, Subnets, Routing, Security Groups, VPC Flow Logs, CloudWatch
+
