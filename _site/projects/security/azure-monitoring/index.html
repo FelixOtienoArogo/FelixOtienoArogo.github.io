@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Security Projects - Felix Otieno Arogo</title>
+<!-- begin _includes/seo.html --><title>Unified Security Monitoring and Automation in Azure - Felix Otieno Arogo</title>
 <meta name="description" content="Solutions Architect &amp; Software Engineer">
 
 
@@ -21,8 +21,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Felix Otieno Arogo">
-<meta property="og:title" content="Security Projects">
-<meta property="og:url" content="http://localhost:4000/projects/security/">
+<meta property="og:title" content="Unified Security Monitoring and Automation in Azure">
+<meta property="og:url" content="http://localhost:4000/projects/security/azure-monitoring/">
 
 
   <meta property="og:description" content="Solutions Architect &amp; Software Engineer">
@@ -38,7 +38,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/projects/security/">
+<link rel="canonical" href="http://localhost:4000/projects/security/azure-monitoring/">
 
 
 
@@ -284,7 +284,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Security Projects">
+    <meta itemprop="headline" content="Unified Security Monitoring and Automation in Azure">
     
     
     
@@ -293,7 +293,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/projects/security/" itemprop="url">Security Projects
+            <a href="http://localhost:4000/projects/security/azure-monitoring/" itemprop="url">Unified Security Monitoring and Automation in Azure
 </a>
           </h1>
           
@@ -304,19 +304,118 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="security-projects">Security Projects</h2>
+        <h2 id="unified-security-monitoring-and-automation-in-azure">Unified Security Monitoring and Automation in Azure</h2>
 
-<p>Welcome to my security portfolio. This section showcases hands-on projects focused on cloud and infrastructure security, including identity management, encryption, monitoring, and compliance across AWS and Azure environments.</p>
+<p><strong>Timeline:</strong> August 2025<br />
+<strong>Role:</strong> Cloud Security Engineer<br />
+<strong>Skills:</strong> Microsoft Sentinel, Azure Monitor, Defender for Cloud, KQL, Logic Apps, JIT VM Access</p>
 
-<h3 id="projects">Projects</h3>
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project integrates <strong>Azure Monitor</strong>, <strong>Microsoft Defender for Cloud</strong>, and <strong>Microsoft Sentinel</strong> to build a unified, automated security operations framework in Microsoft Azure. The implementation focused on three key pillars:</p>
+<ol>
+  <li>Collecting and analyzing telemetry data from Azure VMs,</li>
+  <li>Enabling advanced threat protection through Defender for Servers, and</li>
+  <li>Automating incident detection and response with Sentinel playbooks.</li>
+</ol>
+
+<p>The outcome is a resilient and secure Azure environment with centralized visibility, intelligent analytics, and proactive remediation workflows.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
 
 <ul>
-  <li><a href="/projects/security/azure-monitoring/">Azure Security and Monitoring Implementation</a>
-<img src="/assets/images/projects/security/azure-monitoring/image1.png" alt="Azure Security Monitoring" />
-<strong>Role:</strong> Cloud Security Engineer<br />
-<strong>Skills:</strong> Azure Monitor, Log Analytics, Microsoft Sentinel, KQL, Logic Apps, Microsoft Defender for Cloud, Just-In-Time VM Access</li>
+  <li>Deploy and monitor Azure virtual machines with Azure Monitor and Log Analytics.</li>
+  <li>Enable <strong>Microsoft Defender for Servers Plan 2</strong> for threat detection and secure configuration management.</li>
+  <li>Configure <strong>Just-in-Time (JIT) VM Access</strong> to reduce attack surface on management ports.</li>
+  <li>Implement <strong>Microsoft Sentinel</strong> to collect security data, create analytic rules, and automate incident response with Logic Apps playbooks.</li>
+  <li>Validate integration and end-to-end security visibility across Azure resources.</li>
 </ul>
 
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-azure-monitor-and-log-analytics">1. Azure Monitor and Log Analytics</h4>
+<ul>
+  <li>Deployed an Azure VM (<code class="language-plaintext highlighter-rouge">myVM</code>) and created a <strong>Log Analytics Workspace</strong> for centralized data collection.</li>
+  <li>Installed the <strong>Azure Monitor Agent (AMA)</strong> extension on the VM.</li>
+  <li>Configured data collection rules for performance and event logs.</li>
+  <li>Queried collected data using <strong>Kusto Query Language (KQL)</strong> to analyze metrics like disk latency and CPU usage.</li>
+</ul>
+
+<p><img src="./assets/images/image13.png" alt="Azure Monitor Dashboard" /></p>
+
+<hr />
+
+<h4 id="2-microsoft-defender-for-cloud">2. Microsoft Defender for Cloud</h4>
+<ul>
+  <li>Enabled <strong>Defender for Servers Plan 2</strong> on the subscription to enhance VM protection.</li>
+  <li>Verified vulnerability assessments and endpoint protection recommendations.</li>
+  <li>Integrated Defender data into Log Analytics for unified visibility.</li>
+</ul>
+
+<p><img src="./assets/images/image22.png" alt="Defender for Cloud Dashboard" /></p>
+
+<hr />
+
+<h4 id="3-just-in-time-jit-vm-access">3. Just-in-Time (JIT) VM Access</h4>
+<ul>
+  <li>Configured JIT access for the VM to restrict inbound management traffic.</li>
+  <li>Defined approval-based access requests with time-bound validity.</li>
+  <li>Validated the setup by requesting access and confirming controlled RDP/SSH availability.</li>
+</ul>
+
+<p><img src="./assets/images/image15.png" alt="JIT Access Configuration" /></p>
+
+<hr />
+
+<h4 id="4-microsoft-sentinel-integration">4. Microsoft Sentinel Integration</h4>
+<ul>
+  <li>Onboarded <strong>Microsoft Sentinel</strong> to the Log Analytics workspace.</li>
+  <li>Connected <strong>Azure Activity Logs</strong> as a data source to capture operational events.</li>
+  <li>Created custom <strong>analytic rules</strong> for anomaly detection, such as unauthorized VM access attempts.</li>
+  <li>Developed an automated <strong>Logic App playbook</strong> to trigger email notifications when high-severity incidents were detected.</li>
+  <li>Simulated an incident to verify end-to-end response automation.</li>
+</ul>
+
+<p><img src="./assets/images/image6.png" alt="Microsoft Sentinel Overview" /></p>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Achieved <strong>centralized monitoring</strong> and <strong>threat detection</strong> across the Azure environment.</li>
+  <li>Reduced management port exposure using JIT access.</li>
+  <li>Automated alerting and response workflows through Sentinel playbooks.</li>
+  <li>Improved overall <strong>security posture</strong> and operational visibility.</li>
+</ul>
+
+<hr />
+
+<h3 id="tools--services-used">Tools &amp; Services Used</h3>
+
+<ul>
+  <li><strong>Azure Monitor &amp; Log Analytics</strong> – Data collection and performance insights</li>
+  <li><strong>Microsoft Defender for Cloud</strong> – Threat protection and secure configuration</li>
+  <li><strong>Microsoft Sentinel</strong> – SIEM/SOAR analytics and incident automation</li>
+  <li><strong>Azure Logic Apps</strong> – Playbook-driven automated response</li>
+  <li><strong>Kusto Query Language (KQL)</strong> – Custom telemetry and security analytics</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>The project successfully implemented a modern, cloud-native <strong>Security Operations Center (SOC)</strong> model in Azure. It demonstrated practical expertise in <strong>monitoring</strong>, <strong>threat protection</strong>, and <strong>automated remediation</strong>, aligned with best practices from the <strong>Microsoft Cloud Security Benchmark</strong>.</p>
+
+<hr />
+
+<p><a href="/projects/security/">Back to Security Projects</a></p>
 
         
       </section>
