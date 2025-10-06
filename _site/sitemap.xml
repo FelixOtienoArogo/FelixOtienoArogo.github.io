@@ -7,6 +7,9 @@
 <loc>http://localhost:4000/projects/development/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/projects/cloud/cognito-auth/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/projects/cloud/high-availability-app/</loc>
 </url>
 <url>
@@ -19,6 +22,9 @@
 <loc>http://localhost:4000/projects/cloud/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/projects/security/azure-firewall/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/projects/security/azure-monitoring/</loc>
 </url>
 <url>
@@ -26,9 +32,6 @@
 </url>
 <url>
 <loc>http://localhost:4000/projects/cloud/vpc-peering/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/projects/cloud/cognito-auth/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/projects/cloud/aws-encryption/</loc>

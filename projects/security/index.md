@@ -19,3 +19,7 @@ Welcome to my security portfolio. This section showcases hands-on projects focus
   **Role:** Cloud Security Engineer  
   **Skills:** Azure Monitor, Log Analytics, Microsoft Sentinel, KQL, Logic Apps, Microsoft Defender for Cloud, Just-In-Time VM Access
 
+- [Implementing Network Security with Azure Firewall](/projects/security/azure-firewall/)
+  ![Azure Firewall](/assets/images/projects/security/azure-firewall/image1.png)
+  **Role:** Cloud Security Engineer  
+  **Skills:** Azure Firewall, Network Rules, Application Rules, DNS Configuration, Route Tables, Azure Virtual Networks

@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Security Projects - Felix Otieno Arogo</title>
+<!-- begin _includes/seo.html --><title>Implementing Network Security with Azure Firewall - Felix Otieno Arogo</title>
 <meta name="description" content="Solutions Architect &amp; Software Engineer">
 
 
@@ -21,8 +21,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Felix Otieno Arogo">
-<meta property="og:title" content="Security Projects">
-<meta property="og:url" content="http://localhost:4000/projects/security/">
+<meta property="og:title" content="Implementing Network Security with Azure Firewall">
+<meta property="og:url" content="http://localhost:4000/projects/security/azure-firewall/">
 
 
   <meta property="og:description" content="Solutions Architect &amp; Software Engineer">
@@ -38,7 +38,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/projects/security/">
+<link rel="canonical" href="http://localhost:4000/projects/security/azure-firewall/">
 
 
 
@@ -284,7 +284,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Security Projects">
+    <meta itemprop="headline" content="Implementing Network Security with Azure Firewall">
     
     
     
@@ -293,7 +293,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/projects/security/" itemprop="url">Security Projects
+            <a href="http://localhost:4000/projects/security/azure-firewall/" itemprop="url">Implementing Network Security with Azure Firewall
 </a>
           </h1>
           
@@ -304,26 +304,133 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="security-projects">Security Projects</h2>
+        <h2 id="implementing-network-security-with-azure-firewall">Implementing Network Security with Azure Firewall</h2>
 
-<p>Welcome to my security portfolio. This section showcases hands-on projects focused on cloud and infrastructure security, including identity management, encryption, monitoring, and compliance across AWS and Azure environments.</p>
-
-<h3 id="projects">Projects</h3>
-
-<ul>
-  <li>
-    <p><a href="/projects/security/azure-monitoring/">Azure Security and Monitoring Implementation</a>
-<img src="/assets/images/projects/security/azure-monitoring/image1.png" alt="Azure Security Monitoring" />
-<strong>Role:</strong> Cloud Security Engineer<br />
-<strong>Skills:</strong> Azure Monitor, Log Analytics, Microsoft Sentinel, KQL, Logic Apps, Microsoft Defender for Cloud, Just-In-Time VM Access</p>
-  </li>
-  <li>
-    <p><a href="/projects/security/azure-firewall/">Implementing Network Security with Azure Firewall</a>
-<img src="/assets/images/projects/security/azure-firewall/image1.png" alt="Azure Firewall" />
+<p><strong>Timeline:</strong> July 2025<br />
 <strong>Role:</strong> Cloud Security Engineer<br />
 <strong>Skills:</strong> Azure Firewall, Network Rules, Application Rules, DNS Configuration, Route Tables, Azure Virtual Networks</p>
+
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project involved deploying and testing <strong>Azure Firewall</strong> to enforce network security controls within a virtual network. The goal was to centrally manage and filter both inbound and outbound traffic across Azure subnets using application and network rules.</p>
+
+<p>The implementation demonstrated how <strong>Azure Firewall</strong> enhances security visibility and control by integrating routing, DNS filtering, and traffic inspection into one managed service.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+
+<ul>
+  <li>Deploy an Azure Firewall and connect it to a hub-spoke virtual network topology.</li>
+  <li>Create <strong>route tables</strong> to direct traffic through the firewall.</li>
+  <li>Implement <strong>application rules</strong> to restrict outbound traffic to approved domains.</li>
+  <li>Configure <strong>network rules</strong> to allow specific IP and port-based communication.</li>
+  <li>Set up <strong>custom DNS servers</strong> to enhance name resolution control.</li>
+  <li>Validate that the firewall correctly filters and logs traffic as intended.</li>
+</ul>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-lab-environment-deployment">1. Lab Environment Deployment</h4>
+<ul>
+  <li>Used an <strong>ARM template</strong> to automate setup of the environment, including:
+    <ul>
+      <li>Virtual Network with <strong>Hub</strong>, <strong>Jump</strong>, and <strong>Workload</strong> subnets.</li>
+      <li>Two virtual machines: one for administration (<code class="language-plaintext highlighter-rouge">Srv-Jump</code>) and one for testing (<code class="language-plaintext highlighter-rouge">Srv-Work</code>).</li>
+    </ul>
+  </li>
+  <li>Verified connectivity and ensured subnets were properly segmented.</li>
+</ul>
+
+<p><img src="./assets/images/image7.png" alt="Azure Deployment Template" /></p>
+
+<hr />
+
+<h4 id="2-azure-firewall-deployment">2. Azure Firewall Deployment</h4>
+<ul>
+  <li>Deployed <strong>Azure Firewall</strong> into the <code class="language-plaintext highlighter-rouge">AzureFirewallSubnet</code>.</li>
+  <li>Configured key parameters such as name, public IP, and virtual network integration.</li>
+  <li>Verified successful deployment and recorded the private IP: <strong>10.0.1.4</strong>.</li>
+</ul>
+
+<p><img src="./assets/images/image5.png" alt="Azure Firewall Overview" /></p>
+
+<hr />
+
+<h4 id="3-routing-configuration">3. Routing Configuration</h4>
+<ul>
+  <li>Created a <strong>route table</strong> and associated it with the workload subnet.</li>
+  <li>Added a <strong>default route (0.0.0.0/0)</strong> pointing to the firewall’s private IP to enforce traffic inspection.</li>
+  <li>Verified route propagation and connectivity from the workload VM.</li>
+</ul>
+
+<p><img src="./assets/images/image11.png" alt="Azure Route Table Configuration" /></p>
+
+<hr />
+
+<h4 id="4-application-and-network-rules">4. Application and Network Rules</h4>
+<ul>
+  <li>Created an <strong>Application Rule Collection</strong> allowing access only to specific domains, such as <code class="language-plaintext highlighter-rouge">www.bing.com</code>.</li>
+  <li>Implemented a <strong>Network Rule Collection</strong> for IP-based traffic (e.g., RDP).</li>
+  <li>Tested both rule sets by accessing allowed and blocked destinations from <code class="language-plaintext highlighter-rouge">Srv-Work</code>.</li>
+</ul>
+
+<p><img src="./assets/images/image19.png" alt="Azure Firewall Application Rules" /></p>
+
+<hr />
+
+<h4 id="5-dns-configuration-and-testing">5. DNS Configuration and Testing</h4>
+<ul>
+  <li>Configured the workload VM to use <strong>custom DNS servers</strong> to resolve outbound connections.</li>
+  <li>Verified domain resolution behavior and observed traffic logs.</li>
+  <li>Tested access:
+    <ul>
+      <li>✅ <code class="language-plaintext highlighter-rouge">www.bing.com</code> accessible</li>
+      <li>❌ <code class="language-plaintext highlighter-rouge">www.microsoft.com</code> blocked by application rule.</li>
+    </ul>
   </li>
 </ul>
+
+<p><img src="./assets/images/image4.png" alt="Azure Firewall Test Result" /></p>
+
+<p><img src="./assets/images/image18.png" alt="Azure Firewall Test Result" /></p>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Successfully implemented centralized <strong>traffic filtering</strong> and <strong>application control</strong> using Azure Firewall.</li>
+  <li>Enhanced visibility into allowed and denied traffic across subnets.</li>
+  <li>Strengthened <strong>network segmentation</strong> and reduced exposure to unauthorized outbound access.</li>
+  <li>Demonstrated a practical approach to <strong>zero-trust network architecture</strong> in Azure.</li>
+</ul>
+
+<hr />
+
+<h3 id="tools--services-used">Tools &amp; Services Used</h3>
+
+<ul>
+  <li><strong>Azure Firewall</strong> – Centralized network traffic control and inspection</li>
+  <li><strong>Azure Virtual Network (VNet)</strong> – Segmentation of workload and management layers</li>
+  <li><strong>Azure Route Tables</strong> – Custom routing and firewall redirection</li>
+  <li><strong>Application &amp; Network Rule Collections</strong> – Policy-based filtering</li>
+  <li><strong>DNS Configuration</strong> – Controlled name resolution and domain-level filtering</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>The project provided hands-on experience designing and enforcing secure, rule-based network access in Azure. By combining routing, application control, and DNS filtering, the implementation demonstrated the core capabilities of <strong>Azure Firewall</strong> as a managed, scalable security layer for cloud workloads.</p>
+
+<hr />
+
+<p><a href="/projects/security/">Back to Security Projects</a></p>
 
         
       </section>
