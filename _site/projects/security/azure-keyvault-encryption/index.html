@@ -1,0 +1,507 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Implementing Data Encryption with Azure Key Vault and SQL Always Encrypted - Felix Otieno Arogo</title>
+<meta name="description" content="Solutions Architect &amp; Software Engineer">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo">
+<meta property="og:title" content="Implementing Data Encryption with Azure Key Vault and SQL Always Encrypted">
+<meta property="og:url" content="http://localhost:4000/projects/security/azure-keyvault-encryption/">
+
+
+  <meta property="og:description" content="Solutions Architect &amp; Software Engineer">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/security/azure-keyvault-encryption/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/cv/"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Software Engineer</td>
+      <td>Security Enthusiast</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Implementing Data Encryption with Azure Key Vault and SQL Always Encrypted">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/projects/security/azure-keyvault-encryption/" itemprop="url">Implementing Data Encryption with Azure Key Vault and SQL Always Encrypted
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="implementing-data-encryption-with-azure-key-vault-and-sql-always-encrypted">Implementing Data Encryption with Azure Key Vault and SQL Always Encrypted</h2>
+
+<p><strong>Timeline:</strong> July 2025<br />
+<strong>Role:</strong> Cloud Security Engineer<br />
+<strong>Skills:</strong> Azure Key Vault, Azure SQL Database, Always Encrypted, ARM Templates, Microsoft Entra ID, Data Protection</p>
+
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project focused on enhancing <strong>data protection and encryption</strong> in Microsoft Azure by integrating <strong>Azure Key Vault</strong> with the <strong>Always Encrypted</strong> feature of Azure SQL Database.<br />
+The goal was to ensure sensitive data remains encrypted both at rest and in use, while securing encryption keys and secrets through centralized key management.</p>
+
+<p>The solution included deploying infrastructure from an ARM template, configuring a Key Vault with encryption keys and secrets, enabling secure application access via <strong>Microsoft Entra ID</strong>, and demonstrating encryption in a live SQL database application.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+
+<ul>
+  <li>Deploy a virtual machine and SQL Database using an ARM template.</li>
+  <li>Configure <strong>Azure Key Vault</strong> for secure key and secret management.</li>
+  <li>Implement <strong>Always Encrypted</strong> in Azure SQL Database.</li>
+  <li>Enable secure <strong>application authentication</strong> using Microsoft Entra ID.</li>
+  <li>Demonstrate data encryption in a real-world data-driven application.</li>
+</ul>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-deploying-base-infrastructure">1. Deploying Base Infrastructure</h4>
+
+<ul>
+  <li>Deployed the Azure environment using an ARM template.</li>
+  <li>Created an <strong>Azure VM</strong> for management tasks and an <strong>Azure SQL Database</strong> for the encrypted data workload.</li>
+  <li>Configured networking and access permissions to support secure connections.</li>
+</ul>
+
+<p><img src="./assets/images/image10.png" alt="ARM Deployment" /></p>
+
+<hr />
+
+<h4 id="2-configuring-azure-key-vault">2. Configuring Azure Key Vault</h4>
+
+<ul>
+  <li>Created a new Key Vault:
+    <ul>
+      <li><strong>Name:</strong> <code class="language-plaintext highlighter-rouge">az500kv868692732</code></li>
+      <li><strong>Vault URI:</strong> <code class="language-plaintext highlighter-rouge">https://az500kv868692732.vault.azure.net/</code></li>
+    </ul>
+  </li>
+  <li>Configured <strong>access policies</strong> to grant least-privilege permissions to specific users and applications.</li>
+  <li>Added a <strong>software-protected key</strong> (<code class="language-plaintext highlighter-rouge">MyLabKey</code>) and a <strong>secret</strong> used for application authentication.</li>
+</ul>
+
+<p><img src="./assets/images/image18.png" alt="Key Vault Configuration" /></p>
+
+<hr />
+
+<h4 id="3-application-integration-and-authentication">3. Application Integration and Authentication</h4>
+
+<ul>
+  <li>Registered a client application in <strong>Microsoft Entra ID</strong>:
+    <ul>
+      <li><strong>Client ID:</strong> <code class="language-plaintext highlighter-rouge">9bd05126-1724-4d05-bcd6-dc73c44efea1</code></li>
+      <li>Created client secret: <code class="language-plaintext highlighter-rouge">HqD8Q~jmjE3xaAuUqLNSVEYIu3M7dMTWwQAT2cOw</code></li>
+    </ul>
+  </li>
+  <li>Configured a <strong>Key Vault access policy</strong> allowing the application to retrieve keys and secrets securely.</li>
+</ul>
+
+<p><img src="./assets/images/image17.png" alt="App Registration" /></p>
+
+<hr />
+
+<h4 id="4-database-configuration-and-encryption-setup">4. Database Configuration and Encryption Setup</h4>
+
+<ul>
+  <li>Connected to the SQL Server (<code class="language-plaintext highlighter-rouge">sqlserveri55qy5khatemg.database.windows.net</code>) via <strong>SQL Management Studio 19</strong> from the Azure VM.</li>
+  <li>Created a new database and <strong>“Patients”</strong> table with sensitive columns like SSN and birth date.</li>
+  <li>Applied <strong>column encryption</strong> using Always Encrypted with Key Vault-managed keys.</li>
+</ul>
+
+<p><img src="./assets/images/image13.png" alt="SQL Always Encrypted Configuration" /></p>
+
+<hr />
+
+<h4 id="5-demonstrating-key-vault-integration">5. Demonstrating Key Vault Integration</h4>
+
+<ul>
+  <li>Executed the data-driven application from Visual Studio.</li>
+  <li>Verified successful retrieval and use of the encryption key from Key Vault.</li>
+  <li>Observed encrypted data within SQL Management Studio — confirming that sensitive fields remained unreadable to unauthorized users.</li>
+</ul>
+
+<p><img src="./assets/images/image1.png" alt="Encrypted Data Demonstration" /></p>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Ensured <strong>encryption of sensitive data</strong> both at rest and in use.</li>
+  <li>Centralized key and secret management through Azure Key Vault.</li>
+  <li>Implemented <strong>role-based access control</strong> and secure authentication with Entra ID.</li>
+  <li>Strengthened compliance with <strong>data protection and privacy standards</strong>.</li>
+  <li>Demonstrated a secure development pattern for data-driven applications in Azure.</li>
+</ul>
+
+<hr />
+
+<h3 id="tools--services-used">Tools &amp; Services Used</h3>
+
+<ul>
+  <li><strong>Azure Key Vault</strong> – Secure key and secret storage</li>
+  <li><strong>Azure SQL Database</strong> – Always Encrypted data protection</li>
+  <li><strong>Microsoft Entra ID</strong> – Application authentication and access control</li>
+  <li><strong>Visual Studio 2019 / SSMS 19</strong> – Data-driven app and database management</li>
+  <li><strong>ARM Templates</strong> – Automated deployment of infrastructure</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>This project demonstrated <strong>defense-in-depth</strong> in data protection by integrating Azure Key Vault with SQL Always Encrypted.<br />
+It proved the effectiveness of <strong>application-based key retrieval</strong>, <strong>centralized key management</strong>, and <strong>end-to-end encryption</strong> for sensitive workloads — ensuring compliance and security alignment with <strong>Microsoft’s Zero Trust principles</strong>.</p>
+
+<hr />
+
+<p><a href="/projects/security/">Back to Security Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2025 <a href="http://localhost:4000">Felix Otieno Arogo</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

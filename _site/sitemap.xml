@@ -25,6 +25,9 @@
 <loc>http://localhost:4000/projects/security/azure-firewall/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/projects/security/azure-keyvault-encryption/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/projects/security/azure-monitoring/</loc>
 </url>
 <url>
