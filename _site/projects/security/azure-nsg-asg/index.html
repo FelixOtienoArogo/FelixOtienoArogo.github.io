@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Security Projects - Felix Otieno Arogo</title>
+<!-- begin _includes/seo.html --><title>Implementing Network Security with Azure NSGs and ASGs - Felix Otieno Arogo</title>
 <meta name="description" content="Solutions Architect &amp; Software Engineer">
 
 
@@ -21,8 +21,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Felix Otieno Arogo">
-<meta property="og:title" content="Security Projects">
-<meta property="og:url" content="http://localhost:4000/projects/security/">
+<meta property="og:title" content="Implementing Network Security with Azure NSGs and ASGs">
+<meta property="og:url" content="http://localhost:4000/projects/security/azure-nsg-asg/">
 
 
   <meta property="og:description" content="Solutions Architect &amp; Software Engineer">
@@ -38,7 +38,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/projects/security/">
+<link rel="canonical" href="http://localhost:4000/projects/security/azure-nsg-asg/">
 
 
 
@@ -284,7 +284,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Security Projects">
+    <meta itemprop="headline" content="Implementing Network Security with Azure NSGs and ASGs">
     
     
     
@@ -293,7 +293,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/projects/security/" itemprop="url">Security Projects
+            <a href="http://localhost:4000/projects/security/azure-nsg-asg/" itemprop="url">Implementing Network Security with Azure NSGs and ASGs
 </a>
           </h1>
           
@@ -304,34 +304,144 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="security-projects">Security Projects</h2>
+        <h2 id="implementing-network-security-with-azure-nsgs-and-asgs">Implementing Network Security with Azure NSGs and ASGs</h2>
 
-<p>Welcome to my security portfolio. This section showcases hands-on projects focused on cloud and infrastructure security, including identity management, encryption, monitoring, and compliance across AWS and Azure environments.</p>
+<p><strong>Timeline:</strong> July 2025<br />
+<strong>Role:</strong> Cloud Security Engineer<br />
+<strong>Skills:</strong> Azure Networking, Network Security Groups (NSG), Application Security Groups (ASG), RDP Access Control, Network Segmentation</p>
 
-<h3 id="projects">Projects</h3>
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project focused on designing and implementing <strong>secure network segmentation</strong> in Microsoft Azure using <strong>Network Security Groups (NSGs)</strong> and <strong>Application Security Groups (ASGs)</strong>.<br />
+The goal was to create a <strong>tiered virtual network</strong> that separates web and management workloads, enforcing <strong>least-privilege access</strong> through layered security rules.</p>
+
+<p>By leveraging ASGs, security rules could be applied dynamically to VM groups without managing individual IPs — achieving a scalable and easily maintainable network security model.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
 
 <ul>
-  <li>
-    <p><a href="/projects/security/azure-monitoring/">Azure Security and Monitoring Implementation</a>
-<img src="/assets/images/projects/security/azure-monitoring/image1.png" alt="Azure Security Monitoring" />
-<strong>Role:</strong> Cloud Security Engineer<br />
-<strong>Skills:</strong> Azure Monitor, Log Analytics, Microsoft Sentinel, KQL, Logic Apps, Microsoft Defender for Cloud, Just-In-Time VM Access</p>
-  </li>
-  <li>
-    <p><a href="/projects/security/azure-firewall/">Implementing Network Security with Azure Firewall</a>
-<img src="/assets/images/projects/security/azure-firewall/image1.png" alt="Azure Firewall" />
-<strong>Role:</strong> Cloud Security Engineer<br />
-<strong>Skills:</strong> Azure Firewall, Network Rules, Application Rules, DNS Configuration, Route Tables, Azure Virtual Networks</p>
-  </li>
-  <li>
-    <p><a href="/projects/security/azure-nsg-asg/">Implementing Network Security with Azure NSGs and ASGs</a>
- <img src="/assets/images/projects/security/azure-nsg-asg/network-security-group-interaction.png" alt="Azure Network Security" /></p>
-
-    <p><strong>Role:</strong> Cloud Security Engineer<br />
-<strong>Skills:</strong> Azure Networking, Network Security Groups (NSG), Application Security Groups (ASG), Access Control, RDP &amp; Web Traffic Filtering</p>
-  </li>
+  <li>Design a virtual network with distinct web and management tiers.</li>
+  <li>Configure <strong>ASGs</strong> to logically group VMs based on their roles.</li>
+  <li>Apply <strong>NSGs</strong> for inbound and outbound traffic control.</li>
+  <li>Enforce <strong>RDP access restrictions</strong> from trusted IPs only.</li>
+  <li>Validate communication paths between web and management layers.</li>
 </ul>
 
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-virtual-network-setup">1. Virtual Network Setup</h4>
+<ul>
+  <li>Created a <strong>single virtual network (VNet)</strong> with subnets for the web and management tiers.</li>
+  <li>Defined address spaces to allow for future scalability and segmentation.</li>
+</ul>
+
+<p><img src="./assets/images/image14.png" alt="Virtual Network Setup" /></p>
+
+<hr />
+
+<h4 id="2-application-security-groups-asgs">2. Application Security Groups (ASGs)</h4>
+<ul>
+  <li>Configured two ASGs:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">WebServers-ASG</code> for frontend VMs</li>
+      <li><code class="language-plaintext highlighter-rouge">MgmtServers-ASG</code> for backend administrative VMs</li>
+    </ul>
+  </li>
+  <li>ASGs simplified rule management by grouping network interfaces logically.</li>
+</ul>
+
+<p><img src="./assets/images/image2.png" alt="ASG Configuration" /></p>
+
+<p><img src="./assets/images/image13.png" alt="ASG Configuration" /></p>
+
+<hr />
+
+<h4 id="3-network-security-group-nsg-rules">3. Network Security Group (NSG) Rules</h4>
+<ul>
+  <li>Created an NSG and associated it with the subnets.</li>
+  <li>Defined inbound rules to:
+    <ul>
+      <li>Allow <strong>HTTP/HTTPS</strong> traffic to web servers.</li>
+      <li>Permit <strong>RDP (TCP 3389)</strong> only from trusted IP ranges for management servers.</li>
+    </ul>
+  </li>
+  <li>Outbound rules were left open for updates and monitoring agent communications.</li>
+</ul>
+
+<p><img src="./assets/images/image7.png" alt="NSG Inbound Rules" /></p>
+
+<hr />
+
+<h4 id="4-vm-deployment-and-association">4. VM Deployment and Association</h4>
+<ul>
+  <li>Deployed two virtual machines:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">myVMWeb</code> — attached to <em>WebServers-ASG</em></li>
+      <li><code class="language-plaintext highlighter-rouge">myVMMgmt</code> — attached to <em>MgmtServers-ASG</em></li>
+    </ul>
+  </li>
+  <li>Each VM inherited security policies automatically through ASG membership.</li>
+</ul>
+
+<p><img src="./assets/images/image8.png" alt="VM Association with ASG" /></p>
+
+<p><img src="./assets/images/image6.png" alt="VM Association with ASG" /></p>
+
+<hr />
+
+<h4 id="5-validation-and-testing">5. Validation and Testing</h4>
+<ul>
+  <li>Verified connectivity:
+    <ul>
+      <li>Web VM accessible over HTTP/HTTPS.</li>
+      <li>Management VM accessible only via authorized RDP connections.</li>
+      <li>Cross-tier communication limited per NSG rules.</li>
+    </ul>
+  </li>
+  <li>Confirmed expected traffic flow through <strong>Network Watcher</strong> and <strong>connection troubleshooting</strong>.</li>
+</ul>
+
+<p><img src="./assets/images/image12.png" alt="Validation Results" /></p>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Implemented <strong>segmented, role-based network control</strong> using NSGs and ASGs.</li>
+  <li>Achieved <strong>fine-grained access management</strong> without manual IP rule updates.</li>
+  <li>Enhanced environment security by restricting management port exposure.</li>
+  <li>Simplified ongoing administration with logical VM grouping.</li>
+</ul>
+
+<hr />
+
+<h3 id="tools--services-used">Tools &amp; Services Used</h3>
+
+<ul>
+  <li><strong>Azure Virtual Network &amp; Subnets</strong> – Foundational network segmentation</li>
+  <li><strong>Application Security Groups (ASG)</strong> – Logical VM grouping</li>
+  <li><strong>Network Security Groups (NSG)</strong> – Inbound/outbound traffic filtering</li>
+  <li><strong>RDP &amp; HTTP/HTTPS Rules</strong> – Controlled access management</li>
+  <li><strong>Azure Network Watcher</strong> – Validation and traffic monitoring</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>The project successfully delivered a secure, scalable, and policy-driven network design using Azure-native capabilities.<br />
+It demonstrated expertise in <strong>Azure network security architecture</strong>, <strong>segmentation</strong>, and <strong>access control best practices</strong>, contributing to a defense-in-depth strategy aligned with the <strong>Microsoft Cloud Security Benchmark</strong>.</p>
+
+<hr />
+
+<p><a href="/projects/security/">Back to Security Projects</a></p>
 
         
       </section>

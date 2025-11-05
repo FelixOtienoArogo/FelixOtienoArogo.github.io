@@ -23,3 +23,10 @@ Welcome to my security portfolio. This section showcases hands-on projects focus
   ![Azure Firewall](/assets/images/projects/security/azure-firewall/image1.png)
   **Role:** Cloud Security Engineer  
   **Skills:** Azure Firewall, Network Rules, Application Rules, DNS Configuration, Route Tables, Azure Virtual Networks
+
+- [Implementing Network Security with Azure NSGs and ASGs](/projects/security/azure-nsg-asg/)
+ ![Azure Network Security](/assets/images/projects/security/azure-nsg-asg/network-security-group-interaction.png)
+
+  **Role:** Cloud Security Engineer  
+  **Skills:** Azure Networking, Network Security Groups (NSG), Application Security Groups (ASG), Access Control, RDP & Web Traffic Filtering  
+
