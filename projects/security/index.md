@@ -30,3 +30,7 @@ Welcome to my security portfolio. This section showcases hands-on projects focus
   **Role:** Cloud Security Engineer  
   **Skills:** Azure Networking, Network Security Groups (NSG), Application Security Groups (ASG), Access Control, RDP & Web Traffic Filtering  
 
+- [Implementing Data Encryption with Azure Key Vault and SQL Always Encrypted](/projects/security/azure-keyvault-encryption/)
+  ![Azure Key Vault and Encryption](/assets/images/projects/security/azure-keyvault-encryption/Picture1-2.png)
+  **Role:** Cloud Security Engineer  
+  **Skills:** Azure Key Vault, SQL Always Encrypted, Data Protection, Application Authentication, Microsoft Entra ID, ARM Templates
