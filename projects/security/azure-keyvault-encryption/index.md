@@ -63,7 +63,7 @@ The solution included deploying infrastructure from an ARM template, configuring
 
 - Registered a client application in **Microsoft Entra ID**:  
   - **Client ID:** `9bd05126-1724-4d05-bcd6-dc73c44efea1`  
-  - Created client secret: `HqD8Q~jmjE3xaAuUqLNSVEYIu3M7dMTWwQAT2cOw`  
+  - Created client secret: `[REDACTED]`  
 - Configured a **Key Vault access policy** allowing the application to retrieve keys and secrets securely.
 
 ![App Registration](./assets/images/image17.png)
