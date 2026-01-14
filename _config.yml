@@ -1,7 +1,13 @@
-title: "Felix Otieno Arogo"
-description: "Solutions Architect & Software Engineer"
+# Site Metadata
+title: "Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP"
+description: "Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications."
+keywords: "Cloud Solutions Architect, AWS, GCP, Azure, Cloud Security, Felix Arogo, Portfolio"
+url: "https://felixotienoarogo.github.io"
+baseurl: ""
+
 remote_theme: "mmistakes/minimal-mistakes"
 
+# Plugins
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
@@ -14,7 +20,7 @@ plugins:
 # Author info
 author:
   name: "Felix Otieno Arogo"
-  bio: "Software Engineer | Security Enthusiast"
+  bio: "Cloud Solutions Architect | AWS & GCP | Security-focused engineer building scalable, secure cloud solutions"
   avatar: "/assets/images/felix_image.jpg"
   links:
     - label: "Email"
@@ -26,21 +32,6 @@ author:
     - label: "LinkedIn"
       icon: "fab fa-linkedin"
       url: "https://www.linkedin.com/in/felix-otieno-arogo/"
-
-# Default layouts
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: single
-      author_profile: true
-  - scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: single
-      author_profile: true
 
 # Social links
 social:
@@ -58,24 +49,25 @@ header_pages:
   - /projects/
   - /cv/
 
-# Navigation links
-header_pages:
-  - /about/
-  - /projects/
-  - /cv/
-
 navigation: "_data/navigation.yml"
 
-# Tell theme to use custom nav
+# Collections
 collections:
   pages:
     output: true
 
-# Optional but helps
+# Default layouts for posts and pages
 defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: single
+      author_profile: true
   - scope:
       path: ""
       type: "pages"
     values:
       layout: single
       author_profile: true
+
