@@ -1,4 +1,3 @@
-# Site Metadata
 title: "Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP"
 description: "Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications."
 keywords: "Cloud Solutions Architect, AWS, GCP, Azure, Cloud Security, Felix Arogo, Portfolio"
@@ -70,4 +69,3 @@ defaults:
     values:
       layout: single
       author_profile: true
-
