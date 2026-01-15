@@ -12,7 +12,7 @@ My focus is on **cloud architecture fundamentals**, **security-aware design**, a
 AWS • Google Cloud • Azure • Cloud Networking • IAM • Security • Linux • Containers
 
 [View Cloud Projects](/projects/){: .btn .btn--primary }
-[Download CV](/cv/){: .btn .btn--info }
+[Download CV](./assets/cv/Felix_Arogo_cv_ms1.pdf){: .btn .btn--info }
 
 ---
 ## What I Bring

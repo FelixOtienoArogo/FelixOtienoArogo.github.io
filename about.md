@@ -29,5 +29,5 @@ Hi, I’m **Felix Otieno Arogo**, a Solutions Architect and Software Engineer pa
 You can also include a “Learn More” button linking to your CV:
 
 ```markdown
-[Download My CV](/cv/)
+[Download My CV](./assets/cv/Felix_Arogo_cv_ms1.pdf)
 
