@@ -29,13 +29,13 @@ AWS • Google Cloud • Azure • Cloud Networking • IAM • Security • Lin
 
 ---
 ## Selected Projects
-**🔹 AWS Cloud Architecture Projects**  
+[**🔹 AWS Cloud Architecture Projects** ](/projects/cloud)  
 Designed and implemented multi-tier AWS architectures with proper networking, IAM, and monitoring considerations.
 
-**🔹 Google Cloud Projects**  
+[**🔹 Google Cloud Projects**](/projects/cloud)  
 Worked with Compute Engine, GKE, autoscaling, and VPC networking concepts in hands-on labs and projects.
 
-**🔹 Azure Cloud Labs**  
+[**🔹 Azure Cloud Labs**](/projects/security)  
 Implemented secure Azure VNets, NSGs, and resource deployments following best practices.
 
 ➡️ Explore full details in the [Projects](/projects/) section.
