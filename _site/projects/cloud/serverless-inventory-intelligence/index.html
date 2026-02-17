@@ -1,0 +1,608 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Building a Serverless Inventory Intelligence System on AWS - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Building a Serverless Inventory Intelligence System on AWS">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/serverless-inventory-intelligence/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/cloud/serverless-inventory-intelligence/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Building a Serverless Inventory Intelligence System on AWS">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/projects/cloud/serverless-inventory-intelligence/" itemprop="url">Building a Serverless Inventory Intelligence System on AWS
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="project-serverless-inventory-intelligence-on-aws">Project: Serverless Inventory Intelligence on AWS</h2>
+
+<p><strong>Timeline:</strong> September 2025<br />
+<strong>Role:</strong> Solutions Architect (Serverless &amp; Event-Driven Design)<br />
+<strong>Focus:</strong> Event-Driven Automation &amp; Serverless Architecture<br />
+<strong>Services:</strong> AWS Lambda, Amazon S3, Amazon DynamoDB, DynamoDB Streams, Amazon SNS, IAM, CloudWatch</p>
+
+<hr />
+
+<h2 id="executive-summary">Executive Summary</h2>
+
+<p>Designed and implemented a fully serverless, event-driven inventory management system using AWS managed services.</p>
+
+<p>The architecture eliminates traditional servers and enables:</p>
+
+<ul>
+  <li>Automated data ingestion</li>
+  <li>Real-time inventory monitoring</li>
+  <li>Event-driven alerting</li>
+  <li>Near-zero operational overhead</li>
+  <li>Pay-per-use cost efficiency</li>
+</ul>
+
+<p>The system processes uploaded inventory files, updates a DynamoDB table, and automatically sends alerts when stock levels reach zero — demonstrating modern cloud-native design principles.</p>
+
+<hr />
+
+<h2 id="architecture-overview">Architecture Overview</h2>
+
+<p>The solution follows an event-driven serverless pattern:</p>
+
+<ol>
+  <li>Inventory CSV file uploaded to <strong>Amazon S3</strong></li>
+  <li>S3 triggers <strong>Load-Inventory Lambda</strong></li>
+  <li>Data inserted into <strong>Amazon DynamoDB</strong></li>
+  <li>DynamoDB Streams trigger <strong>Check-Stock Lambda</strong></li>
+  <li>Out-of-stock events published to <strong>Amazon SNS</strong></li>
+  <li>Email notifications sent to subscribers</li>
+</ol>
+
+<p><img src="./assets/images/image11.png" alt="Serverless Architecture Diagram" /></p>
+
+<hr />
+
+<h1 id="phase-1-data-ingestion-automation">Phase 1: Data Ingestion Automation</h1>
+
+<h2 id="creating-the-load-inventory-lambda-function">Creating the Load-Inventory Lambda Function</h2>
+
+<p>A Lambda function named <strong>Load-Inventory</strong> was created to parse CSV files uploaded to S3 and insert inventory data into DynamoDB.</p>
+
+<p>Configuration:</p>
+<ul>
+  <li>Runtime: Python 3.x</li>
+  <li>Trigger: Amazon S3</li>
+  <li>IAM execution role with scoped permissions</li>
+  <li>Timeout optimized for CSV parsing workloads</li>
+</ul>
+
+<p><img src="./assets/images/image2.png" alt="Lambda Code Editor – Load Inventory" /></p>
+
+<hr />
+
+<h2 id="iam-role-configuration-least-privilege">IAM Role Configuration (Least Privilege)</h2>
+
+<p>The Lambda execution role was configured following least-privilege principles.</p>
+
+<p>Permissions granted:</p>
+
+<p><strong>Load-Inventory Lambda</strong></p>
+<ul>
+  <li>S3 Read access</li>
+  <li>DynamoDB PutItem access</li>
+</ul>
+
+<p><strong>Check-Stock Lambda</strong></p>
+<ul>
+  <li>DynamoDB Stream Read access</li>
+  <li>SNS Publish permissions</li>
+</ul>
+
+<p>This ensures secure service-to-service communication without over-permissioning.</p>
+
+<hr />
+
+<h2 id="configuring-amazon-s3-event-trigger">Configuring Amazon S3 Event Trigger</h2>
+
+<p>The S3 bucket was configured to automatically invoke the Load-Inventory Lambda when new objects are created.</p>
+
+<p>Event Type:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">s3:ObjectCreated:*</code></li>
+</ul>
+
+<p><img src="./assets/images/image7.png" alt="S3 Event Trigger Configuration" /></p>
+
+<p>This removes the need for polling or manual processing.</p>
+
+<hr />
+
+<h2 id="testing-data-loading">Testing Data Loading</h2>
+
+<p>Uploaded a sample inventory CSV file to the S3 bucket.</p>
+
+<p>The Lambda function executed automatically and inserted parsed records into DynamoDB.</p>
+
+<p><img src="./assets/images/image10.png" alt="S3 File Upload Interface" /></p>
+
+<p>Verified that the DynamoDB table populated successfully:</p>
+
+<p><img src="./assets/images/image13.png" alt="DynamoDB Table After Load" /></p>
+
+<hr />
+
+<h1 id="phase-2-real-time-stock-monitoring">Phase 2: Real-Time Stock Monitoring</h1>
+
+<h2 id="enabling-dynamodb-streams">Enabling DynamoDB Streams</h2>
+
+<p>To detect inventory changes in real time, DynamoDB Streams were enabled.</p>
+
+<p>Stream View Type:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">NEW_AND_OLD_IMAGES</code></li>
+</ul>
+
+<p>Streams allow change data capture without impacting application performance.</p>
+
+<hr />
+
+<h2 id="creating-the-check-stock-lambda-function">Creating the Check-Stock Lambda Function</h2>
+
+<p>A second Lambda function named <strong>Check-Stock</strong> was implemented.</p>
+
+<p>Responsibilities:</p>
+<ul>
+  <li>Monitor DynamoDB Stream events</li>
+  <li>Detect when item quantity equals zero</li>
+  <li>Publish notification message to SNS</li>
+</ul>
+
+<p><img src="./assets/images/image4.png" alt="Check-Stock Lambda Code" /></p>
+
+<hr />
+
+<h2 id="configuring-dynamodb-stream-trigger">Configuring DynamoDB Stream Trigger</h2>
+
+<p>The Check-Stock Lambda was attached to DynamoDB Streams using an event source mapping.</p>
+
+<p><img src="./assets/images/image12.png" alt="DynamoDB Stream Trigger Attachment" /></p>
+
+<p>This ensures real-time evaluation of inventory changes.</p>
+
+<hr />
+
+<h1 id="phase-3-notification-automation">Phase 3: Notification Automation</h1>
+
+<h2 id="creating-the-sns-topic">Creating the SNS Topic</h2>
+
+<p>An Amazon SNS topic named <strong>NoStock</strong> was created to handle alert distribution.</p>
+
+<p><img src="./assets/images/image9.png" alt="SNS Topic Configuration" /></p>
+
+<hr />
+
+<h2 id="email-subscription-setup">Email Subscription Setup</h2>
+
+<p>An email endpoint subscription was configured and confirmed.</p>
+
+<p><img src="./assets/images/image14.png" alt="SNS Email Subscription" /></p>
+
+<p>This enables automatic alert delivery when inventory reaches zero.</p>
+
+<hr />
+
+<h1 id="end-to-end-workflow-validation">End-to-End Workflow Validation</h1>
+
+<p>To validate the full architecture:</p>
+
+<ol>
+  <li>Uploaded a CSV file containing out-of-stock items</li>
+  <li>Observed Lambda execution via CloudWatch</li>
+  <li>Verified DynamoDB update</li>
+  <li>Confirmed SNS email notification delivery</li>
+</ol>
+
+<h3 id="inventory-state-transition">Inventory State Transition</h3>
+
+<p><img src="./assets/images/image3.png" alt="DynamoDB Out-of-Stock State" /></p>
+
+<h3 id="email-notification-received">Email Notification Received</h3>
+
+<p><img src="./assets/images/image6.png" alt="Out-of-Stock Email Notification" /></p>
+
+<hr />
+
+<h1 id="architectural-benefits-achieved">Architectural Benefits Achieved</h1>
+
+<h3 id="event-driven-automation">Event-Driven Automation</h3>
+<p>No manual intervention required once deployed.</p>
+
+<h3 id="scalability">Scalability</h3>
+<p>Lambda scales automatically based on file upload volume.</p>
+
+<h3 id="fault-isolation">Fault Isolation</h3>
+<p>Failures in notification logic do not impact ingestion.</p>
+
+<h3 id="cost-optimization">Cost Optimization</h3>
+<p>No idle compute resources — pure pay-per-use model.</p>
+
+<h3 id="operational-simplicity">Operational Simplicity</h3>
+<p>Fully managed AWS services reduce maintenance overhead.</p>
+
+<hr />
+
+<h1 id="architectural-impact">Architectural Impact</h1>
+
+<p>This project demonstrates:</p>
+
+<ul>
+  <li>Serverless system design</li>
+  <li>Event-driven architecture patterns</li>
+  <li>IAM least-privilege configuration</li>
+  <li>Real-time stream processing</li>
+  <li>Cross-service AWS integration</li>
+  <li>Observability using CloudWatch</li>
+  <li>Secure notification workflows</li>
+</ul>
+
+<p>The solution reflects production-grade serverless design patterns aligned with modern enterprise cloud architecture practices.</p>
+
+<hr />
+
+<p><a href="/projects/">Back to Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

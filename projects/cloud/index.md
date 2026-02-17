@@ -34,6 +34,12 @@ Welcome to my cloud portfolio. Below are selected architecture case studies demo
   **Focus:** Asynchronous Communication & Application Decoupling
   **Skills:** Amazon SQS, Amazon SNS, Amazon S3 Event Notifications, EC2, Node.js, Fault Tolerance, Message Queues
 
+- [Building a Serverless Inventory Intelligence System on AWS](/projects/cloud/serverless-inventory-intelligence/)
+  ![Serverless Inventory Intelligence](/assets/images/projects/cloud/serverless-inventory-intelligence/image11.png)
+  **Role:** Solutions Architect (Serverless & Real-Time Event Processing)
+  **Focus:** Serverless Data Processing, Event Chaining & Real-Time Alerts
+  **Skills:** AWS Lambda, Amazon S3, Amazon DynamoDB, DynamoDB Streams, Amazon SNS, IAM, CloudWatch, Event-Driven Architecture
+
 - [Designing a Serverless Event-Driven Reporting Architecture on AWS](/projects/cloud/serverless-reporting/)
   ![Serverless Reporting Architecture](/assets/images/projects/cloud/serverless-reporting/image9.png)
   **Role:** Solutions Architect (Serverless & Event-Driven Design)
