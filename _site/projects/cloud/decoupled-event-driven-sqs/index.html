@@ -1,0 +1,682 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Architecting a Decoupled Event-Driven Image Processing System on AWS - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Architecting a Decoupled Event-Driven Image Processing System on AWS">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/decoupled-event-driven-sqs/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/cloud/decoupled-event-driven-sqs/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Architecting a Decoupled Event-Driven Image Processing System on AWS">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/projects/cloud/decoupled-event-driven-sqs/" itemprop="url">Architecting a Decoupled Event-Driven Image Processing System on AWS
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="project-building-a-decoupled-event-driven-application-using-amazon-sqs--sns">Project: Building a Decoupled Event-Driven Application Using Amazon SQS &amp; SNS</h2>
+
+<p><strong>Timeline:</strong> September 2025<br />
+<strong>Role:</strong> Solutions Architect (Event-Driven &amp; Distributed Systems Design)<br />
+<strong>Skills:</strong> Amazon SQS, Amazon SNS, Amazon S3 Event Notifications, EC2, Node.js, Asynchronous Processing, Decoupled Architecture, IAM, Fault Tolerance</p>
+
+<hr />
+
+<h1 id="executive-summary">Executive Summary</h1>
+
+<p>Designed and implemented a decoupled, event-driven image processing architecture using Amazon SQS and Amazon SNS.</p>
+
+<p>The project involved:</p>
+
+<ul>
+  <li>Migrating a tightly coupled application into a loosely coupled architecture</li>
+  <li>Implementing asynchronous communication using Amazon SQS</li>
+  <li>Broadcasting notifications using Amazon SNS</li>
+  <li>Configuring S3 event notifications to trigger processing</li>
+  <li>Validating improved scalability, fault tolerance, and system resilience</li>
+</ul>
+
+<p>This solution reflects modern cloud-native architectural patterns where services operate independently and communicate through managed messaging services.</p>
+
+<hr />
+
+<h1 id="business-problem">Business Problem</h1>
+
+<p>The original application used direct communication between:</p>
+
+<ul>
+  <li>Web server (image upload)</li>
+  <li>Application server (image processing)</li>
+</ul>
+
+<p>This tight coupling introduced:</p>
+
+<ul>
+  <li>Blocking dependencies</li>
+  <li>Reduced scalability</li>
+  <li>Single points of failure</li>
+  <li>Limited fault tolerance</li>
+</ul>
+
+<p>The goal was to redesign the system into an <strong>event-driven architecture</strong> where:</p>
+
+<ul>
+  <li>Upload events trigger notifications</li>
+  <li>Processing occurs asynchronously</li>
+  <li>Components scale independently</li>
+  <li>Failures do not cascade across tiers</li>
+</ul>
+
+<hr />
+
+<h1 id="phase-1--baseline-tightly-coupled-architecture">Phase 1 – Baseline Tightly Coupled Architecture</h1>
+
+<p>Initially deployed:</p>
+
+<ul>
+  <li>Web server (port 8008)</li>
+  <li>Application server (port 8009)</li>
+  <li>Shared S3 bucket for images</li>
+</ul>
+
+<p>📸 <strong>Cloud9 – Application Installation &amp; npm Setup</strong>
+<img src="./assets/images/image18.png" alt="Cloud9 Setup" /></p>
+
+<p>📸 <strong>EC2 Security Group Configuration (Ports 8000–8100)</strong>
+<img src="./assets/images/image32.png" alt="Security Group" /></p>
+
+<p>📸 <strong>Running Image Tinter Application</strong>
+<img src="./assets/images/image21.png" alt="Tightly Coupled App" /></p>
+
+<p>In this model:</p>
+
+<ul>
+  <li>Web server directly invoked processing</li>
+  <li>System depended on immediate availability of processing tier</li>
+</ul>
+
+<hr />
+
+<h1 id="phase-2--designing-the-decoupled-architecture">Phase 2 – Designing the Decoupled Architecture</h1>
+
+<h2 id="architectural-components-introduced">Architectural Components Introduced</h2>
+
+<ul>
+  <li><strong>Amazon SQS</strong> → Message Queue</li>
+  <li><strong>Amazon SNS</strong> → Notification Broadcasting</li>
+  <li><strong>Amazon S3 Event Notifications</strong></li>
+  <li>Email subscription for monitoring</li>
+</ul>
+
+<p>New flow:</p>
+
+<ol>
+  <li>User uploads image to S3</li>
+  <li>S3 triggers SNS topic</li>
+  <li>SNS publishes to:
+    <ul>
+      <li>SQS queue (for processing)</li>
+      <li>Email subscription (notification)</li>
+    </ul>
+  </li>
+  <li>Application server polls SQS</li>
+  <li>Image processed asynchronously</li>
+</ol>
+
+<p><img src="./assets/images/image31.png" alt="Event-Driven Architecture Diagram" /></p>
+
+<hr />
+
+<h1 id="implementing-the-decoupled-system">Implementing the Decoupled System</h1>
+
+<hr />
+
+<h2 id="step-1--configuring-amazon-sqs">Step 1 – Configuring Amazon SQS</h2>
+
+<p>Created SQS queue:</p>
+
+<ul>
+  <li>Queue Name: <strong>ImageApp</strong></li>
+  <li>Default settings</li>
+  <li>Copied Queue URL</li>
+</ul>
+
+<p>📸 <strong>SQS Queue Details</strong>
+<img src="./assets/images/image28.png" alt="SQS Queue" /></p>
+
+<p>This queue buffers upload events and decouples upload from processing.</p>
+
+<hr />
+
+<h2 id="step-2--configuring-amazon-sns">Step 2 – Configuring Amazon SNS</h2>
+
+<p>Created SNS topic:</p>
+
+<ul>
+  <li>Topic Name: <strong>uploadnotification</strong></li>
+  <li>Custom access policy</li>
+  <li>Allowed S3 publish permissions</li>
+</ul>
+
+<p>📸 <strong>SNS Topic Details</strong>
+<img src="./assets/images/image5.png" alt="SNS Topic" /></p>
+
+<p>SNS acts as the fan-out mechanism for notifications.</p>
+
+<hr />
+
+<h2 id="step-3--configuring-s3-event-notifications">Step 3 – Configuring S3 Event Notifications</h2>
+
+<p>Configured:</p>
+
+<ul>
+  <li>Event: All object create events</li>
+  <li>Destination: SNS topic</li>
+</ul>
+
+<p>📸 <strong>S3 Event Notification Configuration</strong>
+<img src="./assets/images/image1.png" alt="S3 Event Notification" /></p>
+
+<p>Now every image upload generates an event.</p>
+
+<hr />
+
+<h2 id="step-4--sns-subscriptions">Step 4 – SNS Subscriptions</h2>
+
+<p>Configured:</p>
+
+<ul>
+  <li>SQS subscription</li>
+  <li>Email subscription</li>
+</ul>
+
+<p>📸 <strong>SQS Subscription to SNS</strong>
+<img src="./assets/images/image12.png" alt="SNS to SQS" /></p>
+
+<p>📸 <strong>Email Subscription Confirmation</strong>
+<img src="./assets/images/image29.png" alt="Email Subscription" /></p>
+
+<p>This provides:</p>
+
+<ul>
+  <li>Automated processing</li>
+  <li>Operational visibility</li>
+</ul>
+
+<hr />
+
+<h2 id="step-5--updating-application-configuration">Step 5 – Updating Application Configuration</h2>
+
+<p>Modified:</p>
+
+<ul>
+  <li>Browser tier config</li>
+  <li>Web tier config</li>
+  <li>Application server config</li>
+  <li>Inserted SQS Queue URL</li>
+  <li>Inserted S3 bucket references</li>
+</ul>
+
+<p>Started services:</p>
+
+<ul>
+  <li>Web server → port 8007</li>
+  <li>Application server → port 8010</li>
+</ul>
+
+<p>📸 <strong>Cloud9 – Updated Config Files</strong>
+<img src="./assets/images/image4.png" alt="Updated Config" /></p>
+
+<p>📸 <strong>Servers Running on Ports 8007 &amp; 8010</strong>
+<img src="./assets/images/image20.png" alt="Servers Running" /></p>
+
+<hr />
+
+<h1 id="validating-the-event-driven-flow">Validating the Event-Driven Flow</h1>
+
+<hr />
+
+<h2 id="upload-event">Upload Event</h2>
+
+<p>User uploads image → triggers SNS → sends email</p>
+
+<p>📸 <strong>Image Upload in Browser</strong>
+<img src="./assets/images/image22.png" alt="Upload Image" /></p>
+
+<p>📸 <strong>Email Notification – Upload and Processing Events</strong>
+<img src="./assets/images/image27.png" alt="Upload Email" /></p>
+
+<hr />
+
+<h2 id="processing-event">Processing Event</h2>
+
+<p>Application polls SQS → processes image → sends completion notification</p>
+
+<p>📸 <strong>Processed Image Displayed</strong>
+<img src="./assets/images/image16.png" alt="Processed Image" /></p>
+
+<hr />
+
+<h1 id="architectural-improvements-achieved">Architectural Improvements Achieved</h1>
+
+<h3 id="asynchronous-processing">Asynchronous Processing</h3>
+<p>Uploads no longer block processing tier.</p>
+
+<h3 id="fault-isolation">Fault Isolation</h3>
+<p>If processing server fails:</p>
+<ul>
+  <li>Messages remain safely in SQS.</li>
+  <li>System resumes when service recovers.</li>
+</ul>
+
+<h3 id="horizontal-scalability">Horizontal Scalability</h3>
+<p>Multiple processors can poll from SQS simultaneously.</p>
+
+<h3 id="loose-coupling">Loose Coupling</h3>
+<p>Web and application tiers operate independently.</p>
+
+<h3 id="improved-reliability">Improved Reliability</h3>
+<p>Managed AWS messaging services reduce operational overhead.</p>
+
+<hr />
+
+<h1 id="enterprise-architecture-impact">Enterprise Architecture Impact</h1>
+
+<p>This architecture aligns with:</p>
+
+<ul>
+  <li>Event-driven microservices principles</li>
+  <li>Distributed systems design</li>
+  <li>Cloud-native asynchronous communication</li>
+  <li>Resilient application architecture patterns</li>
+</ul>
+
+<p>It demonstrates the ability to:</p>
+
+<ul>
+  <li>Identify coupling issues</li>
+  <li>Redesign systems for scalability</li>
+  <li>Implement messaging-based communication</li>
+  <li>Integrate multiple AWS services coherently</li>
+</ul>
+
+<hr />
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Successfully transformed a tightly coupled image processing application into a decoupled, event-driven architecture using Amazon SQS and Amazon SNS.</p>
+
+<p>The redesign improved:</p>
+
+<ul>
+  <li>Scalability</li>
+  <li>Fault tolerance</li>
+  <li>Operational resilience</li>
+  <li>Asynchronous processing capability</li>
+</ul>
+
+<p>This project demonstrates practical understanding of distributed system design and modern cloud-native messaging patterns.</p>
+
+<hr />
+
+<p><a href="/projects/">Back to Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

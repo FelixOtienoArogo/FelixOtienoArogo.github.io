@@ -16,6 +16,9 @@
 <loc>http://localhost:4000/projects/cloud/cognito-auth/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/projects/cloud/decoupled-event-driven-sqs/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/projects/cloud/enterprise-application-modernization-aws/</loc>
 </url>
 <url>

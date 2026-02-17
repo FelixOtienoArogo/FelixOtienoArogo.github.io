@@ -28,6 +28,12 @@ Welcome to my cloud portfolio. Below are selected architecture case studies demo
   **Focus:** Microservices Modernization & Container Orchestration
   **Skills:** Docker, Amazon ECS, Amazon ECR, Application Load Balancer, Path-Based Routing, Service Decomposition, Node.js, Container Strategy
 
+- [Architecting a Decoupled Event-Driven Image Processing System on AWS](/projects/cloud/decoupled-event-driven-sqs/)
+  ![Decoupled Event-Driven Architecture](/assets/images/projects/cloud/decoupled-event-driven-sqs/image31.png)
+  **Role:** Solutions Architect (Distributed Systems & Event-Driven Design)
+  **Focus:** Asynchronous Communication & Application Decoupling
+  **Skills:** Amazon SQS, Amazon SNS, Amazon S3 Event Notifications, EC2, Node.js, Fault Tolerance, Message Queues
+
 - [Designing a Serverless Event-Driven Reporting Architecture on AWS](/projects/cloud/serverless-reporting/)
   ![Serverless Reporting Architecture](/assets/images/projects/cloud/serverless-reporting/image9.png)
   **Role:** Solutions Architect (Serverless & Event-Driven Design)
