@@ -1,0 +1,707 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Modernizing a Legacy Web Application into an Enterprise-Grade AWS Architecture - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Modernizing a Legacy Web Application into an Enterprise-Grade AWS Architecture">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/enterprise-application-modernization-aws/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/cloud/enterprise-application-modernization-aws/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Modernizing a Legacy Web Application into an Enterprise-Grade AWS Architecture">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/projects/cloud/enterprise-application-modernization-aws/" itemprop="url">Modernizing a Legacy Web Application into an Enterprise-Grade AWS Architecture
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="project-enterprise-application-modernization-on-aws">Project: Enterprise Application Modernization on AWS</h2>
+
+<p><strong>Timeline:</strong> October 2025<br />
+<strong>Role:</strong> Solutions Architect (Architecture Design &amp; Implementation)<br />
+<strong>Skills:</strong> Amazon EC2, Amazon RDS (MySQL), Application Load Balancer, Auto Scaling, AWS Secrets Manager, IAM, VPC Architecture, AWS Systems Manager, AWS Well-Architected Framework</p>
+
+<hr />
+
+<h3 id="executive-summary">Executive Summary</h3>
+
+<p>Led the modernization of a legacy single-instance web application into a secure, scalable, and highly available multi-tier architecture on AWS. The original deployment lacked elasticity, resilience, and enterprise-grade security controls.</p>
+
+<p>The redesigned architecture introduces:</p>
+
+<ul>
+  <li>Multi-AZ high availability</li>
+  <li>Private application and database tiers</li>
+  <li>Elastic scaling via Auto Scaling Groups</li>
+  <li>Managed relational database using Amazon RDS</li>
+  <li>Secure secret management with AWS Secrets Manager</li>
+  <li>Role-based access control via IAM</li>
+  <li>Elimination of SSH in favor of Systems Manager</li>
+</ul>
+
+<p>The resulting solution aligns with AWS Well-Architected principles and reflects patterns commonly adopted during enterprise cloud transformation initiatives.</p>
+
+<hr />
+
+<h2 id="business-context">Business Context</h2>
+
+<p>The original application operated on a single EC2 instance with locally stored credentials and a directly accessible database configuration. This architecture presented several enterprise risks:</p>
+
+<ul>
+  <li>Single point of failure</li>
+  <li>Manual scaling limitations</li>
+  <li>Tight coupling between application and infrastructure</li>
+  <li>Security exposure through static credentials</li>
+  <li>Limited disaster recovery capabilities</li>
+</ul>
+
+<p>The objective of the modernization initiative was to redesign the platform to meet enterprise-grade requirements for:</p>
+
+<ul>
+  <li>High availability across Availability Zones</li>
+  <li>Secure credential management</li>
+  <li>Network isolation and tier segmentation</li>
+  <li>Elastic scalability under variable load</li>
+  <li>Operational governance aligned with AWS Well-Architected principles</li>
+</ul>
+
+<p>The transformation focused on replacing fragile infrastructure patterns with managed services and automated resilience mechanisms.</p>
+
+<hr />
+
+<h2 id="architecture-overview">Architecture Overview</h2>
+
+<p>The solution is structured into distinct tiers with strict network isolation:</p>
+
+<ul>
+  <li><strong>Presentation Tier</strong>
+    <ul>
+      <li>Internet-facing Application Load Balancer deployed across two public subnets</li>
+    </ul>
+  </li>
+  <li><strong>Application Tier</strong>
+    <ul>
+      <li>Stateless PHP application running on EC2 instances in private subnets</li>
+      <li>Managed by an Auto Scaling Group across multiple Availability Zones</li>
+    </ul>
+  </li>
+  <li><strong>Database Tier</strong>
+    <ul>
+      <li>Amazon RDS MySQL deployed in private subnets</li>
+      <li>No public exposure, accessible only from the application tier</li>
+    </ul>
+  </li>
+  <li><strong>Security &amp; Access</strong>
+    <ul>
+      <li>AWS Secrets Manager for database credentials</li>
+      <li>IAM role-based permissions for secret retrieval</li>
+      <li>AWS Systems Manager Session Manager for administrative access (no SSH)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="./assets/images/image2.png" alt="Architecture Diagram" /></p>
+
+<hr />
+
+<h2 id="architecture-decisions--design-rationale">Architecture Decisions &amp; Design Rationale</h2>
+
+<h3 id="1-multi-tier-network-segmentation">1. Multi-Tier Network Segmentation</h3>
+
+<p>The architecture was redesigned into distinct tiers:</p>
+
+<ul>
+  <li>Public subnets for the Application Load Balancer</li>
+  <li>Private subnets for application instances</li>
+  <li>Isolated private database subnets for Amazon RDS</li>
+</ul>
+
+<p>This enforces strict east-west and north-south traffic control while eliminating direct database exposure to the internet.</p>
+
+<hr />
+
+<h3 id="2-managed-database-adoption-amazon-rds">2. Managed Database Adoption (Amazon RDS)</h3>
+
+<p>Instead of hosting MySQL on EC2, the solution leverages Amazon RDS to:</p>
+
+<ul>
+  <li>Reduce operational overhead (patching, backups, maintenance)</li>
+  <li>Improve reliability through managed service guarantees</li>
+  <li>Support scalability and future Multi-AZ expansion</li>
+  <li>Strengthen backup and recovery posture</li>
+</ul>
+
+<p>This aligns with enterprise cloud migration best practices favoring managed services over self-managed infrastructure.</p>
+
+<hr />
+
+<h3 id="3-elastic-compute-with-auto-scaling">3. Elastic Compute with Auto Scaling</h3>
+
+<p>Application servers were deployed using a launch template and Auto Scaling Group across multiple Availability Zones.</p>
+
+<p>Design considerations included:</p>
+
+<ul>
+  <li>Stateless application design</li>
+  <li>Health check integration with ALB</li>
+  <li>Target tracking scaling policy (50% CPU utilization)</li>
+</ul>
+
+<p>This ensures horizontal scalability and automatic recovery during instance-level failure events.</p>
+
+<hr />
+
+<h3 id="4-secure-credential-management-via-aws-secrets-manager">4. Secure Credential Management via AWS Secrets Manager</h3>
+
+<p>Hardcoded database credentials were eliminated and replaced with AWS Secrets Manager.</p>
+
+<p>Security improvements include:</p>
+
+<ul>
+  <li>Centralized secret storage</li>
+  <li>IAM role-based access from EC2</li>
+  <li>No credential exposure in application code</li>
+  <li>Simplified credential rotation capability</li>
+</ul>
+
+<p>This significantly reduces credential leakage risk and aligns with enterprise security compliance standards.</p>
+
+<hr />
+
+<h3 id="5-administrative-access-via-systems-manager">5. Administrative Access via Systems Manager</h3>
+
+<p>Traditional SSH access was replaced with AWS Systems Manager Session Manager.</p>
+
+<p>Benefits:</p>
+
+<ul>
+  <li>No open inbound SSH ports</li>
+  <li>Reduced attack surface</li>
+  <li>Centralized access control via IAM</li>
+  <li>Improved auditability through AWS logging</li>
+</ul>
+
+<p>This demonstrates security-first operational design.</p>
+
+<hr />
+
+<h3 id="6-cost-aware-architecture">6. Cost-Aware Architecture</h3>
+
+<p>While improving resilience, cost controls were implemented:</p>
+
+<ul>
+  <li>Right-sized compute instances</li>
+  <li>No NAT Gateway (to avoid unnecessary baseline cost)</li>
+  <li>Controlled scaling thresholds</li>
+  <li>Budget monitoring through AWS Budgets</li>
+</ul>
+
+<p>The architecture balances enterprise resilience with financial governance.</p>
+
+<hr />
+
+<h2 id="implementation-highlights">Implementation Highlights</h2>
+
+<h3 id="1-deployed-amazon-rds-mysql">1. Deployed Amazon RDS MySQL</h3>
+
+<ul>
+  <li>Created RDS instance: <code class="language-plaintext highlighter-rouge">countries-db</code></li>
+  <li>Placed in private subnets using an existing DB subnet group</li>
+  <li>Disabled public access</li>
+  <li>Restricted inbound 3306 access to application security group only</li>
+  <li>Created database: <code class="language-plaintext highlighter-rouge">countries</code></li>
+</ul>
+
+<p>Stored credentials securely in AWS Secrets Manager:</p>
+
+<ul>
+  <li>Secret name: <code class="language-plaintext highlighter-rouge">/db/countries</code></li>
+  <li>Contains: username, password, engine, host, dbname, port</li>
+</ul>
+
+<p><img src="./assets/images/image12.png" alt="RDS Details" /></p>
+
+<p><img src="./assets/images/image8.png" alt="Secrets Manager" /></p>
+
+<hr />
+
+<h3 id="2-configured-application-load-balancer">2. Configured Application Load Balancer</h3>
+
+<ul>
+  <li>Internet-facing ALB across two public subnets</li>
+  <li>Listener: HTTP (80)</li>
+  <li>Target group health check path: <code class="language-plaintext highlighter-rouge">/index.php</code></li>
+  <li>Attached ALB target group to the Auto Scaling Group</li>
+</ul>
+
+<p><img src="./assets/images/image13.png" alt="ALB Configuration" /></p>
+
+<hr />
+
+<h3 id="3-launch-template-and-auto-scaling-group">3. Launch Template and Auto Scaling Group</h3>
+
+<p>Launch template included application files and SQL dump.</p>
+
+<p>User data bootstrap script:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#!/bin/bash
+yum install -y httpd php php-mysqli
+systemctl enable httpd
+systemctl start httpd
+</code></pre></div></div>
+
+<p>Auto Scaling Group configuration:</p>
+
+<ul>
+  <li>Private subnets across two Availability Zones</li>
+  <li>Desired capacity: 2 instances</li>
+  <li>Target tracking policy: 50% CPU utilization</li>
+  <li>Instances registered behind the ALB target group</li>
+</ul>
+
+<p><img src="./assets/images/image7.png" alt="Auto Scaling Group" /></p>
+
+<p><img src="./assets/images/image11.png" alt="Healthy Instances" /></p>
+
+<hr />
+
+<h3 id="4-data-migration-into-rds">4. Data Migration into RDS</h3>
+
+<p>Connected to one application instance using Systems Manager Session Manager.</p>
+
+<p>Retrieved credentials securely:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aws secretsmanager get-secret-value --secret-id /db/countries --query SecretString --output text
+</code></pre></div></div>
+
+<p>Imported SQL dataset:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -h &lt;RDS-endpoint&gt; -u admin -p countries &lt; /home/ec2-user/countries.sql
+</code></pre></div></div>
+
+<p>Verified tables:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -h &lt;RDS-endpoint&gt; -u admin -p -e "USE countries; SHOW TABLES;"
+</code></pre></div></div>
+
+<p><img src="./assets/images/image4.png" alt="Data Import" /></p>
+
+<hr />
+
+<h3 id="5-functional-and-resilience-testing">5. Functional and Resilience Testing</h3>
+
+<ul>
+  <li>Accessed the application using the ALB DNS name</li>
+  <li>Verified PHP application loads successfully</li>
+  <li>Confirmed database queries return expected results</li>
+  <li>Simulated CPU load to validate Auto Scaling behavior</li>
+  <li>Stopped one instance to confirm traffic failover via ALB health checks</li>
+  <li>Confirmed direct access to RDS is denied from outside the application tier</li>
+</ul>
+
+<p><img src="./assets/images/image14.png" alt="Application Loaded" /></p>
+
+<p><img src="./assets/images/image15.png" alt="ALB Health" /></p>
+
+<hr />
+
+<h2 id="security--compliance-controls">Security &amp; Compliance Controls</h2>
+
+<ul>
+  <li>Network isolation: EC2 and RDS in private subnets</li>
+  <li>Least privilege: RDS accessible only from app security group</li>
+  <li>Credential management: Secrets stored in AWS Secrets Manager (not in code)</li>
+  <li>IAM role: EC2 granted only required permissions (e.g., <code class="language-plaintext highlighter-rouge">secretsmanager:GetSecretValue</code>)</li>
+  <li>Administrative access: Systems Manager Session Manager replaces SSH</li>
+  <li>Security groups enforce strict tier communication</li>
+</ul>
+
+<p><img src="./assets/images/image1.png" alt="Security Groups" /></p>
+
+<hr />
+
+<h2 id="cost--efficiency-considerations">Cost &amp; Efficiency Considerations</h2>
+
+<ul>
+  <li>Right-sized compute instances (t2.micro / t3.micro)</li>
+  <li>Avoided NAT Gateway to reduce baseline networking cost</li>
+  <li>Stopped non-production resources when idle</li>
+  <li>Monitored usage via AWS Budgets</li>
+</ul>
+
+<p><img src="./assets/images/image10.png" alt="AWS Budgets" /></p>
+
+<hr />
+
+<h2 id="outcome--impact">Outcome &amp; Impact</h2>
+
+<ul>
+  <li>Transformed a legacy single-instance deployment into a resilient, enterprise-grade AWS architecture.</li>
+  <li>Achieved high availability across Availability Zones with load balancing and Auto Scaling.</li>
+  <li>Strengthened security posture using private subnets, Secrets Manager, IAM least privilege, and SSM access.</li>
+  <li>Improved operational reliability through health checks and automated recovery.</li>
+  <li>Delivered a repeatable modernization pattern aligned with AWS Well-Architected principles.</li>
+</ul>
+
+<hr />
+
+<p><a href="/projects/">Back to Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
