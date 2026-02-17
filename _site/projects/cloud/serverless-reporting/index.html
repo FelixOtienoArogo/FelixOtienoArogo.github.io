@@ -1,0 +1,633 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Designing a Serverless Event-Driven Reporting Architecture on AWS - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Designing a Serverless Event-Driven Reporting Architecture on AWS">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/serverless-reporting/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/cloud/serverless-reporting/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Designing a Serverless Event-Driven Reporting Architecture on AWS">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/projects/cloud/serverless-reporting/" itemprop="url">Designing a Serverless Event-Driven Reporting Architecture on AWS
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="project-serverless-reporting-architecture-for-business-automation">Project: Serverless Reporting Architecture for Business Automation</h2>
+
+<p><strong>Timeline:</strong> October 2025<br />
+<strong>Role:</strong> Solutions Architect (Serverless &amp; Event-Driven Design)<br />
+<strong>Skills:</strong> AWS Lambda, Amazon SNS, Amazon EventBridge, Amazon RDS, VPC Configuration, IAM Roles, CloudWatch, Serverless Architecture</p>
+
+<hr />
+
+<h3 id="executive-summary">Executive Summary</h3>
+
+<p>Designed and implemented a fully serverless, event-driven reporting system to replace a performance-heavy cron job running on an EC2 web server.</p>
+
+<p>The modernization introduced:</p>
+
+<ul>
+  <li>AWS Lambda for on-demand execution</li>
+  <li>Secure Lambda-to-RDS connectivity within a VPC</li>
+  <li>Amazon SNS for report distribution</li>
+  <li>Amazon EventBridge for scheduled automation</li>
+  <li>CloudWatch for observability</li>
+</ul>
+
+<p>The solution decouples reporting workloads from the production application, reduces operational overhead, and aligns with modern serverless and cost-optimized architecture principles.</p>
+
+<hr />
+
+<h2 id="business-context">Business Context</h2>
+
+<p>The café previously relied on a scheduled cron job hosted on an EC2 web server to generate daily sales reports. This approach introduced several challenges:</p>
+
+<ul>
+  <li>Resource contention with production workloads</li>
+  <li>Continuous EC2 compute cost regardless of report activity</li>
+  <li>Operational maintenance overhead</li>
+  <li>Tight coupling between reporting and web tier</li>
+</ul>
+
+<p>The goal of the modernization was to:</p>
+
+<ul>
+  <li>Offload non-critical reporting tasks</li>
+  <li>Reduce infrastructure cost through event-driven compute</li>
+  <li>Improve scalability and resilience</li>
+  <li>Automate report distribution</li>
+</ul>
+
+<hr />
+
+<h2 id="architecture-overview">Architecture Overview</h2>
+
+<p>The final architecture consists of:</p>
+
+<ul>
+  <li><strong>Lambda Function 1: Data Extractor</strong>
+    <ul>
+      <li>Runs inside VPC</li>
+      <li>Connects securely to RDS database</li>
+    </ul>
+  </li>
+  <li><strong>Lambda Function 2: Sales Report Generator</strong>
+    <ul>
+      <li>Processes extracted data</li>
+      <li>Publishes report to SNS</li>
+    </ul>
+  </li>
+  <li><strong>Amazon SNS</strong>
+    <ul>
+      <li>Distributes daily report via email</li>
+    </ul>
+  </li>
+  <li><strong>Amazon EventBridge</strong>
+    <ul>
+      <li>Triggers daily report generation</li>
+    </ul>
+  </li>
+  <li><strong>Amazon RDS</strong>
+    <ul>
+      <li>Source of transactional sales data</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="./assets/images/image9.png" alt="Serverless Architecture Diagram" /></p>
+
+<hr />
+
+<h2 id="phase-1-vpc-integrated-lambda-for-secure-data-access">Phase 1: VPC-Integrated Lambda for Secure Data Access</h2>
+
+<p>Created a security group <code class="language-plaintext highlighter-rouge">LambdaSG</code> and configured RDS inbound rules to allow MySQL access from Lambda.</p>
+
+<p>Configured Lambda:</p>
+
+<ul>
+  <li>Runtime: Python 3.11</li>
+  <li>VPC: Private subnets (Lab VPC)</li>
+  <li>Security Group: LambdaSG</li>
+  <li>Timeout: 30 seconds</li>
+  <li>Memory: 128 MB</li>
+</ul>
+
+<p>This ensured secure private connectivity to the database.</p>
+
+<p><img src="./assets/images/image5.png" alt="Lambda VPC Configuration" /></p>
+
+<hr />
+
+<h2 id="phase-2-report-generation-lambda">Phase 2: Report Generation Lambda</h2>
+
+<p>Created a second Lambda function responsible for:</p>
+
+<ul>
+  <li>Processing sales data</li>
+  <li>Generating formatted report</li>
+  <li>Publishing results to SNS</li>
+</ul>
+
+<p>Configured environment variable:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>topicARN = &lt;SNS Topic ARN&gt;
+</code></pre></div></div>
+
+<p><img src="./assets/images/image11.png" alt="Report Lambda Configuration" /></p>
+
+<hr />
+
+<h2 id="phase-3-sns-topic-for-report-distribution">Phase 3: SNS Topic for Report Distribution</h2>
+
+<p>Created SNS topic:</p>
+
+<ul>
+  <li>Name: SalesReportTopic</li>
+  <li>Display name: Sales Report Topic</li>
+</ul>
+
+<p>Configured email subscription and verified endpoint confirmation.</p>
+
+<p><img src="./assets/images/image3.png" alt="SNS Topic Details" /></p>
+
+<p><img src="./assets/images/image6.png" alt="SNS Subscription Confirmed" /></p>
+
+<hr />
+
+<h2 id="phase-4-eventbridge-scheduled-automation">Phase 4: EventBridge Scheduled Automation</h2>
+
+<p>Created EventBridge rule with:</p>
+
+<ul>
+  <li>Daily cron expression (UTC)</li>
+  <li>Target: salesAnalysisReport Lambda</li>
+  <li>IAM Role: mySchedulerRole</li>
+</ul>
+
+<p>Enabled rule to automate daily execution.</p>
+
+<p><img src="./assets/images/image7.png" alt="EventBridge Rule Configuration" /></p>
+
+<hr />
+
+<h2 id="validation--testing">Validation &amp; Testing</h2>
+
+<p>Tested architecture by:</p>
+
+<ul>
+  <li>Manually invoking Lambda function</li>
+  <li>Verifying successful execution in CloudWatch logs</li>
+  <li>Confirming receipt of report email</li>
+  <li>Validating RDS connectivity from Lambda</li>
+  <li>Confirming scheduled rule activation</li>
+</ul>
+
+<p><img src="./assets/images/image1.png" alt="Lambda Test Success" /></p>
+
+<p><img src="./assets/images/image8.png" alt="Email Report Received" /></p>
+
+<p><img src="./assets/images/image2.png" alt="CloudWatch Logs" /></p>
+
+<hr />
+
+<h2 id="architectural-improvements-achieved">Architectural Improvements Achieved</h2>
+
+<h3 id="cost-optimization">Cost Optimization</h3>
+
+<ul>
+  <li>Eliminated persistent EC2 cron job</li>
+  <li>Pay-per-invocation compute model</li>
+  <li>Reduced idle infrastructure cost</li>
+</ul>
+
+<h3 id="decoupled-architecture">Decoupled Architecture</h3>
+
+<ul>
+  <li>Reporting workload isolated from production environment</li>
+  <li>Reduced application server resource contention</li>
+</ul>
+
+<h3 id="improved-scalability">Improved Scalability</h3>
+
+<ul>
+  <li>Lambda scales automatically</li>
+  <li>No manual infrastructure scaling required</li>
+</ul>
+
+<h3 id="enhanced-security">Enhanced Security</h3>
+
+<ul>
+  <li>Private VPC Lambda integration</li>
+  <li>IAM role-based access</li>
+  <li>No exposed database endpoints</li>
+</ul>
+
+<h3 id="operational-simplicity">Operational Simplicity</h3>
+
+<ul>
+  <li>Fully managed AWS services</li>
+  <li>Built-in logging via CloudWatch</li>
+  <li>Automated scheduling with EventBridge</li>
+</ul>
+
+<hr />
+
+<h2 id="troubleshooting--operational-considerations">Troubleshooting &amp; Operational Considerations</h2>
+
+<p>Resolved common serverless deployment challenges:</p>
+
+<ul>
+  <li>Database connectivity failures due to security group misconfiguration</li>
+  <li>Timeout adjustments for database queries</li>
+  <li>SNS email subscription verification issues</li>
+</ul>
+
+<p>Monitoring and logs validated correct system behavior.</p>
+
+<hr />
+
+<h2 id="architectural-impact">Architectural Impact</h2>
+
+<p>The system transitioned from:</p>
+
+<p>EC2-based cron reporting<br />
+to<br />
+Fully serverless, event-driven automation</p>
+
+<p>Key benefits:</p>
+
+<ul>
+  <li>Lower operational overhead</li>
+  <li>Reduced cost</li>
+  <li>Improved performance isolation</li>
+  <li>Automated reporting workflow</li>
+  <li>Cloud-native scalability</li>
+</ul>
+
+<p>This project demonstrates hands-on experience designing serverless architectures, integrating Lambda within VPC environments, and building automated event-driven systems — key capabilities for modern enterprise cloud environments.</p>
+
+<hr />
+
+<p><a href="/projects/">Back to Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

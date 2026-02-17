@@ -28,6 +28,12 @@ Welcome to my cloud portfolio. Below are selected architecture case studies demo
   **Focus:** Microservices Modernization & Container Orchestration  
   **Skills:** Docker, Amazon ECS, Amazon ECR, Application Load Balancer, Path-Based Routing, Service Decomposition, Node.js, Container Strategy
 
+- [Designing a Serverless Event-Driven Reporting Architecture on AWS](/projects/cloud/serverless-reporting/)
+  ![Serverless Reporting Architecture](/assets/images/projects/cloud/serverless-reporting/image9.png)
+  **Role:** Solutions Architect (Serverless & Event-Driven Design)  
+  **Focus:** Serverless Modernization & Event-Driven Automation  
+  **Skills:** AWS Lambda, Amazon SNS, Amazon EventBridge, Amazon RDS, VPC-Integrated Lambda, IAM Roles, CloudWatch
+
 - [Hybrid Cloud Storage Architecture](/projects/cloud/hybrid-storage/)
   ![Hybrid Storage](/assets/images/projects/cloud/hybrid-storage/image2.png)
   **Role:** Cloud Solutions Architect  
