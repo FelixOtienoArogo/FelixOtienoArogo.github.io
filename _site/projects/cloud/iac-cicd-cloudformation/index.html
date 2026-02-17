@@ -1,0 +1,645 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Designing an Infrastructure-as-Code CI/CD Deployment Pipeline on AWS - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Designing an Infrastructure-as-Code CI/CD Deployment Pipeline on AWS">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/iac-cicd-cloudformation/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/cloud/iac-cicd-cloudformation/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Designing an Infrastructure-as-Code CI/CD Deployment Pipeline on AWS">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/projects/cloud/iac-cicd-cloudformation/" itemprop="url">Designing an Infrastructure-as-Code CI/CD Deployment Pipeline on AWS
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="project-cicd-driven-infrastructure-automation-with-aws-cloudformation">Project: CI/CD-Driven Infrastructure Automation with AWS CloudFormation</h2>
+
+<p><strong>Timeline:</strong> September 2025<br />
+<strong>Role:</strong> Solutions Architect (Infrastructure Automation &amp; Platform Engineering)<br />
+<strong>Skills:</strong> AWS CloudFormation, AWS CodeCommit, AWS CodePipeline, Git, Multi-Region Deployment, VPC Architecture, EC2, S3 Static Hosting</p>
+
+<hr />
+
+<h2 id="executive-summary">Executive Summary</h2>
+
+<p>Designed and implemented a Git-driven Infrastructure-as-Code (IaC) deployment pipeline using AWS CloudFormation, CodeCommit, and CodePipeline.</p>
+
+<p>The solution enables:</p>
+
+<ul>
+  <li>Version-controlled infrastructure templates</li>
+  <li>Automated stack creation and updates</li>
+  <li>Modular networking and application layers</li>
+  <li>Static and dynamic website deployment</li>
+  <li>Multi-region infrastructure replication</li>
+</ul>
+
+<p>This architecture reflects enterprise DevOps and platform engineering practices where infrastructure updates are governed through CI/CD rather than manual configuration.</p>
+
+<hr />
+
+<h1 id="architecture-overview">Architecture Overview</h1>
+
+<p>The solution consists of:</p>
+
+<ul>
+  <li><strong>Source Control:</strong> AWS CodeCommit repository</li>
+  <li><strong>CI/CD Engine:</strong> AWS CodePipeline</li>
+  <li><strong>Infrastructure Definition:</strong> AWS CloudFormation templates</li>
+  <li><strong>Static Website Layer:</strong> Amazon S3</li>
+  <li><strong>Network Layer:</strong> Custom VPC &amp; public subnet</li>
+  <li><strong>Application Layer:</strong> EC2 (Apache, MariaDB, PHP)</li>
+  <li><strong>Multi-Region Deployment:</strong> us-east-1 &amp; us-west-2</li>
+</ul>
+
+<p><img src="./assets/images/image32.png" alt="CI/CD Architecture Overview" /></p>
+
+<hr />
+
+<h1 id="phase-1--creating-infrastructure-from-scratch-s3-website">Phase 1 – Creating Infrastructure from Scratch (S3 Website)</h1>
+
+<p>Created <code class="language-plaintext highlighter-rouge">S3.yaml</code> CloudFormation template defining:</p>
+
+<ul>
+  <li>Amazon S3 bucket</li>
+  <li>Static website configuration</li>
+  <li>Outputs (website URL)</li>
+  <li>DeletionPolicy: Retain</li>
+</ul>
+
+<p>Deployed using AWS CLI in Cloud9.</p>
+
+<p>📸 <strong>Cloud9 IDE – S3.yaml Template</strong>
+<img src="./assets/images/image29.png" alt="S3 Template" /></p>
+
+<p>📸 <strong>CLI Stack Creation Output</strong>
+<img src="./assets/images/image8.png" alt="Create Stack CLI" /></p>
+
+<p>📸 <strong>CloudFormation – CREATE_COMPLETE</strong>
+<img src="./assets/images/image37.png" alt="Stack Complete" /></p>
+
+<p>📸 <strong>S3 Static Website Running</strong>
+<img src="./assets/images/image2.png" alt="Static Website" /></p>
+
+<p>This phase demonstrates foundational Infrastructure-as-Code implementation.</p>
+
+<hr />
+
+<h1 id="phase-2--introducing-version-control-with-codecommit">Phase 2 – Introducing Version Control with CodeCommit</h1>
+
+<p>Cloned <code class="language-plaintext highlighter-rouge">CFTemplatesRepo</code> into Cloud9 and established Git workflow:</p>
+
+<ul>
+  <li>git clone</li>
+  <li>git add</li>
+  <li>git commit</li>
+  <li>git push</li>
+</ul>
+
+<p>📸 <strong>CodeCommit Repository Overview</strong>
+<img src="./assets/images/image30.png" alt="CodeCommit Repo" /></p>
+
+<p>📸 <strong>Git Commit &amp; Push in Cloud9</strong>
+<img src="./assets/images/image5.png" alt="Git Push" /></p>
+
+<p>This introduced:</p>
+
+<ul>
+  <li>Infrastructure versioning</li>
+  <li>Auditability</li>
+  <li>Change tracking</li>
+</ul>
+
+<hr />
+
+<h1 id="phase-3--cicd-driven-network-layer-deployment">Phase 3 – CI/CD-Driven Network Layer Deployment</h1>
+
+<p>Created <code class="language-plaintext highlighter-rouge">cafe-network.yaml</code> defining:</p>
+
+<ul>
+  <li>VPC</li>
+  <li>Public Subnet</li>
+  <li>Route Tables</li>
+  <li>Internet Gateway</li>
+</ul>
+
+<p>Committed to CodeCommit.</p>
+
+<p>CodePipeline automatically:</p>
+
+<ul>
+  <li>Detected commit</li>
+  <li>Triggered pipeline</li>
+  <li>Deployed CloudFormation stack</li>
+</ul>
+
+<p>📸 <strong>CodePipeline Execution Graph</strong>
+<img src="./assets/images/image24.png" alt="Pipeline Execution" /></p>
+
+<p>📸 <strong>CloudFormation Stack – CREATE_COMPLETE</strong>
+<img src="./assets/images/image25.png" alt="Network Stack" /></p>
+
+<p>📸 <strong>VPC Console – Cafe VPC</strong>
+<img src="./assets/images/image7.png" alt="VPC Console" /></p>
+
+<p>This demonstrates automated environment provisioning.</p>
+
+<hr />
+
+<h1 id="phase-4--controlled-infrastructure-update">Phase 4 – Controlled Infrastructure Update</h1>
+
+<p>Enhanced network template to export:</p>
+
+<ul>
+  <li>VPC ID</li>
+  <li>Subnet ID</li>
+</ul>
+
+<p>Pushed update to repository.</p>
+
+<p>Pipeline triggered stack UPDATE.</p>
+
+<p>📸 <strong>CloudFormation Change Complete</strong>
+<img src="./assets/images/image33.png" alt="Update Complete" /></p>
+
+<p>📸 <strong>Outputs Showing Exported Values</strong>
+<img src="./assets/images/image26.png" alt="Stack Outputs" /></p>
+
+<p>This validates controlled infrastructure evolution through CI/CD.</p>
+
+<hr />
+
+<h1 id="phase-5--application-layer-automation">Phase 5 – Application Layer Automation</h1>
+
+<p>Created <code class="language-plaintext highlighter-rouge">cafe-app.yaml</code> defining:</p>
+
+<ul>
+  <li>EC2 instance</li>
+  <li>Security Group</li>
+  <li>UserData installing:
+    <ul>
+      <li>Apache</li>
+      <li>MariaDB</li>
+      <li>PHP</li>
+    </ul>
+  </li>
+  <li>Dynamic café website</li>
+</ul>
+
+<p>Committed to CodeCommit.</p>
+
+<p>Pipeline <code class="language-plaintext highlighter-rouge">CafeAppPipeline</code> deployed automatically.</p>
+
+<p>📸 <strong>CodePipeline – Application Deployment</strong>
+<img src="./assets/images/image27.png" alt="App Pipeline" /></p>
+
+<p>📸 <strong>EC2 Instance Running</strong>
+<img src="./assets/images/image10.png" alt="EC2 Instance" /></p>
+
+<p>📸 <strong>Dynamic Café Website</strong>
+<img src="./assets/images/image6.png" alt="Dynamic Website" /></p>
+
+<p>This phase demonstrates automated full-stack provisioning.</p>
+
+<hr />
+
+<h1 id="phase-6--multi-region-infrastructure-replication">Phase 6 – Multi-Region Infrastructure Replication</h1>
+
+<p>Duplicated network and application stacks into <strong>us-west-2 (Oregon)</strong>.</p>
+
+<p>Steps:</p>
+
+<ul>
+  <li>CloudFormation CLI deployment</li>
+  <li>New key pair creation</li>
+  <li>Application stack launch</li>
+  <li>Instance type adjustment</li>
+</ul>
+
+<p>📸 <strong>CLI Stack Creation – us-west-2</strong>
+<img src="./assets/images/image14.png" alt="Oregon CLI" /></p>
+
+<p>📸 <strong>VPC Console – Oregon Region</strong>
+<img src="./assets/images/image4.png" alt="Oregon VPC" /></p>
+
+<p>📸 <strong>EC2 in Oregon Running</strong>
+<img src="./assets/images/image15.png" alt="Oregon EC2" /></p>
+
+<p>📸 <strong>Website Running in Oregon</strong>
+<img src="./assets/images/image1.png" alt="Oregon Website" /></p>
+
+<p>This demonstrates:</p>
+
+<ul>
+  <li>Infrastructure portability</li>
+  <li>Regional scalability</li>
+  <li>Reproducible environments</li>
+</ul>
+
+<hr />
+
+<h1 id="architectural-outcomes">Architectural Outcomes</h1>
+
+<h3 id="git-based-infrastructure-governance">Git-Based Infrastructure Governance</h3>
+<p>All infrastructure changes are version-controlled.</p>
+
+<h3 id="cicd-driven-stack-management">CI/CD-Driven Stack Management</h3>
+<p>No manual console provisioning required.</p>
+
+<h3 id="modular-stack-separation">Modular Stack Separation</h3>
+<p>Network and application layers decoupled.</p>
+
+<h3 id="cross-region-scalability">Cross-Region Scalability</h3>
+<p>Infrastructure deployable in multiple AWS Regions.</p>
+
+<h3 id="reduced-configuration-drift">Reduced Configuration Drift</h3>
+<p>Environment state controlled via template definitions.</p>
+
+<hr />
+
+<h1 id="enterprise-impact">Enterprise Impact</h1>
+
+<p>This project elevates Infrastructure-as-Code from basic template usage to:</p>
+
+<ul>
+  <li>Platform engineering practice</li>
+  <li>CI/CD-integrated deployment model</li>
+  <li>Governed infrastructure lifecycle</li>
+  <li>Multi-region operational readiness</li>
+</ul>
+
+<p>It reflects how modern cloud platforms are built in enterprise environments.</p>
+
+<hr />
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Successfully implemented a CI/CD-driven Infrastructure-as-Code pipeline using AWS CloudFormation, CodeCommit, and CodePipeline.</p>
+
+<p>The solution demonstrates automation maturity, operational governance, and scalable environment replication — core competencies expected of modern cloud architects and platform engineers.</p>
+
+<hr />
+
+<p><a href="/projects/">Back to Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
