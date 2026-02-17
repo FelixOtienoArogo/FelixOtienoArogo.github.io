@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Cloud Projects - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<!-- begin _includes/seo.html --><title>Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
 <meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
 
 
@@ -21,8 +21,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
-<meta property="og:title" content="Cloud Projects">
-<meta property="og:url" content="http://localhost:4000/projects/cloud/">
+<meta property="og:title" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/hybrid-storage/">
 
 
   <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
@@ -38,7 +38,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/projects/cloud/">
+<link rel="canonical" href="http://localhost:4000/projects/cloud/hybrid-storage/">
 
 
 
@@ -259,33 +259,12 @@
 </div>
 
   
-    
-      
-      
-      
-      
-    
-    
-      <nav class="nav__list">
-  
-  <input id="ac-toc" name="accordion-toc" type="checkbox" />
-  <label for="ac-toc">Toggle Menu</label>
-  <ul class="nav__items">
-    
-      
-      
-    
-  </ul>
-</nav>
-
-    
-  
   </div>
 
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Cloud Projects">
+    
     
     
     
@@ -293,10 +272,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/projects/cloud/" itemprop="url">Cloud Projects
-</a>
-          </h1>
+          
           
 
 
@@ -305,56 +281,171 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="cloud-projects">Cloud Projects</h2>
+        <h2 id="project-hybrid-storage-and-data-migration-with-aws-storage-gateway-s3-file-gateway">Project: Hybrid Storage and Data Migration with AWS Storage Gateway (S3 File Gateway)</h2>
 
-<p>Welcome to my cloud portfolio. Here you will find hands-on projects demonstrating cloud architecture, security, hybrid infrastructure, and deployment using AWS and Azure.</p>
+<p><strong>Timeline:</strong> October 2025<br />
+<strong>Role:</strong> Solutions Architect &amp; Cloud Engineer<br />
+<strong>Skills:</strong> AWS Storage Gateway, Amazon S3, Cross-Region Replication (CRR), IAM, NFS, EC2, Lifecycle Policies</p>
 
-<h3 id="projects">Projects</h3>
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+<p>Designed and implemented a hybrid cloud storage workflow using AWS Storage Gateway (S3 File Gateway) to simulate on-premises file storage and migrate data into Amazon S3 using an NFS file share. Enabled Cross-Region Replication (CRR) between us-east-2 (Ohio) and us-west-2 (Oregon) to provide disaster recovery and multi-region redundancy. Implemented S3 lifecycle policies to support storage management and cost optimization.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+<ul>
+  <li>Deploy and activate an S3 File Gateway on Amazon EC2.</li>
+  <li>Create primary and secondary S3 buckets in separate Regions.</li>
+  <li>Enable S3 Cross-Region Replication (CRR).</li>
+  <li>Mount the NFS file share on a Linux instance.</li>
+  <li>Migrate on-premises data into Amazon S3.</li>
+  <li>Validate end-to-end replication and hybrid data flow.</li>
+</ul>
+
+<hr />
+
+<h2 id="implementation--highlights">Implementation &amp; Highlights</h2>
+
+<h3 id="1-reviewed-the-architecture">1. Reviewed the Architecture</h3>
+<ul>
+  <li>Simulated an on-premises Linux environment.</li>
+  <li>Deployed an S3 File Gateway appliance.</li>
+  <li>Established NFS connectivity between Linux server and S3.</li>
+  <li>Designed replication between Ohio (primary) and Oregon (DR region).</li>
+</ul>
+
+<p><img src="./assets/images/image1.png" alt="Architecture Diagram" /></p>
+
+<hr />
+
+<h3 id="2-created-primary-and-secondary-s3-buckets">2. Created Primary and Secondary S3 Buckets</h3>
+
+<p><strong>Primary (Source) Bucket</strong></p>
+<ul>
+  <li>Region: us-east-2 (Ohio)</li>
+  <li>Versioning enabled</li>
+</ul>
+
+<p><strong>Secondary (Destination) Bucket</strong></p>
+<ul>
+  <li>Region: us-west-2 (Oregon)</li>
+  <li>Versioning enabled</li>
+</ul>
+
+<p><img src="./assets/images/image5.png" alt="Primary Bucket" /></p>
+
+<p><img src="./assets/images/image7.png" alt="Bucket List" /></p>
+
+<hr />
+
+<h3 id="3-enabled-cross-region-replication-crr">3. Enabled Cross-Region Replication (CRR)</h3>
 
 <ul>
-  <li>
-    <p><a href="/projects/cloud/hybrid-storage/">Hybrid Cloud Storage Architecture</a>
-<img src="/assets/images/projects/cloud/hybrid-storage/image2.png" alt="Hybrid Storage" />
-<strong>Role:</strong> Cloud Solutions Architect<br />
-<strong>Skills:</strong> Hybrid Cloud Architecture, Secure Storage Design, AWS S3, On-Prem Integration, IAM, Encryption at Rest &amp; In Transit, High Availability, Network Security</p>
-  </li>
-  <li>
-    <p><a href="/projects/cloud/cognito-auth/">Secure Web Application with AWS Cognito</a>
-<img src="/assets/images/projects/cloud/cognito-auth/image15.png" alt="Cognito Auth" />
-<strong>Role:</strong> Solutions Architect &amp; Software Engineer<br />
-<strong>Skills:</strong> AWS Cognito, S3, CloudFront, DynamoDB, Node.js</p>
-  </li>
-  <li>
-    <p><a href="/projects/cloud/aws-encryption/">Encrypting Data at Rest with AWS KMS, S3, and EBS</a>
-<img src="/assets/images/projects/cloud/aws-encryption/image16.png" alt="AWS Encryption" />
-<strong>Role:</strong> Cloud Security Engineer<br />
-<strong>Skills:</strong> AWS KMS, S3 Encryption, EBS Encryption, CloudTrail, Key Rotation</p>
-  </li>
-  <li>
-    <p><a href="/projects/cloud/vpc-peering/">Creating a VPC Peering Connection in AWS</a>
-<img src="/assets/images/projects/cloud/vpc-peering/image1.png" alt="VPC Peering" />
-<strong>Role:</strong> Cloud Solutions Architect<br />
-<strong>Skills:</strong> AWS VPC, Subnets, Routing, Security Groups, VPC Flow Logs, CloudWatch</p>
-  </li>
-  <li>
-    <p><a href="/projects/cloud/vpc-networking/">Café VPC Networking Environment</a>
-<img src="/assets/images/projects/cloud/vpc-networking/image8.png" alt="Café VPC" />
-<strong>Role:</strong> Cloud Solutions Architect<br />
-<strong>Skills:</strong> AWS VPC, Public &amp; Private Subnets, Bastion Host, NAT Gateway, Security Groups, Network ACLs</p>
-  </li>
-  <li>
-    <p><a href="/projects/cloud/cafe-autoscaling/">Scalable and Highly Available Web Application for Café</a>
-<img src="/assets/images/projects/cloud/cafe-autoscaling/image8.png" alt="Café Auto Scaling" />
-<strong>Role:</strong> Cloud Solutions Architect<br />
-<strong>Skills:</strong> AWS VPC, EC2 Auto Scaling, Application Load Balancer (ALB), Launch Templates, NAT Gateway, CloudWatch, Systems Manager</p>
-  </li>
-  <li>
-    <p><a href="/projects/cloud/high-availability-app/">Highly Available Web Application on AWS</a>
-<img src="/assets/images/projects/cloud/high-availability-app/image7.png" alt="High Availability App" />
-<strong>Role:</strong> Cloud Solutions Architect<br />
-<strong>Skills:</strong> AWS VPC, EC2, Auto Scaling, Application Load Balancer, Security Groups, RDS, High Availability Design</p>
-  </li>
+  <li>Created replication rule: <code class="language-plaintext highlighter-rouge">crr-full-bucket</code></li>
+  <li>Applied rule to all objects</li>
+  <li>Selected Oregon bucket as destination</li>
+  <li>Assigned IAM replication role</li>
+  <li>Uploaded test file and confirmed replication</li>
 </ul>
+
+<p><img src="./assets/images/image6.png" alt="CRR Rule" /></p>
+
+<p><img src="./assets/images/image8.png" alt="Replication Verified" /></p>
+
+<hr />
+
+<h3 id="4-configured-s3-file-gateway-and-created-an-nfs-file-share">4. Configured S3 File Gateway and Created an NFS File Share</h3>
+
+<ul>
+  <li>Gateway Type: Amazon S3 File Gateway</li>
+  <li>Host Platform: Amazon EC2</li>
+  <li>Instance Type: t2.xlarge</li>
+  <li>Cache Storage: 150 GiB</li>
+  <li>VPC/Subnet: On-Prem-VPC / On-Prem-Subnet</li>
+  <li>Security Groups: FileGatewayAccess, OnPremSshAccess</li>
+</ul>
+
+<p>Activated the gateway and confirmed status changed to <strong>Running</strong>.</p>
+
+<p>Created an NFS file share:</p>
+<ul>
+  <li>Linked to primary (Ohio) bucket</li>
+  <li>Storage class: S3 Standard</li>
+  <li>IAM role configured</li>
+</ul>
+
+<p><img src="./assets/images/image9.png" alt="Gateway Running" /></p>
+
+<p><img src="./assets/images/image3.png" alt="File Share Summary" /></p>
+
+<p>Example NFS mount command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount -t nfs -o nolock,hard 10.10.1.135:/fao-primary-123 /mnt/nfs/s3
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="5-mounted-the-file-share-and-migrated-data">5. Mounted the File Share and Migrated Data</h3>
+
+<p>Verified source data:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ls /media/data
+</code></pre></div></div>
+
+<p>Created mount directory:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mkdir -p /mnt/nfs/s3
+</code></pre></div></div>
+
+<p>Mounted NFS share:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount -t nfs -o nolock,hard 10.10.1.33:/lab-nfs-bucket /mnt/nfs/s3
+</code></pre></div></div>
+
+<p>Verified mount:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>df -h
+</code></pre></div></div>
+
+<p>Copied image files:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cp -v /media/data/*.png /mnt/nfs/s3
+</code></pre></div></div>
+
+<p><img src="./assets/images/image4.png" alt="Mounted NFS Share" /></p>
+
+<p><img src="./assets/images/image10.png" alt="Copy Output" /></p>
+
+<hr />
+
+<h3 id="6-verified-data-migration-and-replication">6. Verified Data Migration and Replication</h3>
+
+<ul>
+  <li>Confirmed 20 image files present in source (Ohio) bucket.</li>
+  <li>Verified automatic replication in destination (Oregon) bucket.</li>
+  <li>Validated hybrid path: Linux → NFS → S3 (Ohio) → CRR → S3 (Oregon)</li>
+</ul>
+
+<p><img src="./assets/images/image12.png" alt="Source Images" /></p>
+
+<p><img src="./assets/images/image11.png" alt="Destination Images" /></p>
+
+<hr />
+
+<h2 id="outcome--impact">Outcome &amp; Impact</h2>
+
+<ul>
+  <li>Successfully implemented a hybrid storage integration model.</li>
+  <li>Demonstrated enterprise-style migration from on-prem file server to AWS.</li>
+  <li>Implemented multi-region disaster recovery via CRR.</li>
+  <li>Validated secure, scalable, and resilient data architecture.</li>
+</ul>
+
+<hr />
+
+<p><a href="/projects/">Back to Projects</a></p>
 
         
       </section>
