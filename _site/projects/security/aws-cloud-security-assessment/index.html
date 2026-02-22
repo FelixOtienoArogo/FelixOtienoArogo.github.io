@@ -1,0 +1,635 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Conducting a Cloud Misconfiguration &amp; Privilege Escalation Security Assessment on AWS - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Conducting a Cloud Misconfiguration &amp; Privilege Escalation Security Assessment on AWS">
+<meta property="og:url" content="http://localhost:4000/projects/security/aws-cloud-security-assessment/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/security/aws-cloud-security-assessment/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Conducting a Cloud Misconfiguration &amp; Privilege Escalation Security Assessment on AWS">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/projects/security/aws-cloud-security-assessment/" itemprop="url">Conducting a Cloud Misconfiguration &amp; Privilege Escalation Security Assessment on AWS
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="project-aws-cloud-security-posture--misconfiguration-assessment">Project: AWS Cloud Security Posture &amp; Misconfiguration Assessment</h2>
+
+<p><strong>Timeline:</strong> August 2025<br />
+<strong>Role:</strong> Cloud Security Analyst (Offensive Security &amp; Risk Analysis)<br />
+<strong>Focus:</strong> IAM Privilege Escalation, Data Exposure, Metadata Exploitation, Cloud Reconnaissance<br />
+<strong>Tools:</strong> AWS CLI, Git, Linux, EC2, IAM, S3, EBS, Lambda</p>
+
+<hr />
+
+<h2 id="executive-summary">Executive Summary</h2>
+
+<p>Conducted a structured security assessment of intentionally misconfigured AWS environments to identify and analyze common cloud security weaknesses.</p>
+
+<p>The engagement simulated real-world cloud attack vectors, including:</p>
+
+<ul>
+  <li>Public S3 exposure</li>
+  <li>IAM credential leakage</li>
+  <li>Git history secret discovery</li>
+  <li>Snapshot data recovery</li>
+  <li>Metadata service exploitation (SSRF)</li>
+  <li>Privilege discovery via SecurityAudit permissions</li>
+</ul>
+
+<p>The objective was to evaluate attack paths, identify privilege escalation vectors, and derive remediation strategies aligned with AWS security best practices.</p>
+
+<hr />
+
+<h2 id="assessment-scope">Assessment Scope</h2>
+
+<p>The assessment covered:</p>
+
+<ul>
+  <li>Amazon S3 storage exposure</li>
+  <li>IAM policy misconfiguration</li>
+  <li>EC2 snapshot recovery risks</li>
+  <li>Instance metadata exploitation</li>
+  <li>Lambda enumeration</li>
+  <li>API Gateway discovery</li>
+  <li>Cross-service privilege chaining</li>
+</ul>
+
+<hr />
+
+<h1 id="phase-1-cloud-reconnaissance--public-exposure">Phase 1: Cloud Reconnaissance &amp; Public Exposure</h1>
+
+<p>Performed DNS analysis and AWS ownership verification.</p>
+
+<p>Commands used:</p>
+
+<p>dig flaws.cloud<br />
+nslookup flaws.cloud<br />
+aws s3 ls s3://flaws.cloud/ –no-sign-request</p>
+
+<p><img src="./assets/images/image30.png" alt="DNS Enumeration Output" /></p>
+
+<p>Identified publicly accessible S3 buckets allowing anonymous listing and download.</p>
+
+<p><img src="./assets/images/image2.png" alt="Public S3 Bucket Listing" /></p>
+
+<h3 id="security-risks-identified">Security Risks Identified</h3>
+
+<ul>
+  <li>Unrestricted bucket listing</li>
+  <li>Sensitive file exposure</li>
+  <li>Lack of S3 Block Public Access enforcement</li>
+</ul>
+
+<hr />
+
+<h1 id="phase-2-unauthorized-authenticated-access">Phase 2: Unauthorized Authenticated Access</h1>
+
+<p>Assessed misuse of IAM credentials and profile-based access.</p>
+
+<p>aws s3 ls s3://level2-c8b217a33fcf1f839f6f1f73a00a9ae7.flaws.cloud –profile bilbo</p>
+
+<p><img src="./assets/images/image35.png" alt="IAM Profile S3 Access" /></p>
+
+<p>Confirmed improperly scoped IAM policies allowed unauthorized data access.</p>
+
+<h3 id="security-risks-identified-1">Security Risks Identified</h3>
+
+<ul>
+  <li>Excessive S3 permissions</li>
+  <li>Absence of least-privilege enforcement</li>
+  <li>Weak credential governance</li>
+</ul>
+
+<hr />
+
+<h1 id="phase-3-credential-leakage-via-git-history">Phase 3: Credential Leakage via Git History</h1>
+
+<p>Downloaded exposed repository content and analyzed commit history.</p>
+
+<p>git log<br />
+git checkout f52ec03b227ea6094b04e43f475fb0126edb5a61<br />
+cat access_keys.txt</p>
+
+<p><img src="./assets/images/image1.png" alt="Git History Revealing Secrets" /></p>
+
+<p>Configured compromised credentials:</p>
+
+<p>aws configure –profile leakkeys<br />
+aws –profile leakkeys s3 ls</p>
+
+<p><img src="./assets/images/image39.png" alt="Leaked Credentials Access Validation" /></p>
+
+<h3 id="security-risks-identified-2">Security Risks Identified</h3>
+
+<ul>
+  <li>Hardcoded credentials in version control</li>
+  <li>No secret scanning controls</li>
+  <li>Lack of key rotation enforcement</li>
+  <li>Over-permissioned IAM users</li>
+</ul>
+
+<hr />
+
+<h1 id="phase-4-ebs-snapshot-data-recovery">Phase 4: EBS Snapshot Data Recovery</h1>
+
+<p>Enumerated publicly shared EBS snapshots:</p>
+
+<p>aws ec2 describe-snapshots –owner-id 975426262029 –region us-west-2</p>
+
+<p><img src="./assets/images/image26.png" alt="Public Snapshot Enumeration" /></p>
+
+<p>Restored snapshot into a controlled AWS environment and mounted it to an EC2 instance.</p>
+
+<p><img src="./assets/images/image8.png" alt="Mounted Restored EBS Volume" /></p>
+
+<p>Recovered sensitive configuration files and credentials from the mounted filesystem.</p>
+
+<p><img src="./assets/images/image13.png" alt="Recovered Sensitive Files" /></p>
+
+<h3 id="security-risks-identified-3">Security Risks Identified</h3>
+
+<ul>
+  <li>Public snapshot sharing</li>
+  <li>Absence of encryption enforcement</li>
+  <li>Improper snapshot governance</li>
+  <li>Exposure of sensitive configuration data</li>
+</ul>
+
+<hr />
+
+<h1 id="phase-5-metadata-service-exploitation-ssrf">Phase 5: Metadata Service Exploitation (SSRF)</h1>
+
+<p>Exploited SSRF vulnerability to access EC2 Instance Metadata Service.</p>
+
+<p>Accessed:</p>
+
+<p>http://169.254.169.254/latest/meta-data/iam/security-credentials/</p>
+
+<p><img src="./assets/images/image36.png" alt="Metadata Service Role Enumeration" /></p>
+
+<p>Extracted temporary IAM credentials.</p>
+
+<p><img src="./assets/images/image29.png" alt="Extracted Temporary Credentials" /></p>
+
+<p>Used credentials to access restricted S3 resources.</p>
+
+<p><img src="./assets/images/image27.png" alt="S3 Access via Metadata Role" /></p>
+
+<h3 id="security-risks-identified-4">Security Risks Identified</h3>
+
+<ul>
+  <li>IMDSv1 exposure</li>
+  <li>Role over-permissioning</li>
+  <li>Lack of metadata access restrictions</li>
+  <li>Inadequate instance isolation</li>
+</ul>
+
+<hr />
+
+<h1 id="phase-6-privilege-discovery-via-securityaudit-access">Phase 6: Privilege Discovery via SecurityAudit Access</h1>
+
+<p>Performed IAM policy inspection and service enumeration.</p>
+
+<p>aws iam get-policy<br />
+aws iam get-policy-version<br />
+aws lambda list-functions –region us-west-2</p>
+
+<p><img src="./assets/images/image32.png" alt="IAM Policy Inspection" /></p>
+
+<p>Enumerated Lambda functions and additional services.</p>
+
+<p><img src="./assets/images/image34.png" alt="Lambda Enumeration Output" /></p>
+
+<p>Mapped potential privilege escalation pathways.</p>
+
+<h3 id="security-risks-identified-5">Security Risks Identified</h3>
+
+<ul>
+  <li>Policy version mismanagement</li>
+  <li>Indirect privilege escalation</li>
+  <li>Excessively permissive audit roles</li>
+</ul>
+
+<hr />
+
+<h1 id="attack-chain-summary">Attack Chain Summary</h1>
+
+<p>The assessment demonstrated chained exploitation:</p>
+
+<p>Public Exposure → Credential Leak → Role Assumption → Snapshot Recovery → Metadata Exploitation → Policy Enumeration → Service Discovery</p>
+
+<p><img src="./assets/images/attack_path.png" alt="Attack Path Diagram" /></p>
+
+<p>This highlights how isolated misconfigurations compound into enterprise-scale compromise.</p>
+
+<hr />
+
+<h1 id="security-remediation-recommendations">Security Remediation Recommendations</h1>
+
+<ul>
+  <li>Enforce S3 Block Public Access globally</li>
+  <li>Implement IAM least-privilege policies</li>
+  <li>Enforce IMDSv2</li>
+  <li>Encrypt EBS volumes &amp; restrict snapshot sharing</li>
+  <li>Use AWS Secrets Manager</li>
+  <li>Enable organization-wide CloudTrail logging</li>
+  <li>Implement AWS Config compliance rules</li>
+  <li>Apply SCP guardrails via AWS Organizations</li>
+  <li>Automate security posture monitoring</li>
+</ul>
+
+<hr />
+
+<h1 id="security-competencies-demonstrated">Security Competencies Demonstrated</h1>
+
+<ul>
+  <li>Cloud reconnaissance</li>
+  <li>IAM privilege escalation analysis</li>
+  <li>Snapshot data recovery investigation</li>
+  <li>Metadata exploitation awareness</li>
+  <li>Policy evaluation &amp; governance</li>
+  <li>Cross-service attack path mapping</li>
+  <li>Risk mitigation planning</li>
+</ul>
+
+<hr />
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>This assessment demonstrated how common AWS misconfigurations can enable privilege escalation and data exposure when governance controls are absent.</p>
+
+<p>The exercise strengthened expertise in:</p>
+
+<ul>
+  <li>Cloud attack surface analysis</li>
+  <li>Identity and access security</li>
+  <li>Metadata risk modeling</li>
+  <li>Storage exposure mitigation</li>
+  <li>Zero Trust cloud architecture principles</li>
+</ul>
+
+<hr />
+
+<p><a href="/projects/">Back to Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
