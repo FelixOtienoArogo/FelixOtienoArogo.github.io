@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Security Projects - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<!-- begin _includes/seo.html --><title>Serverless Security Assessment: IAM Privilege Escalation via Vulnerable AWS Lambda - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
 <meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
 
 
@@ -21,8 +21,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
-<meta property="og:title" content="Security Projects">
-<meta property="og:url" content="http://localhost:4000/projects/security/">
+<meta property="og:title" content="Serverless Security Assessment: IAM Privilege Escalation via Vulnerable AWS Lambda">
+<meta property="og:url" content="http://localhost:4000/projects/security/serverless-privilege-escalation/">
 
 
   <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
@@ -38,7 +38,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/projects/security/">
+<link rel="canonical" href="http://localhost:4000/projects/security/serverless-privilege-escalation/">
 
 
 
@@ -285,7 +285,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Security Projects">
+    <meta itemprop="headline" content="Serverless Security Assessment: IAM Privilege Escalation via Vulnerable AWS Lambda">
     
     
     
@@ -294,7 +294,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/projects/security/" itemprop="url">Security Projects
+            <a href="http://localhost:4000/projects/security/serverless-privilege-escalation/" itemprop="url">Serverless Security Assessment: IAM Privilege Escalation via Vulnerable AWS Lambda
 </a>
           </h1>
           
@@ -305,75 +305,211 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="security-projects">Security Projects</h2>
+        <h2 id="project-serverless-privilege-escalation-via-insecure-lambda-function">Project: Serverless Privilege Escalation via Insecure Lambda Function</h2>
 
-<p>Welcome to my security portfolio. This section showcases hands-on projects focused on cloud security, identity architecture, threat detection, encryption, network segmentation, privilege management, and governance across AWS and Azure environments.</p>
+<p><strong>Timeline:</strong> July 2025<br />
+<strong>Role:</strong> Cloud Security Analyst (Application &amp; IAM Security Assessment)<br />
+<strong>Focus:</strong> IAM Role Assumption, Serverless Code Vulnerabilities, Privilege Escalation, Secrets Exposure<br />
+<strong>Tools:</strong> AWS CLI, IAM, Lambda, Secrets Manager, CloudGoat</p>
 
 <hr />
 
-<h3 id="cloud-security-assessment--governance">Cloud Security Assessment &amp; Governance</h3>
+<h2 id="executive-summary">Executive Summary</h2>
+
+<p>Conducted a structured security assessment of a vulnerable AWS Lambda function to evaluate risks associated with insecure serverless development practices.</p>
+
+<p>Starting from a low-privileged IAM user (<code class="language-plaintext highlighter-rouge">bilbo</code>), I identified a Lambda function that dynamically applied IAM policies based on unsanitized user input. By crafting a malicious payload, I was able to escalate privileges to administrator level and access sensitive secrets stored in AWS Secrets Manager.</p>
+
+<p>The exercise demonstrated how improper input validation in serverless functions can lead to full account compromise.</p>
+
+<hr />
+
+<h2 id="assessment-scope">Assessment Scope</h2>
+
+<p>The security analysis covered:</p>
 
 <ul>
-  <li>
-    <p><a href="/projects/security/aws-cloud-security-assessment/">Conducting a Cloud Misconfiguration &amp; Privilege Escalation Security Assessment on AWS</a>
-<img src="/assets/images/projects/security/aws-cloud-security-assessment/flaws.png" alt="AWS Cloud Security Assessment" />
-<strong>Role:</strong> Cloud Security Analyst (Offensive Security &amp; Risk Analysis)<br />
-<strong>Focus:</strong> IAM Privilege Escalation, Snapshot Exposure, Metadata Exploitation, Cloud Attack Surface Analysis<br />
-<strong>Skills:</strong> AWS IAM, Amazon S3, EC2 Snapshots, Instance Metadata Service (IMDS), AWS CLI, Policy Inspection, Privilege Escalation Analysis, Risk Mitigation Strategy</p>
-  </li>
-  <li>
-    <p><a href="/projects/security/serverless-privilege-escalation/">Serverless Security Assessment: IAM Privilege Escalation via Vulnerable AWS Lambda</a>
-<img src="/assets/images/projects/security/serverless-privilege-escalation/vulnerable_lambda.png" alt="Serverless Privilege Escalation" />
-<strong>Role:</strong> Cloud Security Analyst (Serverless Application Security &amp; IAM Assessment)<br />
-<strong>Focus:</strong> Lambda Code Vulnerability Analysis, Role Assumption Exploitation, Policy Injection, Secrets Exposure<br />
-<strong>Skills:</strong> AWS Lambda, IAM Role Assumption, AWS Secrets Manager, SQL Injection Analysis, Privilege Escalation Path Mapping, Secure Coding Review</p>
-  </li>
+  <li>IAM user permissions enumeration</li>
+  <li>Role discovery and trust relationship analysis</li>
+  <li>Lambda invocation permissions</li>
+  <li>Lambda source code review</li>
+  <li>Injection vulnerability exploitation</li>
+  <li>Secrets Manager access escalation</li>
 </ul>
 
 <hr />
 
-<h3 id="azure-security--monitoring-architecture">Azure Security &amp; Monitoring Architecture</h3>
+<h1 id="phase-1-iam-enumeration--permission-analysis">Phase 1: IAM Enumeration &amp; Permission Analysis</h1>
+
+<p>Confirmed current identity:</p>
+
+<p>aws sts get-caller-identity</p>
+
+<p>Reviewed attached user policies and permissions.</p>
+
+<p><img src="./assets/images/image5.png" alt="IAM User Policy Details" /></p>
+
+<p>Identified ability to assume additional roles.</p>
+
+<hr />
+
+<h1 id="phase-2-role-discovery--assumption">Phase 2: Role Discovery &amp; Assumption</h1>
+
+<p>Enumerated available roles:</p>
+
+<p>aws iam list-roles</p>
+
+<p>Identified role:<br />
+<code class="language-plaintext highlighter-rouge">cg-lambda-invoker-&lt;id&gt;</code></p>
+
+<p>Reviewed attached policies and trust relationships.</p>
+
+<p><img src="./assets/images/image9.png" alt="Role Policy Inspection" /></p>
+
+<p>Assumed privileged role:</p>
+
+<p>aws sts assume-role</p>
+
+<p>Validated temporary credentials and access scope.</p>
+
+<hr />
+
+<h1 id="phase-3-lambda-enumeration">Phase 3: Lambda Enumeration</h1>
+
+<p>Listed Lambda functions:</p>
+
+<p>aws lambda list-functions</p>
+
+<p>Identified target vulnerable Lambda function.</p>
+
+<p><img src="./assets/images/image3.png" alt="Lambda Enumeration Output" /></p>
+
+<p>Retrieved function metadata and execution role details.</p>
+
+<hr />
+
+<h1 id="phase-4-source-code-analysis">Phase 4: Source Code Analysis</h1>
+
+<p>Downloaded and reviewed Lambda function code.</p>
+
+<p>Observed vulnerable logic:</p>
+
+<p>Statement = f”select policy_name from policies where policy_name=’{policy}’ and public=’True’”</p>
+
+<p>The function dynamically constructed database queries using unsanitized input.</p>
+
+<h3 id="security-weakness-identified">Security Weakness Identified</h3>
 
 <ul>
-  <li><a href="/projects/security/azure-monitoring/">Azure Security and Monitoring Implementation</a>
-<img src="/assets/images/projects/security/azure-monitoring/image1.png" alt="Azure Security Monitoring" />
-<strong>Role:</strong> Cloud Security Engineer<br />
-<strong>Focus:</strong> Centralized Monitoring, Threat Detection &amp; Incident Response<br />
-<strong>Skills:</strong> Azure Monitor, Log Analytics, Microsoft Sentinel, KQL, Logic Apps, Microsoft Defender for Cloud, Just-In-Time VM Access</li>
+  <li>SQL injection vulnerability</li>
+  <li>Lack of input validation</li>
+  <li>Direct policy manipulation</li>
+  <li>Improper trust boundary enforcement</li>
+</ul>
+
+<p><img src="./assets/images/image2.png" alt="Lambda Code Showing Vulnerability" /></p>
+
+<hr />
+
+<h1 id="phase-5-exploitation--privilege-escalation">Phase 5: Exploitation &amp; Privilege Escalation</h1>
+
+<p>Crafted injection payload to bypass policy restrictions.</p>
+
+<p>Invoked Lambda with malicious input:</p>
+
+<p>aws lambda invoke –payload ‘<injection_payload>'</injection_payload></p>
+
+<p><img src="./assets/images/image4.png" alt="Injection Payload Execution" /></p>
+
+<p>Successfully escalated IAM user privileges to Administrator.</p>
+
+<p>Verified expanded access:</p>
+
+<p>aws iam list-attached-user-policies</p>
+
+<hr />
+
+<h1 id="phase-6-secrets-manager-access">Phase 6: Secrets Manager Access</h1>
+
+<p>With elevated privileges, enumerated secrets:</p>
+
+<p>aws secretsmanager list-secrets</p>
+
+<p><img src="./assets/images/image1.png" alt="Secrets Enumeration" /></p>
+
+<p>Retrieved secret value:</p>
+
+<p>aws secretsmanager get-secret-value</p>
+
+<p><img src="./assets/images/image8.png" alt="Secret Retrieval" /></p>
+
+<hr />
+
+<h1 id="attack-path-summary">Attack Path Summary</h1>
+
+<p>Low-Privilege IAM User → Role Assumption → Lambda Code Analysis → Injection Exploit → Policy Escalation → Secrets Manager Access</p>
+
+<p>This demonstrated how insecure serverless code can compromise IAM boundaries and lead to full administrative access.</p>
+
+<hr />
+
+<h1 id="security-risks-identified">Security Risks Identified</h1>
+
+<ul>
+  <li>Insecure dynamic query construction</li>
+  <li>Lack of input validation</li>
+  <li>Over-permissioned Lambda execution role</li>
+  <li>Weak separation of trust boundaries</li>
+  <li>Insufficient policy scoping</li>
 </ul>
 
 <hr />
 
-<h3 id="network-security-architecture">Network Security Architecture</h3>
+<h1 id="remediation-recommendations">Remediation Recommendations</h1>
 
 <ul>
-  <li>
-    <p><a href="/projects/security/azure-firewall/">Implementing Network Security with Azure Firewall</a>
-<img src="/assets/images/projects/security/azure-firewall/image1.png" alt="Azure Firewall" />
-<strong>Role:</strong> Cloud Security Engineer<br />
-<strong>Focus:</strong> Network Segmentation &amp; Traffic Inspection<br />
-<strong>Skills:</strong> Azure Firewall, Network Rules, Application Rules, DNS Configuration, Route Tables, Azure Virtual Networks</p>
-  </li>
-  <li>
-    <p><a href="/projects/security/azure-nsg-asg/">Implementing Network Security with Azure NSGs and ASGs</a>
-<img src="/assets/images/projects/security/azure-nsg-asg/network-security-group-interaction.png" alt="Azure Network Security" />
-<strong>Role:</strong> Cloud Security Engineer<br />
-<strong>Focus:</strong> Access Control &amp; Network-Level Isolation<br />
-<strong>Skills:</strong> Azure Networking, Network Security Groups (NSG), Application Security Groups (ASG), RDP &amp; Web Traffic Filtering</p>
-  </li>
+  <li>Enforce strict input validation</li>
+  <li>Use parameterized queries</li>
+  <li>Apply IAM least privilege to Lambda roles</li>
+  <li>Separate policy management functions</li>
+  <li>Implement logging &amp; anomaly detection</li>
+  <li>Conduct regular serverless code reviews</li>
+  <li>Enable CloudTrail monitoring for privilege changes</li>
 </ul>
 
 <hr />
 
-<h3 id="data-protection--encryption">Data Protection &amp; Encryption</h3>
+<h1 id="security-competencies-demonstrated">Security Competencies Demonstrated</h1>
 
 <ul>
-  <li><a href="/projects/security/azure-keyvault-encryption/">Implementing Data Encryption with Azure Key Vault and SQL Always Encrypted</a>
-<img src="/assets/images/projects/security/azure-keyvault-encryption/Picture1-2.png" alt="Azure Key Vault and Encryption" />
-<strong>Role:</strong> Cloud Security Engineer<br />
-<strong>Focus:</strong> Data Encryption &amp; Secure Key Management<br />
-<strong>Skills:</strong> Azure Key Vault, SQL Always Encrypted, Data Protection, Application Authentication, Microsoft Entra ID, ARM Templates</li>
+  <li>IAM role assumption analysis</li>
+  <li>Trust relationship inspection</li>
+  <li>Serverless code vulnerability review</li>
+  <li>Privilege escalation path mapping</li>
+  <li>Secrets exposure assessment</li>
+  <li>Cloud-native application security</li>
 </ul>
+
+<hr />
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>This assessment highlighted how insecure coding practices in serverless architectures can undermine IAM security controls.</p>
+
+<p>The exercise reinforced the importance of:</p>
+
+<ul>
+  <li>Secure software development practices</li>
+  <li>Least privilege IAM enforcement</li>
+  <li>Strict boundary control between user input and policy logic</li>
+  <li>Continuous cloud security monitoring</li>
+</ul>
+
+<p>It demonstrates practical understanding of application-layer security risks in AWS serverless environments.</p>
+
+<hr />
+
+<p><a href="/projects/security/">Back to Security Projects</a></p>
 
         
       </section>

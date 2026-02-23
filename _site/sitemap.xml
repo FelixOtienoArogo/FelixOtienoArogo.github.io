@@ -67,6 +67,9 @@
 <loc>http://localhost:4000/projects/security/azure-nsg-asg/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/projects/security/serverless-privilege-escalation/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/projects/security/</loc>
 </url>
 <url>
