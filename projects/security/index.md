@@ -28,7 +28,6 @@ Welcome to my security portfolio. This section showcases hands-on projects focus
   **Focus:** Lambda Code Vulnerability Analysis, Role Assumption Exploitation, Policy Injection, Secrets Exposure  
   **Skills:** AWS Lambda, IAM Role Assumption, AWS Secrets Manager, SQL Injection Analysis, Privilege Escalation Path Mapping, Secure Coding Review
 
-
 - [AWS IAM Privilege Escalation Assessment: Policy Version Rollback Abuse (CloudGoat)](/projects/security/iam-privesc-by-rollback/)
   ![IAM Policy Rollback](/assets/images/projects/security/iam-privesc-by-rollback/scenario1-9.png)
   **Role:** Cloud Security Analyst (IAM Governance & Privilege Escalation Assessment)  
@@ -49,11 +48,17 @@ Welcome to my security portfolio. This section showcases hands-on projects focus
 
 ### Network Security Architecture
 
+- [Secure Network Connectivity Architecture: Site-to-Site IPsec VPN Implementation](/projects/security/site-to-site-ipsec-vpn/)
+  ![Site-to-Site IPsec VPN](/assets/images/projects/security/site-to-site-ipsec-vpn/cisco-routers-s2s-ipsec-vpn-1.png)
+  **Role:** Network & Cloud Security Engineer  
+  **Focus:** Network-Layer Encryption, Secure Tunnel Establishment, IPsec & ISAKMP Configuration  
+  **Skills:** IPsec, ISAKMP (IKEv1), Cisco IOS, Crypto Maps, ACL-Based Traffic Classification, Secure Tunnel Verification
+
 - [Implementing Network Security with Azure Firewall](/projects/security/azure-firewall/)
   ![Azure Firewall](/assets/images/projects/security/azure-firewall/image1.png)
   **Role:** Cloud Security Engineer  
   **Focus:** Network Segmentation & Traffic Inspection  
-  **Skills:** Azure Firewall, Network Rules, Application Rules, DNS Configuration, Route Tables, Azure Virtual Networks 
+  **Skills:** Azure Firewall, Network Rules, Application Rules, DNS Configuration, Route Tables, Azure Virtual Networks
 
 - [Implementing Network Security with Azure NSGs and ASGs](/projects/security/azure-nsg-asg/)
   ![Azure Network Security](/assets/images/projects/security/azure-nsg-asg/network-security-group-interaction.png)

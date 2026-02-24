@@ -1,0 +1,623 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Secure Network Connectivity Architecture: Site-to-Site IPsec VPN Implementation - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Secure Network Connectivity Architecture: Site-to-Site IPsec VPN Implementation">
+<meta property="og:url" content="http://localhost:4000/projects/security/site-to-site-ipsec-vpn/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/security/site-to-site-ipsec-vpn/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Secure Network Connectivity Architecture: Site-to-Site IPsec VPN Implementation">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/projects/security/site-to-site-ipsec-vpn/" itemprop="url">Secure Network Connectivity Architecture: Site-to-Site IPsec VPN Implementation
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="project-site-to-site-ipsec-vpn-configuration--verification">Project: Site-to-Site IPsec VPN Configuration &amp; Verification</h2>
+
+<p><strong>Timeline:</strong> June 2025<br />
+<strong>Role:</strong> Network &amp; Cloud Security Engineer<br />
+<strong>Focus:</strong> Network-Layer Encryption, Secure Tunnel Establishment, IPsec &amp; ISAKMP Configuration<br />
+<strong>Technologies:</strong> Cisco IOS, IPsec, ISAKMP (IKEv1), ACLs, Crypto Maps</p>
+
+<hr />
+
+<h2 id="executive-summary">Executive Summary</h2>
+
+<p>Designed and configured a <strong>site-to-site IPsec VPN tunnel</strong> between two remote networks using Cisco routers to secure communication over an untrusted intermediary network.</p>
+
+<p>The implementation included:</p>
+
+<ul>
+  <li>Enabling router security features</li>
+  <li>Configuring ISAKMP Phase 1 (IKE negotiation)</li>
+  <li>Configuring IPsec Phase 2 parameters</li>
+  <li>Defining interesting traffic using ACLs</li>
+  <li>Applying crypto maps to outbound interfaces</li>
+  <li>Verifying encrypted traffic using security associations</li>
+</ul>
+
+<p>This project demonstrates practical knowledge of encrypted network connectivity and secure inter-site communication.</p>
+
+<hr />
+
+<h1 id="architecture-overview">Architecture Overview</h1>
+
+<p>The topology consisted of:</p>
+
+<ul>
+  <li><strong>R1 (Site A)</strong></li>
+  <li><strong>R2 (Untrusted Transit Network)</strong></li>
+  <li><strong>R3 (Site B)</strong></li>
+</ul>
+
+<p>Two remote LANs were connected securely through an IPsec tunnel established between R1 and R3.</p>
+
+<p><img src="./assets/images/image20.png" alt="VPN Network Topology" /></p>
+
+<hr />
+
+<h1 id="part-1-enabling-security-features">Part 1: Enabling Security Features</h1>
+
+<h2 id="step-1-verify-security-license">Step 1: Verify Security License</h2>
+
+<p>Checked whether security features were enabled:</p>
+
+<p>show license</p>
+
+<p>Security initially disabled.</p>
+
+<p><img src="./assets/images/image5.png" alt="Security Disabled Output" /></p>
+
+<hr />
+
+<h2 id="step-2-enable-securityk9">Step 2: Enable Securityk9</h2>
+
+<p>Enabled security package:</p>
+
+<p>license boot module c1900 technology-package securityk9</p>
+
+<p>Verified activation.</p>
+
+<p><img src="./assets/images/image13.png" alt="Security Enabled Output" /></p>
+
+<p>Repeated the same steps on R3.</p>
+
+<hr />
+
+<h1 id="part-2-configuring-ipsec-on-r1">Part 2: Configuring IPsec on R1</h1>
+
+<hr />
+
+<h2 id="step-1-test-initial-connectivity">Step 1: Test Initial Connectivity</h2>
+
+<p>Before configuration:</p>
+
+<p>Ping from PC-A → PC-C<br />
+Traffic passed in cleartext (no encryption).</p>
+
+<p><img src="./assets/images/image14.png" alt="Initial Ping Test" /></p>
+
+<hr />
+
+<h2 id="step-2-define-interesting-traffic">Step 2: Define Interesting Traffic</h2>
+
+<p>Configured ACL 110 to identify LAN-to-LAN traffic:</p>
+
+<p>access-list 110 permit ip <LAN-R1> <LAN-R3></LAN-R3></LAN-R1></p>
+
+<p>This ensures only specified traffic is encrypted.</p>
+
+<p><img src="./assets/images/image16.png" alt="ACL Configuration" /></p>
+
+<hr />
+
+<h2 id="step-3-configure-isakmp-phase-1">Step 3: Configure ISAKMP (Phase 1)</h2>
+
+<p>Configured IKE Phase 1 parameters:</p>
+
+<ul>
+  <li>Encryption: 3DES</li>
+  <li>Hash: SHA</li>
+  <li>Authentication: Pre-shared key</li>
+  <li>DH Group</li>
+  <li>Lifetime</li>
+</ul>
+
+<p>Configured shared key:</p>
+
+<p>crypto isakmp key cisco address <peer-ip></peer-ip></p>
+
+<p><img src="./assets/images/image10.png" alt="ISAKMP Policy Configuration" /></p>
+
+<hr />
+
+<h2 id="step-4-configure-ipsec-phase-2">Step 4: Configure IPsec (Phase 2)</h2>
+
+<p>Created transform set:</p>
+
+<p>crypto ipsec transform-set VPN-SET esp-3des esp-sha-hmac</p>
+
+<p>Created crypto map:</p>
+
+<p>crypto map VPN-MAP 10 ipsec-isakmp<br />
+ set peer <peer-ip>  
+ set transform-set VPN-SET  
+ match address 110</peer-ip></p>
+
+<p><img src="./assets/images/image9.png" alt="Transform Set Configuration" /></p>
+
+<hr />
+
+<h2 id="step-5-apply-crypto-map">Step 5: Apply Crypto Map</h2>
+
+<p>Bound crypto map to outbound interface:</p>
+
+<p>interface Serial0/0/0<br />
+ crypto map VPN-MAP</p>
+
+<p><img src="./assets/images/image12.png" alt="Crypto Map Applied" /></p>
+
+<hr />
+
+<h1 id="part-3-mirror-configuration-on-r3">Part 3: Mirror Configuration on R3</h1>
+
+<p>Performed reciprocal configuration:</p>
+
+<ul>
+  <li>Defined matching ACL</li>
+  <li>Configured ISAKMP policy</li>
+  <li>Configured transform set</li>
+  <li>Created crypto map</li>
+  <li>Applied crypto map to outbound interface</li>
+</ul>
+
+<p><img src="./assets/images/image4.png" alt="R3 Configuration Output" /></p>
+
+<hr />
+
+<h1 id="part-4-tunnel-verification">Part 4: Tunnel Verification</h1>
+
+<hr />
+
+<h2 id="step-1-verify-before-traffic">Step 1: Verify Before Traffic</h2>
+
+<p>show crypto ipsec sa</p>
+
+<p>No active Security Associations.</p>
+
+<p><img src="./assets/images/image11.png" alt="IPsec SA Before Traffic" /></p>
+
+<hr />
+
+<h2 id="step-2-generate-interesting-traffic">Step 2: Generate Interesting Traffic</h2>
+
+<p>Ping PC-C from PC-A.</p>
+
+<p>This triggered ISAKMP negotiation and IPsec tunnel creation.</p>
+
+<hr />
+
+<h2 id="step-3-verify-encrypted-traffic">Step 3: Verify Encrypted Traffic</h2>
+
+<p>show crypto ipsec sa</p>
+
+<p>Observed:</p>
+
+<ul>
+  <li>Encapsulated packets</li>
+  <li>Encrypted packets</li>
+  <li>Decapsulated packets</li>
+</ul>
+
+<p><img src="./assets/images/image2.png" alt="IPsec SA After Traffic" /></p>
+
+<hr />
+
+<h2 id="step-4-verify-uninteresting-traffic">Step 4: Verify Uninteresting Traffic</h2>
+
+<p>Ping PC-B from PC-A.</p>
+
+<p>No change in encryption counters — confirming only defined traffic is encrypted.</p>
+
+<p><img src="./assets/images/image3.png" alt="Uninteresting Traffic Test" /></p>
+
+<hr />
+
+<h1 id="security-concepts-demonstrated">Security Concepts Demonstrated</h1>
+
+<ul>
+  <li>Network-layer encryption using IPsec</li>
+  <li>ISAKMP (IKEv1) Phase 1 negotiation</li>
+  <li>IPsec Phase 2 secure tunnel establishment</li>
+  <li>Crypto map binding</li>
+  <li>Access Control List-based traffic classification</li>
+  <li>Secure communication across untrusted networks</li>
+</ul>
+
+<hr />
+
+<h1 id="security--architectural-relevance">Security &amp; Architectural Relevance</h1>
+
+<p>This project demonstrates:</p>
+
+<ul>
+  <li>Secure branch-to-branch connectivity</li>
+  <li>Hybrid cloud VPN concepts</li>
+  <li>Encryption over public infrastructure</li>
+  <li>Controlled traffic encryption policies</li>
+  <li>Practical understanding of tunnel establishment lifecycle</li>
+</ul>
+
+<hr />
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>This exercise successfully implemented and verified a secure site-to-site IPsec VPN between two remote networks. By applying ISAKMP and IPsec configurations with defined “interesting traffic,” encrypted communication was established across an untrusted network.</p>
+
+<p>The lab reinforced practical understanding of network-layer encryption, secure tunnel lifecycle, and enterprise-grade VPN deployment principles.</p>
+
+<hr />
+
+<p><a href="/projects/security/">Back to Security Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
