@@ -28,6 +28,13 @@ Welcome to my security portfolio. This section showcases hands-on projects focus
   **Focus:** Lambda Code Vulnerability Analysis, Role Assumption Exploitation, Policy Injection, Secrets Exposure  
   **Skills:** AWS Lambda, IAM Role Assumption, AWS Secrets Manager, SQL Injection Analysis, Privilege Escalation Path Mapping, Secure Coding Review
 
+
+- [AWS IAM Privilege Escalation Assessment: Policy Version Rollback Abuse (CloudGoat)](/projects/security/iam-privesc-by-rollback/)
+  ![IAM Policy Rollback](/assets/images/projects/security/iam-privesc-by-rollback/scenario1-9.png)
+  **Role:** Cloud Security Analyst (IAM Governance & Privilege Escalation Assessment)  
+  **Focus:** IAM Policy Versioning Risk, Least Privilege, Governance Controls  
+  **Skills:** AWS IAM, Managed Policy Versioning, AWS CLI, CloudTrail Audit Concepts, Privilege Escalation Path Mapping
+
 ---
 
 ### Azure Security & Monitoring Architecture

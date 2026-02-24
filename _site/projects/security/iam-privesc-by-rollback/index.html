@@ -1,0 +1,607 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>AWS IAM Privilege Escalation Assessment: Policy Version Rollback Abuse (CloudGoat) - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="AWS IAM Privilege Escalation Assessment: Policy Version Rollback Abuse (CloudGoat)">
+<meta property="og:url" content="http://localhost:4000/projects/security/iam-privesc-by-rollback/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/security/iam-privesc-by-rollback/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="AWS IAM Privilege Escalation Assessment: Policy Version Rollback Abuse (CloudGoat)">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/projects/security/iam-privesc-by-rollback/" itemprop="url">AWS IAM Privilege Escalation Assessment: Policy Version Rollback Abuse (CloudGoat)
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="project-iam-privilege-escalation-via-policy-version-rollback-cloudgoat">Project: IAM Privilege Escalation via Policy Version Rollback (CloudGoat)</h2>
+
+<p><strong>Timeline:</strong> June 2025<br />
+<strong>Role:</strong> Cloud Security Analyst (IAM Governance &amp; Privilege Escalation Assessment)<br />
+<strong>Focus:</strong> IAM Policy Versioning Risk, Least Privilege, Privilege Escalation Detection &amp; Mitigation<br />
+<strong>Tools:</strong> AWS CLI, IAM, Kali Linux, CloudGoat (Rhino Security Labs)</p>
+
+<hr />
+
+<h2 id="executive-summary">Executive Summary</h2>
+
+<p>Performed a hands-on cloud security assessment using the CloudGoat scenario <strong><code class="language-plaintext highlighter-rouge">iam_privesc_by_rollback</code></strong> to demonstrate how <strong>IAM policy versioning</strong> can be abused for privilege escalation.</p>
+
+<p>Starting from a low-privileged IAM user (<strong>raynor</strong>), I identified permission to execute <strong><code class="language-plaintext highlighter-rouge">iam:SetDefaultPolicyVersion</code></strong> on a managed policy. By enumerating historical policy versions, I discovered an older version granting broad administrative permissions. Switching the default policy version escalated privileges and enabled administrative actions across the AWS account.</p>
+
+<p>This project demonstrates a real-world governance failure mode: <strong>retaining overly permissive historical policy versions combined with mis-scoped policy-management permissions</strong>.</p>
+
+<hr />
+
+<h2 id="lab-objectives">Lab Objectives</h2>
+
+<ul>
+  <li>Deploy and run a vulnerable AWS environment using CloudGoat</li>
+  <li>Enumerate IAM user permissions, attached policies, and policy versions</li>
+  <li>Identify escalation paths through IAM policy version rollback</li>
+  <li>Escalate privileges by changing the default managed policy version</li>
+  <li>Validate impact by performing privileged AWS actions</li>
+  <li>Provide mitigation recommendations aligned with IAM governance best practices</li>
+</ul>
+
+<hr />
+
+<h2 id="environment-setup">Environment Setup</h2>
+
+<ul>
+  <li>Configured AWS CLI on <strong>Kali Linux VM</strong></li>
+  <li>Ran CloudGoat from Rhino Security Labs repository</li>
+  <li>Used dedicated AWS credentials/profile for scenario execution</li>
+</ul>
+
+<p><img src="./assets/images/image1.png" alt="CloudGoat Setup in Terminal" /></p>
+
+<hr />
+
+<h2 id="scenario-overview">Scenario Overview</h2>
+
+<p>The CloudGoat scenario <strong><code class="language-plaintext highlighter-rouge">iam_privesc_by_rollback</code></strong> demonstrates a privilege escalation pattern where:</p>
+
+<ol>
+  <li>A user appears low-privileged.</li>
+  <li>The user can call <strong><code class="language-plaintext highlighter-rouge">iam:SetDefaultPolicyVersion</code></strong> on a managed policy.</li>
+  <li>Older versions of that policy still exist.</li>
+  <li>One older version is overly permissive (e.g., <code class="language-plaintext highlighter-rouge">"Action": "*", "Resource": "*"</code>).</li>
+  <li>The user rolls back to the permissive version to gain administrative access.</li>
+</ol>
+
+<p>This is a practical example of how <strong>IAM policy lifecycle hygiene</strong> impacts security posture.</p>
+
+<p><img src="./assets/images/image10.png" alt="Scenario Description in CloudGoat Docs" /></p>
+
+<hr />
+
+<h2 id="step-1-start-the-scenario">Step 1: Start the Scenario</h2>
+
+<p>Started the vulnerable environment:</p>
+
+<p>cloudgoat create iam_privesc_by_rollback</p>
+
+<p>Validated resources provisioned successfully.</p>
+
+<p><img src="./assets/images/image4.png" alt="Scenario Creation Output" /></p>
+
+<hr />
+
+<h2 id="step-2-confirm-identity-and-initial-permissions">Step 2: Confirm Identity and Initial Permissions</h2>
+
+<p>Confirmed the active identity:</p>
+
+<p>aws sts get-caller-identity</p>
+
+<p><img src="./assets/images/image8.png" alt="Caller Identity Output" /></p>
+
+<p>Enumerated user policy attachments:</p>
+
+<ul>
+  <li>Attached managed policies:
+    <ul>
+      <li>aws iam list-attached-user-policies –user-name raynor</li>
+    </ul>
+  </li>
+  <li>Inline policies (if any):
+    <ul>
+      <li>aws iam list-user-policies –user-name raynor</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="./assets/images/image9.png" alt="Attached Policies for Raynor" /></p>
+
+<hr />
+
+<h2 id="step-3-identify-policy-version-rollback-capability">Step 3: Identify Policy Version Rollback Capability</h2>
+
+<p>Inspected effective permissions and located:</p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">iam:SetDefaultPolicyVersion</code></strong></li>
+</ul>
+
+<p>This permission is high-risk because it enables switching active policy versions without changing the policy content.</p>
+
+<p><img src="./assets/images/image12.png" alt="Policy Document Showing SetDefaultPolicyVersion" /></p>
+
+<hr />
+
+<h2 id="step-4-enumerate-policy-versions">Step 4: Enumerate Policy Versions</h2>
+
+<p>Listed policy versions:</p>
+
+<p>aws iam list-policy-versions –policy-arn $IAM_POLICY_ARN</p>
+
+<p>Observed multiple historical versions (up to 5 versions in AWS managed policy versioning).</p>
+
+<p><img src="./assets/images/image6.png" alt="Policy Versions List" /></p>
+
+<p>Retrieved specific versions for review:</p>
+
+<p>aws iam get-policy-version –policy-arn $IAM_POLICY_ARN –version-id v1<br />
+aws iam get-policy-version –policy-arn $IAM_POLICY_ARN –version-id v3</p>
+
+<p><img src="./assets/images/image11.png" alt="Policy Version Details v1" /></p>
+
+<p>Found an older version (example: <strong>v3</strong>) granting broad permissions (administrative wildcard).</p>
+
+<p><img src="./assets/images/image7.png" alt="Over-Permissive Policy Version v3" /></p>
+
+<hr />
+
+<h2 id="step-5-privilege-escalation-via-rollback">Step 5: Privilege Escalation via Rollback</h2>
+
+<p>Changed the default policy version to the over-permissive version:</p>
+
+<p>aws iam set-default-policy-version –policy-arn $IAM_POLICY_ARN –version-id v3</p>
+
+<p><img src="./assets/images/image3.png" alt="Set Default Policy Version Output" /></p>
+
+<hr />
+
+<h2 id="step-6-verification-of-elevated-privileges">Step 6: Verification of Elevated Privileges</h2>
+
+<p>Validated elevated access by performing administrative actions such as:</p>
+
+<ul>
+  <li>Listing all IAM users:
+    <ul>
+      <li>aws iam list-users</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="./assets/images/image5.png" alt="List Users After Escalation" /></p>
+
+<p>This confirmed that the rollback successfully escalated privileges from low access to administrative scope.</p>
+
+<hr />
+
+<h2 id="governance-risk-analysis">Governance Risk Analysis</h2>
+
+<p>This scenario highlights an enterprise IAM risk pattern:</p>
+
+<ul>
+  <li><strong>Old policy versions</strong> may contain broader permissions than current versions.</li>
+  <li><strong>Policy-management permissions</strong> (like <code class="language-plaintext highlighter-rouge">SetDefaultPolicyVersion</code>) are frequently overlooked during least-privilege reviews.</li>
+  <li>Attackers can revert policies to gain privileges and optionally <strong>restore the original version</strong> to reduce detection.</li>
+</ul>
+
+<hr />
+
+<h2 id="remediation-recommendations">Remediation Recommendations</h2>
+
+<ul>
+  <li>Enforce least privilege on IAM permissions:
+    <ul>
+      <li>Restrict <code class="language-plaintext highlighter-rouge">iam:SetDefaultPolicyVersion</code> to break-glass admin roles only</li>
+    </ul>
+  </li>
+  <li>Limit and review managed policy versions:
+    <ul>
+      <li>Remove overly permissive historical versions</li>
+    </ul>
+  </li>
+  <li>Adopt policy lifecycle governance:
+    <ul>
+      <li>Mandatory review before creating new versions</li>
+      <li>Automated scanning for wildcard permissions</li>
+    </ul>
+  </li>
+  <li>Enable monitoring and alerting:
+    <ul>
+      <li>CloudTrail alerts on policy version changes</li>
+      <li>Detective controls for IAM privilege escalations</li>
+    </ul>
+  </li>
+  <li>Use AWS Organizations SCPs for guardrails:
+    <ul>
+      <li>Block risky IAM actions except in admin accounts</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="key-skills-demonstrated">Key Skills Demonstrated</h2>
+
+<ul>
+  <li>IAM privilege escalation analysis</li>
+  <li>Policy version inspection and governance evaluation</li>
+  <li>AWS CLI-based enumeration methodology</li>
+  <li>Risk assessment and mitigation planning</li>
+  <li>Security hygiene principles for enterprise AWS environments</li>
+</ul>
+
+<hr />
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>This project demonstrated how <strong>IAM policy versioning</strong>, when combined with mis-scoped permissions like <strong><code class="language-plaintext highlighter-rouge">SetDefaultPolicyVersion</code></strong>, can enable full privilege escalation in AWS. It reinforced the importance of IAM governance, strict least-privilege enforcement, and continuous auditing of policy version history to prevent rollback-based escalation in real cloud environments.</p>
+
+<hr />
+
+<p><a href="/projects/security/">Back to Security Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
