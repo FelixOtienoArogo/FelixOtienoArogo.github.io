@@ -14,6 +14,16 @@ Welcome to my security portfolio. This section showcases hands-on projects focus
 
 ---
 
+### Web Application Security
+
+- [Web Application Security Fundamentals & Vulnerability Analysis](/projects/security/web-application-security-fundamentals/)
+  ![Web Application Security](/assets/images/projects/security/web-application-security/image30.png)
+  **Role:** Web Application Security Analyst  
+  **Focus:** XSS, HTML Injection, Sensitive Data Exposure, Parameter Tampering, CVE Analysis  
+  **Skills:** HTTP Analysis, Input Validation Testing, Vulnerability Classification, Secure Coding Principles, CVSS Risk Assessment
+
+---
+
 ### Cloud Security Assessment & Governance
 
 - [Conducting a Cloud Misconfiguration & Privilege Escalation Security Assessment on AWS](/projects/security/aws-cloud-security-assessment/)

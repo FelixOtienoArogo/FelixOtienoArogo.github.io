@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Security Projects - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<!-- begin _includes/seo.html --><title>Web Application Security Fundamentals &amp; Vulnerability Analysis - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
 <meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
 
 
@@ -21,8 +21,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
-<meta property="og:title" content="Security Projects">
-<meta property="og:url" content="http://localhost:4000/projects/security/">
+<meta property="og:title" content="Web Application Security Fundamentals &amp; Vulnerability Analysis">
+<meta property="og:url" content="http://localhost:4000/projects/security/web-application-security-fundamentals/">
 
 
   <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
@@ -38,7 +38,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/projects/security/">
+<link rel="canonical" href="http://localhost:4000/projects/security/web-application-security-fundamentals/">
 
 
 
@@ -285,7 +285,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Security Projects">
+    <meta itemprop="headline" content="Web Application Security Fundamentals &amp; Vulnerability Analysis">
     
     
     
@@ -294,7 +294,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/projects/security/" itemprop="url">Security Projects
+            <a href="http://localhost:4000/projects/security/web-application-security-fundamentals/" itemprop="url">Web Application Security Fundamentals &amp; Vulnerability Analysis
 </a>
           </h1>
           
@@ -305,101 +305,165 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="security-projects">Security Projects</h2>
+        <h2 id="project-web-application-security-fundamentals--vulnerability-analysis">Project: Web Application Security Fundamentals &amp; Vulnerability Analysis</h2>
 
-<p>Welcome to my security portfolio. This section showcases hands-on projects focused on cloud security, identity architecture, threat detection, encryption, network segmentation, privilege management, and governance across AWS and Azure environments.</p>
-
-<hr />
-
-<h3 id="web-application-security">Web Application Security</h3>
-
-<ul>
-  <li><a href="/projects/security/web-application-security-fundamentals/">Web Application Security Fundamentals &amp; Vulnerability Analysis</a>
-<img src="/assets/images/projects/security/web-application-security/image30.png" alt="Web Application Security" />
+<p><strong>Timeline:</strong> June 2025<br />
 <strong>Role:</strong> Web Application Security Analyst<br />
-<strong>Focus:</strong> XSS, HTML Injection, Sensitive Data Exposure, Parameter Tampering, CVE Analysis<br />
-<strong>Skills:</strong> HTTP Analysis, Input Validation Testing, Vulnerability Classification, Secure Coding Principles, CVSS Risk Assessment</li>
+<strong>Platform:</strong> HackTheBox Academy<br />
+<strong>Focus:</strong> XSS, Injection Attacks, Sensitive Data Exposure, HTTP &amp; API Analysis</p>
+
+<hr />
+
+<h2 id="executive-summary">Executive Summary</h2>
+
+<p>Conducted foundational web application security analysis covering front-end components, HTTP behavior, input handling weaknesses, and common exploitation vectors including HTML injection, Cross-Site Scripting (XSS), and command injection.</p>
+
+<p>This project demonstrates practical understanding of how insecure web applications can be exploited and how vulnerabilities are classified and mitigated.</p>
+
+<hr />
+
+<h1 id="web-application-architecture">Web Application Architecture</h1>
+
+<p>Web applications follow a layered client-server model:</p>
+
+<ul>
+  <li>Browser (Client)</li>
+  <li>Web Server</li>
+  <li>Application Logic</li>
+  <li>Database</li>
+</ul>
+
+<p><img src="./assets/images/image31.png" alt="Web Application Architecture Overview" /></p>
+
+<hr />
+
+<h1 id="sensitive-data-exposure-analysis">Sensitive Data Exposure Analysis</h1>
+
+<p>Inspected login form source code to detect exposed credentials.</p>
+
+<p>Identified embedded password value:</p>
+
+<p>HiddenInPlainSight</p>
+
+<p><img src="./assets/images/image14.png" alt="Login Form Source Code Inspection" /></p>
+
+<h3 id="security-risk">Security Risk:</h3>
+<p>Exposed credentials in client-side source can lead to unauthorized access.</p>
+
+<hr />
+
+<h1 id="html-injection-testing">HTML Injection Testing</h1>
+
+<p>Submitted the following payload:</p>
+
+<p><a href="http://www.hackthebox.com">Click Me</a></p>
+
+<p>Observed rendered output:</p>
+
+<p>Your name is Click Me</p>
+
+<p><img src="./assets/images/image5.png" alt="HTML Injection Payload Execution" /></p>
+
+<h3 id="security-impact">Security Impact:</h3>
+<p>Improper input sanitization allows arbitrary HTML rendering.</p>
+
+<hr />
+
+<h1 id="cross-site-scripting-xss-exploitation">Cross-Site Scripting (XSS) Exploitation</h1>
+
+<p>Injected JavaScript payload to retrieve session cookie.</p>
+
+<p>Retrieved cookie value:</p>
+
+<p>XSSisFun</p>
+
+<p><img src="./assets/images/image3.png" alt="XSS Payload Execution &amp; Cookie Retrieval" /></p>
+
+<h3 id="security-risk-1">Security Risk:</h3>
+<ul>
+  <li>Session hijacking</li>
+  <li>Credential theft</li>
+  <li>Persistent client-side compromise</li>
 </ul>
 
 <hr />
 
-<h3 id="cloud-security-assessment--governance">Cloud Security Assessment &amp; Governance</h3>
+<h1 id="parameter-tampering--id-enumeration">Parameter Tampering &amp; ID Enumeration</h1>
+
+<p>Tested GET parameter manipulation:</p>
+
+<p>/index.php?id=0</p>
+
+<p>Discovered elevated user:</p>
+
+<p>superadmin</p>
+
+<p><img src="./assets/images/image2.png" alt="Parameter Manipulation Output" /></p>
+
+<h3 id="security-risk-2">Security Risk:</h3>
+<p>Broken access control due to insufficient server-side validation.</p>
+
+<hr />
+
+<h1 id="cve--vulnerability-research">CVE &amp; Vulnerability Research</h1>
+
+<h2 id="cve-2014-6271">CVE-2014-6271</h2>
+
+<p>Classified under:</p>
+
+<p>Command Injection</p>
+
+<p><img src="./assets/images/image13.png" alt="CVE Classification Reference" /></p>
+
+<hr />
+
+<h2 id="cvss-severity-assessment">CVSS Severity Assessment</h2>
+
+<p>CVE-2017-0144 (EternalBlue)</p>
+
+<p>CVSS v2 Score: 9.3</p>
+
+<p><img src="./assets/images/image8.png" alt="CVSS Scoring Reference" /></p>
+
+<p>Demonstrates ability to interpret vulnerability severity metrics.</p>
+
+<hr />
+
+<h1 id="key-security-concepts-demonstrated">Key Security Concepts Demonstrated</h1>
 
 <ul>
-  <li>
-    <p><a href="/projects/security/aws-cloud-security-assessment/">Conducting a Cloud Misconfiguration &amp; Privilege Escalation Security Assessment on AWS</a>
-<img src="/assets/images/projects/security/aws-cloud-security-assessment/flaws.png" alt="AWS Cloud Security Assessment" />
-<strong>Role:</strong> Cloud Security Analyst (Offensive Security &amp; Risk Analysis)<br />
-<strong>Focus:</strong> IAM Privilege Escalation, Snapshot Exposure, Metadata Exploitation, Cloud Attack Surface Analysis<br />
-<strong>Skills:</strong> AWS IAM, Amazon S3, EC2 Snapshots, Instance Metadata Service (IMDS), AWS CLI, Policy Inspection, Privilege Escalation Analysis, Risk Mitigation Strategy</p>
-  </li>
-  <li>
-    <p><a href="/projects/security/serverless-privilege-escalation/">Serverless Security Assessment: IAM Privilege Escalation via Vulnerable AWS Lambda</a>
-<img src="/assets/images/projects/security/serverless-privilege-escalation/vulnerable_lambda.png" alt="Serverless Privilege Escalation" />
-<strong>Role:</strong> Cloud Security Analyst (Serverless Application Security &amp; IAM Assessment)<br />
-<strong>Focus:</strong> Lambda Code Vulnerability Analysis, Role Assumption Exploitation, Policy Injection, Secrets Exposure<br />
-<strong>Skills:</strong> AWS Lambda, IAM Role Assumption, AWS Secrets Manager, SQL Injection Analysis, Privilege Escalation Path Mapping, Secure Coding Review</p>
-  </li>
-  <li>
-    <p><a href="/projects/security/iam-privesc-by-rollback/">AWS IAM Privilege Escalation Assessment: Policy Version Rollback Abuse (CloudGoat)</a>
-<img src="/assets/images/projects/security/iam-privesc-by-rollback/scenario1-9.png" alt="IAM Policy Rollback" />
-<strong>Role:</strong> Cloud Security Analyst (IAM Governance &amp; Privilege Escalation Assessment)<br />
-<strong>Focus:</strong> IAM Policy Versioning Risk, Least Privilege, Governance Controls<br />
-<strong>Skills:</strong> AWS IAM, Managed Policy Versioning, AWS CLI, CloudTrail Audit Concepts, Privilege Escalation Path Mapping</p>
-  </li>
+  <li>Client-side vs server-side trust boundaries</li>
+  <li>Input validation failures</li>
+  <li>Output encoding importance</li>
+  <li>HTTP status code interpretation</li>
+  <li>CVE classification and scoring</li>
+  <li>Web attack surface analysis</li>
 </ul>
 
 <hr />
 
-<h3 id="azure-security--monitoring-architecture">Azure Security &amp; Monitoring Architecture</h3>
+<h1 id="enterprise-relevance">Enterprise Relevance</h1>
+
+<p>Modern cloud systems are heavily API-driven and web-based.<br />
+Understanding web-layer vulnerabilities directly supports:</p>
 
 <ul>
-  <li><a href="/projects/security/azure-monitoring/">Azure Security and Monitoring Implementation</a>
-<img src="/assets/images/projects/security/azure-monitoring/image1.png" alt="Azure Security Monitoring" />
-<strong>Role:</strong> Cloud Security Engineer<br />
-<strong>Focus:</strong> Centralized Monitoring, Threat Detection &amp; Incident Response<br />
-<strong>Skills:</strong> Azure Monitor, Log Analytics, Microsoft Sentinel, KQL, Logic Apps, Microsoft Defender for Cloud, Just-In-Time VM Access</li>
+  <li>Secure cloud application design</li>
+  <li>WAF rule configuration</li>
+  <li>API gateway protection</li>
+  <li>DevSecOps pipelines</li>
+  <li>Zero Trust architecture</li>
 </ul>
 
 <hr />
 
-<h3 id="network-security-architecture">Network Security Architecture</h3>
+<h2 id="conclusion">Conclusion</h2>
 
-<ul>
-  <li>
-    <p><a href="/projects/security/site-to-site-ipsec-vpn/">Secure Network Connectivity Architecture: Site-to-Site IPsec VPN Implementation</a>
-<img src="/assets/images/projects/security/site-to-site-ipsec-vpn/cisco-routers-s2s-ipsec-vpn-1.png" alt="Site-to-Site IPsec VPN" />
-<strong>Role:</strong> Network &amp; Cloud Security Engineer<br />
-<strong>Focus:</strong> Network-Layer Encryption, Secure Tunnel Establishment, IPsec &amp; ISAKMP Configuration<br />
-<strong>Skills:</strong> IPsec, ISAKMP (IKEv1), Cisco IOS, Crypto Maps, ACL-Based Traffic Classification, Secure Tunnel Verification</p>
-  </li>
-  <li>
-    <p><a href="/projects/security/azure-firewall/">Implementing Network Security with Azure Firewall</a>
-<img src="/assets/images/projects/security/azure-firewall/image1.png" alt="Azure Firewall" />
-<strong>Role:</strong> Cloud Security Engineer<br />
-<strong>Focus:</strong> Network Segmentation &amp; Traffic Inspection<br />
-<strong>Skills:</strong> Azure Firewall, Network Rules, Application Rules, DNS Configuration, Route Tables, Azure Virtual Networks</p>
-  </li>
-  <li>
-    <p><a href="/projects/security/azure-nsg-asg/">Implementing Network Security with Azure NSGs and ASGs</a>
-<img src="/assets/images/projects/security/azure-nsg-asg/network-security-group-interaction.png" alt="Azure Network Security" />
-<strong>Role:</strong> Cloud Security Engineer<br />
-<strong>Focus:</strong> Access Control &amp; Network-Level Isolation<br />
-<strong>Skills:</strong> Azure Networking, Network Security Groups (NSG), Application Security Groups (ASG), RDP &amp; Web Traffic Filtering</p>
-  </li>
-</ul>
+<p>This project strengthened foundational knowledge of web application architecture and common vulnerability classes. By exploiting injection vectors and analyzing vulnerability severity, the lab reinforced the importance of secure coding practices and proactive security testing in modern web-based environments.</p>
 
 <hr />
 
-<h3 id="data-protection--encryption">Data Protection &amp; Encryption</h3>
-
-<ul>
-  <li><a href="/projects/security/azure-keyvault-encryption/">Implementing Data Encryption with Azure Key Vault and SQL Always Encrypted</a>
-<img src="/assets/images/projects/security/azure-keyvault-encryption/Picture1-2.png" alt="Azure Key Vault and Encryption" />
-<strong>Role:</strong> Cloud Security Engineer<br />
-<strong>Focus:</strong> Data Encryption &amp; Secure Key Management<br />
-<strong>Skills:</strong> Azure Key Vault, SQL Always Encrypted, Data Protection, Application Authentication, Microsoft Entra ID, ARM Templates</li>
-</ul>
+<p><a href="/projects/security/">Back to Security Projects</a></p>
 
         
       </section>
