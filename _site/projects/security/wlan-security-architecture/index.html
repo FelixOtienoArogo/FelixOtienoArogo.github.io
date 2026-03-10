@@ -1,0 +1,631 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Enterprise Wireless Network Security Architecture using Cisco WLC - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Enterprise Wireless Network Security Architecture using Cisco WLC">
+<meta property="og:url" content="http://localhost:4000/projects/security/wlan-security-architecture/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/security/wlan-security-architecture/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Enterprise Wireless Network Security Architecture using Cisco WLC">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/security/wlan-security-architecture/" itemprop="url">Enterprise Wireless Network Security Architecture using Cisco WLC
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="project-enterprise-wireless-network-security-architecture-using-cisco-wlc">Project: Enterprise Wireless Network Security Architecture using Cisco WLC</h2>
+
+<p><strong>Timeline:</strong> June 2025<br />
+<strong>Role:</strong> Network Security Engineer<br />
+<strong>Platform:</strong> Cisco Packet Tracer<br />
+<strong>Focus:</strong> Secure Wireless Network Design, WPA2 Authentication, VLAN Segmentation, Centralized WLAN Control</p>
+
+<hr />
+
+<h2 id="executive-summary">Executive Summary</h2>
+
+<p>Designed and implemented both home and enterprise wireless network environments using Cisco Packet Tracer. The project demonstrated how secure wireless access can be achieved through proper WLAN configuration, VLAN segmentation, and centralized wireless network management using a Wireless LAN Controller (WLC).</p>
+
+<p>The implementation included:</p>
+
+<ul>
+  <li>Home wireless router configuration with WPA2-Personal security</li>
+  <li>Enterprise WLAN deployment using Cisco WLC</li>
+  <li>VLAN segmentation for multiple wireless networks</li>
+  <li>RADIUS-based authentication for WPA2-Enterprise</li>
+  <li>DHCP configuration for wireless management networks</li>
+  <li>Verification of wireless client connectivity</li>
+</ul>
+
+<p>This project reinforced practical skills in wireless security architecture and enterprise WLAN deployment.</p>
+
+<hr />
+
+<h2 id="wireless-network-architecture">Wireless Network Architecture</h2>
+
+<p>The architecture includes:</p>
+
+<ul>
+  <li>Wireless clients</li>
+  <li>Home wireless router</li>
+  <li>Cisco Wireless LAN Controller (WLC)</li>
+  <li>Wireless VLAN interfaces</li>
+  <li>RADIUS authentication server</li>
+  <li>DHCP services for wireless management</li>
+  <li>Segmented enterprise WLANs</li>
+</ul>
+
+<p><img src="./assets/images/image13.png" alt="Enterprise WLAN Architecture" /></p>
+
+<hr />
+
+<h2 id="part-1-home-wireless-router-configuration">Part 1: Home Wireless Router Configuration</h2>
+
+<p>A home wireless router was configured to provide secure wireless access using <strong>WPA2-Personal (Pre-Shared Key)</strong> authentication.</p>
+
+<h3 id="dhcp-configuration">DHCP Configuration</h3>
+
+<p>Router DHCP settings were configured with gateway address:</p>
+
+<p><code class="language-plaintext highlighter-rouge">10.100.200.2</code></p>
+
+<p>This allowed the router to assign IP addresses automatically to connected wireless clients.</p>
+
+<p><img src="./assets/images/image4.png" alt="Router DHCP Configuration" /></p>
+
+<h3 id="wireless-lan-configuration">Wireless LAN Configuration</h3>
+
+<p>The wireless LAN was configured with:</p>
+
+<ul>
+  <li>SSID settings</li>
+  <li>Basic wireless parameters</li>
+  <li>WPA2-Personal authentication</li>
+  <li>Shared passphrase security</li>
+</ul>
+
+<p><img src="./assets/images/image12.png" alt="Home Router WLAN Configuration" /></p>
+
+<h3 id="wireless-security-configuration">Wireless Security Configuration</h3>
+
+<p>Security settings were configured using:</p>
+
+<ul>
+  <li>WPA2-Personal</li>
+  <li>AES encryption</li>
+  <li>Shared passphrase authentication</li>
+</ul>
+
+<p><img src="./assets/images/image17.png" alt="Home Router Security Configuration" /></p>
+
+<hr />
+
+<h2 id="part-2-enterprise-wlan-using-cisco-wlc">Part 2: Enterprise WLAN Using Cisco WLC</h2>
+
+<p>An enterprise wireless environment was implemented using a <strong>Cisco Wireless LAN Controller (WLC)</strong> to centrally manage wireless networks, VLANs, and authentication policies.</p>
+
+<p>The enterprise configuration included:</p>
+
+<ul>
+  <li>Multiple WLANs</li>
+  <li>VLAN segmentation</li>
+  <li>RADIUS integration</li>
+  <li>DHCP scope creation</li>
+  <li>Centralized wireless control</li>
+</ul>
+
+<hr />
+
+<h2 id="vlan-interface-configuration">VLAN Interface Configuration</h2>
+
+<p>Separate VLAN interfaces were created for distinct wireless networks.</p>
+
+<p>Examples included:</p>
+
+<ul>
+  <li>Wireless VLAN 2</li>
+  <li>Wireless VLAN 5</li>
+</ul>
+
+<p>This enabled segmentation between wireless client groups.</p>
+
+<p><img src="./assets/images/image9.png" alt="WLC VLAN Interface Configuration" /></p>
+
+<hr />
+
+<h2 id="dhcp-scope-configuration">DHCP Scope Configuration</h2>
+
+<p>A DHCP scope was configured for the wireless management network to dynamically assign IP addresses to wireless clients.</p>
+
+<p><img src="./assets/images/image16.png" alt="WLC DHCP Scope Configuration" /></p>
+
+<hr />
+
+<h2 id="external-server-configuration">External Server Configuration</h2>
+
+<p>The WLC was configured to use external infrastructure services, including:</p>
+
+<ul>
+  <li>RADIUS server for authentication</li>
+  <li>SNMP server for logs and monitoring</li>
+</ul>
+
+<p><img src="./assets/images/image2.png" alt="WLC External Server Configuration" /></p>
+
+<hr />
+
+<h2 id="wlan-creation">WLAN Creation</h2>
+
+<p>Two wireless networks were created on the controller.</p>
+
+<h3 id="wlan-1">WLAN 1</h3>
+<p>Configured using <strong>WPA2-Personal (PSK)</strong>.</p>
+
+<h3 id="wlan-2">WLAN 2</h3>
+<p>Configured using <strong>WPA2-Enterprise</strong> with <strong>RADIUS-based authentication</strong>.</p>
+
+<p>This demonstrates the difference between consumer-grade and enterprise-grade wireless security models.</p>
+
+<p><img src="./assets/images/image15.png" alt="WLC WLAN Configuration" /></p>
+
+<hr />
+
+<h2 id="wireless-client-authentication">Wireless Client Authentication</h2>
+
+<p>Wireless hosts were connected to different WLANs according to authentication requirements.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Host</th>
+      <th>WLAN</th>
+      <th>Authentication</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Wireless Host 1</td>
+      <td>VLAN 2</td>
+      <td>WPA2-PSK</td>
+    </tr>
+    <tr>
+      <td>Wireless Host 2</td>
+      <td>VLAN 5</td>
+      <td>WPA2-Enterprise</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><img src="./assets/images/image7.png" alt="Wireless Client Connection" /></p>
+
+<hr />
+
+<h2 id="connectivity-verification">Connectivity Verification</h2>
+
+<p>Connectivity between wireless hosts and network resources was verified using:</p>
+
+<ul>
+  <li>ICMP ping tests</li>
+  <li>DHCP lease verification</li>
+  <li>End-to-end host communication</li>
+</ul>
+
+<p><img src="./assets/images/image5.png" alt="Wireless Connectivity Test" /></p>
+
+<hr />
+
+<h2 id="security-concepts-demonstrated">Security Concepts Demonstrated</h2>
+
+<p>This project demonstrated several important wireless security principles:</p>
+
+<ul>
+  <li>WPA2 wireless encryption</li>
+  <li>Pre-shared key authentication</li>
+  <li>Enterprise RADIUS authentication</li>
+  <li>VLAN-based segmentation</li>
+  <li>Centralized wireless management using WLC</li>
+  <li>DHCP-based client provisioning</li>
+  <li>Separation between home and enterprise wireless security models</li>
+</ul>
+
+<hr />
+
+<h2 id="enterprise-relevance">Enterprise Relevance</h2>
+
+<p>Wireless networks are often one of the most exposed entry points in enterprise environments. Proper configuration of WLAN authentication, segmentation, and centralized management is essential to reduce unauthorized access risk and strengthen network security posture.</p>
+
+<p>This project demonstrates practical implementation of secure wireless architecture using Cisco enterprise networking components.</p>
+
+<hr />
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>This project successfully demonstrated the design and deployment of secure wireless networks in both home and enterprise environments. By implementing WPA2-Personal and WPA2-Enterprise authentication, configuring VLAN segmentation, and using a Cisco Wireless LAN Controller for centralized management, the solution reinforced key concepts in wireless security and enterprise network design.</p>
+
+<hr />
+
+<p><a href="/projects/security/">Back to Security Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

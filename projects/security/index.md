@@ -58,6 +58,12 @@ Welcome to my security portfolio. This section showcases hands-on projects focus
 
 ### Network Security Architecture
 
+- [Enterprise Wireless Network Security Architecture using Cisco WLC](/projects/security/wlan-security-architecture/)
+  ![WLAN Security Architecture](/assets/images/projects/security/wlan-security-architecture/image30.png)
+  **Role:** Network Security Engineer  
+  **Focus:** Secure WLAN Deployment, WPA2 Authentication, RADIUS Integration, VLAN Segmentation  
+  **Skills:** Cisco WLC, WPA2-Personal, WPA2-Enterprise, RADIUS Authentication, VLAN Design, Wireless Network Security
+
 - [Secure Network Connectivity Architecture: Site-to-Site IPsec VPN Implementation](/projects/security/site-to-site-ipsec-vpn/)
   ![Site-to-Site IPsec VPN](/assets/images/projects/security/site-to-site-ipsec-vpn/cisco-routers-s2s-ipsec-vpn-1.png)
   **Role:** Network & Cloud Security Engineer  
