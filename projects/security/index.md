@@ -57,6 +57,11 @@ Welcome to my security portfolio. This section showcases hands-on projects focus
 ---
 
 ### Network Security Architecture
+- [Layer 2 Network Segmentation & Switch Security Architecture](/projects/security/layer2-network-security/)
+  ![Layer 2 Network Security](/assets/images/projects/security/layer2-network-security/image30.png)
+  **Role:** Network Security Engineer  
+  **Focus:** VLAN Segmentation, Switch Hardening, DHCP Snooping, Port Security  
+  **Skills:** Cisco IOS, VLANs, 802.1Q Trunking, Port Security, BPDU Guard, DHCP Snooping
 
 - [Enterprise Wireless Network Security Architecture using Cisco WLC](/projects/security/wlan-security-architecture/)
   ![WLAN Security Architecture](/assets/images/projects/security/wlan-security-architecture/image30.png)

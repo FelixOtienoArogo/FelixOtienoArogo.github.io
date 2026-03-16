@@ -1,0 +1,650 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Layer 2 Network Segmentation &amp; Switch Security Architecture using Cisco VLANs - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Layer 2 Network Segmentation &amp; Switch Security Architecture using Cisco VLANs">
+<meta property="og:url" content="http://localhost:4000/projects/security/layer2-network-security/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/security/layer2-network-security/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Layer 2 Network Segmentation &amp; Switch Security Architecture using Cisco VLANs">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/security/layer2-network-security/" itemprop="url">Layer 2 Network Segmentation &amp; Switch Security Architecture using Cisco VLANs
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="project-layer-2-network-segmentation--switch-security-architecture">Project: Layer 2 Network Segmentation &amp; Switch Security Architecture</h2>
+
+<p><strong>Timeline:</strong> June 2025<br />
+<strong>Role:</strong> Network Security Engineer<br />
+<strong>Platform:</strong> Cisco Packet Tracer<br />
+<strong>Focus:</strong> VLAN Segmentation, Switch Hardening, Port Security, DHCP Snooping</p>
+
+<hr />
+
+<h2 id="executive-summary">Executive Summary</h2>
+
+<p>This project demonstrates the design and implementation of a secure Layer 2 network using Cisco routers and Catalyst switches. The lab focused on network segmentation using VLANs, trunking configuration using IEEE 802.1Q, and the implementation of multiple switch security features to protect against common Layer 2 attacks.</p>
+
+<p>The implementation included:</p>
+
+<ul>
+  <li>VLAN segmentation</li>
+  <li>Secure trunk configuration</li>
+  <li>Switch port security</li>
+  <li>DHCP snooping</li>
+  <li>BPDU guard</li>
+  <li>PortFast configuration</li>
+  <li>Securing unused switch ports</li>
+</ul>
+
+<p>These configurations help mitigate common network threats such as rogue DHCP servers, MAC flooding attacks, VLAN hopping, and spanning-tree manipulation.</p>
+
+<hr />
+
+<h2 id="network-architecture">Network Architecture</h2>
+
+<p>The network topology consisted of:</p>
+
+<ul>
+  <li>Cisco 4221 router</li>
+  <li>Cisco Catalyst 2960 switches</li>
+  <li>Multiple VLAN segments</li>
+  <li>End hosts connected to secured access ports</li>
+</ul>
+
+<p>The switches were configured to enforce segmentation and security policies across the network.</p>
+
+<p><img src="./assets/images/image14.png" alt="Layer 2 Network Architecture" /></p>
+
+<hr />
+
+<h2 id="part-1-network-device-configuration">Part 1: Network Device Configuration</h2>
+
+<p>Initial configuration included:</p>
+
+<ul>
+  <li>Hostname configuration</li>
+  <li>Interface configuration</li>
+  <li>Basic switch management settings</li>
+  <li>Verification of connectivity</li>
+</ul>
+
+<p>This step ensured the devices could communicate before implementing segmentation and security controls.</p>
+
+<p><img src="./assets/images/image3.png" alt="Switch Basic Configuration" /></p>
+
+<hr />
+
+<h2 id="part-2-vlan-configuration">Part 2: VLAN Configuration</h2>
+
+<p>VLANs were created to logically segment the network and isolate broadcast domains.</p>
+
+<h3 id="vlan-design">VLAN Design</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>VLAN ID</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>VLAN 10</td>
+      <td>User network</td>
+    </tr>
+    <tr>
+      <td>VLAN 333</td>
+      <td>Native VLAN</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Example VLAN configuration:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vlan 10
+name Users
+
+vlan 333
+name Native
+</code></pre></div></div>
+
+<p><img src="./assets/images/image17.png" alt="VLAN Configuration" /></p>
+
+<hr />
+
+<h2 id="8021q-trunk-configuration">802.1Q Trunk Configuration</h2>
+
+<p>Trunk links were configured between switches to allow VLAN traffic to traverse network segments.</p>
+
+<p>Example trunk configuration:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>switchport mode trunk
+switchport trunk native vlan 333
+</code></pre></div></div>
+
+<p>This allows multiple VLANs to pass across a single physical link.</p>
+
+<p><img src="./assets/images/image1.png" alt="Trunk Configuration" /></p>
+
+<hr />
+
+<h2 id="access-port-configuration">Access Port Configuration</h2>
+
+<p>Access ports were assigned to specific VLANs to connect end-user devices.</p>
+
+<p>Example configuration:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>switchport mode access
+switchport access vlan 10
+</code></pre></div></div>
+
+<p>This ensures proper VLAN segmentation for connected hosts.</p>
+
+<p><img src="./assets/images/image7.png" alt="Access Port Configuration" /></p>
+
+<hr />
+
+<h2 id="port-security-implementation">Port Security Implementation</h2>
+
+<p>Port security was implemented to restrict unauthorized devices from connecting to the network.</p>
+
+<p>Example configuration:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>switchport port-security
+switchport port-security maximum 2
+switchport port-security violation protect
+switchport port-security mac-address sticky
+</code></pre></div></div>
+
+<p>Sticky MAC learning dynamically records MAC addresses connected to the port.</p>
+
+<p><img src="./assets/images/image6.png" alt="Port Security Verification" /></p>
+
+<hr />
+
+<h2 id="dhcp-snooping-configuration">DHCP Snooping Configuration</h2>
+
+<p>DHCP snooping was implemented to prevent rogue DHCP servers from distributing malicious IP configurations.</p>
+
+<p>Example configuration:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ip dhcp snooping
+ip dhcp snooping vlan 10
+</code></pre></div></div>
+
+<p>Verification command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>show ip dhcp snooping binding
+</code></pre></div></div>
+
+<p><img src="./assets/images/image16.png" alt="DHCP Snooping Configuration" /></p>
+
+<hr />
+
+<h2 id="bpdu-guard-and-portfast">BPDU Guard and PortFast</h2>
+
+<p>To protect the spanning tree topology from malicious or accidental changes, the following security features were enabled.</p>
+
+<h3 id="portfast">PortFast</h3>
+
+<p>Allows immediate transition to forwarding state on edge ports.</p>
+
+<h3 id="bpdu-guard">BPDU Guard</h3>
+
+<p>Disables ports that receive unexpected BPDUs.</p>
+
+<p>Example configuration:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spanning-tree portfast
+spanning-tree bpduguard enable
+</code></pre></div></div>
+
+<p><img src="./assets/images/image9.png" alt="BPDU Guard Configuration" /></p>
+
+<hr />
+
+<h2 id="securing-unused-ports">Securing Unused Ports</h2>
+
+<p>Unused switch ports were disabled to prevent unauthorized access.</p>
+
+<p>Example configuration:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>interface range f0/10-24
+shutdown
+</code></pre></div></div>
+
+<p>This is a recommended security best practice in enterprise access-layer design.</p>
+
+<p><img src="./assets/images/image15.png" alt="Disabled Unused Ports" /></p>
+
+<hr />
+
+<h2 id="security-concepts-demonstrated">Security Concepts Demonstrated</h2>
+
+<p>This project demonstrates multiple Layer 2 security mechanisms:</p>
+
+<ul>
+  <li>VLAN segmentation</li>
+  <li>Switch port security</li>
+  <li>Sticky MAC address learning</li>
+  <li>Rogue DHCP mitigation</li>
+  <li>Spanning tree protection</li>
+  <li>Secure trunk configuration</li>
+  <li>Access-layer network hardening</li>
+</ul>
+
+<p>These mechanisms are essential for securing enterprise networks at the access layer.</p>
+
+<hr />
+
+<h2 id="enterprise-relevance">Enterprise Relevance</h2>
+
+<p>Layer 2 attacks remain a significant risk in enterprise environments. Misconfigured switches can allow attackers to perform:</p>
+
+<ul>
+  <li>MAC flooding</li>
+  <li>DHCP spoofing</li>
+  <li>VLAN hopping</li>
+  <li>Spanning tree manipulation</li>
+</ul>
+
+<p>Proper switch hardening significantly reduces these risks and strengthens the security posture of campus and branch networks.</p>
+
+<hr />
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>This project successfully demonstrated how VLAN segmentation and Layer 2 security controls can be implemented on Cisco switches to protect enterprise networks. By applying port security, DHCP snooping, BPDU guard, and secure trunk configurations, the network infrastructure was hardened against common access-layer attacks. These practices represent essential network security fundamentals used in real-world enterprise environments.</p>
+
+<hr />
+
+<p><a href="/projects/security/">Back to Security Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
