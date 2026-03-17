@@ -1,0 +1,602 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Web Application Traffic Analysis &amp; HTTP Request Manipulation - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Web Application Traffic Analysis &amp; HTTP Request Manipulation">
+<meta property="og:url" content="http://localhost:4000/projects/security/web-requests-analysis/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/security/web-requests-analysis/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Web Application Traffic Analysis &amp; HTTP Request Manipulation">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/security/web-requests-analysis/" itemprop="url">Web Application Traffic Analysis &amp; HTTP Request Manipulation
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="project-web-application-traffic-analysis--http-request-manipulation">Project: Web Application Traffic Analysis &amp; HTTP Request Manipulation</h2>
+
+<p><strong>Course:</strong> Cloud and Network Security<br />
+<strong>Platform:</strong> HackTheBox Academy<br />
+<strong>Role:</strong> Web Application Security Analyst<br />
+<strong>Focus:</strong> HTTP Protocol Analysis, Request Manipulation, API Interaction</p>
+
+<hr />
+
+<h2 id="executive-summary">Executive Summary</h2>
+
+<p>This project explores the fundamentals of web communication by analyzing and manipulating HTTP requests using browser developer tools and command-line utilities. Through practical exercises on HackTheBox Academy, I examined how web applications process requests and responses, how HTTP headers control server behavior, and how APIs expose functionality through HTTP endpoints.</p>
+
+<p>Using tools such as <strong>cURL</strong> and <strong>browser network monitoring</strong>, I demonstrated how HTTP methods, headers, cookies, and request payloads can be modified to interact with server resources. The lab also included performing <strong>GET, POST, and CRUD API operations</strong>, highlighting how web applications expose functionality through structured HTTP communication.</p>
+
+<p>Understanding these mechanisms is essential for both <strong>web application development and security testing</strong>, as it enables analysts to detect vulnerabilities, test APIs, and automate interactions with web services.</p>
+
+<hr />
+
+<h2 id="web-request-communication-flow">Web Request Communication Flow</h2>
+
+<p>A typical HTTP interaction follows these steps:</p>
+
+<ol>
+  <li>Client resolves a domain using DNS.</li>
+  <li>Browser sends an HTTP request to the web server.</li>
+  <li>The server processes the request.</li>
+  <li>The server returns an HTTP response containing data or resources.</li>
+</ol>
+
+<p><img src="./assets/images/image29.png" alt="HTTP Request Flow" /></p>
+
+<hr />
+
+<h2 id="part-1-hypertext-transfer-protocol-http">Part 1: HyperText Transfer Protocol (HTTP)</h2>
+
+<p>HTTP is an application-layer protocol responsible for transmitting data between clients and servers.</p>
+
+<p>In this exercise, the objective was to retrieve a hidden resource using <strong>cURL</strong>.</p>
+
+<p>Example command used:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl http://target-server/download.php
+</code></pre></div></div>
+
+<p>This command allowed direct retrieval of the resource returned by the server endpoint.</p>
+
+<p><strong>Flag retrieved:</strong> <code class="language-plaintext highlighter-rouge">HTB{64$!c_cURL_u$3r}</code></p>
+
+<p><img src="./assets/images/image4.png" alt="cURL Download Request" /></p>
+
+<hr />
+
+<h2 id="part-2-http-requests-and-responses">Part 2: HTTP Requests and Responses</h2>
+
+<p>HTTP communication consists of two primary components:</p>
+
+<ul>
+  <li>Request</li>
+  <li>Response</li>
+</ul>
+
+<p>Using browser developer tools, I intercepted the request sent by the browser and identified the HTTP method used.</p>
+
+<p><strong>HTTP Method Observed:</strong> <code class="language-plaintext highlighter-rouge">GET</code></p>
+
+<p>By inspecting the response headers returned by the server, I identified the version of the Apache web server running.</p>
+
+<p><strong>Server version identified:</strong> <code class="language-plaintext highlighter-rouge">2.4.41</code></p>
+
+<p><img src="./assets/images/image5.png" alt="HTTP Response Headers Inspection" /></p>
+
+<hr />
+
+<h2 id="part-3-http-headers-analysis">Part 3: HTTP Headers Analysis</h2>
+
+<p>HTTP headers contain metadata describing how requests and responses should be handled by clients and servers.</p>
+
+<p>Using the <strong>Network tab in browser developer tools</strong>, I monitored the requests generated by the webpage and identified the request responsible for retrieving the flag.</p>
+
+<p><strong>Flag discovered through request inspection:</strong> <code class="language-plaintext highlighter-rouge">hTB{p493_r3qu3$t$_m0n!t0r}</code></p>
+
+<p><img src="./assets/images/image1.png" alt="Network Request Monitor" /></p>
+
+<hr />
+
+<h2 id="part-4-get-request-manipulation">Part 4: GET Request Manipulation</h2>
+
+<p>In this stage, the application appeared to return incorrect search results. By inspecting the request generated by the browser, I identified the query parameter used for searching.</p>
+
+<p>I then reproduced the request using <strong>cURL</strong> and manually modified the parameter.</p>
+
+<p>Example command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl http://target-server/search.php?query=flag
+</code></pre></div></div>
+
+<p><strong>Flag retrieved:</strong> <code class="language-plaintext highlighter-rouge">HTB{curl_g3773r}</code></p>
+
+<p><img src="./assets/images/image3.png" alt="GET Request Manipulation" /></p>
+
+<hr />
+
+<h2 id="part-5-post-request-manipulation">Part 5: POST Request Manipulation</h2>
+
+<p>In this exercise, the objective was to perform a search operation through a POST request.</p>
+
+<p>Steps performed:</p>
+
+<ol>
+  <li>Logged into the application to obtain a session cookie</li>
+  <li>Captured the cookie from browser developer tools</li>
+  <li>Used the cookie in a cURL POST request</li>
+  <li>Submitted a JSON payload to the API endpoint</li>
+</ol>
+
+<p>Example command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -X POST http://target-server/search.php \
+-H "Cookie: session=XXXX" \
+-H "Content-Type: application/json" \
+-d '{"search":"flag"}'
+</code></pre></div></div>
+
+<p><strong>Flag retrieved:</strong> <code class="language-plaintext highlighter-rouge">HTB{p0$t_r3p34t3r}</code></p>
+
+<p><img src="./assets/images/image8.png" alt="POST Request with Session Cookie" /></p>
+
+<hr />
+
+<h2 id="part-6-crud-api-manipulation">Part 6: CRUD API Manipulation</h2>
+
+<p>The final challenge involved interacting with a web API that supports CRUD operations:</p>
+
+<ul>
+  <li>Create</li>
+  <li>Read</li>
+  <li>Update</li>
+  <li>Delete</li>
+</ul>
+
+<p>The objective was to manipulate API data by performing the following steps:</p>
+
+<ol>
+  <li>Update a city name to “flag”</li>
+  <li>Delete an existing city</li>
+  <li>Search for the newly created entry</li>
+</ol>
+
+<p>After completing the API operations, the application returned the final flag.</p>
+
+<p><strong>Flag retrieved:</strong> <code class="language-plaintext highlighter-rouge">HTB{crud_4p!_m4n!pul4t0r}</code></p>
+
+<p><img src="./assets/images/image7.png" alt="CRUD API Manipulation" /></p>
+
+<hr />
+
+<h2 id="security-concepts-demonstrated">Security Concepts Demonstrated</h2>
+
+<p>This project demonstrates several important web security concepts:</p>
+
+<ul>
+  <li>HTTP request and response analysis</li>
+  <li>Web traffic monitoring</li>
+  <li>Parameter manipulation</li>
+  <li>API interaction testing</li>
+  <li>Session cookie usage</li>
+  <li>Browser developer tools for security analysis</li>
+  <li>Command-line automation using cURL</li>
+</ul>
+
+<p>These techniques are commonly used during <strong>web penetration testing and API security assessments</strong>.</p>
+
+<hr />
+
+<h2 id="enterprise-relevance">Enterprise Relevance</h2>
+
+<p>Modern applications rely heavily on APIs and HTTP-based communication. Security professionals must understand how these requests operate in order to detect vulnerabilities such as:</p>
+
+<ul>
+  <li>Broken authentication</li>
+  <li>Parameter tampering</li>
+  <li>API misuse</li>
+  <li>Session hijacking</li>
+  <li>Information disclosure through headers</li>
+</ul>
+
+<p>Analyzing HTTP traffic and manipulating requests helps security teams identify weaknesses before attackers exploit them.</p>
+
+<hr />
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>This project provided hands-on experience analyzing and manipulating HTTP requests through multiple techniques, including browser developer tools and command-line utilities such as cURL. By exploring GET and POST methods, HTTP headers, cookies, and API interactions, I gained deeper insight into how web applications communicate with servers.</p>
+
+<p>The exercise strengthened my understanding of <strong>web application behavior, API communication, and HTTP traffic analysis</strong>, all of which are critical skills for <strong>web security testing and vulnerability assessment</strong>.</p>
+
+<hr />
+
+<p><a href="/projects/security/">Back to Security Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
