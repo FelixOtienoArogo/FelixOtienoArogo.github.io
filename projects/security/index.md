@@ -30,6 +30,16 @@ Welcome to my security portfolio. This section showcases hands-on projects focus
 
 ---
 
+### Network Traffic Analysis & Monitoring
+
+- [Network Traffic Analysis using Wireshark (ICMP Packet Inspection)](/projects/security/network-traffic-analysis-wireshark/)
+  ![Wireshark Traffic Analysis](/assets/images/projects/security/network-traffic-analysis-wireshark/image30.png)
+  **Role:** Network Security Analyst  
+  **Focus:** Packet Inspection, ICMP Analysis, ARP Resolution, Layer 2 vs Layer 3 Behavior  
+  **Skills:** Wireshark, ICMP, ARP, Packet Capture Analysis, Network Troubleshooting, Traffic Inspection
+
+---
+
 ### Cloud Security Assessment & Governance
 
 - [Conducting a Cloud Misconfiguration & Privilege Escalation Security Assessment on AWS](/projects/security/aws-cloud-security-assessment/)

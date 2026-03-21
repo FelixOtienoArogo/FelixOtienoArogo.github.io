@@ -1,0 +1,198 @@
+<h2 id="project-network-traffic-analysis-using-wireshark">Project: Network Traffic Analysis using Wireshark</h2>
+
+<p><strong>Course:</strong> Cloud and Network Security<br />
+<strong>Tool:</strong> Wireshark<br />
+<strong>Role:</strong> Network Security Analyst<br />
+<strong>Focus:</strong> Packet Analysis, ICMP Inspection, Layer 2 vs Layer 3 Communication</p>
+
+<hr />
+
+<h2 id="executive-summary">Executive Summary</h2>
+
+<p>This project focused on capturing and analyzing network traffic using Wireshark to understand how data flows across local and remote networks. By inspecting ICMP (ping) traffic, I examined packet structures, MAC addressing behavior, and how network devices communicate within and beyond a local network.</p>
+
+<p>The analysis highlighted the difference between <strong>local network communication (Layer 2 visibility)</strong> and <strong>remote communication (Layer 3 routing)</strong>, demonstrating how MAC addresses are resolved locally but replaced by gateway addresses when traffic leaves the local network.</p>
+
+<p>This exercise reinforces key cybersecurity concepts such as <strong>network visibility, packet inspection, and traffic analysis</strong>, which are essential for detecting anomalies and troubleshooting network issues.</p>
+
+<hr />
+
+<h2 id="network-traffic-analysis-architecture">Network Traffic Analysis Architecture</h2>
+
+<p>The analysis involved two main scenarios:</p>
+
+<ol>
+  <li>Local network ICMP communication (same LAN)</li>
+  <li>Remote ICMP communication (internet-based)</li>
+</ol>
+
+<p><img src="/assets/images/projects/security/network-traffic-analysis-wireshark/icmp-flow.png" alt="Wireshark ICMP Flow" /></p>
+
+<hr />
+
+<h2 id="part-1-local-icmp-traffic-analysis">Part 1: Local ICMP Traffic Analysis</h2>
+
+<p>In this phase, ICMP traffic was captured between two devices within the same local network.</p>
+
+<h3 id="key-observations">Key Observations</h3>
+
+<ul>
+  <li>The <strong>source MAC address</strong> matched the local machine’s network interface</li>
+  <li>The <strong>destination MAC address</strong> matched the target device on the LAN</li>
+  <li>Communication occurred directly at <strong>Layer 2</strong></li>
+</ul>
+
+<h3 id="key-concept">Key Concept</h3>
+
+<p>The MAC address of the destination host is obtained using:</p>
+
+<p>👉 <strong>ARP (Address Resolution Protocol)</strong></p>
+
+<p>This allows the sender to map an IP address to a MAC address before transmitting the packet.</p>
+
+<p><img src="/assets/images/projects/security/network-traffic-analysis-wireshark/local-icmp.png" alt="Local ICMP Capture" /></p>
+
+<hr />
+
+<h2 id="part-2-remote-icmp-traffic-analysis">Part 2: Remote ICMP Traffic Analysis</h2>
+
+<p>In this phase, ICMP traffic was captured while pinging external servers:</p>
+
+<ul>
+  <li>yahoo.com → 98.137.11.163</li>
+  <li>cisco.com → 72.163.4.185</li>
+  <li>google.com → 172.217.170.174</li>
+</ul>
+
+<h3 id="key-observations-1">Key Observations</h3>
+
+<ul>
+  <li>All remote destinations resolved to the <strong>same MAC address</strong></li>
+  <li>The MAC address observed belonged to the <strong>default gateway (router)</strong></li>
+</ul>
+
+<h3 id="explanation">Explanation</h3>
+
+<p>When traffic leaves the local network:</p>
+
+<ul>
+  <li>The packet is sent to the <strong>default gateway</strong></li>
+  <li>The gateway forwards it to the internet</li>
+  <li>The actual destination MAC is <strong>not visible</strong></li>
+</ul>
+
+<h3 id="key-insight">Key Insight</h3>
+
+<p>👉 Wireshark only captures <strong>local Layer 2 information</strong></p>
+
+<p>Therefore:</p>
+<ul>
+  <li>Local traffic → shows actual destination MAC</li>
+  <li>Remote traffic → shows <strong>gateway MAC</strong></li>
+</ul>
+
+<p><img src="/assets/images/projects/security/network-traffic-analysis-wireshark/remote-icmp.png" alt="Remote ICMP Capture" /></p>
+
+<hr />
+
+<h2 id="key-security-insight">Key Security Insight</h2>
+
+<h3 id="why-mac-addresses-differ-local-vs-remote">Why MAC Addresses Differ (Local vs Remote)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Scenario</th>
+      <th>MAC Address Observed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Local Network</td>
+      <td>Actual destination device</td>
+    </tr>
+    <tr>
+      <td>Remote Network</td>
+      <td>Default gateway (router)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This occurs because:</p>
+
+<ul>
+  <li>MAC addresses are only valid within a <strong>local broadcast domain</strong></li>
+  <li>Routers replace Layer 2 headers at each hop</li>
+</ul>
+
+<hr />
+
+<h2 id="firewall-consideration">Firewall Consideration</h2>
+
+<p>The lab also involved enabling ICMP traffic through a firewall.</p>
+
+<h3 id="key-actions">Key Actions</h3>
+
+<ul>
+  <li>Created an inbound rule allowing ICMP traffic</li>
+  <li>Verified traffic capture in Wireshark</li>
+  <li>Disabled the rule after testing</li>
+</ul>
+
+<h3 id="security-implication">Security Implication</h3>
+
+<p>Allowing ICMP:</p>
+
+<ul>
+  <li>Helps with troubleshooting</li>
+  <li>Can expose systems to reconnaissance (ping sweeps)</li>
+</ul>
+
+<hr />
+
+<h2 id="security-concepts-demonstrated">Security Concepts Demonstrated</h2>
+
+<p>This project demonstrates:</p>
+
+<ul>
+  <li>Packet capture and inspection</li>
+  <li>ICMP protocol analysis</li>
+  <li>ARP resolution</li>
+  <li>Layer 2 vs Layer 3 behavior</li>
+  <li>Gateway-based routing</li>
+  <li>Firewall rule impact on traffic visibility</li>
+</ul>
+
+<hr />
+
+<h2 id="enterprise-relevance">Enterprise Relevance</h2>
+
+<p>Network traffic analysis is critical in enterprise environments for:</p>
+
+<ul>
+  <li>Detecting malicious traffic</li>
+  <li>Investigating incidents</li>
+  <li>Monitoring network performance</li>
+  <li>Identifying misconfigurations</li>
+  <li>Supporting threat detection systems (IDS/IPS)</li>
+</ul>
+
+<p>Wireshark is widely used by:</p>
+
+<ul>
+  <li>Network engineers</li>
+  <li>SOC analysts</li>
+  <li>Incident responders</li>
+</ul>
+
+<hr />
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>This project provided hands-on experience analyzing real network traffic using Wireshark. By comparing local and remote ICMP communication, I gained a deeper understanding of how network layers interact and how routing affects packet visibility.</p>
+
+<p>The exercise reinforced fundamental networking and security concepts, including ARP resolution, gateway routing, and packet inspection, all of which are essential skills in network security and troubleshooting.</p>
+
+<hr />
+
+<p><a href="/projects/security/">Back to Security Projects</a></p>
