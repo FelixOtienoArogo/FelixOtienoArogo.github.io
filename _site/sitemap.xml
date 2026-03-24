@@ -91,6 +91,9 @@
 <loc>http://localhost:4000/projects/security/layer2-network-security/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/projects/security/network-traffic-analysis-htb/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/projects/security/azure-keyvault-encryption/</loc>
 </url>
 <url>

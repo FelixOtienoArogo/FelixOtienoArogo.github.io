@@ -31,6 +31,11 @@ Welcome to my security portfolio. This section showcases hands-on projects focus
 ---
 
 ### Network Traffic Analysis & Monitoring
+- [Network Traffic Analysis & Threat Detection using Wireshark and Tcpdump](/projects/security/network-traffic-analysis-htb/)
+  ![Network Traffic Analysis HTB](/assets/images/projects/security/network-traffic-analysis-htb/image30.png)
+  **Role:** Network Security Analyst  
+  **Focus:** Threat Detection, Packet Analysis, Network Forensics, Suspicious Traffic Investigation  
+  **Skills:** Wireshark, Tcpdump, TCP/IP Analysis, DNS/HTTP/HTTPS Inspection, PCAP Analysis, Incident Response
 
 - [Network Traffic Analysis using Wireshark (ICMP Packet Inspection)](/projects/security/network-traffic-analysis-wireshark/)
   ![Wireshark Traffic Analysis](/assets/images/projects/security/network-traffic-analysis-wireshark/image30.png)

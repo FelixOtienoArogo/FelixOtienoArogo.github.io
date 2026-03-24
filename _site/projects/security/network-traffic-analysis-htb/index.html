@@ -1,0 +1,627 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Network Traffic Analysis &amp; Threat Detection using Wireshark and Tcpdump - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Network Traffic Analysis &amp; Threat Detection using Wireshark and Tcpdump">
+<meta property="og:url" content="http://localhost:4000/projects/security/network-traffic-analysis-htb/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/security/network-traffic-analysis-htb/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Network Traffic Analysis &amp; Threat Detection using Wireshark and Tcpdump">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/security/network-traffic-analysis-htb/" itemprop="url">Network Traffic Analysis &amp; Threat Detection using Wireshark and Tcpdump
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="network-traffic-analysis--threat-detection-using-wireshark-and-tcpdump">Network Traffic Analysis &amp; Threat Detection using Wireshark and Tcpdump</h2>
+
+<p><strong>Timeline:</strong> May 2025<br />
+<strong>Role:</strong> Network Security Analyst<br />
+<strong>Skills:</strong> Wireshark, Tcpdump, Packet Analysis, Network Forensics, TCP/IP, DNS, HTTP/HTTPS, Threat Detection</p>
+
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project focused on performing <strong>network traffic analysis and threat detection</strong> using <strong>Wireshark and Tcpdump</strong> through hands-on labs from Hack The Box Academy.</p>
+
+<p>The objective was to analyze real and simulated network traffic to identify protocols, detect suspicious behavior, and understand how attackers and defenders interact with network data.</p>
+
+<p>The project covered both <strong>foundational networking concepts</strong> and <strong>practical traffic analysis techniques</strong>, including packet filtering, protocol inspection, and incident investigation.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+
+<ul>
+  <li>Understand OSI and TCP/IP networking models</li>
+  <li>Analyze network traffic using <strong>Tcpdump and Wireshark</strong></li>
+  <li>Apply <strong>packet filtering techniques</strong> for efficient analysis</li>
+  <li>Identify common protocols (DNS, HTTP, HTTPS, FTP, TLS)</li>
+  <li>Investigate suspicious traffic and potential compromise</li>
+  <li>Perform <strong>basic network forensics and incident analysis</strong></li>
+</ul>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-networking-fundamentals-osi--tcpip">1. Networking Fundamentals (OSI &amp; TCP/IP)</h4>
+<ul>
+  <li>Reviewed OSI model (7 layers) and TCP/IP model (4 layers)</li>
+  <li>Identified key protocols:
+    <ul>
+      <li>TCP (connection-oriented)</li>
+      <li>UDP (connectionless)</li>
+    </ul>
+  </li>
+  <li>Understood:
+    <ul>
+      <li>MAC addressing (Layer 2)</li>
+      <li>IPv4 addressing (32-bit)</li>
+      <li>TCP three-way handshake (SYN → SYN-ACK → ACK)</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h4 id="2-tcpdump-traffic-analysis">2. Tcpdump Traffic Analysis</h4>
+<ul>
+  <li>Captured and analyzed traffic using Tcpdump</li>
+  <li>Used key commands:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">tcpdump -nvXc 100</code></li>
+      <li><code class="language-plaintext highlighter-rouge">tcpdump -Xr /tmp/capture.pcap</code></li>
+    </ul>
+  </li>
+  <li>Applied filters to identify:
+    <ul>
+      <li>DNS traffic (port 53)</li>
+      <li>HTTP traffic (port 80)</li>
+      <li>HTTPS traffic (port 443)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="./assets/images/image10.png" alt="Tcpdump Analysis" /></p>
+
+<hr />
+
+<h4 id="3-protocol-and-traffic-identification">3. Protocol and Traffic Identification</h4>
+<ul>
+  <li>Identified common protocols in captured traffic:
+    <ul>
+      <li>DNS, HTTP, HTTPS</li>
+    </ul>
+  </li>
+  <li>Observed:
+    <ul>
+      <li>Client-server communication patterns</li>
+      <li>TCP handshakes</li>
+      <li>HTTP requests (GET, POST)</li>
+    </ul>
+  </li>
+  <li>Example findings:
+    <ul>
+      <li>Common HTTP response: <strong>200 OK</strong></li>
+      <li>DNS server identified: <strong>172.16.146.1</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="./assets/images/image12.png" alt="Protocol Analysis" /></p>
+
+<hr />
+
+<h4 id="4-packet-filtering-and-traffic-interrogation">4. Packet Filtering and Traffic Interrogation</h4>
+<ul>
+  <li>Applied filters to isolate specific traffic types</li>
+  <li>Analyzed:
+    <ul>
+      <li>DNS queries and responses</li>
+      <li>TCP conversations</li>
+      <li>Client/server port relationships</li>
+    </ul>
+  </li>
+  <li>Example:
+    <ul>
+      <li>Client port: <strong>43806</strong></li>
+      <li>Server port: <strong>80</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="./assets/images/image14.png" alt="Filtering Traffic" /></p>
+
+<hr />
+
+<h4 id="5-wireshark-analysis-advanced">5. Wireshark Analysis (Advanced)</h4>
+<ul>
+  <li>Used Wireshark GUI to:
+    <ul>
+      <li>Inspect packets in detail</li>
+      <li>Analyze traffic in ASCII and Hex</li>
+      <li>Follow TCP streams</li>
+    </ul>
+  </li>
+  <li>Identified protocols:
+    <ul>
+      <li>TCP, DNS, TLS, QUIC</li>
+    </ul>
+  </li>
+  <li>Extracted meaningful insights from packet payloads</li>
+</ul>
+
+<p><img src="./assets/images/image8.png" alt="Wireshark Analysis" /></p>
+
+<hr />
+
+<h4 id="6-threat-detection--incident-analysis">6. Threat Detection &amp; Incident Analysis</h4>
+<ul>
+  <li>Investigated suspicious traffic in a PCAP file</li>
+  <li>Identified:
+    <ul>
+      <li>Malicious activity originating from <strong>10.129.43.4</strong></li>
+      <li>Suspicious port usage: <strong>4444</strong></li>
+    </ul>
+  </li>
+  <li>Findings:
+    <ul>
+      <li>Unauthorized user creation (<code class="language-plaintext highlighter-rouge">hacker</code>)</li>
+      <li>Privilege escalation activity</li>
+      <li>Lateral movement using compromised host</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="./assets/images/image7.png" alt="Threat Analysis" /></p>
+
+<hr />
+
+<h4 id="7-ftp-and-rdp-traffic-analysis">7. FTP and RDP Traffic Analysis</h4>
+<ul>
+  <li>Detected FTP activity:
+    <ul>
+      <li>Server: <strong>172.16.10.20</strong></li>
+      <li>Client: <strong>172.16.10.2</strong></li>
+      <li>Anonymous authentication observed</li>
+    </ul>
+  </li>
+  <li>Analyzed RDP traffic:
+    <ul>
+      <li>Source host: <strong>10.129.43.27</strong></li>
+      <li>User: <strong>bucky</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="./assets/images/image2.png" alt="RDP Analysis" /></p>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Successfully analyzed network traffic across multiple protocols</li>
+  <li>Identified <strong>malicious behavior and compromised hosts</strong></li>
+  <li>Demonstrated ability to:
+    <ul>
+      <li>Filter and interpret packet captures</li>
+      <li>Detect suspicious patterns and anomalies</li>
+      <li>Perform structured network traffic investigations</li>
+    </ul>
+  </li>
+  <li>Strengthened skills in <strong>network forensics and incident response</strong></li>
+</ul>
+
+<hr />
+
+<h3 id="tools--technologies-used">Tools &amp; Technologies Used</h3>
+
+<ul>
+  <li><strong>Wireshark</strong> – Deep packet inspection and analysis</li>
+  <li><strong>Tcpdump</strong> – Command-line traffic capture and filtering</li>
+  <li><strong>PCAP Analysis</strong> – Historical traffic investigation</li>
+  <li><strong>TCP/IP Protocol Suite</strong> – Network communication analysis</li>
+  <li><strong>Linux CLI</strong> – Traffic capture and inspection</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>This project demonstrated the ability to perform <strong>real-world network traffic analysis and threat detection</strong> using industry-standard tools.</p>
+
+<p>It strengthened my capability to analyze packet-level data, identify suspicious behavior, and support incident response efforts — key skills required for <strong>SOC analysts, security engineers, and cloud security roles</strong>.</p>
+
+<hr />
+
+<p><a href="/projects/security/">Back to Security Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
