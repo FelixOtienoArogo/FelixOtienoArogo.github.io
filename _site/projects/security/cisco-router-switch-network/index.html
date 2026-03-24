@@ -1,0 +1,548 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Building a Routed and Switched Cisco Network in Packet Tracer - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Building a Routed and Switched Cisco Network in Packet Tracer">
+<meta property="og:url" content="http://localhost:4000/projects/security/cisco-router-switch-network/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/security/cisco-router-switch-network/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Building a Routed and Switched Cisco Network in Packet Tracer">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/security/cisco-router-switch-network/" itemprop="url">Building a Routed and Switched Cisco Network in Packet Tracer
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="building-a-routed-and-switched-cisco-network-in-packet-tracer">Building a Routed and Switched Cisco Network in Packet Tracer</h2>
+
+<p><strong>Timeline:</strong> May 2025<br />
+<strong>Role:</strong> Network Security / Infrastructure Engineer<br />
+<strong>Skills:</strong> Cisco IOS, Routing, Switching, IPv4, IPv6, Packet Tracer, Connectivity Testing, Troubleshooting</p>
+
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project focused on building and configuring a basic routed and switched Cisco network using Cisco Packet Tracer. The goal was to establish end-to-end connectivity between hosts on different subnets by configuring a router, switch, and end devices with both IPv4 and IPv6 addressing.</p>
+
+<p>The setup simulates a small office or branch network where a router enables inter-subnet communication and a switch provides local connectivity.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+
+<ul>
+  <li>Build a network topology using one router, one switch, and two PCs</li>
+  <li>Configure static IPv4 and IPv6 addressing on end devices</li>
+  <li>Configure router interfaces for inter-subnet routing</li>
+  <li>Configure the switch for local connectivity</li>
+  <li>Verify end-to-end communication</li>
+  <li>Use Cisco IOS commands to inspect routing and interfaces</li>
+</ul>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-topology-setup">1. Topology Setup</h4>
+<ul>
+  <li>Built the topology in Cisco Packet Tracer using:
+    <ul>
+      <li>R1 (Router)</li>
+      <li>S1 (Switch)</li>
+      <li>PC-A and PC-B (End devices)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="./assets/images/image14.png" alt="Topology Setup" /></p>
+
+<hr />
+
+<h4 id="2-end-device-configuration">2. End Device Configuration</h4>
+<ul>
+  <li>Assigned static IPv4 and IPv6 addresses to both PCs</li>
+  <li>Configured subnet masks and default gateways</li>
+  <li>Initial ping tests failed since routing was not yet configured</li>
+</ul>
+
+<p><img src="./assets/images/image6.png" alt="PC Addressing" /></p>
+
+<hr />
+
+<h4 id="3-router-configuration">3. Router Configuration</h4>
+<ul>
+  <li>Accessed router via console</li>
+  <li>Configured interfaces with IP addresses to act as default gateways</li>
+  <li>Enabled interfaces using: no shutdown</li>
+  <li>Verified routing between subnets</li>
+</ul>
+
+<p><img src="./assets/images/image7.png" alt="Router Configuration" /></p>
+
+<hr />
+
+<h4 id="4-switch-configuration">4. Switch Configuration</h4>
+<ul>
+  <li>Accessed switch via console</li>
+  <li>Performed basic configuration to support host connectivity</li>
+  <li>Confirmed interfaces were active</li>
+</ul>
+
+<p><img src="./assets/images/image8.png" alt="Switch Configuration" /></p>
+
+<hr />
+
+<h4 id="5-connectivity-validation">5. Connectivity Validation</h4>
+<ul>
+  <li>Successfully pinged PC-B from PC-A</li>
+  <li>Verified communication from switch to PC-B</li>
+  <li>Confirmed inter-subnet routing was working</li>
+</ul>
+
+<p><img src="./assets/images/image2.png" alt="Ping Results" /></p>
+
+<hr />
+
+<h4 id="6-routing-and-interface-verification">6. Routing and Interface Verification</h4>
+<ul>
+  <li>Checked routing table and interface details</li>
+  <li>Observed:
+    <ul>
+      <li>GigabitEthernet0/0/1 status: up</li>
+      <li>Line protocol: up</li>
+      <li>MAC address: 00d0.ff83.7602</li>
+      <li>IP address: 192.168.1.1/24</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="./assets/images/image13.png" alt="Routing Verification" /></p>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Built a functional routed and switched network</li>
+  <li>Enabled communication across different subnets</li>
+  <li>Demonstrated correct use of default gateways and interface activation</li>
+  <li>Strengthened troubleshooting and verification skills using Cisco IOS</li>
+</ul>
+
+<hr />
+
+<h3 id="troubleshooting-insight">Troubleshooting Insight</h3>
+
+<p>If router interface G0/0/1 were configured incorrectly (e.g., 192.168.1.2 instead of 192.168.1.1), hosts would fail to reach other networks due to an invalid default gateway.</p>
+
+<p>If an interface is administratively down, it can be enabled with: R1(config-if)# no shutdown</p>
+
+<hr />
+
+<h3 id="tools--technologies-used">Tools &amp; Technologies Used</h3>
+
+<ul>
+  <li>Cisco Packet Tracer</li>
+  <li>Cisco IOS CLI</li>
+  <li>IPv4 / IPv6 addressing</li>
+  <li>Ping testing</li>
+  <li>Show commands for verification</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>This project demonstrates the ability to configure and validate a small Cisco network from scratch. It reinforces key networking concepts required for roles in network engineering, cloud infrastructure, and security operations.</p>
+
+<hr />
+
+<p><a href="/projects/security/">Back to Security Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

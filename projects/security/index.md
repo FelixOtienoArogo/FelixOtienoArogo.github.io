@@ -80,6 +80,12 @@ Welcome to my security portfolio. This section showcases hands-on projects focus
   **Focus:** VLAN Segmentation, Switch Hardening, DHCP Snooping, Port Security  
   **Skills:** Cisco IOS, VLANs, 802.1Q Trunking, Port Security, BPDU Guard, DHCP Snooping
 
+- [Building a Routed and Switched Cisco Network in Packet Tracer](/projects/security/cisco-router-switch-network/)
+  ![Cisco Routed Network](/assets/images/projects/security/cisco-router-switch-network/image30.png)
+  **Role:** Network Security / Infrastructure Engineer  
+  **Focus:** Inter-Subnet Routing, Default Gateway Design, Connectivity Verification  
+  **Skills:** Cisco IOS, Routing, Switching, IPv4/IPv6 Addressing, Packet Tracer, Troubleshooting
+
 - [Enterprise Wireless Network Security Architecture using Cisco WLC](/projects/security/wlan-security-architecture/)
   ![WLAN Security Architecture](/assets/images/projects/security/wlan-security-architecture/image30.png)
   **Role:** Network Security Engineer  
