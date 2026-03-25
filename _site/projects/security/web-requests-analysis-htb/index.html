@@ -1,0 +1,567 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Web Requests Analysis &amp; HTTP Protocol Manipulation using cURL - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Web Requests Analysis &amp; HTTP Protocol Manipulation using cURL">
+<meta property="og:url" content="http://localhost:4000/projects/security/web-requests-analysis-htb/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/security/web-requests-analysis-htb/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Web Requests Analysis &amp; HTTP Protocol Manipulation using cURL">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/security/web-requests-analysis-htb/" itemprop="url">Web Requests Analysis &amp; HTTP Protocol Manipulation using cURL
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="web-requests-analysis--http-protocol-manipulation-using-curl">Web Requests Analysis &amp; HTTP Protocol Manipulation using cURL</h2>
+
+<p><strong>Timeline:</strong> June 2025<br />
+<strong>Role:</strong> Web Application Security Analyst<br />
+<strong>Skills:</strong> HTTP, cURL, API Testing, Request Manipulation, Web Debugging, Session Handling, DevTools</p>
+
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project focused on analyzing and manipulating <strong>web requests using HTTP and cURL</strong> through hands-on labs from Hack The Box Academy.</p>
+
+<p>The objective was to understand how web applications communicate over HTTP and to interact directly with servers by crafting and modifying requests. This included working with different HTTP methods, headers, cookies, and API interactions.</p>
+
+<p>The project simulated real-world scenarios relevant to <strong>web security testing, API interaction, and penetration testing</strong>, demonstrating how attackers and defenders analyze web traffic.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+
+<ul>
+  <li>Understand the structure and behavior of HTTP communication</li>
+  <li>Analyze HTTP requests and responses</li>
+  <li>Use <strong>cURL</strong> to interact with web servers</li>
+  <li>Inspect and manipulate HTTP headers and cookies</li>
+  <li>Perform GET and POST requests manually</li>
+  <li>Interact with APIs using CRUD operations</li>
+  <li>Use browser DevTools to monitor network traffic</li>
+</ul>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-http-fundamentals">1. HTTP Fundamentals</h4>
+<ul>
+  <li>Explored how HTTP operates as an application-layer protocol</li>
+  <li>Understood:
+    <ul>
+      <li>DNS resolution → HTTP request → HTTP response</li>
+      <li>URL structure and resource access</li>
+    </ul>
+  </li>
+  <li>Observed how clients communicate with web servers</li>
+</ul>
+
+<hr />
+
+<h4 id="2-http-requests--responses">2. HTTP Requests &amp; Responses</h4>
+<ul>
+  <li>Intercepted HTTP requests and identified:
+    <ul>
+      <li>Request method: <strong>GET</strong></li>
+      <li>Server response details</li>
+    </ul>
+  </li>
+  <li>Extracted server information:
+    <ul>
+      <li>Apache version: <strong>2.4.41</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="./assets/images/image5.png" alt="HTTP Requests" /></p>
+
+<hr />
+
+<h4 id="3-http-header-analysis">3. HTTP Header Analysis</h4>
+<ul>
+  <li>Used browser DevTools (Network tab) to inspect requests</li>
+  <li>Identified hidden requests made after page load</li>
+  <li>Extracted sensitive data from HTTP responses</li>
+</ul>
+
+<p><img src="./assets/images/image1.png" alt="HTTP Headers" /></p>
+
+<hr />
+
+<h4 id="4-get-request-manipulation">4. GET Request Manipulation</h4>
+<ul>
+  <li>Analyzed how search functionality sends requests</li>
+  <li>Recreated requests using cURL</li>
+  <li>Retrieved hidden data by modifying parameters</li>
+</ul>
+
+<p>Example:</p>
+<ul>
+  <li>Queried server using cURL to extract hidden content</li>
+</ul>
+
+<p><img src="./assets/images/image3.png" alt="GET Requests" /></p>
+
+<hr />
+
+<h4 id="5-post-request--session-handling">5. POST Request &amp; Session Handling</h4>
+<ul>
+  <li>Authenticated to obtain a <strong>session cookie</strong></li>
+  <li>Used the session cookie in cURL requests</li>
+  <li>Performed <strong>JSON-based POST requests</strong> to retrieve data</li>
+</ul>
+
+<p>Key concept:</p>
+<ul>
+  <li>Session reuse for authenticated requests</li>
+</ul>
+
+<p><img src="./assets/images/image8.png" alt="POST Requests" /></p>
+
+<hr />
+
+<h4 id="6-api-interaction-crud-operations">6. API Interaction (CRUD Operations)</h4>
+<ul>
+  <li>Interacted with a web API using:
+    <ul>
+      <li>Create</li>
+      <li>Read</li>
+      <li>Update</li>
+      <li>Delete</li>
+    </ul>
+  </li>
+  <li>Manipulated application data to retrieve hidden information</li>
+  <li>Demonstrated how improper API controls can expose sensitive data</li>
+</ul>
+
+<p><img src="./assets/images/image7.png" alt="API Interaction" /></p>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Successfully analyzed and manipulated HTTP requests</li>
+  <li>Demonstrated ability to:
+    <ul>
+      <li>Intercept and modify web traffic</li>
+      <li>Extract hidden or sensitive data</li>
+      <li>Work with authenticated sessions and cookies</li>
+      <li>Interact with APIs using structured requests</li>
+    </ul>
+  </li>
+  <li>Strengthened understanding of <strong>web application behavior and attack surfaces</strong></li>
+</ul>
+
+<hr />
+
+<h3 id="tools--technologies-used">Tools &amp; Technologies Used</h3>
+
+<ul>
+  <li><strong>cURL</strong> – HTTP request execution and automation</li>
+  <li><strong>Browser DevTools</strong> – Network traffic inspection</li>
+  <li><strong>HTTP Protocol</strong> – Request/response analysis</li>
+  <li><strong>Web APIs</strong> – CRUD interaction and testing</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>This project demonstrated the ability to analyze, craft, and manipulate web requests using HTTP and cURL.</p>
+
+<p>It strengthened practical skills in <strong>web application security testing, API interaction, and traffic inspection</strong>, which are essential for roles in <strong>web security, penetration testing, and cloud application security</strong>.</p>
+
+<hr />
+
+<p><a href="/projects/security/">Back to Security Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

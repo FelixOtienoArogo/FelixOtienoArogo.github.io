@@ -22,6 +22,12 @@ Welcome to my security portfolio. This section showcases hands-on projects focus
   **Focus:** XSS, HTML Injection, Sensitive Data Exposure, Parameter Tampering, CVE Analysis  
   **Skills:** HTTP Analysis, Input Validation Testing, Vulnerability Classification, Secure Coding Principles, CVSS Risk Assessment
 
+- [Web Requests Analysis & HTTP Protocol Manipulation using cURL](/projects/security/web-requests-analysis-htb/)
+  ![Web Requests Analysis HTB](/assets/images/projects/security/web-requests-analysis-htb/image30.png)
+  **Role:** Web Application Security Analyst  
+  **Focus:** HTTP Protocol Analysis, Request Manipulation, API Interaction, Session Handling  
+  **Skills:** cURL, HTTP Methods (GET/POST), Header Analysis, Cookie Handling, API Testing, Browser DevTools
+
 - [Web Application Traffic Analysis & HTTP Request Manipulation](/projects/security/web-requests-analysis/)
   ![HTTP Request Analysis](/assets/images/projects/security/web-requests-analysis/image30.png)
   **Role:** Web Application Security Analyst  
@@ -31,6 +37,7 @@ Welcome to my security portfolio. This section showcases hands-on projects focus
 ---
 
 ### Network Traffic Analysis & Monitoring
+
 - [Network Traffic Analysis & Threat Detection using Wireshark and Tcpdump](/projects/security/network-traffic-analysis-htb/)
   ![Network Traffic Analysis HTB](/assets/images/projects/security/network-traffic-analysis-htb/image30.png)
   **Role:** Network Security Analyst  
