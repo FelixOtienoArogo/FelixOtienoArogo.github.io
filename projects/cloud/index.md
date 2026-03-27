@@ -6,112 +6,175 @@ sidebar:
   nav: "projects"
 author_profile: true
 image: /assets/images/projects/cloud/cover.jpg
+classes: wide
 ---
 
-## Cloud Projects
+## ☁️ Cloud Architecture Portfolio
 
-Welcome to my cloud portfolio. Below are selected architecture case studies demonstrating enterprise modernization, cloud-native transformation, infrastructure automation, secure cloud design, hybrid architecture, and scalable AWS deployments.
-
----
-
-### Enterprise Modernization & Cloud-Native Architecture
-
-- [Modernizing a Legacy Web Application into an Enterprise-Grade AWS Architecture](/projects/cloud/enterprise-application-modernization-aws/)
-  ![Enterprise Modernization](/assets/images/projects/cloud/enterprise-application-modernization-aws/image9.png)
-  **Role:** Solutions Architect (Design & Implementation)
-  **Focus:** Enterprise Application Modernization & Cloud Transformation
-  **Skills:** Amazon EC2, Amazon RDS, Application Load Balancer, Auto Scaling, AWS Secrets Manager, IAM, VPC Architecture, Systems Manager, Well-Architected Design
-
-- [Decomposing a Monolithic Node.js Application into Microservices on Amazon ECS](/projects/cloud/microservices-modernization-ecs/)
-  ![Microservices on ECS](/assets/images/projects/cloud/microservices-modernization-ecs/image29.png)
-  **Role:** Solutions Architect (Cloud-Native Transformation)
-  **Focus:** Microservices Modernization & Container Orchestration
-  **Skills:** Docker, Amazon ECS, Amazon ECR, Application Load Balancer, Path-Based Routing, Service Decomposition, Node.js, Container Strategy
-
-- [Architecting a Decoupled Event-Driven Image Processing System on AWS](/projects/cloud/decoupled-event-driven-sqs/)
-  ![Decoupled Event-Driven Architecture](/assets/images/projects/cloud/decoupled-event-driven-sqs/image31.png)
-  **Role:** Solutions Architect (Distributed Systems & Event-Driven Design)
-  **Focus:** Asynchronous Communication & Application Decoupling
-  **Skills:** Amazon SQS, Amazon SNS, Amazon S3 Event Notifications, EC2, Node.js, Fault Tolerance, Message Queues
-
-- [Building a Serverless Inventory Intelligence System on AWS](/projects/cloud/serverless-inventory-intelligence/)
-  ![Serverless Inventory Intelligence](/assets/images/projects/cloud/serverless-inventory-intelligence/image11.png)
-  **Role:** Solutions Architect (Serverless & Real-Time Event Processing)
-  **Focus:** Serverless Data Processing, Event Chaining & Real-Time Alerts
-  **Skills:** AWS Lambda, Amazon S3, Amazon DynamoDB, DynamoDB Streams, Amazon SNS, IAM, CloudWatch, Event-Driven Architecture
-
-- [Designing a Serverless Event-Driven Reporting Architecture on AWS](/projects/cloud/serverless-reporting/)
-  ![Serverless Reporting Architecture](/assets/images/projects/cloud/serverless-reporting/image9.png)
-  **Role:** Solutions Architect (Serverless & Event-Driven Design)
-  **Focus:** Serverless Modernization & Event-Driven Automation
-  **Skills:** AWS Lambda, Amazon SNS, Amazon EventBridge, Amazon RDS, VPC-Integrated Lambda, IAM Roles, CloudWatch
+A curated collection of cloud architecture case studies across **AWS** and **Google Cloud Platform (GCP)**, covering modernization, automation, resilience, networking, and security.
 
 ---
 
-### Infrastructure Automation & Governance
+### 🚀 Enterprise Modernization & Cloud-Native Architecture
 
-- [Designing an Infrastructure-as-Code CI/CD Deployment Pipeline on AWS](/projects/cloud/iac-cicd-cloudformation/)
-  ![IaC CI/CD Automation](/assets/images/projects/cloud/iac-cicd-cloudformation/image32.png)
-  **Role:** Solutions Architect (Infrastructure Automation & Platform Engineering)
-  **Focus:** CI/CD-Driven Infrastructure Provisioning, Git-Based Change Control, Multi-Region Replication
-  **Skills:** AWS CloudFormation, AWS CodeCommit, AWS CodePipeline, Git, Cross-Stack References, Multi-Region Deployment, VPC Design, EC2, S3 Static Hosting
+<div class="project-grid">
 
-- [Automating Infrastructure Deployment Using AWS CloudFormation](/projects/cloud/infrastructure-automation-cloudformation/)
-  ![Infrastructure Automation](/assets/images/projects/cloud/infrastructure-automation-cloudformation/image8.png)
-  **Role:** Solutions Architect (Infrastructure as Code & Automation)
-  **Focus:** Stack Modularity & Controlled Change Management
-  **Skills:** AWS CloudFormation, IaC, Change Sets, Cross-Stack References, Deletion Policies, VPC Design, EC2
+  <a class="project-card" href="/projects/cloud/enterprise-application-modernization-aws/">
+    <img src="/assets/images/projects/cloud/enterprise-application-modernization-aws/image9.png" alt="Modernizing a Legacy Web Application">
+    <div class="project-card__body">
+      <h3>Modernizing a Legacy Web Application</h3>
+      <p><strong>Focus:</strong> Cloud Transformation</p>
+      <p>EC2, RDS, ALB, Auto Scaling, IAM, VPC</p>
+    </div>
+  </a>
+
+  <a class="project-card" href="/projects/cloud/microservices-modernization-ecs/">
+    <img src="/assets/images/projects/cloud/microservices-modernization-ecs/image29.png" alt="Monolith to Microservices on ECS">
+    <div class="project-card__body">
+      <h3>Monolith to Microservices (ECS)</h3>
+      <p><strong>Focus:</strong> Containerization</p>
+      <p>Docker, ECS, ECR, ALB, Node.js</p>
+    </div>
+  </a>
+
+  <a class="project-card" href="/projects/cloud/decoupled-event-driven-sqs/">
+    <img src="/assets/images/projects/cloud/decoupled-event-driven-sqs/image31.png" alt="Event-Driven Image Processing System">
+    <div class="project-card__body">
+      <h3>Event-Driven Image Processing System</h3>
+      <p><strong>Focus:</strong> Distributed Systems</p>
+      <p>SQS, SNS, S3 Events, EC2</p>
+    </div>
+  </a>
+
+  <a class="project-card" href="/projects/cloud/serverless-inventory-intelligence/">
+    <img src="/assets/images/projects/cloud/serverless-inventory-intelligence/image11.png" alt="Serverless Inventory Intelligence">
+    <div class="project-card__body">
+      <h3>Serverless Inventory Intelligence</h3>
+      <p><strong>Focus:</strong> Real-Time Processing</p>
+      <p>Lambda, DynamoDB, Streams, SNS</p>
+    </div>
+  </a>
+
+  <a class="project-card" href="/projects/cloud/serverless-reporting/">
+    <img src="/assets/images/projects/cloud/serverless-reporting/image9.png" alt="Serverless Reporting Architecture">
+    <div class="project-card__body">
+      <h3>Serverless Reporting Architecture</h3>
+      <p><strong>Focus:</strong> Event Automation</p>
+      <p>Lambda, EventBridge, SNS, RDS</p>
+    </div>
+  </a>
+
+</div>
 
 ---
 
-### Hybrid Architecture & Resilience
+### ⚙️ Infrastructure Automation & Governance
 
-- [Hybrid Cloud Storage Architecture](/projects/cloud/hybrid-storage/)
-  ![Hybrid Storage](/assets/images/projects/cloud/hybrid-storage/image2.png)
-  **Role:** Cloud Solutions Architect
-  **Focus:** Hybrid Integration & Disaster Recovery
-  **Skills:** AWS Storage Gateway, S3, Cross-Region Replication, Lifecycle Policies, Secure Storage Design, IAM, Encryption
+<div class="project-grid">
+
+  <a class="project-card" href="/projects/cloud/iac-cicd-cloudformation/">
+    <img src="/assets/images/projects/cloud/iac-cicd-cloudformation/image32.png" alt="IaC CI/CD Pipeline">
+    <div class="project-card__body">
+      <h3>IaC CI/CD Pipeline</h3>
+      <p><strong>Focus:</strong> Automated Deployment</p>
+      <p>CloudFormation, CodePipeline, Git</p>
+    </div>
+  </a>
+
+  <a class="project-card" href="/projects/cloud/infrastructure-automation-cloudformation/">
+    <img src="/assets/images/projects/cloud/infrastructure-automation-cloudformation/image8.png" alt="Infrastructure Automation with CloudFormation">
+    <div class="project-card__body">
+      <h3>Infrastructure Automation with CloudFormation</h3>
+      <p><strong>Focus:</strong> Change Management</p>
+      <p>CloudFormation, Change Sets, VPC</p>
+    </div>
+  </a>
+
+</div>
 
 ---
 
-### Security & Identity Architecture
+### 🌐 Hybrid Architecture & Resilience
 
-- [Encrypting Data at Rest with AWS KMS, S3, and EBS](/projects/cloud/aws-encryption/)
-  ![AWS Encryption](/assets/images/projects/cloud/aws-encryption/image16.png)
-  **Role:** Cloud Security Engineer
-  **Focus:** Data Protection & Encryption
-  **Skills:** AWS KMS, S3 Encryption, EBS Encryption, CloudTrail, Key Rotation
+<div class="project-grid">
 
-- [Secure Web Application with AWS Cognito](/projects/cloud/cognito-auth/)
-  ![Cognito Auth](/assets/images/projects/cloud/cognito-auth/image15.png)
-  **Role:** Solutions Architect & Software Engineer
-  **Focus:** Identity & Access Management
-  **Skills:** AWS Cognito, S3, CloudFront, DynamoDB, Node.js
+  <a class="project-card" href="/projects/cloud/hybrid-storage/">
+    <img src="/assets/images/projects/cloud/hybrid-storage/image2.png" alt="Hybrid Cloud Storage Architecture">
+    <div class="project-card__body">
+      <h3>Hybrid Cloud Storage Architecture</h3>
+      <p><strong>Focus:</strong> Disaster Recovery</p>
+      <p>Storage Gateway, S3, Replication</p>
+    </div>
+  </a>
+
+</div>
 
 ---
 
-### Networking & High Availability Foundations
+### 🔐 Security & Identity Architecture
 
-- [Highly Available Web Application on AWS](/projects/cloud/high-availability-app/)
-  ![High Availability App](/assets/images/projects/cloud/high-availability-app/image7.png)
-  **Role:** Cloud Solutions Architect
-  **Focus:** Multi-AZ Resilience
-  **Skills:** AWS VPC, EC2, Auto Scaling, Application Load Balancer, RDS
+<div class="project-grid">
 
-- [Scalable and Highly Available Web Application for Café](/projects/cloud/cafe-autoscaling/)
-  ![Café Auto Scaling](/assets/images/projects/cloud/cafe-autoscaling/image8.png)
-  **Role:** Cloud Solutions Architect
-  **Focus:** Elastic Web Architecture
-  **Skills:** EC2 Auto Scaling, Application Load Balancer, Launch Templates, CloudWatch
+  <a class="project-card" href="/projects/cloud/aws-encryption/">
+    <img src="/assets/images/projects/cloud/aws-encryption/image16.png" alt="Data Encryption with KMS S3 and EBS">
+    <div class="project-card__body">
+      <h3>Data Encryption (KMS, S3, EBS)</h3>
+      <p><strong>Focus:</strong> Data Protection</p>
+      <p>KMS, S3, EBS, CloudTrail</p>
+    </div>
+  </a>
 
-- [Creating a VPC Peering Connection in AWS](/projects/cloud/vpc-peering/)
-  ![VPC Peering](/assets/images/projects/cloud/vpc-peering/image1.png)
-  **Role:** Cloud Solutions Architect
-  **Focus:** Secure Inter-VPC Connectivity
-  **Skills:** AWS VPC, Subnets, Routing, Security Groups, VPC Flow Logs
+  <a class="project-card" href="/projects/cloud/cognito-auth/">
+    <img src="/assets/images/projects/cloud/cognito-auth/image15.png" alt="Secure Web Application with Cognito">
+    <div class="project-card__body">
+      <h3>Secure Web Application (Cognito)</h3>
+      <p><strong>Focus:</strong> Identity & Access</p>
+      <p>Cognito, CloudFront, DynamoDB</p>
+    </div>
+  </a>
 
-- [Café VPC Networking Environment](/projects/cloud/vpc-networking/)
-  ![Café VPC](/assets/images/projects/cloud/vpc-networking/image8.png)
-  **Role:** Cloud Solutions Architect
-  **Focus:** Network Segmentation & Secure Access
-  **Skills:** AWS VPC, Public & Private Subnets, Bastion Host, NAT Gateway, Security Groups
+</div>
+
+---
+
+### 🌍 Networking & High Availability
+
+<div class="project-grid">
+
+  <a class="project-card" href="/projects/cloud/high-availability-app/">
+    <img src="/assets/images/projects/cloud/high-availability-app/image7.png" alt="Highly Available Web Application">
+    <div class="project-card__body">
+      <h3>Highly Available Web Application</h3>
+      <p><strong>Focus:</strong> Multi-AZ Resilience</p>
+      <p>VPC, EC2, Auto Scaling, ALB</p>
+    </div>
+  </a>
+
+  <a class="project-card" href="/projects/cloud/cafe-autoscaling/">
+    <img src="/assets/images/projects/cloud/cafe-autoscaling/image8.png" alt="Scalable Café Architecture">
+    <div class="project-card__body">
+      <h3>Scalable Café Architecture</h3>
+      <p><strong>Focus:</strong> Elastic Scaling</p>
+      <p>Auto Scaling, ALB, Launch Templates</p>
+    </div>
+  </a>
+
+  <a class="project-card" href="/projects/cloud/vpc-peering/">
+    <img src="/assets/images/projects/cloud/vpc-peering/image1.png" alt="VPC Peering Architecture">
+    <div class="project-card__body">
+      <h3>VPC Peering Architecture</h3>
+      <p><strong>Focus:</strong> Secure Connectivity</p>
+      <p>VPC, Routing, Security Groups</p>
+    </div>
+  </a>
+
+  <a class="project-card" href="/projects/cloud/vpc-networking/">
+    <img src="/assets/images/projects/cloud/vpc-networking/image8.png" alt="Secure VPC Networking Environment">
+    <div class="project-card__body">
+      <h3>Secure VPC Networking Environment</h3>
+      <p><strong>Focus:</strong> Segmentation</p>
+      <p>Subnets, NAT, Bastion Host</p>
+    </div>
+  </a>
+
+</div>
