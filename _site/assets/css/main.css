@@ -1,7 +1,4 @@
 @charset "UTF-8";
-/* ==========================================================================
-   Default skin
-   ========================================================================== */
 /* Copyright comment */
 /*!
  * Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
@@ -5235,16 +5232,7 @@ body {
     height: 1px !important;
   }
 }
-
-/*# sourceMappingURL=main.css.map */
-
-
-
-
-/* =========================================================
-   Custom project card styling
-   ========================================================= */
-
+/* Custom project card styling */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -5267,7 +5255,7 @@ body {
 
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
   text-decoration: none !important;
 }
 
@@ -5307,21 +5295,10 @@ body {
   clear: both;
 }
 
-.page__content .project-grid + hr,
-.page__content hr + .project-grid {
-  margin-top: 1.5rem;
-}
-
-/* Optional: make section headings cleaner */
 .page__content > h2,
 .page__content > h3 {
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
 
-/* Better spacing on wide pages */
-.page__content {
-  max-width: 100%;
-}
-
-
+/*# sourceMappingURL=main.css.map */
