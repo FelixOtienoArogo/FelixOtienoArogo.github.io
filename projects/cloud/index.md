@@ -115,6 +115,16 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
 
 <div class="project-grid">
 
+
+  <a class="project-card" href="/projects/cloud/gcp-bastion-host-rdp/">
+  <img src="/assets/images/projects/cloud/gcp-bastion-host-rdp/image30.png" alt="Secure Bastion Host Architecture on GCP">
+  <div class="project-card__body">
+    <h3>Secure Bastion Host Architecture (GCP)</h3>
+      <p><strong>Focus:</strong> Secure Administrative Access</p>
+      <p>GCP VPC, Compute Engine, Firewall Rules, RDP, Network Segmentation</p>
+    </div>
+  </a>
+
   <a class="project-card" href="/projects/cloud/aws-encryption/">
     <img src="/assets/images/projects/cloud/aws-encryption/image16.png" alt="Data Encryption with KMS S3 and EBS">
     <div class="project-card__body">

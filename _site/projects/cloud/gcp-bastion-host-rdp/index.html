@@ -1,0 +1,573 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Secure Bastion Host Architecture for Isolated Windows Workloads on GCP - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Secure Bastion Host Architecture for Isolated Windows Workloads on GCP">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/gcp-bastion-host-rdp/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/cloud/gcp-bastion-host-rdp/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Secure Bastion Host Architecture for Isolated Windows Workloads on GCP">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/cloud/gcp-bastion-host-rdp/" itemprop="url">Secure Bastion Host Architecture for Isolated Windows Workloads on GCP
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="secure-bastion-host-architecture-for-isolated-windows-workloads-on-gcp">Secure Bastion Host Architecture for Isolated Windows Workloads on GCP</h2>
+
+<p><strong>Timeline:</strong> December 2025<br />
+<strong>Role:</strong> Cloud Security Engineer<br />
+<strong>Skills:</strong> Google Cloud VPC, Compute Engine, Firewall Rules, Windows Server, RDP, Bastion Host Design, Network Segmentation, IIS</p>
+
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project focused on designing and implementing a <strong>secure administrative access architecture for Windows workloads on Google Cloud Platform (GCP)</strong>. The objective was to provision a production-style Windows environment in which the secure application server remained isolated from direct external access, while still allowing controlled administrative management through a dedicated bastion host.</p>
+
+<p>The solution used <strong>segmented VPC networking, scoped firewall rules, dual-network interfaces, and a bastion-based RDP access path</strong> to enforce security boundaries while preserving operational access for administration and monitoring.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+
+<ul>
+  <li>Create an isolated VPC environment for secure Windows workloads</li>
+  <li>Restrict direct internet access to production servers</li>
+  <li>Implement a bastion host as the only externally reachable RDP entry point</li>
+  <li>Apply firewall rules to tightly scope administrative access</li>
+  <li>Provide internal-only monitoring connectivity through a secondary network interface</li>
+  <li>Deploy and validate a Windows web server workload using IIS</li>
+</ul>
+
+<hr />
+
+<h3 id="architecture-overview">Architecture Overview</h3>
+
+<p>The architecture consisted of:</p>
+
+<ul>
+  <li>A dedicated <strong>VPC network (<code class="language-plaintext highlighter-rouge">securenetwork</code>)</strong> with a single subnet for the production environment</li>
+  <li>A <strong>Windows bastion host</strong> with:
+    <ul>
+      <li>one interface connected to the secure VPC subnet</li>
+      <li>one interface connected to the default VPC</li>
+      <li>an ephemeral public IP for external RDP access</li>
+    </ul>
+  </li>
+  <li>A <strong>secure Windows server</strong> with:
+    <ul>
+      <li>one interface connected to the secure VPC subnet</li>
+      <li>one interface connected to the default VPC</li>
+      <li>no direct external internet access</li>
+    </ul>
+  </li>
+  <li>A firewall rule allowing <strong>TCP 3389 (RDP)</strong> inbound from the internet only to the bastion host using network tags</li>
+  <li>IIS deployed on the internal secure host to validate successful administrative access and workload setup</li>
+</ul>
+
+<p><img src="./assets/images/image2.png" alt="Architecture diagram" /></p>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-secure-network-foundation">1. Secure Network Foundation</h4>
+<ul>
+  <li>Created a new VPC network named <strong><code class="language-plaintext highlighter-rouge">securenetwork</code></strong></li>
+  <li>Provisioned a dedicated subnet in the required region for the isolated production environment</li>
+  <li>Established a segmented network boundary for secure Windows workloads</li>
+</ul>
+
+<hr />
+
+<h4 id="2-controlled-administrative-entry-point">2. Controlled Administrative Entry Point</h4>
+<ul>
+  <li>Deployed a <strong>Windows bastion host</strong> to act as the controlled external access point</li>
+  <li>Assigned the bastion host a public external address for internet-based RDP access</li>
+  <li>Restricted ingress using a firewall rule allowing <strong>RDP (TCP 3389)</strong> only to the bastion host through network tags</li>
+</ul>
+
+<hr />
+
+<h4 id="3-isolated-secure-workload-host">3. Isolated Secure Workload Host</h4>
+<ul>
+  <li>Deployed a second Windows server as the <strong>secure production host</strong></li>
+  <li>Configured the secure host without direct public access</li>
+  <li>Ensured that administrative access could only occur indirectly through the bastion host</li>
+</ul>
+
+<hr />
+
+<h4 id="4-dual-nic-design-for-segmentation-and-monitoring">4. Dual-NIC Design for Segmentation and Monitoring</h4>
+<ul>
+  <li>Configured both Windows servers with <strong>two network interfaces</strong>:
+    <ul>
+      <li>one attached to the isolated secure VPC</li>
+      <li>one attached to the default VPC for internal monitoring connectivity</li>
+    </ul>
+  </li>
+  <li>Supported management and observability requirements without exposing the secure workload to direct internet access</li>
+</ul>
+
+<hr />
+
+<h4 id="5-secure-administrative-workflow">5. Secure Administrative Workflow</h4>
+<ul>
+  <li>Reset Windows passwords and provisioned administrative access credentials</li>
+  <li>Connected first to the bastion host using RDP from the internet</li>
+  <li>Initiated a second internal RDP session from the bastion host to the secure Windows server</li>
+  <li>Demonstrated the bastion/jump-host pattern for secure Windows administration</li>
+</ul>
+
+<hr />
+
+<h4 id="6-workload-validation-with-iis">6. Workload Validation with IIS</h4>
+<ul>
+  <li>Installed <strong>Internet Information Server (IIS)</strong> on the secure host</li>
+  <li>Used IIS deployment as validation that the isolated workload could still be configured and managed successfully through the controlled administrative path</li>
+</ul>
+
+<hr />
+
+<h3 id="security-design-decisions">Security Design Decisions</h3>
+
+<p>This project implemented several important security principles:</p>
+
+<ul>
+  <li><strong>No direct public access</strong> to the secure production server</li>
+  <li><strong>Single controlled ingress path</strong> through the bastion host</li>
+  <li><strong>Firewall scoping with tags</strong> to limit RDP exposure</li>
+  <li><strong>Network segmentation</strong> between secure application infrastructure and external access</li>
+  <li><strong>Separate monitoring connectivity</strong> using an internal-only secondary interface</li>
+  <li><strong>Administrative isolation</strong> to reduce the attack surface of production workloads</li>
+</ul>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Successfully deployed a <strong>segmented Windows administration architecture</strong> on GCP</li>
+  <li>Enforced <strong>controlled RDP access</strong> through a bastion host rather than exposing production servers directly</li>
+  <li>Demonstrated practical implementation of:
+    <ul>
+      <li>secure remote administration</li>
+      <li>network isolation</li>
+      <li>firewall-based access control</li>
+      <li>dual-network design for operations and monitoring</li>
+    </ul>
+  </li>
+  <li>Validated the design by installing and managing IIS on the isolated secure server</li>
+</ul>
+
+<hr />
+
+<h3 id="tools--technologies-used">Tools &amp; Technologies Used</h3>
+
+<ul>
+  <li><strong>Google Cloud Platform (GCP)</strong></li>
+  <li><strong>Compute Engine</strong> – Windows VM provisioning</li>
+  <li><strong>VPC Networking</strong> – Secure network isolation</li>
+  <li><strong>Firewall Rules</strong> – Scoped RDP access control</li>
+  <li><strong>Windows Server</strong> – Administrative workload host</li>
+  <li><strong>Remote Desktop Protocol (RDP)</strong> – Controlled remote access</li>
+  <li><strong>Internet Information Server (IIS)</strong> – Workload validation</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>This project demonstrates the ability to design and implement a <strong>secure administrative access pattern for Windows workloads on Google Cloud</strong>. It highlights practical skills in <strong>bastion host design, network segmentation, firewall scoping, and secure workload management</strong>, which are directly relevant to cloud security engineering and cloud architecture roles.</p>
+
+<hr />
+
+<p><a href="/projects/cloud/">Back to Cloud Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
