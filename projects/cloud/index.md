@@ -90,6 +90,15 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
     </div>
   </a>
 
+  <a class="project-card" href="/projects/cloud/gcp-startup-script-vm/">
+    <img src="/assets/images/projects/cloud/gcp-startup-script-vm/image2.png" alt="Scalable VM Initialization using Remote Startup Scripts on GCP">
+    <div class="project-card__body">
+      <h3>Scalable VM Initialization (GCP)</h3>
+      <p><strong>Focus:</strong> Infrastructure Automation</p>
+      <p>Cloud Storage, Compute Engine, Startup Scripts, IAM, Firewall Rules</p>
+    </div>
+  </a>
+
 </div>
 
 ---
