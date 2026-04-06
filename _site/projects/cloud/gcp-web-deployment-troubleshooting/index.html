@@ -1,0 +1,540 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Web Application Deployment and Troubleshooting on Compute Engine (GCP) - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Web Application Deployment and Troubleshooting on Compute Engine (GCP)">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/gcp-web-deployment-troubleshooting/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/cloud/gcp-web-deployment-troubleshooting/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Web Application Deployment and Troubleshooting on Compute Engine (GCP)">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/cloud/gcp-web-deployment-troubleshooting/" itemprop="url">Web Application Deployment and Troubleshooting on Compute Engine (GCP)
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="web-application-deployment-and-troubleshooting-on-compute-engine-gcp">Web Application Deployment and Troubleshooting on Compute Engine (GCP)</h2>
+
+<p><strong>Timeline:</strong> December 2025<br />
+<strong>Role:</strong> Cloud Engineer<br />
+<strong>Skills:</strong> Google Compute Engine, Linux, Apache, Firewall Rules, Networking, Troubleshooting, Public Access Configuration</p>
+
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project focused on deploying a <strong>public-facing web application</strong> on Google Cloud using Compute Engine and ensuring it was accessible to users over the internet. The task involved provisioning a Linux virtual machine, configuring firewall rules for external access, installing and running an Apache web server, and troubleshooting connectivity issues to ensure the service was reachable.</p>
+
+<p>The implementation demonstrated fundamental cloud operations skills, including <strong>infrastructure provisioning, network configuration, service deployment, and troubleshooting production access issues</strong>.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+
+<ul>
+  <li>Provision a Linux VM instance on Compute Engine</li>
+  <li>Configure firewall rules to allow public HTTP access</li>
+  <li>Install and run an Apache web server</li>
+  <li>Expose the application via the VM’s external IP</li>
+  <li>Troubleshoot connectivity and access issues</li>
+  <li>Validate successful deployment</li>
+</ul>
+
+<hr />
+
+<h3 id="architecture-overview">Architecture Overview</h3>
+
+<p>The architecture consisted of:</p>
+
+<ul>
+  <li>A <strong>Compute Engine VM</strong> hosting the web server</li>
+  <li>A <strong>public external IP address</strong> assigned to the instance</li>
+  <li>A <strong>firewall rule allowing HTTP traffic (TCP 80)</strong></li>
+  <li>An Apache web server serving content to external users</li>
+  <li>A client accessing the application through a browser</li>
+</ul>
+
+<p><img src="./images/image2.png" alt="Architecture Diagram" /></p>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-vm-provisioning">1. VM Provisioning</h4>
+<ul>
+  <li>Created a Linux-based Compute Engine instance</li>
+  <li>Selected appropriate zone and configuration for deployment</li>
+  <li>Prepared the instance to host a web application</li>
+</ul>
+
+<hr />
+
+<h4 id="2-network-and-firewall-configuration">2. Network and Firewall Configuration</h4>
+<ul>
+  <li>Enabled public access by applying firewall rules</li>
+  <li>Allowed inbound traffic on <strong>TCP port 80 (HTTP)</strong></li>
+  <li>Ensured the instance was reachable from external networks</li>
+</ul>
+
+<hr />
+
+<h4 id="3-web-server-deployment">3. Web Server Deployment</h4>
+<ul>
+  <li>Installed <strong>Apache HTTP Server</strong> on the VM</li>
+  <li>Started and enabled the web server service</li>
+  <li>Configured a basic web page as a placeholder application</li>
+</ul>
+
+<hr />
+
+<h4 id="4-external-access-validation">4. External Access Validation</h4>
+<ul>
+  <li>Accessed the application via the VM’s external IP address</li>
+  <li>Confirmed successful HTTP response from the server</li>
+</ul>
+
+<hr />
+
+<h4 id="5-troubleshooting-and-issue-resolution">5. Troubleshooting and Issue Resolution</h4>
+<ul>
+  <li>Investigated potential connectivity issues such as:
+    <ul>
+      <li>missing firewall rules</li>
+      <li>incorrect instance tags</li>
+      <li>incorrect protocol usage (HTTP vs HTTPS)</li>
+    </ul>
+  </li>
+  <li>Resolved issues preventing external access to the application</li>
+  <li>Verified successful connectivity after fixes</li>
+</ul>
+
+<hr />
+
+<h3 id="design-decisions">Design Decisions</h3>
+
+<ul>
+  <li>Used <strong>Compute Engine</strong> for flexible infrastructure provisioning</li>
+  <li>Applied <strong>firewall rules</strong> to explicitly control public access</li>
+  <li>Used <strong>Apache</strong> as a lightweight web server for rapid deployment</li>
+  <li>Focused on <strong>troubleshooting and validation</strong> to ensure production readiness</li>
+</ul>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Successfully deployed a publicly accessible web server on GCP</li>
+  <li>Demonstrated the ability to configure infrastructure for internet-facing applications</li>
+  <li>Identified and resolved common cloud deployment issues</li>
+  <li>Strengthened troubleshooting skills for real-world cloud environments</li>
+</ul>
+
+<hr />
+
+<h3 id="tools--technologies-used">Tools &amp; Technologies Used</h3>
+
+<ul>
+  <li><strong>Google Compute Engine</strong> – VM hosting</li>
+  <li><strong>Linux</strong> – Operating system</li>
+  <li><strong>Apache HTTP Server</strong> – Web server</li>
+  <li><strong>Firewall Rules</strong> – Network access control</li>
+  <li><strong>Public IP Networking</strong> – External access</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>This project demonstrates the ability to deploy and troubleshoot a <strong>public-facing web application on cloud infrastructure</strong>, ensuring proper configuration of compute, networking, and services. It highlights practical skills in <strong>cloud operations, network troubleshooting, and service validation</strong>, which are critical for cloud engineering and site reliability roles.</p>
+
+<hr />
+
+<p><a href="/projects/cloud/">Back to Cloud Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

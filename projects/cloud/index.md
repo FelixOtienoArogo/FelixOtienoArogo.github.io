@@ -214,6 +214,15 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
     </div>
   </a>
 
+  <a class="project-card" href="/projects/cloud/gcp-web-deployment-troubleshooting/">
+  <img src="/assets/images/projects/cloud/gcp-web-deployment-troubleshooting/image1.png" alt="Web Application Deployment and Troubleshooting on GCP">
+  <div class="project-card__body">
+    <h3>Web Deployment & Troubleshooting (GCP)</h3>
+    <p><strong>Focus:</strong> Public Access & Connectivity</p>
+    <p>Compute Engine, Apache, Firewall Rules, Networking</p>
+  </div>
+</a>
+
 </div>
 
 
