@@ -55,6 +55,9 @@
 <loc>http://localhost:4000/projects/cloud/hybrid-storage/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/projects/cloud/gcp-bigquery-cloudsql-pipeline/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/projects/cloud/cafe-autoscaling/</loc>
 </url>
 <url>

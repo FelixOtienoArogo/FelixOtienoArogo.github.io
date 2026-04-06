@@ -1,0 +1,564 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Data Processing and Analytics Pipeline using BigQuery and Cloud SQL (GCP) - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Data Processing and Analytics Pipeline using BigQuery and Cloud SQL (GCP)">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/gcp-bigquery-cloudsql-pipeline/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/cloud/gcp-bigquery-cloudsql-pipeline/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Data Processing and Analytics Pipeline using BigQuery and Cloud SQL (GCP)">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/cloud/gcp-bigquery-cloudsql-pipeline/" itemprop="url">Data Processing and Analytics Pipeline using BigQuery and Cloud SQL (GCP)
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="data-processing-and-analytics-pipeline-using-bigquery-and-cloud-sql-gcp">Data Processing and Analytics Pipeline using BigQuery and Cloud SQL (GCP)</h2>
+
+<p><strong>Timeline:</strong> December 2025<br />
+<strong>Role:</strong> Cloud Engineer / Data Engineer<br />
+<strong>Skills:</strong> BigQuery, Cloud SQL, Cloud Storage, SQL, Data Pipelines, Data Transformation, Query Optimization</p>
+
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project focused on building a <strong>data processing and analytics pipeline</strong> on Google Cloud Platform using BigQuery and Cloud SQL. The workflow involved querying large public datasets, transforming and exporting structured data, and loading it into a managed relational database for further analysis.</p>
+
+<p>The implementation demonstrated how to move data across multiple cloud services while maintaining structure, enabling both <strong>large-scale analytics and transactional querying</strong>.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+
+<ul>
+  <li>Query and analyze large datasets using BigQuery</li>
+  <li>Perform data aggregation using SQL</li>
+  <li>Export processed data into CSV format</li>
+  <li>Store exported data in Cloud Storage</li>
+  <li>Create a Cloud SQL instance and database</li>
+  <li>Import structured data into Cloud SQL tables</li>
+  <li>Perform SQL-based data manipulation and analysis</li>
+</ul>
+
+<hr />
+
+<h3 id="architecture-overview">Architecture Overview</h3>
+
+<p>The architecture consisted of:</p>
+
+<ul>
+  <li><strong>BigQuery</strong> for large-scale data querying and aggregation</li>
+  <li><strong>Public dataset (London bikeshare)</strong> used as the data source</li>
+  <li><strong>Cloud Storage bucket</strong> used as an intermediate staging layer</li>
+  <li><strong>Cloud SQL (MySQL)</strong> used as a managed relational database</li>
+  <li>SQL queries used to transform, filter, and analyze the data</li>
+</ul>
+
+<p><img src="./assets/images/image3.png" alt="Architecture Diagram" /></p>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-data-exploration-with-bigquery">1. Data Exploration with BigQuery</h4>
+<ul>
+  <li>Queried a public dataset containing millions of bikeshare records</li>
+  <li>Used SQL commands such as:
+    <ul>
+      <li>SELECT</li>
+      <li>WHERE</li>
+      <li>GROUP BY</li>
+      <li>COUNT</li>
+      <li>ORDER BY</li>
+    </ul>
+  </li>
+  <li>Extracted insights from large-scale datasets efficiently</li>
+</ul>
+
+<hr />
+
+<h4 id="2-data-aggregation-and-transformation">2. Data Aggregation and Transformation</h4>
+<ul>
+  <li>Aggregated trip data based on start and end stations</li>
+  <li>Created structured outputs suitable for downstream processing</li>
+  <li>Prepared datasets for export and reuse</li>
+</ul>
+
+<hr />
+
+<h4 id="3-data-export-to-cloud-storage">3. Data Export to Cloud Storage</h4>
+<ul>
+  <li>Exported query results as CSV files</li>
+  <li>Stored the files in a Cloud Storage bucket</li>
+  <li>Used Cloud Storage as an intermediate staging layer in the pipeline</li>
+</ul>
+
+<hr />
+
+<h4 id="4-cloud-sql-provisioning">4. Cloud SQL Provisioning</h4>
+<ul>
+  <li>Created a managed MySQL instance using Cloud SQL</li>
+  <li>Configured database and tables for structured data ingestion</li>
+  <li>Designed schema for imported datasets</li>
+</ul>
+
+<hr />
+
+<h4 id="5-data-import-into-cloud-sql">5. Data Import into Cloud SQL</h4>
+<ul>
+  <li>Loaded CSV files into Cloud SQL tables</li>
+  <li>Verified data integrity after import</li>
+  <li>Enabled structured querying on relational datasets</li>
+</ul>
+
+<hr />
+
+<h4 id="6-data-manipulation-and-analysis">6. Data Manipulation and Analysis</h4>
+<ul>
+  <li>Executed SQL operations including:
+    <ul>
+      <li>DELETE (data cleanup)</li>
+      <li>INSERT (data creation)</li>
+      <li>UNION (combining datasets)</li>
+    </ul>
+  </li>
+  <li>Performed relational analysis on processed data</li>
+</ul>
+
+<hr />
+
+<h3 id="design-decisions">Design Decisions</h3>
+
+<ul>
+  <li>Used <strong>BigQuery</strong> for large-scale analytical queries due to its serverless architecture</li>
+  <li>Used <strong>Cloud Storage</strong> as a staging layer for data transfer</li>
+  <li>Used <strong>Cloud SQL</strong> for structured, relational querying</li>
+  <li>Combined analytical and transactional systems for flexibility in data processing</li>
+</ul>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Successfully built a multi-stage <strong>data processing pipeline</strong> on GCP</li>
+  <li>Demonstrated ability to:
+    <ul>
+      <li>query large datasets</li>
+      <li>transform structured data</li>
+      <li>move data across cloud services</li>
+      <li>manage relational databases</li>
+    </ul>
+  </li>
+  <li>Gained practical experience in <strong>data engineering workflows and SQL-based analytics</strong></li>
+</ul>
+
+<hr />
+
+<h3 id="tools--technologies-used">Tools &amp; Technologies Used</h3>
+
+<ul>
+  <li><strong>BigQuery</strong> – Data warehouse and analytics engine</li>
+  <li><strong>Cloud Storage</strong> – Data staging layer</li>
+  <li><strong>Cloud SQL (MySQL)</strong> – Relational database</li>
+  <li><strong>SQL</strong> – Querying and data manipulation</li>
+  <li><strong>CSV</strong> – Data transfer format</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>This project demonstrates the ability to design and implement a <strong>cloud-based data pipeline</strong>, integrating analytics and relational database services. It highlights practical skills in <strong>data transformation, storage, and querying across multiple GCP services</strong>, which are essential for cloud engineering and data engineering roles.</p>
+
+<hr />
+
+<p><a href="/projects/cloud/">Back to Cloud Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

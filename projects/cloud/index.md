@@ -249,3 +249,17 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
   </a>
 
 </div>
+
+### 📊 Data & Analytics Architecture
+<div class="project-grid">
+
+  <a class="project-card" href="/projects/cloud/gcp-bigquery-cloudsql-pipeline/">
+    <img src="/assets/images/projects/cloud/gcp-bigquery-cloudsql-pipeline/image1.png">
+    <div class="project-card__body">
+      <h3>BigQuery to Cloud SQL Data Pipeline</h3>
+      <p><strong>Focus:</strong> Data Processing & Analytics</p>
+      <p>BigQuery, Cloud SQL, Cloud Storage, SQL</p>
+    </div>
+  </a>
+
+</div>
