@@ -64,6 +64,15 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
     </div>
   </a>
 
+  <a class="project-card" href="/projects/cloud/gcp-gke-deployment/">
+    <img src="/assets/images/projects/cloud/gcp-gke-deployment/image1.png" alt="Containerized Application Deployment on Google Kubernetes Engine">
+    <div class="project-card__body">
+      <h3>Containerized Application Deployment (GKE)</h3>
+      <p><strong>Focus:</strong> Cloud-Native Application Delivery</p>
+      <p>GKE, Docker, GCR, Kubernetes Deployments, Services</p>
+    </div>
+  </a>
+
 </div>
 
 ---
