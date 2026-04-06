@@ -1,0 +1,554 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Scaling and Rolling Updates of Containerized Workloads on GKE - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Scaling and Rolling Updates of Containerized Workloads on GKE">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/gcp-gke-scaling-updates/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/cloud/gcp-gke-scaling-updates/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Scaling and Rolling Updates of Containerized Workloads on GKE">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/cloud/gcp-gke-scaling-updates/" itemprop="url">Scaling and Rolling Updates of Containerized Workloads on GKE
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="scaling-and-rolling-updates-of-containerized-workloads-on-gke">Scaling and Rolling Updates of Containerized Workloads on GKE</h2>
+
+<p><strong>Timeline:</strong> December 2025<br />
+<strong>Role:</strong> Cloud Engineer / Cloud Architect<br />
+<strong>Skills:</strong> Google Kubernetes Engine (GKE), Docker, Google Container Registry, Kubernetes Deployments, Rolling Updates, Replica Scaling, LoadBalancer Services, Cloud-Native Operations</p>
+
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project focused on managing the <strong>update and horizontal scaling of a containerized web application</strong> on <strong>Google Kubernetes Engine (GKE)</strong>. The objective was to take ownership of an existing Kubernetes-based test environment, build and publish an updated application image, roll out the new version to the running deployment, scale the workload to multiple replicas, and validate external service availability.</p>
+
+<p>The implementation demonstrated key operational patterns for Kubernetes-based platforms, including <strong>versioned image management, deployment updates, workload scaling, and service continuity</strong>.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+
+<ul>
+  <li>Build an updated version of a containerized application</li>
+  <li>Tag and publish the new image to Google Container Registry</li>
+  <li>Update the running Kubernetes deployment from <strong>v1</strong> to <strong>v2</strong></li>
+  <li>Scale the application horizontally to <strong>2 replicas</strong></li>
+  <li>Ensure the application remains externally accessible through a LoadBalancer service</li>
+  <li>Validate successful rollout and service response</li>
+</ul>
+
+<hr />
+
+<h3 id="architecture-overview">Architecture Overview</h3>
+
+<p>The architecture consisted of:</p>
+
+<ul>
+  <li>A pre-existing <strong>GKE cluster (<code class="language-plaintext highlighter-rouge">echo-cluster</code>)</strong></li>
+  <li>A Kubernetes <strong>Deployment (<code class="language-plaintext highlighter-rouge">echo-web</code>)</strong> managing the application pods</li>
+  <li>A Docker image built from updated application source (<code class="language-plaintext highlighter-rouge">echo-web-v2.tar.gz</code>)</li>
+  <li>A <strong>v2-tagged image</strong> pushed to <strong>Google Container Registry (<code class="language-plaintext highlighter-rouge">gcr.io</code>)</strong></li>
+  <li>A Kubernetes <strong>LoadBalancer Service</strong> exposing the application externally on port 80</li>
+  <li>Multiple pod replicas to support workload scaling and availability</li>
+</ul>
+
+<p><img src="./images/image1.png" alt="Architecture Diagram" /></p>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-existing-cluster-validation">1. Existing Cluster Validation</h4>
+<ul>
+  <li>Verified the availability of the target GKE cluster named <strong><code class="language-plaintext highlighter-rouge">echo-cluster</code></strong></li>
+  <li>Confirmed the existing deployment environment before introducing application changes</li>
+</ul>
+
+<hr />
+
+<h4 id="2-updated-application-build">2. Updated Application Build</h4>
+<ul>
+  <li>Retrieved the updated application archive (<code class="language-plaintext highlighter-rouge">echo-web-v2.tar.gz</code>) from Cloud Storage</li>
+  <li>Built a new Docker image for the updated application version</li>
+  <li>Applied the <strong><code class="language-plaintext highlighter-rouge">v2</code> tag</strong> to support controlled rollout of the new release</li>
+</ul>
+
+<hr />
+
+<h4 id="3-image-publication-to-container-registry">3. Image Publication to Container Registry</h4>
+<ul>
+  <li>Tagged the updated application image using the <strong><code class="language-plaintext highlighter-rouge">gcr.io</code></strong> naming convention</li>
+  <li>Pushed the image to <strong>Google Container Registry</strong></li>
+  <li>Prepared the new version for deployment into the running cluster</li>
+</ul>
+
+<hr />
+
+<h4 id="4-rolling-application-update">4. Rolling Application Update</h4>
+<ul>
+  <li>Updated the existing <strong><code class="language-plaintext highlighter-rouge">echo-web</code></strong> deployment to use the <strong>v2</strong> image</li>
+  <li>Replaced the earlier application version while retaining the deployment structure</li>
+  <li>Used Kubernetes deployment management to support controlled rollout of the updated workload</li>
+</ul>
+
+<hr />
+
+<h4 id="5-horizontal-scaling">5. Horizontal Scaling</h4>
+<ul>
+  <li>Scaled the deployment from a single instance to <strong>2 replicas</strong></li>
+  <li>Confirmed that both replicas were running successfully</li>
+  <li>Demonstrated the elasticity and operational flexibility of Kubernetes-based workloads</li>
+</ul>
+
+<hr />
+
+<h4 id="6-service-validation">6. Service Validation</h4>
+<ul>
+  <li>Verified that the application remained exposed externally via a <strong>LoadBalancer service</strong></li>
+  <li>Confirmed the application responded correctly using the external IP address</li>
+  <li>Validated that the updated version and scaled deployment were functioning as expected</li>
+</ul>
+
+<hr />
+
+<h3 id="design-decisions">Design Decisions</h3>
+
+<ul>
+  <li>Used <strong>versioned image tagging</strong> to separate application releases clearly</li>
+  <li>Leveraged <strong>Google Container Registry</strong> as the controlled image source for deployment updates</li>
+  <li>Used Kubernetes <strong>Deployments</strong> to manage rollout and version transition</li>
+  <li>Applied <strong>horizontal scaling</strong> to improve resilience and support increased workload capacity</li>
+  <li>Preserved standard web accessibility through <strong>port 80</strong>, while the container continued to listen on <strong>port 8000</strong> internally</li>
+</ul>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Successfully deployed an updated <strong>v2</strong> container image to a live Kubernetes environment</li>
+  <li>Demonstrated the ability to manage <strong>application updates and horizontal scaling</strong> on GKE</li>
+  <li>Validated important Kubernetes operational patterns including:
+    <ul>
+      <li>image versioning</li>
+      <li>deployment updates</li>
+      <li>replica scaling</li>
+      <li>service continuity</li>
+    </ul>
+  </li>
+  <li>Strengthened practical expertise in <strong>day-2 Kubernetes operations and cloud-native workload management</strong></li>
+</ul>
+
+<hr />
+
+<h3 id="tools--technologies-used">Tools &amp; Technologies Used</h3>
+
+<ul>
+  <li><strong>Google Kubernetes Engine (GKE)</strong> – Managed Kubernetes environment</li>
+  <li><strong>Docker</strong> – Image packaging and versioning</li>
+  <li><strong>Google Container Registry (GCR)</strong> – Image hosting</li>
+  <li><strong>Kubernetes Deployment</strong> – Rollout and lifecycle management</li>
+  <li><strong>Kubernetes Service (LoadBalancer)</strong> – External access</li>
+  <li><strong>Cloud Storage</strong> – Updated application source archive</li>
+  <li><strong>Replica Scaling</strong> – Horizontal workload scaling</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>This project demonstrates the ability to manage <strong>containerized application updates and horizontal scaling</strong> on Google Kubernetes Engine. It highlights practical skills in <strong>Kubernetes operations, controlled rollout of new application versions, replica-based scaling, and external service validation</strong>, which are essential for modern cloud-native engineering and platform operations roles.</p>
+
+<hr />
+
+<p><a href="/projects/cloud/">Back to Cloud Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -25,6 +25,9 @@
 <loc>http://localhost:4000/projects/cloud/iac-cicd-cloudformation/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/projects/cloud/gcp-gke-scaling-updates/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/projects/cloud/gcp-gke-deployment/</loc>
 </url>
 <url>

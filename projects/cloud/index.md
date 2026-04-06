@@ -46,6 +46,15 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
     </div>
   </a>
 
+  <a class="project-card" href="/projects/cloud/gcp-gke-scaling-updates/">
+    <img src="/assets/images/projects/cloud/gcp-gke-scaling-updates/image1.png" alt="Scaling and Rolling Updates of Containerized Workloads on GKE">
+    <div class="project-card__body">
+      <h3>Scaling and Rolling Updates on GKE</h3>
+      <p><strong>Focus:</strong> Kubernetes Workload Operations</p>
+      <p>GKE, Docker, GCR, Rolling Updates, Replica Scaling, LoadBalancer</p>
+    </div>
+  </a>
+
   <a class="project-card" href="/projects/cloud/serverless-inventory-intelligence/">
     <img src="/assets/images/projects/cloud/serverless-inventory-intelligence/image11.png" alt="Serverless Inventory Intelligence">
     <div class="project-card__body">
