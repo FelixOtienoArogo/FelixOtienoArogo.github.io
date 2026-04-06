@@ -215,3 +215,19 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
   </a>
 
 </div>
+
+
+### 🗄️ Data & Database Architecture
+
+<div class="project-grid">
+
+  <a class="project-card" href="/projects/cloud/gcp-cloudsql-migration/">
+    <img src="/assets/images/projects/cloud/gcp-cloudsql-migration/image1.png" alt="Database Migration and Application Reconfiguration using Google Cloud SQL">
+    <div class="project-card__body">
+      <h3>Database Migration with Cloud SQL (GCP)</h3>
+      <p><strong>Focus:</strong> Database Modernization</p>
+      <p>Cloud SQL, MySQL, WordPress, Migration, Application Reconfiguration</p>
+    </div>
+  </a>
+
+</div>

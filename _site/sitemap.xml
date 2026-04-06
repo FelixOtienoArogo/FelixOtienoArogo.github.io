@@ -34,6 +34,9 @@
 <loc>http://localhost:4000/projects/cloud/cognito-auth/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/projects/cloud/gcp-cloudsql-migration/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/projects/cloud/decoupled-event-driven-sqs/</loc>
 </url>
 <url>
