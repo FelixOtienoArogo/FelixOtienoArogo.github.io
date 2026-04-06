@@ -170,6 +170,15 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
     </div>
   </a>
 
+  <a class="project-card" href="/projects/cloud/gcp-iam-access-control/">
+  <img src="/assets/images/projects/cloud/gcp-iam-access-control/image1.png" alt="IAM Access Control Validation on GCP">
+  <div class="project-card__body">
+    <h3>IAM Access Control & RBAC Validation (GCP)</h3>
+    <p><strong>Focus:</strong> Identity & Access Management</p>
+    <p>IAM, RBAC, Least Privilege, Cloud Storage, Access Control</p>
+  </div>
+</a>
+
 </div>
 
 ---

@@ -1,0 +1,555 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>IAM Access Control Validation and Role-Based Storage Access on GCP - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="IAM Access Control Validation and Role-Based Storage Access on GCP">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/gcp-iam-access-control/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/cloud/gcp-iam-access-control/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="IAM Access Control Validation and Role-Based Storage Access on GCP">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/cloud/gcp-iam-access-control/" itemprop="url">IAM Access Control Validation and Role-Based Storage Access on GCP
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="iam-access-control-validation-and-role-based-storage-access-on-gcp">IAM Access Control Validation and Role-Based Storage Access on GCP</h2>
+
+<p><strong>Timeline:</strong> December 2025<br />
+<strong>Role:</strong> Cloud Security Engineer<br />
+<strong>Skills:</strong> Google Cloud IAM, Role-Based Access Control (RBAC), Cloud Storage, Access Validation, Least Privilege, Permission Troubleshooting</p>
+
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project focused on validating <strong>role-based access control (RBAC)</strong> on Google Cloud by testing how different IAM roles affect visibility and permissions across project resources. The implementation used two identities to simulate an administrator and a restricted user, then exercised the full lifecycle of <strong>granting, revoking, and scoping access</strong>.</p>
+
+<p>The project demonstrated how Google Cloud IAM can be used to enforce <strong>least-privilege access</strong>, moving from broad project-level permissions to narrowly scoped service-level permissions for Cloud Storage objects.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+
+<ul>
+  <li>Examine the behavior of Google Cloud basic project roles</li>
+  <li>Validate the difference between project-level and service-level access</li>
+  <li>Create a Cloud Storage bucket and object for permission testing</li>
+  <li>Revoke broad access from a secondary user</li>
+  <li>Re-grant limited access using a storage-specific IAM role</li>
+  <li>Verify access behavior before and after role changes</li>
+</ul>
+
+<hr />
+
+<h3 id="architecture-overview">Architecture Overview</h3>
+
+<p>The architecture consisted of:</p>
+
+<ul>
+  <li>A <strong>Google Cloud project owner</strong> identity with permission to manage IAM policies</li>
+  <li>A <strong>secondary user</strong> initially assigned the <strong>Project Viewer</strong> role</li>
+  <li>A <strong>Cloud Storage bucket</strong> containing a sample object for access testing</li>
+  <li>IAM policy changes that removed project-level access and replaced it with a narrower <strong>Storage Object Viewer</strong> role</li>
+  <li>Validation of access through both the Google Cloud Console and Cloud Shell</li>
+</ul>
+
+<p><img src="./images/image2.png" alt="Architecture Diagram" /></p>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-iam-role-exploration">1. IAM Role Exploration</h4>
+<ul>
+  <li>Signed in with two separate identities to compare access behavior</li>
+  <li>Verified that the administrative identity had <strong>Project Owner</strong> permissions</li>
+  <li>Confirmed that the secondary identity had <strong>Project Viewer</strong> permissions and could not manage IAM policy</li>
+</ul>
+
+<hr />
+
+<h4 id="2-cloud-storage-resource-setup">2. Cloud Storage Resource Setup</h4>
+<ul>
+  <li>Created a Cloud Storage bucket with a globally unique name</li>
+  <li>Uploaded a sample file (<code class="language-plaintext highlighter-rouge">sample.txt</code>) to the bucket</li>
+  <li>Used the bucket as the test resource for validating access changes</li>
+</ul>
+
+<hr />
+
+<h4 id="3-validation-of-project-viewer-access">3. Validation of Project Viewer Access</h4>
+<ul>
+  <li>Verified that the secondary user could see the Cloud Storage bucket through the Console</li>
+  <li>Confirmed that project-level read access enabled resource visibility without modification privileges</li>
+</ul>
+
+<hr />
+
+<h4 id="4-revocation-of-broad-project-access">4. Revocation of Broad Project Access</h4>
+<ul>
+  <li>Removed the <strong>Project Viewer</strong> role from the secondary identity</li>
+  <li>Confirmed that the user lost access to project resources</li>
+  <li>Observed permission-denied behavior after IAM policy propagation completed</li>
+</ul>
+
+<hr />
+
+<h4 id="5-reassignment-of-least-privilege-permissions">5. Reassignment of Least-Privilege Permissions</h4>
+<ul>
+  <li>Granted the secondary identity the <strong>Storage Object Viewer</strong> role instead of restoring project-wide access</li>
+  <li>Scoped access specifically to Cloud Storage object viewing</li>
+  <li>Demonstrated the shift from broad permissions to targeted service-level authorization</li>
+</ul>
+
+<hr />
+
+<h4 id="6-access-verification-and-troubleshooting">6. Access Verification and Troubleshooting</h4>
+<ul>
+  <li>Used Cloud Shell to validate object-level access with:</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">gsutil ls gs://[BUCKET_NAME]</code></p>
+
+<ul>
+  <li>Confirmed that the secondary identity could list the object in the bucket while still lacking broader project visibility</li>
+  <li>Verified the practical effect of least-privilege IAM design</li>
+</ul>
+
+<hr />
+
+<h3 id="design-decisions">Design Decisions</h3>
+
+<ul>
+  <li>Used <strong>two identities</strong> to simulate real-world administrative and restricted access patterns</li>
+  <li>Tested both <strong>project-level primitive roles</strong> and <strong>service-specific IAM roles</strong></li>
+  <li>Removed unnecessary broad access before reassigning narrowly scoped permissions</li>
+  <li>Used Cloud Storage as a controlled resource for validating permission boundaries and policy behavior</li>
+</ul>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Successfully demonstrated the difference between <strong>broad project visibility</strong> and <strong>scoped service access</strong></li>
+  <li>Validated that removing the <strong>Project Viewer</strong> role fully revoked project-level access</li>
+  <li>Confirmed that assigning <strong>Storage Object Viewer</strong> restored only the required level of access</li>
+  <li>Strengthened practical understanding of:
+    <ul>
+      <li>IAM policy enforcement</li>
+      <li>role scoping</li>
+      <li>permission propagation</li>
+      <li>least-privilege access design</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="tools--technologies-used">Tools &amp; Technologies Used</h3>
+
+<ul>
+  <li><strong>Google Cloud IAM</strong> – Role assignment and access control</li>
+  <li><strong>Cloud Storage</strong> – Resource used for permission validation</li>
+  <li><strong>Cloud Console</strong> – IAM and resource visibility testing</li>
+  <li><strong>Cloud Shell / gsutil</strong> – Command-line access validation</li>
+  <li><strong>RBAC Principles</strong> – Controlled access design</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>This project demonstrates the ability to implement and validate <strong>least-privilege access control</strong> on Google Cloud using IAM. It highlights practical skills in <strong>granting and revoking roles, testing permission boundaries, and replacing broad access with narrowly scoped service permissions</strong>, all of which are directly relevant to cloud security engineering and identity governance.</p>
+
+<hr />
+
+<p><a href="/projects/cloud/">Back to Cloud Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
