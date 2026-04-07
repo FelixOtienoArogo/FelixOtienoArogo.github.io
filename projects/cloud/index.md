@@ -224,13 +224,22 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
   </a>
 
   <a class="project-card" href="/projects/cloud/gcp-web-deployment-troubleshooting/">
-  <img src="/assets/images/projects/cloud/gcp-web-deployment-troubleshooting/image1.png" alt="Web Application Deployment and Troubleshooting on GCP">
-  <div class="project-card__body">
-    <h3>Web Deployment & Troubleshooting (GCP)</h3>
-    <p><strong>Focus:</strong> Public Access & Connectivity</p>
-    <p>Compute Engine, Apache, Firewall Rules, Networking</p>
-  </div>
-</a>
+    <img src="/assets/images/projects/cloud/gcp-web-deployment-troubleshooting/image1.png" alt="Web Application Deployment and Troubleshooting on GCP">
+   <div class="project-card__body">
+      <h3>Web Deployment & Troubleshooting (GCP)</h3>
+      <p><strong>Focus:</strong> Public Access & Connectivity</p>
+      <p>Compute Engine, Apache, Firewall Rules, Networking</p>
+    </div>
+  </a>
+
+  <a class="project-card" href="/projects/cloud/gcp-multiple-vpc-networks/">
+    <img src="/assets/images/projects/cloud/gcp-multiple-vpc-networks/image1.png" alt="Multi-VPC Network Segmentation on GCP">
+    <div class="project-card__body">
+      <h3>Multi-VPC Segmentation & Multi-NIC Design (GCP)</h3>
+      <p><strong>Focus:</strong> Network Architecture & Isolation</p>
+      <p>VPC, Subnets, Firewall Rules, Routing, Multi-NIC</p>
+    </div>
+  </a>
 
 </div>
 

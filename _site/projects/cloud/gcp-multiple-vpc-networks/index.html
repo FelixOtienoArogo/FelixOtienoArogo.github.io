@@ -1,0 +1,623 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Multi-VPC Network Segmentation and Multi-NIC Appliance Design on GCP - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Multi-VPC Network Segmentation and Multi-NIC Appliance Design on GCP">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/gcp-multiple-vpc-networks/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/cloud/gcp-multiple-vpc-networks/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Multi-VPC Network Segmentation and Multi-NIC Appliance Design on GCP">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/cloud/gcp-multiple-vpc-networks/" itemprop="url">Multi-VPC Network Segmentation and Multi-NIC Appliance Design on GCP
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="multi-vpc-network-segmentation-and-multi-nic-appliance-design-on-gcp">Multi-VPC Network Segmentation and Multi-NIC Appliance Design on GCP</h2>
+
+<p><strong>Timeline:</strong> December 2025<br />
+<strong>Role:</strong> Cloud Network Engineer / Cloud Architect<br />
+<strong>Skills:</strong> Google Cloud VPC, Subnets, Firewall Rules, Compute Engine, Multi-NIC VM Design, Routing, Internal DNS, Network Segmentation</p>
+
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project focused on designing and validating a <strong>segmented multi-VPC network architecture</strong> on Google Cloud Platform (GCP). The implementation used multiple custom-mode VPC networks, dedicated subnets, targeted firewall rules, and Compute Engine virtual machines to demonstrate how network isolation affects connectivity across environments.</p>
+
+<p>The project also extended the design by deploying a <strong>multi-network-interface appliance VM</strong> connected to multiple VPCs, showing how a single instance can participate in separate network domains while still being governed by routing behavior and interface-specific connectivity rules. This lab covered custom VPC creation, firewall configuration, connectivity testing, and multi-NIC routing behavior. :contentReference[oaicite:0]{index=0}</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+
+<ul>
+  <li>Create custom-mode VPC networks and subnets</li>
+  <li>Configure firewall rules for SSH, RDP, and ICMP access</li>
+  <li>Deploy Compute Engine instances into separate VPC environments</li>
+  <li>Validate external and internal connectivity behavior across VPCs</li>
+  <li>Design and deploy a VM with multiple network interfaces</li>
+  <li>Analyze routing behavior and interface-level reachability</li>
+</ul>
+
+<hr />
+
+<h3 id="architecture-overview">Architecture Overview</h3>
+
+<p>The architecture consisted of:</p>
+
+<ul>
+  <li>An existing <strong>mynetwork</strong> VPC with two pre-created VM instances</li>
+  <li>A newly created <strong>managementnet</strong> custom VPC with:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">managementsubnet-1</code> (<code class="language-plaintext highlighter-rouge">10.130.0.0/20</code>)</li>
+      <li>firewall rules allowing <strong>ICMP, SSH, and RDP</strong></li>
+    </ul>
+  </li>
+  <li>A newly created <strong>privatenet</strong> custom VPC with:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">privatesubnet-1</code> (<code class="language-plaintext highlighter-rouge">172.16.0.0/24</code>)</li>
+      <li><code class="language-plaintext highlighter-rouge">privatesubnet-2</code> (<code class="language-plaintext highlighter-rouge">172.20.0.0/20</code>)</li>
+      <li>firewall rules allowing <strong>ICMP, SSH, and RDP</strong></li>
+    </ul>
+  </li>
+  <li>VM instances deployed in the separate VPCs:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">managementnet-vm-1</code></li>
+      <li><code class="language-plaintext highlighter-rouge">privatenet-vm-1</code></li>
+      <li>existing <code class="language-plaintext highlighter-rouge">mynet-vm-1</code></li>
+      <li>existing <code class="language-plaintext highlighter-rouge">mynet-vm-2</code></li>
+    </ul>
+  </li>
+  <li>A multi-NIC appliance VM named <strong><code class="language-plaintext highlighter-rouge">vm-appliance</code></strong> attached to:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">privatesubnet-1</code></li>
+      <li><code class="language-plaintext highlighter-rouge">managementsubnet-1</code></li>
+      <li><code class="language-plaintext highlighter-rouge">mynetwork</code></li>
+    </ul>
+  </li>
+  <li>Connectivity and routing tests validating public reachability, private network isolation, and multi-interface routing behavior. :contentReference[oaicite:1]{index=1}</li>
+</ul>
+
+<p><img src="./images/image3.png" alt="Architecture Diagram" /></p>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-custom-vpc-network-creation">1. Custom VPC Network Creation</h4>
+<ul>
+  <li>Created two custom-mode VPC networks:
+    <ul>
+      <li><strong><code class="language-plaintext highlighter-rouge">managementnet</code></strong></li>
+      <li><strong><code class="language-plaintext highlighter-rouge">privatenet</code></strong></li>
+    </ul>
+  </li>
+  <li>Provisioned dedicated subnets in different regions and CIDR ranges</li>
+  <li>Used custom-mode networking to explicitly control subnet creation instead of relying on automatically provisioned regional subnets. :contentReference[oaicite:2]{index=2}</li>
+</ul>
+
+<hr />
+
+<h4 id="2-firewall-rule-design">2. Firewall Rule Design</h4>
+<ul>
+  <li>Configured ingress firewall rules for both VPCs</li>
+  <li>Allowed:
+    <ul>
+      <li><strong>ICMP</strong></li>
+      <li><strong>TCP 22 (SSH)</strong></li>
+      <li><strong>TCP 3389 (RDP)</strong></li>
+    </ul>
+  </li>
+  <li>Applied rules to support administration and connectivity testing across the segmented environments. :contentReference[oaicite:3]{index=3}</li>
+</ul>
+
+<hr />
+
+<h4 id="3-vm-deployment-across-isolated-networks">3. VM Deployment Across Isolated Networks</h4>
+<ul>
+  <li>Created Compute Engine instances in the new VPCs:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">managementnet-vm-1</code></li>
+      <li><code class="language-plaintext highlighter-rouge">privatenet-vm-1</code></li>
+    </ul>
+  </li>
+  <li>Compared them with the pre-existing instances in <code class="language-plaintext highlighter-rouge">mynetwork</code></li>
+  <li>Established a multi-network test environment spanning separate VPC boundaries and subnets. :contentReference[oaicite:4]{index=4}</li>
+</ul>
+
+<hr />
+
+<h4 id="4-connectivity-validation-across-vpcs">4. Connectivity Validation Across VPCs</h4>
+<ul>
+  <li>Tested <strong>external IP reachability</strong> from one instance to others</li>
+  <li>Confirmed that public connectivity depended on firewall rules rather than shared VPC membership</li>
+  <li>Tested <strong>internal IP connectivity</strong></li>
+  <li>Verified that internal communication worked only between instances in the same VPC network and failed across isolated VPCs by default. :contentReference[oaicite:5]{index=5}</li>
+</ul>
+
+<hr />
+
+<h4 id="5-multi-nic-appliance-design">5. Multi-NIC Appliance Design</h4>
+<ul>
+  <li>Created a VM named <strong><code class="language-plaintext highlighter-rouge">vm-appliance</code></strong> with three network interfaces</li>
+  <li>Connected the appliance directly to:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">privatenet</code></li>
+      <li><code class="language-plaintext highlighter-rouge">managementnet</code></li>
+      <li><code class="language-plaintext highlighter-rouge">mynetwork</code></li>
+    </ul>
+  </li>
+  <li>Demonstrated how a single VM can span multiple isolated network domains when attached through multiple NICs. :contentReference[oaicite:6]{index=6}</li>
+</ul>
+
+<hr />
+
+<h4 id="6-route-and-interface-analysis">6. Route and Interface Analysis</h4>
+<ul>
+  <li>Inspected interface configuration inside the appliance VM</li>
+  <li>Verified the presence of multiple interfaces and subnet-specific internal IP addresses</li>
+  <li>Examined routing behavior and confirmed:
+    <ul>
+      <li>directly connected subnets were reachable through their corresponding interfaces</li>
+      <li>the default route was associated with the <strong>primary interface</strong></li>
+    </ul>
+  </li>
+  <li>Observed that traffic to destinations outside directly connected subnets followed the default route, leading to expected connectivity limitations. :contentReference[oaicite:7]{index=7}</li>
+</ul>
+
+<hr />
+
+<h4 id="7-internal-dns-and-reachability-testing">7. Internal DNS and Reachability Testing</h4>
+<ul>
+  <li>Validated that instance name resolution worked within VPC scope using internal DNS</li>
+  <li>Confirmed that hostname-based reachability mapped to the primary interface of the destination VM</li>
+  <li>Used ping-based testing to illustrate successful and failed paths based on subnet routes and interface placement. :contentReference[oaicite:8]{index=8}</li>
+</ul>
+
+<hr />
+
+<h3 id="design-decisions">Design Decisions</h3>
+
+<ul>
+  <li>Used <strong>custom-mode VPCs</strong> to maintain explicit control over subnet allocation and network boundaries</li>
+  <li>Applied <strong>network-level segmentation</strong> to demonstrate that private communication is isolated by VPC unless additional interconnect mechanisms are configured</li>
+  <li>Used a <strong>multi-NIC appliance pattern</strong> to simulate a bridging or inspection-style instance spanning multiple network domains</li>
+  <li>Preserved non-overlapping CIDR ranges to support multiple interfaces on the same VM without subnet conflicts</li>
+  <li>Analyzed route selection to understand how <strong>primary-interface default routing</strong> affects multi-homed workloads. :contentReference[oaicite:9]{index=9}</li>
+</ul>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Successfully designed and deployed a <strong>segmented multi-VPC environment</strong> on GCP</li>
+  <li>Demonstrated the distinction between:
+    <ul>
+      <li>public reachability through firewall-permitted external IPs</li>
+      <li>private reachability constrained by VPC boundaries</li>
+    </ul>
+  </li>
+  <li>Validated the practical behavior of <strong>multi-interface appliances</strong> in cloud networks</li>
+  <li>Strengthened understanding of:
+    <ul>
+      <li>VPC isolation</li>
+      <li>subnet design</li>
+      <li>firewall policy behavior</li>
+      <li>internal DNS</li>
+      <li>route selection for multi-homed instances. :contentReference[oaicite:10]{index=10}</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="tools--technologies-used">Tools &amp; Technologies Used</h3>
+
+<ul>
+  <li><strong>Google Cloud VPC</strong> – Isolated virtual network design</li>
+  <li><strong>Custom Subnets</strong> – Controlled IP range allocation</li>
+  <li><strong>Firewall Rules</strong> – ICMP, SSH, and RDP access control</li>
+  <li><strong>Compute Engine</strong> – VM deployment and testing</li>
+  <li><strong>Multi-NIC VM Design</strong> – Cross-network attachment pattern</li>
+  <li><strong>Internal DNS</strong> – Name-based resolution inside VPCs</li>
+  <li><strong>Linux Networking Tools</strong> – Route and interface inspection</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>This project demonstrates the ability to design and validate <strong>segmented cloud network architectures</strong> on Google Cloud, including multi-VPC communication boundaries and multi-interface appliance patterns. It highlights practical skills in <strong>network isolation, routing analysis, firewall configuration, and multi-homed VM design</strong>, which are directly relevant to cloud networking, security engineering, and cloud architecture roles.</p>
+
+<hr />
+
+<p><a href="/projects/cloud/">Back to Cloud Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
