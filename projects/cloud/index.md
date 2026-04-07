@@ -272,3 +272,18 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
   </a>
 
 </div>
+
+### 📈 Operations, Monitoring & Reliability
+
+<div class="project-grid">
+
+  <a class="project-card" href="/projects/cloud/gcp-cloud-monitoring-observability/">
+    <img src="/assets/images/projects/cloud/gcp-cloud-monitoring-observability/image1.png" alt="Cloud Monitoring and Observability on GCP">
+    <div class="project-card__body">
+      <h3>Cloud Monitoring & Observability (GCP)</h3>
+      <p><strong>Focus:</strong> Monitoring, Alerting & Reliability</p>
+      <p>Cloud Monitoring, Logging, Uptime Checks, Dashboards, Ops Agent</p>
+    </div>
+  </a>
+
+</div>

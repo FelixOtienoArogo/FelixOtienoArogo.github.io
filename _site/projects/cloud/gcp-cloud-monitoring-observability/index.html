@@ -1,0 +1,589 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Cloud Monitoring, Alerting, and Observability for Compute Engine on GCP - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Cloud Monitoring, Alerting, and Observability for Compute Engine on GCP">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/gcp-cloud-monitoring-observability/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/cloud/gcp-cloud-monitoring-observability/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Cloud Monitoring, Alerting, and Observability for Compute Engine on GCP">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/cloud/gcp-cloud-monitoring-observability/" itemprop="url">Cloud Monitoring, Alerting, and Observability for Compute Engine on GCP
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="cloud-monitoring-alerting-and-observability-for-compute-engine-on-gcp">Cloud Monitoring, Alerting, and Observability for Compute Engine on GCP</h2>
+
+<p><strong>Timeline:</strong> December 2025<br />
+<strong>Role:</strong> Cloud Engineer / Site Reliability Engineer<br />
+<strong>Skills:</strong> Google Cloud Monitoring, Cloud Logging, Uptime Checks, Alerting Policies, Dashboards, Compute Engine, Ops Agent, Observability</p>
+
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project focused on implementing <strong>observability and operational monitoring</strong> for a Compute Engine virtual machine on Google Cloud Platform. The work involved provisioning a Linux VM, installing Apache, enabling metrics and log collection through the Google Cloud Ops Agent, configuring uptime checks, defining alerting policies, and building a custom monitoring dashboard.</p>
+
+<p>The implementation demonstrated how to move from simple VM deployment to an <strong>observable and operationally monitored workload</strong>, using Google Cloud’s native monitoring and logging services to track health, availability, performance, and incidents. :contentReference[oaicite:1]{index=1}</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+
+<ul>
+  <li>Deploy a Compute Engine VM running Apache</li>
+  <li>Install the Google Cloud Ops Agent for metrics and logs collection</li>
+  <li>Create an uptime check for external service availability</li>
+  <li>Configure an alerting policy for network traffic thresholds</li>
+  <li>Build a custom dashboard with performance charts</li>
+  <li>Inspect logs to validate VM lifecycle events and service health</li>
+</ul>
+
+<hr />
+
+<h3 id="architecture-overview">Architecture Overview</h3>
+
+<p>The architecture consisted of:</p>
+
+<ul>
+  <li>A <strong>Compute Engine VM</strong> (<code class="language-plaintext highlighter-rouge">lamp-1-vm</code>) running Debian and Apache</li>
+  <li>The <strong>Google Cloud Ops Agent</strong> installed on the VM for telemetry collection</li>
+  <li><strong>Cloud Monitoring</strong> collecting VM and agent-based metrics</li>
+  <li><strong>Cloud Logging</strong> ingesting system and instance logs</li>
+  <li>An <strong>uptime check</strong> validating HTTP reachability over the VM’s external IP</li>
+  <li>An <strong>alerting policy</strong> configured on inbound traffic thresholds</li>
+  <li>A <strong>custom dashboard</strong> displaying CPU load and received packets</li>
+</ul>
+
+<p><img src="./images/image2.png" alt="Architecture Diagram" /></p>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-compute-engine-and-web-service-setup">1. Compute Engine and Web Service Setup</h4>
+<ul>
+  <li>Created a Compute Engine instance named <code class="language-plaintext highlighter-rouge">lamp-1-vm</code></li>
+  <li>Configured the VM with HTTP firewall access</li>
+  <li>Installed and started <strong>Apache HTTP Server</strong></li>
+  <li>Verified successful service response through the instance’s external IP address</li>
+</ul>
+
+<hr />
+
+<h4 id="2-monitoring-and-logging-agent-installation">2. Monitoring and Logging Agent Installation</h4>
+<ul>
+  <li>Installed the <strong>Google Cloud Ops Agent</strong> on the VM</li>
+  <li>Enabled collection of:
+    <ul>
+      <li>system metrics</li>
+      <li>infrastructure metrics</li>
+      <li>VM and service logs</li>
+    </ul>
+  </li>
+  <li>Prepared the instance for deeper observability beyond default platform telemetry</li>
+</ul>
+
+<hr />
+
+<h4 id="3-uptime-check-configuration">3. Uptime Check Configuration</h4>
+<ul>
+  <li>Created an <strong>HTTP uptime check</strong> targeting the VM’s external IP</li>
+  <li>Configured frequent health checks to validate service accessibility</li>
+  <li>Used uptime monitoring to simulate availability validation from an external perspective</li>
+</ul>
+
+<hr />
+
+<h4 id="4-alerting-policy-setup">4. Alerting Policy Setup</h4>
+<ul>
+  <li>Created an alerting policy based on <strong>network traffic metrics</strong></li>
+  <li>Defined a threshold and retest window</li>
+  <li>Attached an email notification channel</li>
+  <li>Added alert documentation to support operational response and incident handling</li>
+</ul>
+
+<hr />
+
+<h4 id="5-custom-dashboard-creation">5. Custom Dashboard Creation</h4>
+<ul>
+  <li>Built a custom dashboard for workload visibility</li>
+  <li>Added charts for:
+    <ul>
+      <li><strong>CPU Load</strong></li>
+      <li><strong>Received Packets</strong></li>
+    </ul>
+  </li>
+  <li>Centralized key VM performance metrics in a reusable observability view</li>
+</ul>
+
+<hr />
+
+<h4 id="6-log-exploration-and-operational-validation">6. Log Exploration and Operational Validation</h4>
+<ul>
+  <li>Used <strong>Logs Explorer</strong> to inspect instance logs for <code class="language-plaintext highlighter-rouge">lamp-1-vm</code></li>
+  <li>Observed operational events such as:
+    <ul>
+      <li>service activity</li>
+      <li>VM stop/start events</li>
+    </ul>
+  </li>
+  <li>Correlated infrastructure actions with monitoring and logging outputs</li>
+</ul>
+
+<hr />
+
+<h4 id="7-incident-and-availability-review">7. Incident and Availability Review</h4>
+<ul>
+  <li>Restarted the VM to observe:
+    <ul>
+      <li>temporary uptime check failures</li>
+      <li>recovery state changes</li>
+      <li>alerting behavior</li>
+    </ul>
+  </li>
+  <li>Verified that monitoring, logging, and alerting reflected service interruptions and recovery events accurately</li>
+</ul>
+
+<hr />
+
+<h3 id="design-decisions">Design Decisions</h3>
+
+<ul>
+  <li>Used <strong>Apache on Compute Engine</strong> as a simple monitored workload</li>
+  <li>Installed the <strong>Ops Agent</strong> to extend observability with metrics and logs collection</li>
+  <li>Used <strong>uptime checks</strong> to validate service health from outside the VM</li>
+  <li>Added <strong>alerting</strong> to move from passive monitoring to active operational response</li>
+  <li>Created a <strong>dashboard</strong> to support quick performance visibility and ongoing monitoring workflows</li>
+</ul>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Successfully implemented a basic <strong>observability stack</strong> for a cloud-hosted VM</li>
+  <li>Demonstrated practical use of:
+    <ul>
+      <li>metrics collection</li>
+      <li>logging</li>
+      <li>uptime monitoring</li>
+      <li>alerting</li>
+      <li>dashboards</li>
+    </ul>
+  </li>
+  <li>Strengthened operational understanding of how infrastructure changes surface in monitoring systems</li>
+  <li>Built a foundation for production-style monitoring and incident response on GCP. :contentReference[oaicite:2]{index=2}</li>
+</ul>
+
+<hr />
+
+<h3 id="tools--technologies-used">Tools &amp; Technologies Used</h3>
+
+<ul>
+  <li><strong>Compute Engine</strong> – VM hosting</li>
+  <li><strong>Apache HTTP Server</strong> – Web workload</li>
+  <li><strong>Google Cloud Monitoring</strong> – Metrics and uptime monitoring</li>
+  <li><strong>Google Cloud Logging</strong> – Log ingestion and exploration</li>
+  <li><strong>Google Cloud Ops Agent</strong> – Metrics and logging collection</li>
+  <li><strong>Alerting Policies</strong> – Threshold-based notifications</li>
+  <li><strong>Custom Dashboards</strong> – Centralized observability views</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>This project demonstrates the ability to implement <strong>monitoring, logging, and alerting for a cloud-hosted workload</strong> on Google Cloud. It highlights practical skills in <strong>observability, service health validation, incident awareness, and dashboard-driven operations</strong>, which are directly relevant to cloud engineering and site reliability roles.</p>
+
+<hr />
+
+<p><a href="/projects/cloud/">Back to Cloud Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
