@@ -1,0 +1,632 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Designing a Multi-Tier Google Cloud Network and Kubernetes WordPress Environment - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Designing a Multi-Tier Google Cloud Network and Kubernetes WordPress Environment">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/gcp-network-wordpress-gke/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/cloud/gcp-network-wordpress-gke/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Designing a Multi-Tier Google Cloud Network and Kubernetes WordPress Environment">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/cloud/gcp-network-wordpress-gke/" itemprop="url">Designing a Multi-Tier Google Cloud Network and Kubernetes WordPress Environment
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="designing-a-multi-tier-google-cloud-network-and-kubernetes-wordpress-environment">Designing a Multi-Tier Google Cloud Network and Kubernetes WordPress Environment</h2>
+
+<p><strong>Timeline:</strong> December 2025<br />
+<strong>Role:</strong> Cloud Engineer / Site Reliability Engineer<br />
+<strong>Skills:</strong> Google Cloud VPC, Subnets, Multi-NIC Bastion Host, Cloud SQL, GKE, Kubernetes, WordPress, Secrets Management, Uptime Monitoring, IAM</p>
+
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project focused on designing and implementing a <strong>multi-tier Google Cloud environment</strong> for a WordPress workload, combining networking, database provisioning, Kubernetes deployment, monitoring, and access management. The work involved manually creating separate development and production VPCs, deploying a bastion host connected to both environments, provisioning a Cloud SQL instance for WordPress, creating a GKE cluster in the development network, and deploying WordPress with persistent storage and secure database connectivity.</p>
+
+<p>The implementation demonstrated how to build a <strong>segmented cloud environment</strong> that supports application deployment, operational access, and service monitoring while following structured naming, subnetting, and access control practices. :contentReference[oaicite:1]{index=1}</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+
+<ul>
+  <li>Create separate development and production VPC networks manually</li>
+  <li>Configure subnets for application and management traffic</li>
+  <li>Deploy a dual-homed bastion host connected to both VPCs</li>
+  <li>Provision a MySQL Cloud SQL instance for WordPress</li>
+  <li>Prepare database credentials and Kubernetes secrets</li>
+  <li>Create a GKE cluster in the development application subnet</li>
+  <li>Deploy WordPress on Kubernetes with external access</li>
+  <li>Enable uptime monitoring for the development site</li>
+  <li>Grant project access to an additional engineer</li>
+</ul>
+
+<hr />
+
+<h3 id="architecture-overview">Architecture Overview</h3>
+
+<p>The architecture consisted of:</p>
+
+<ul>
+  <li>A <strong>development VPC</strong> (<code class="language-plaintext highlighter-rouge">griffin-dev-vpc</code>) with:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">griffin-dev-wp</code></li>
+      <li><code class="language-plaintext highlighter-rouge">griffin-dev-mgmt</code></li>
+    </ul>
+  </li>
+  <li>A <strong>production VPC</strong> (<code class="language-plaintext highlighter-rouge">griffin-prod-vpc</code>) with:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">griffin-prod-wp</code></li>
+      <li><code class="language-plaintext highlighter-rouge">griffin-prod-mgmt</code></li>
+    </ul>
+  </li>
+  <li>A <strong>bastion host</strong> with <strong>two network interfaces</strong>, one connected to each management subnet</li>
+  <li>A <strong>Cloud SQL for MySQL instance</strong> (<code class="language-plaintext highlighter-rouge">griffin-dev-db</code>) hosting the WordPress database</li>
+  <li>A <strong>GKE cluster</strong> (<code class="language-plaintext highlighter-rouge">griffin-dev</code>) deployed in the development WordPress subnet</li>
+  <li>A <strong>WordPress Kubernetes deployment and service</strong> exposed externally by LoadBalancer</li>
+  <li><strong>Kubernetes secrets</strong> used for database credentials and Cloud SQL proxy authentication</li>
+  <li>An <strong>uptime check</strong> monitoring application availability</li>
+  <li><strong>IAM project access</strong> granted to an additional engineer</li>
+</ul>
+
+<p><img src="./assets/images/image2.png" alt="Architecture Diagram" /></p>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-development-vpc-design">1. Development VPC Design</h4>
+<ul>
+  <li>Created a manual VPC named <code class="language-plaintext highlighter-rouge">griffin-dev-vpc</code></li>
+  <li>Added the following subnets:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">griffin-dev-wp</code> – <code class="language-plaintext highlighter-rouge">192.168.16.0/20</code></li>
+      <li><code class="language-plaintext highlighter-rouge">griffin-dev-mgmt</code> – <code class="language-plaintext highlighter-rouge">192.168.32.0/20</code></li>
+    </ul>
+  </li>
+  <li>Separated application and management traffic within the development environment :contentReference[oaicite:2]{index=2}</li>
+</ul>
+
+<hr />
+
+<h4 id="2-production-vpc-design">2. Production VPC Design</h4>
+<ul>
+  <li>Created a manual VPC named <code class="language-plaintext highlighter-rouge">griffin-prod-vpc</code></li>
+  <li>Added the following subnets:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">griffin-prod-wp</code> – <code class="language-plaintext highlighter-rouge">192.168.48.0/20</code></li>
+      <li><code class="language-plaintext highlighter-rouge">griffin-prod-mgmt</code> – <code class="language-plaintext highlighter-rouge">192.168.64.0/20</code></li>
+    </ul>
+  </li>
+  <li>Established a separate production-ready network structure with subnet-level segmentation :contentReference[oaicite:3]{index=3}</li>
+</ul>
+
+<hr />
+
+<h4 id="3-bastion-host-architecture">3. Bastion Host Architecture</h4>
+<ul>
+  <li>Deployed a bastion host with <strong>two NICs</strong></li>
+  <li>Connected one interface to <code class="language-plaintext highlighter-rouge">griffin-dev-mgmt</code></li>
+  <li>Connected the second interface to <code class="language-plaintext highlighter-rouge">griffin-prod-mgmt</code></li>
+  <li>Ensured SSH administrative access through a centralized management entry point :contentReference[oaicite:4]{index=4}</li>
+</ul>
+
+<hr />
+
+<h4 id="4-cloud-sql-provisioning-for-wordpress">4. Cloud SQL Provisioning for WordPress</h4>
+<ul>
+  <li>Created a MySQL Cloud SQL instance named <code class="language-plaintext highlighter-rouge">griffin-dev-db</code></li>
+  <li>Initialized the WordPress database environment with:
+    <ul>
+      <li>database creation</li>
+      <li>application user creation</li>
+      <li>privilege grants</li>
+    </ul>
+  </li>
+  <li>Prepared backend database services for the application tier :contentReference[oaicite:5]{index=5}</li>
+</ul>
+
+<hr />
+
+<h4 id="5-gke-cluster-deployment">5. GKE Cluster Deployment</h4>
+<ul>
+  <li>Created a <strong>2-node GKE cluster</strong> named <code class="language-plaintext highlighter-rouge">griffin-dev</code></li>
+  <li>Deployed the cluster into the <code class="language-plaintext highlighter-rouge">griffin-dev-wp</code> subnet</li>
+  <li>Allocated Kubernetes infrastructure specifically within the development application network zone :contentReference[oaicite:6]{index=6}</li>
+</ul>
+
+<hr />
+
+<h4 id="6-kubernetes-environment-preparation">6. Kubernetes Environment Preparation</h4>
+<ul>
+  <li>Copied the supplied Kubernetes manifests from Cloud Storage</li>
+  <li>Configured Kubernetes secrets for:
+    <ul>
+      <li>database username</li>
+      <li>database password</li>
+    </ul>
+  </li>
+  <li>Generated and stored a service account key for the Cloud SQL proxy sidecar</li>
+  <li>Prepared persistent storage requirements for WordPress working files</li>
+  <li>Established secure and functional application prerequisites before deployment :contentReference[oaicite:7]{index=7}</li>
+</ul>
+
+<hr />
+
+<h4 id="7-wordpress-deployment-on-gke">7. WordPress Deployment on GKE</h4>
+<ul>
+  <li>Updated the deployment manifest with the Cloud SQL instance connection name</li>
+  <li>Created the WordPress deployment using the supplied Kubernetes configuration</li>
+  <li>Exposed the application using a Kubernetes Service with external LoadBalancer access</li>
+  <li>Verified successful reachability through the WordPress installer page :contentReference[oaicite:8]{index=8}</li>
+</ul>
+
+<hr />
+
+<h4 id="8-monitoring-enablement">8. Monitoring Enablement</h4>
+<ul>
+  <li>Created an uptime check for the WordPress development site</li>
+  <li>Added external availability monitoring for the deployed application</li>
+  <li>Extended the environment from deployment-only to monitored operational readiness :contentReference[oaicite:9]{index=9}</li>
+</ul>
+
+<hr />
+
+<h4 id="9-iam-access-delegation">9. IAM Access Delegation</h4>
+<ul>
+  <li>Granted the <strong>Editor</strong> role on the project to an additional engineer</li>
+  <li>Ensured the environment could be shared and managed collaboratively</li>
+  <li>Incorporated basic team-access enablement into the delivery scope :contentReference[oaicite:10]{index=10}</li>
+</ul>
+
+<hr />
+
+<h3 id="design-decisions">Design Decisions</h3>
+
+<ul>
+  <li>Used <strong>separate development and production VPCs</strong> to enforce environment isolation</li>
+  <li>Split each VPC into <strong>application</strong> and <strong>management</strong> subnets for cleaner traffic segmentation</li>
+  <li>Used a <strong>dual-homed bastion</strong> to centralize administrative access across environments</li>
+  <li>Chose <strong>Cloud SQL</strong> as a managed relational backend for WordPress</li>
+  <li>Used <strong>GKE</strong> to host WordPress in a containerized, scalable platform</li>
+  <li>Stored database credentials and proxy credentials in <strong>Kubernetes secrets</strong></li>
+  <li>Added <strong>uptime monitoring</strong> to validate external application availability</li>
+  <li>Included <strong>IAM delegation</strong> to reflect team-based cloud operations</li>
+</ul>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Successfully built a <strong>segmented multi-tier Google Cloud environment</strong></li>
+  <li>Demonstrated practical use of:
+    <ul>
+      <li>manual VPC design</li>
+      <li>subnet planning</li>
+      <li>multi-NIC bastion architecture</li>
+      <li>Cloud SQL provisioning</li>
+      <li>GKE application hosting</li>
+      <li>Kubernetes secrets</li>
+      <li>uptime monitoring</li>
+      <li>IAM project access control</li>
+    </ul>
+  </li>
+  <li>Strengthened understanding of how infrastructure, platform, database, and operational layers work together in a cloud-hosted application stack</li>
+  <li>Built a realistic foundation for <strong>cloud-native application hosting and environment administration</strong></li>
+</ul>
+
+<hr />
+
+<h3 id="tools--technologies-used">Tools &amp; Technologies Used</h3>
+
+<ul>
+  <li><strong>Google Cloud VPC</strong> – Network segmentation</li>
+  <li><strong>Subnets</strong> – Application and management isolation</li>
+  <li><strong>Compute Engine</strong> – Bastion host deployment</li>
+  <li><strong>Cloud SQL for MySQL</strong> – Managed database backend</li>
+  <li><strong>Google Kubernetes Engine (GKE)</strong> – Container orchestration platform</li>
+  <li><strong>Kubernetes</strong> – Application deployment and secret management</li>
+  <li><strong>WordPress</strong> – Web application workload</li>
+  <li><strong>Cloud Monitoring Uptime Checks</strong> – External availability monitoring</li>
+  <li><strong>IAM</strong> – Project access control</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>This project demonstrates the ability to design and implement a <strong>multi-tier cloud environment</strong> on Google Cloud that supports networking, secure administration, managed database services, Kubernetes-based application deployment, monitoring, and collaborative access control. It highlights practical skills in <strong>cloud network architecture, workload deployment, secrets handling, and operational readiness</strong>, making it highly relevant to cloud engineering, DevOps, and site reliability roles.</p>
+
+<hr />
+
+<p><a href="/projects/cloud/">Back to Cloud Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

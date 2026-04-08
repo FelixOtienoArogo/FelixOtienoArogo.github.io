@@ -250,6 +250,15 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
     </div>
   </a>
 
+  <a class="project-card" href="/projects/cloud/gcp-network-wordpress-gke/">
+    <img src="/assets/images/projects/cloud/gcp-network-wordpress-gke/image1.png" alt="Multi-Tier Google Cloud Network and Kubernetes WordPress Environment">
+    <div class="project-card__body">
+      <h3>Multi-Tier GCP Network & WordPress on GKE</h3>
+      <p><strong>Focus:</strong> Network Architecture & Application Hosting</p>
+      <p>VPC, Subnets, Bastion Host, Cloud SQL, GKE, Kubernetes, Monitoring</p>
+    </div>
+  </a>
+
 </div>
 
 
