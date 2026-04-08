@@ -1,0 +1,608 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Managing Application Deployments on Google Kubernetes Engine - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Managing Application Deployments on Google Kubernetes Engine">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/gke-deployment-strategies/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/cloud/gke-deployment-strategies/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Managing Application Deployments on Google Kubernetes Engine">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/cloud/gke-deployment-strategies/" itemprop="url">Managing Application Deployments on Google Kubernetes Engine
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="managing-application-deployments-on-google-kubernetes-engine">Managing Application Deployments on Google Kubernetes Engine</h2>
+
+<p><strong>Timeline:</strong> December 2025<br />
+<strong>Role:</strong> Cloud Engineer / Site Reliability Engineer<br />
+<strong>Skills:</strong> Google Kubernetes Engine (GKE), Kubernetes, kubectl, Deployments, ReplicaSets, Services, Rolling Updates, Canary Deployments, Blue-Green Deployments, DevOps</p>
+
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project focused on implementing <strong>production-grade deployment strategies</strong> for a containerized application on Google Kubernetes Engine (GKE). The work involved deploying a versioned application, exposing it via a Kubernetes Service, scaling workloads, and managing application updates using rolling updates, rollback, canary releases, and blue-green deployment patterns.</p>
+
+<p>The implementation demonstrated how Kubernetes can be used not only for orchestration, but also as a <strong>release management platform</strong>, enabling safe, controlled, and low-risk application deployments in cloud-native environments.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+
+<ul>
+  <li>Deploy a containerized application on GKE using Kubernetes manifests</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">kubectl</code> to inspect and manage Kubernetes resources</li>
+  <li>Scale application replicas dynamically</li>
+  <li>Perform rolling updates to a new application version</li>
+  <li>Pause and resume deployment rollouts</li>
+  <li>Roll back to a previous stable version</li>
+  <li>Implement a canary deployment for partial traffic testing</li>
+  <li>Implement a blue-green deployment for full traffic switching</li>
+</ul>
+
+<hr />
+
+<h3 id="architecture-overview">Architecture Overview</h3>
+
+<p>The architecture consisted of:</p>
+
+<ul>
+  <li>A <strong>Google Kubernetes Engine (GKE) cluster</strong> hosting application workloads</li>
+  <li>A <strong>Kubernetes Deployment</strong> managing application replicas</li>
+  <li>A <strong>ReplicaSet</strong> ensuring desired pod availability</li>
+  <li>Multiple application versions:
+    <ul>
+      <li><strong>Blue (stable)</strong> – version 1.0.0</li>
+      <li><strong>Canary</strong> – partial rollout of version 2.0.0</li>
+      <li><strong>Green</strong> – full deployment of version 2.0.0</li>
+    </ul>
+  </li>
+  <li>A <strong>LoadBalancer Service</strong> exposing the application externally</li>
+  <li>Traffic routing controlled via <strong>labels and selectors</strong></li>
+</ul>
+
+<p><img src="./images/image2.png" alt="Architecture Diagram" /></p>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-gke-cluster-and-environment-setup">1. GKE Cluster and Environment Setup</h4>
+<ul>
+  <li>Created a <strong>3-node GKE cluster</strong> using <code class="language-plaintext highlighter-rouge">gcloud</code></li>
+  <li>Configured Cloud Shell and <code class="language-plaintext highlighter-rouge">kubectl</code> for cluster interaction</li>
+  <li>Loaded deployment and service manifests for the application</li>
+</ul>
+
+<hr />
+
+<h4 id="2-initial-application-deployment">2. Initial Application Deployment</h4>
+<ul>
+  <li>Deployed <code class="language-plaintext highlighter-rouge">fortune-app</code> version <strong>1.0.0</strong> using a Kubernetes Deployment</li>
+  <li>Configured <strong>3 replicas</strong> for high availability</li>
+  <li>Verified Deployment, ReplicaSet, and Pods</li>
+  <li>Exposed the application via a <strong>LoadBalancer Service</strong></li>
+  <li>Validated application response using the <code class="language-plaintext highlighter-rouge">/version</code> endpoint</li>
+</ul>
+
+<hr />
+
+<h4 id="3-scaling-application-workloads">3. Scaling Application Workloads</h4>
+<ul>
+  <li>Scaled replicas from <strong>3 → 5 → 3</strong> using <code class="language-plaintext highlighter-rouge">kubectl scale</code></li>
+  <li>Verified pod scaling behavior dynamically</li>
+  <li>Demonstrated horizontal scalability using Kubernetes Deployments</li>
+</ul>
+
+<hr />
+
+<h4 id="4-rolling-update-deployment">4. Rolling Update Deployment</h4>
+<ul>
+  <li>Updated application image from <strong>v1.0.0 → v2.0.0</strong></li>
+  <li>Triggered a <strong>rolling update</strong> with zero downtime</li>
+  <li>Observed:
+    <ul>
+      <li>gradual replacement of pods</li>
+      <li>creation of a new ReplicaSet</li>
+    </ul>
+  </li>
+  <li>Reviewed rollout history for deployment tracking</li>
+</ul>
+
+<hr />
+
+<h4 id="5-controlled-rollout-pause--resume">5. Controlled Rollout (Pause &amp; Resume)</h4>
+<ul>
+  <li>Paused deployment rollout mid-update</li>
+  <li>Observed mixed application versions running simultaneously</li>
+  <li>Resumed rollout to complete update</li>
+  <li>Demonstrated operational control over live deployments</li>
+</ul>
+
+<hr />
+
+<h4 id="6-rollback-to-stable-version">6. Rollback to Stable Version</h4>
+<ul>
+  <li>Performed rollback using <code class="language-plaintext highlighter-rouge">kubectl rollout undo</code></li>
+  <li>Reverted application back to version <strong>1.0.0</strong></li>
+  <li>Verified successful rollback through service responses</li>
+  <li>Demonstrated safe recovery from faulty deployments</li>
+</ul>
+
+<hr />
+
+<h4 id="7-canary-deployment-implementation">7. Canary Deployment Implementation</h4>
+<ul>
+  <li>Created a <strong>canary deployment</strong> for version 2.0.0</li>
+  <li>Used shared service selectors to distribute traffic</li>
+  <li>Verified:
+    <ul>
+      <li>majority of traffic served by stable version</li>
+      <li>small subset served by canary version</li>
+    </ul>
+  </li>
+  <li>Demonstrated controlled production testing</li>
+</ul>
+
+<hr />
+
+<h4 id="8-blue-green-deployment-strategy">8. Blue-Green Deployment Strategy</h4>
+<ul>
+  <li>Created separate <strong>blue (v1.0.0)</strong> and <strong>green (v2.0.0)</strong> deployments</li>
+  <li>Updated service selector to switch traffic between versions</li>
+  <li>Verified:
+    <ul>
+      <li>instant traffic cutover</li>
+      <li>immediate rollback capability</li>
+    </ul>
+  </li>
+  <li>Demonstrated zero-downtime full release strategy</li>
+</ul>
+
+<hr />
+
+<h3 id="design-decisions">Design Decisions</h3>
+
+<ul>
+  <li>Used <strong>Kubernetes Deployments</strong> for declarative application management</li>
+  <li>Leveraged <strong>ReplicaSets</strong> for automatic scaling and availability</li>
+  <li>Used <strong>Services with label selectors</strong> to control traffic routing</li>
+  <li>Applied multiple deployment strategies to simulate real-world release scenarios</li>
+  <li>Chose <strong>GKE</strong> for managed Kubernetes infrastructure and scalability</li>
+</ul>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Successfully implemented multiple <strong>production deployment strategies</strong> on GKE</li>
+  <li>Demonstrated practical use of:
+    <ul>
+      <li>rolling updates</li>
+      <li>rollback mechanisms</li>
+      <li>canary testing</li>
+      <li>blue-green deployments</li>
+    </ul>
+  </li>
+  <li>Improved understanding of:
+    <ul>
+      <li>release safety</li>
+      <li>deployment control</li>
+      <li>traffic management</li>
+    </ul>
+  </li>
+  <li>Built a strong foundation for <strong>cloud-native DevOps and SRE practices</strong></li>
+</ul>
+
+<hr />
+
+<h3 id="tools--technologies-used">Tools &amp; Technologies Used</h3>
+
+<ul>
+  <li><strong>Google Kubernetes Engine (GKE)</strong> – Managed Kubernetes platform</li>
+  <li><strong>Kubernetes</strong> – Container orchestration</li>
+  <li><strong>kubectl</strong> – Cluster management CLI</li>
+  <li><strong>Deployments &amp; ReplicaSets</strong> – Workload management</li>
+  <li><strong>Services (LoadBalancer)</strong> – External access and traffic routing</li>
+  <li><strong>Containerized Application (fortune-app)</strong> – Sample workload</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>This project demonstrates the ability to implement <strong>advanced Kubernetes deployment strategies</strong> in a cloud environment. It highlights practical skills in <strong>release engineering, workload scaling, traffic management, and failure recovery</strong>, which are critical for cloud engineering, DevOps, and site reliability roles.</p>
+
+<hr />
+
+<p><a href="/projects/cloud/">Back to Cloud Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

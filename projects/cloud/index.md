@@ -55,6 +55,15 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
     </div>
   </a>
 
+  <a class="project-card" href="/projects/cloud/gke-deployment-strategies/">
+    <img src="/assets/images/projects/cloud/gke-deployment-strategies/image1.png" alt="Managing Application Deployments on Google Kubernetes Engine">
+    <div class="project-card__body">
+      <h3>GKE Deployment Strategies</h3>
+      <p><strong>Focus:</strong> Release Engineering</p>
+      <p>GKE, Kubernetes, Rolling Updates, Canary, Blue-Green, kubectl</p>
+    </div>
+  </a>
+
   <a class="project-card" href="/projects/cloud/serverless-inventory-intelligence/">
     <img src="/assets/images/projects/cloud/serverless-inventory-intelligence/image11.png" alt="Serverless Inventory Intelligence">
     <div class="project-card__body">
