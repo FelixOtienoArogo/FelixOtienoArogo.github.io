@@ -1,0 +1,575 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Infrastructure as Code with Terraform on Google Cloud - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Infrastructure as Code with Terraform on Google Cloud">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/gcp-terraform-iac/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/cloud/gcp-terraform-iac/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Infrastructure as Code with Terraform on Google Cloud">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/cloud/gcp-terraform-iac/" itemprop="url">Infrastructure as Code with Terraform on Google Cloud
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="infrastructure-as-code-with-terraform-on-google-cloud">Infrastructure as Code with Terraform on Google Cloud</h2>
+
+<p><strong>Timeline:</strong> December 2025<br />
+<strong>Role:</strong> Cloud Engineer / Infrastructure Engineer<br />
+<strong>Skills:</strong> Terraform, Google Cloud, Compute Engine, VPC, Infrastructure as Code (IaC), Resource Dependencies, Terraform State, Provisioners</p>
+
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project focused on implementing <strong>Infrastructure as Code (IaC)</strong> using Terraform to provision, modify, and destroy infrastructure on Google Cloud. The work involved creating a VPC network, provisioning a virtual machine, assigning a static IP, defining resource dependencies, and using provisioners for post-deployment automation.</p>
+
+<p>The implementation demonstrated how Terraform enables <strong>repeatable, version-controlled infrastructure deployment</strong>, including safe change management, dependency resolution, and lifecycle control.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+
+<ul>
+  <li>Build infrastructure using Terraform configuration files</li>
+  <li>Modify infrastructure using incremental changes</li>
+  <li>Destroy infrastructure using Terraform lifecycle commands</li>
+  <li>Create implicit and explicit resource dependencies</li>
+  <li>Assign static IP addresses to compute instances</li>
+  <li>Use provisioners for post-deployment automation</li>
+  <li>Understand Terraform state and execution planning</li>
+</ul>
+
+<hr />
+
+<h3 id="architecture-overview">Architecture Overview</h3>
+
+<p>The architecture consisted of:</p>
+
+<ul>
+  <li><strong>Cloud Shell / Editor</strong> as the Terraform execution environment</li>
+  <li>A <strong>Terraform configuration file (<code class="language-plaintext highlighter-rouge">main.tf</code>)</strong> defining multiple resources</li>
+  <li>The <strong>Terraform engine</strong> executing lifecycle commands (<code class="language-plaintext highlighter-rouge">init</code>, <code class="language-plaintext highlighter-rouge">plan</code>, <code class="language-plaintext highlighter-rouge">apply</code>, <code class="language-plaintext highlighter-rouge">destroy</code>)</li>
+  <li>A <strong>Google Cloud VPC network</strong> provisioned via Terraform</li>
+  <li>A <strong>Compute Engine VM instance</strong> deployed into the VPC</li>
+  <li>A <strong>static IP address</strong> attached to the VM</li>
+  <li>A <strong>Cloud Storage bucket</strong> used to demonstrate explicit dependencies</li>
+  <li>A <strong>Terraform state file (<code class="language-plaintext highlighter-rouge">terraform.tfstate</code>)</strong> tracking infrastructure state</li>
+  <li>A <strong>provisioner (local-exec)</strong> performing post-deployment automation</li>
+</ul>
+
+<p><img src="./images/image2.png" alt="Architecture Diagram" /></p>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-terraform-configuration-and-initialization">1. Terraform Configuration and Initialization</h4>
+<ul>
+  <li>Created a <code class="language-plaintext highlighter-rouge">main.tf</code> configuration file defining infrastructure resources</li>
+  <li>Configured the Google provider and project settings</li>
+  <li>Initialized Terraform using <code class="language-plaintext highlighter-rouge">terraform init</code></li>
+</ul>
+
+<hr />
+
+<h4 id="2-infrastructure-provisioning">2. Infrastructure Provisioning</h4>
+<ul>
+  <li>Created a <strong>VPC network</strong> using Terraform</li>
+  <li>Applied the configuration using <code class="language-plaintext highlighter-rouge">terraform apply</code></li>
+  <li>Verified provisioning in Google Cloud</li>
+</ul>
+
+<hr />
+
+<h4 id="3-compute-engine-deployment">3. Compute Engine Deployment</h4>
+<ul>
+  <li>Added a <strong>Compute Engine VM instance</strong></li>
+  <li>Connected it to the VPC network</li>
+  <li>Enabled external connectivity</li>
+</ul>
+
+<hr />
+
+<h4 id="4-infrastructure-updates">4. Infrastructure Updates</h4>
+<ul>
+  <li>Added tags (<code class="language-plaintext highlighter-rouge">web</code>, <code class="language-plaintext highlighter-rouge">dev</code>) to the VM</li>
+  <li>Modified boot disk image</li>
+  <li>Observed:
+    <ul>
+      <li>in-place updates (<code class="language-plaintext highlighter-rouge">~</code>)</li>
+      <li>resource replacement (<code class="language-plaintext highlighter-rouge">-/+</code>)</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h4 id="5-resource-dependencies">5. Resource Dependencies</h4>
+<ul>
+  <li>Created a <strong>static IP resource</strong></li>
+  <li>Attached it to the VM using interpolation</li>
+  <li>Implemented:
+    <ul>
+      <li>implicit dependencies</li>
+      <li>explicit dependencies (<code class="language-plaintext highlighter-rouge">depends_on</code>)</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h4 id="6-provisioners">6. Provisioners</h4>
+<ul>
+  <li>Added a <strong>local-exec provisioner</strong></li>
+  <li>Captured VM IP address into a file</li>
+  <li>Demonstrated post-deployment automation</li>
+</ul>
+
+<hr />
+
+<h4 id="7-infrastructure-destruction">7. Infrastructure Destruction</h4>
+<ul>
+  <li>Used <code class="language-plaintext highlighter-rouge">terraform destroy</code> to remove resources</li>
+  <li>Verified dependency-aware destruction order</li>
+</ul>
+
+<hr />
+
+<h3 id="design-decisions">Design Decisions</h3>
+
+<ul>
+  <li>Used <strong>Terraform</strong> for declarative infrastructure provisioning</li>
+  <li>Structured configuration to demonstrate lifecycle and dependencies</li>
+  <li>Leveraged <strong>interpolation and depends_on</strong> for dependency control</li>
+  <li>Used <strong>provisioners</strong> for automation</li>
+  <li>Maintained <strong>state tracking</strong> for consistency and repeatability</li>
+</ul>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Successfully provisioned and managed infrastructure using Terraform</li>
+  <li>Demonstrated:
+    <ul>
+      <li>lifecycle management</li>
+      <li>dependency resolution</li>
+      <li>safe infrastructure changes</li>
+    </ul>
+  </li>
+  <li>Built a strong foundation for advanced IaC implementations</li>
+  <li>Reinforced best practices for cloud automation and DevOps workflows</li>
+</ul>
+
+<hr />
+
+<h3 id="tools--technologies-used">Tools &amp; Technologies Used</h3>
+
+<ul>
+  <li><strong>Terraform</strong> – Infrastructure as Code</li>
+  <li><strong>Google Cloud</strong> – Cloud platform</li>
+  <li><strong>Compute Engine</strong> – VM provisioning</li>
+  <li><strong>VPC Network</strong> – Networking</li>
+  <li><strong>Cloud Storage</strong> – Dependency demonstration</li>
+  <li><strong>Cloud Shell</strong> – Execution environment</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>This project demonstrates the ability to manage <strong>infrastructure lifecycle using Terraform</strong>, including provisioning, modification, dependency management, and destruction. It highlights practical skills in <strong>Infrastructure as Code, automation, and cloud resource orchestration</strong>, forming a strong foundation for advanced DevOps and platform engineering roles.</p>
+
+<hr />
+
+<p><a href="/projects/cloud/">Back to Cloud Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

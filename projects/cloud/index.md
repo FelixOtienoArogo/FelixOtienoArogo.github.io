@@ -135,6 +135,15 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
     </div>
   </a>
 
+  <a class="project-card" href="/projects/cloud/gcp-terraform-iac/">
+    <img src="/assets/images/projects/cloud/gcp-terraform-iac/image2.png" alt="Infrastructure as Code with Terraform on Google Cloud">
+    <div class="project-card__body">
+      <h3>Terraform Infrastructure Lifecycle (GCP)</h3>
+      <p><strong>Focus:</strong> Infrastructure as Code</p>
+      <p>Terraform, VPC, Compute Engine, Dependencies, Provisioners</p>
+    </div>
+  </a>
+
 </div>
 
 ---
