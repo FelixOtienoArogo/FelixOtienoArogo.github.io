@@ -1,0 +1,621 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Managing Terraform State and Import Workflows on Google Cloud - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Managing Terraform State and Import Workflows on Google Cloud">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/gcp-manage-terraform-state/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/cloud/gcp-manage-terraform-state/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Managing Terraform State and Import Workflows on Google Cloud">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/cloud/gcp-manage-terraform-state/" itemprop="url">Managing Terraform State and Import Workflows on Google Cloud
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="managing-terraform-state-and-import-workflows-on-google-cloud">Managing Terraform State and Import Workflows on Google Cloud</h2>
+
+<p><strong>Timeline:</strong> December 2025<br />
+<strong>Role:</strong> Cloud Engineer / Infrastructure Engineer<br />
+<strong>Skills:</strong> Terraform, Terraform State, Backends, Google Cloud Storage, State Refresh, Terraform Import, Docker Provider, Infrastructure as Code (IaC), Drift Management</p>
+
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project focused on managing <strong>Terraform state</strong> across local and remote backends and using <strong>Terraform import</strong> to bring existing infrastructure under Infrastructure as Code management. The work involved configuring a local backend, migrating state to a Google Cloud Storage backend, refreshing state to detect infrastructure drift, and importing an existing Docker container and image into Terraform before updating and managing them declaratively.</p>
+
+<p>The implementation demonstrated how Terraform state underpins reliable infrastructure lifecycle management, especially in collaborative environments where remote state, locking, and import workflows are essential for maintaining consistency and control.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+
+<ul>
+  <li>Configure a local Terraform backend</li>
+  <li>Configure a Google Cloud Storage backend for remote state</li>
+  <li>Migrate Terraform state between backends</li>
+  <li>Refresh Terraform state to reconcile real infrastructure changes</li>
+  <li>Import existing infrastructure into Terraform state</li>
+  <li>Create Terraform configuration for imported resources</li>
+  <li>Manage imported infrastructure declaratively with Terraform</li>
+</ul>
+
+<hr />
+
+<h3 id="architecture-overview">Architecture Overview</h3>
+
+<p>The architecture consisted of:</p>
+
+<ul>
+  <li>A <strong>Terraform root configuration</strong> executed from Cloud Shell</li>
+  <li>A <strong>local backend</strong> storing state in a filesystem path</li>
+  <li>A <strong>Google Cloud Storage backend</strong> storing remote Terraform state</li>
+  <li>A <strong>Cloud Storage bucket</strong> used both as managed infrastructure and as a remote backend target</li>
+  <li>A <strong>Docker provider configuration</strong> used to import and manage an existing NGINX container</li>
+  <li>A <strong>Docker image resource</strong> added to Terraform after import</li>
+  <li>A <strong>Terraform state file</strong> acting as the mapping layer between configuration and real infrastructure</li>
+</ul>
+
+<p><img src="./images/image2.png" alt="Architecture Diagram" /></p>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-understanding-terraform-state">1. Understanding Terraform State</h4>
+<ul>
+  <li>Reviewed the role of Terraform state in:
+    <ul>
+      <li>mapping configuration to real infrastructure</li>
+      <li>storing metadata and dependencies</li>
+      <li>improving performance for larger environments</li>
+    </ul>
+  </li>
+  <li>Examined how state supports synchronization, locking, and workspaces in team environments</li>
+</ul>
+
+<hr />
+
+<h4 id="2-configuring-a-local-backend">2. Configuring a Local Backend</h4>
+<ul>
+  <li>Created a Terraform configuration to provision a Cloud Storage bucket</li>
+  <li>Added a <code class="language-plaintext highlighter-rouge">local</code> backend definition with a custom state file path</li>
+  <li>Initialized Terraform and applied the configuration</li>
+  <li>Verified that Terraform stored the state file locally in the configured directory</li>
+</ul>
+
+<hr />
+
+<h4 id="3-migrating-to-a-google-cloud-storage-backend">3. Migrating to a Google Cloud Storage Backend</h4>
+<ul>
+  <li>Replaced the local backend with a <code class="language-plaintext highlighter-rouge">gcs</code> backend</li>
+  <li>Configured the backend to store state in a Cloud Storage bucket using a defined prefix</li>
+  <li>Reinitialized Terraform with <code class="language-plaintext highlighter-rouge">-migrate-state</code></li>
+  <li>Confirmed that the state file was successfully moved into the bucket</li>
+</ul>
+
+<hr />
+
+<h4 id="4-refreshing-state-to-detect-drift">4. Refreshing State to Detect Drift</h4>
+<ul>
+  <li>Introduced an external change by adding labels directly to the storage bucket in Google Cloud</li>
+  <li>Ran <code class="language-plaintext highlighter-rouge">terraform refresh</code> to reconcile Terraform’s state with the real-world resource</li>
+  <li>Verified the updated labels in the Terraform state output</li>
+  <li>Demonstrated how Terraform detects and records configuration drift without directly changing infrastructure</li>
+</ul>
+
+<hr />
+
+<h4 id="5-reverting-backend-for-cleanup">5. Reverting Backend for Cleanup</h4>
+<ul>
+  <li>Migrated state back to the local backend</li>
+  <li>Updated the bucket resource with <code class="language-plaintext highlighter-rouge">force_destroy = true</code></li>
+  <li>Applied the change and destroyed the managed infrastructure cleanly</li>
+  <li>Reinforced the operational importance of backend planning and safe cleanup flows</li>
+</ul>
+
+<hr />
+
+<h4 id="6-importing-existing-infrastructure-into-terraform">6. Importing Existing Infrastructure into Terraform</h4>
+<ul>
+  <li>Created an NGINX Docker container manually with the Docker CLI</li>
+  <li>Initialized a Terraform workspace for import</li>
+  <li>Imported the running container into Terraform state using <code class="language-plaintext highlighter-rouge">terraform import</code></li>
+  <li>Verified the imported resource using <code class="language-plaintext highlighter-rouge">terraform show</code></li>
+  <li>
+    <h2 id="demonstrated-the-process-of-attaching-unmanaged-infrastructure-to-terraform-state">Demonstrated the process of attaching unmanaged infrastructure to Terraform state</h2>
+  </li>
+</ul>
+
+<h4 id="7-creating-configuration-for-imported-resources">7. Creating Configuration for Imported Resources</h4>
+<ul>
+  <li>Generated configuration from Terraform state output</li>
+  <li>Cleaned the imported Docker resource definition by removing unnecessary and read-only attributes</li>
+  <li>Reduced the configuration to the required arguments:
+    <ul>
+      <li>image</li>
+      <li>name</li>
+      <li>ports</li>
+    </ul>
+  </li>
+  <li>
+    <h2 id="verified-the-cleaned-configuration-with-terraform-plan-and-terraform-apply">Verified the cleaned configuration with <code class="language-plaintext highlighter-rouge">terraform plan</code> and <code class="language-plaintext highlighter-rouge">terraform apply</code></h2>
+  </li>
+</ul>
+
+<h4 id="8-managing-imported-images-and-containers">8. Managing Imported Images and Containers</h4>
+<ul>
+  <li>Added a <code class="language-plaintext highlighter-rouge">docker_image</code> resource for <code class="language-plaintext highlighter-rouge">nginx:latest</code></li>
+  <li>Updated the imported container to reference the Terraform-managed image resource</li>
+  <li>Applied the changes and confirmed that the configuration and state were aligned</li>
+  <li>Demonstrated how imported infrastructure can be normalized into cleaner Terraform design patterns</li>
+</ul>
+
+<hr />
+
+<h4 id="9-updating-and-replacing-imported-infrastructure">9. Updating and Replacing Imported Infrastructure</h4>
+<ul>
+  <li>Modified the Docker container’s external port from <code class="language-plaintext highlighter-rouge">8080</code> to <code class="language-plaintext highlighter-rouge">8081</code></li>
+  <li>Applied the change and observed Terraform destroy and recreate the container</li>
+  <li>Verified the new container ID and updated runtime configuration</li>
+  <li>Demonstrated lifecycle management of previously unmanaged resources using Terraform</li>
+</ul>
+
+<hr />
+
+<h4 id="10-final-cleanup-and-lessons">10. Final Cleanup and Lessons</h4>
+<ul>
+  <li>Destroyed the Terraform-managed Docker container and image</li>
+  <li>Reviewed the limitations and cautions around import workflows</li>
+  <li>Reinforced the importance of:
+    <ul>
+      <li>backing up state before import</li>
+      <li>understanding unmanaged dependencies</li>
+      <li>validating imported configuration carefully</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="design-decisions">Design Decisions</h3>
+
+<ul>
+  <li>Used a <strong>local backend first</strong> to demonstrate explicit local state configuration</li>
+  <li>Migrated to a <strong>GCS backend</strong> to show remote state management suitable for team workflows</li>
+  <li>Used <strong>state refresh</strong> to capture external drift rather than assuming configuration was authoritative</li>
+  <li>Used <strong>terraform import</strong> to demonstrate adoption of pre-existing infrastructure</li>
+  <li>Normalized imported resources into cleaner Terraform configuration instead of keeping verbose generated state output</li>
+  <li>Added a <strong>managed image resource</strong> to improve readability and maintainability of the imported container configuration</li>
+</ul>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Successfully configured and migrated Terraform state across <strong>local and remote backends</strong></li>
+  <li>Demonstrated practical use of:
+    <ul>
+      <li>backend configuration</li>
+      <li>state migration</li>
+      <li>refresh for drift reconciliation</li>
+      <li>import of existing infrastructure</li>
+      <li>lifecycle management of imported resources</li>
+    </ul>
+  </li>
+  <li>Strengthened understanding of how Terraform state supports collaboration, consistency, and controlled change management</li>
+  <li>Built practical experience in one of the most important and often misunderstood areas of Infrastructure as Code operations</li>
+</ul>
+
+<hr />
+
+<h3 id="tools--technologies-used">Tools &amp; Technologies Used</h3>
+
+<ul>
+  <li><strong>Terraform</strong> – Infrastructure as Code engine</li>
+  <li><strong>Terraform State</strong> – Infrastructure mapping and metadata store</li>
+  <li><strong>Google Cloud Storage</strong> – Remote state backend</li>
+  <li><strong>Cloud Shell / Editor</strong> – Execution and editing environment</li>
+  <li><strong>Docker</strong> – Imported runtime environment</li>
+  <li><strong>NGINX</strong> – Example application container</li>
+  <li><strong>Terraform Docker Provider</strong> – Imported resource management</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>This project demonstrates the ability to manage <strong>Terraform state, backend strategy, drift reconciliation, and infrastructure import workflows</strong> across Google Cloud and Docker-based resources. It highlights practical skills in <strong>state management, remote backends, lifecycle control, and bringing unmanaged infrastructure under declarative control</strong>, which are highly relevant to cloud engineering, DevOps, and platform engineering roles.</p>
+
+<hr />
+
+<p><a href="/projects/cloud/">Back to Cloud Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

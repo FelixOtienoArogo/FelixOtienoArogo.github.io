@@ -20,7 +20,7 @@ image: /assets/images/projects/cloud/gcp-terraform-modules/cover.jpg
 
 This project focused on using **Terraform modules to improve infrastructure organization, reusability, and consistency** on Google Cloud. The work involved first consuming a published module from the Terraform Registry to provision a VPC network with multiple subnets, and then designing a custom local module to provision a Cloud Storage bucket configured for static website hosting.
 
-The implementation demonstrated how Terraform modules help structure Infrastructure as Code into reusable, encapsulated components, making complex environments easier to maintain, standardize, and scale across teams and projects. :contentReference[oaicite:1]{index=1}
+The implementation demonstrated how Terraform modules help structure Infrastructure as Code into reusable, encapsulated components, making complex environments easier to maintain, standardize, and scale across teams and projects.
 
 ---
 
@@ -67,7 +67,7 @@ The architecture consisted of:
   - private Google access
   - flow logs
   - logging configuration
-- Provisioned infrastructure using `terraform init` and `terraform apply` :contentReference[oaicite:2]{index=2}
+- Provisioned infrastructure using `terraform init` and `terraform apply` 
 
 ---
 
@@ -76,7 +76,7 @@ The architecture consisted of:
   - `project_id`
   - `network_name`
 - Replaced hardcoded values with variables for flexibility and reuse
-- Updated subnet regions and module arguments to align with the lab environment :contentReference[oaicite:3]{index=3}
+- Updated subnet regions and module arguments to align with the lab environment 
 
 ---
 
@@ -88,14 +88,14 @@ The architecture consisted of:
   - subnet CIDR ranges
   - subnet regions
   - flow log settings
-- Used outputs to make provisioned infrastructure easier to reference and validate :contentReference[oaicite:4]{index=4}
+- Used outputs to make provisioned infrastructure easier to reference and validate 
 
 ---
 
 #### 4. Cleaning Up Managed Infrastructure
 - Destroyed the module-provisioned VPC resources using `terraform destroy`
 - Removed the downloaded example module directory
-- Reinforced safe lifecycle management for Terraform-based infrastructure :contentReference[oaicite:5]{index=5}
+- Reinforced safe lifecycle management for Terraform-based infrastructure 
 
 ---
 
@@ -108,7 +108,7 @@ The architecture consisted of:
   - `outputs.tf`
   - `README.md`
   - `LICENSE`
-- Structured the module according to Terraform module best practices for maintainability and sharing :contentReference[oaicite:6]{index=6}
+- Structured the module according to Terraform module best practices for maintainability and sharing 
 
 ---
 
@@ -121,14 +121,14 @@ The architecture consisted of:
   - retention policies
   - encryption
   - lifecycle rules
-- Designed the module to be reusable and configurable through inputs rather than hardcoded values :contentReference[oaicite:7]{index=7}
+- Designed the module to be reusable and configurable through inputs rather than hardcoded values 
 
 ---
 
 #### 7. Exposing Module Outputs
 - Added outputs for the created bucket resource
 - Returned module-created infrastructure to the root module through outputs
-- Reinforced Terraform’s modular composition pattern for passing resource attributes between layers :contentReference[oaicite:8]{index=8}
+- Reinforced Terraform’s modular composition pattern for passing resource attributes between layers 
 
 ---
 
@@ -140,7 +140,7 @@ The architecture consisted of:
   - project ID
   - location
   - lifecycle rules
-- Initialized and applied the configuration to provision the bucket :contentReference[oaicite:9]{index=9}
+- Initialized and applied the configuration to provision the bucket 
 
 ---
 
@@ -148,13 +148,13 @@ The architecture consisted of:
 - Downloaded sample HTML files
 - Uploaded them to the provisioned storage bucket
 - Accessed the hosted files using the bucket URL
-- Demonstrated how the custom Terraform module could support static website hosting use cases :contentReference[oaicite:10]{index=10}
+- Demonstrated how the custom Terraform module could support static website hosting use cases 
 
 ---
 
 #### 10. Final Cleanup
 - Destroyed the bucket and related Terraform-managed resources
-- Completed the full lifecycle from module consumption and creation through cleanup :contentReference[oaicite:11]{index=11}
+- Completed the full lifecycle from module consumption and creation through cleanup 
 
 ---
 

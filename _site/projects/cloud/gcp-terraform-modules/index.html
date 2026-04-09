@@ -333,7 +333,7 @@
 
 <p>This project focused on using <strong>Terraform modules to improve infrastructure organization, reusability, and consistency</strong> on Google Cloud. The work involved first consuming a published module from the Terraform Registry to provision a VPC network with multiple subnets, and then designing a custom local module to provision a Cloud Storage bucket configured for static website hosting.</p>
 
-<p>The implementation demonstrated how Terraform modules help structure Infrastructure as Code into reusable, encapsulated components, making complex environments easier to maintain, standardize, and scale across teams and projects. :contentReference[oaicite:1]{index=1}</p>
+<p>The implementation demonstrated how Terraform modules help structure Infrastructure as Code into reusable, encapsulated components, making complex environments easier to maintain, standardize, and scale across teams and projects.</p>
 
 <hr />
 
@@ -394,7 +394,7 @@
       <li>logging configuration</li>
     </ul>
   </li>
-  <li>Provisioned infrastructure using <code class="language-plaintext highlighter-rouge">terraform init</code> and <code class="language-plaintext highlighter-rouge">terraform apply</code> :contentReference[oaicite:2]{index=2}</li>
+  <li>Provisioned infrastructure using <code class="language-plaintext highlighter-rouge">terraform init</code> and <code class="language-plaintext highlighter-rouge">terraform apply</code></li>
 </ul>
 
 <hr />
@@ -408,7 +408,7 @@
     </ul>
   </li>
   <li>Replaced hardcoded values with variables for flexibility and reuse</li>
-  <li>Updated subnet regions and module arguments to align with the lab environment :contentReference[oaicite:3]{index=3}</li>
+  <li>Updated subnet regions and module arguments to align with the lab environment</li>
 </ul>
 
 <hr />
@@ -425,7 +425,7 @@
       <li>flow log settings</li>
     </ul>
   </li>
-  <li>Used outputs to make provisioned infrastructure easier to reference and validate :contentReference[oaicite:4]{index=4}</li>
+  <li>Used outputs to make provisioned infrastructure easier to reference and validate</li>
 </ul>
 
 <hr />
@@ -434,7 +434,7 @@
 <ul>
   <li>Destroyed the module-provisioned VPC resources using <code class="language-plaintext highlighter-rouge">terraform destroy</code></li>
   <li>Removed the downloaded example module directory</li>
-  <li>Reinforced safe lifecycle management for Terraform-based infrastructure :contentReference[oaicite:5]{index=5}</li>
+  <li>Reinforced safe lifecycle management for Terraform-based infrastructure</li>
 </ul>
 
 <hr />
@@ -455,7 +455,7 @@
       <li><code class="language-plaintext highlighter-rouge">LICENSE</code></li>
     </ul>
   </li>
-  <li>Structured the module according to Terraform module best practices for maintainability and sharing :contentReference[oaicite:6]{index=6}</li>
+  <li>Structured the module according to Terraform module best practices for maintainability and sharing</li>
 </ul>
 
 <hr />
@@ -473,7 +473,7 @@
       <li>lifecycle rules</li>
     </ul>
   </li>
-  <li>Designed the module to be reusable and configurable through inputs rather than hardcoded values :contentReference[oaicite:7]{index=7}</li>
+  <li>Designed the module to be reusable and configurable through inputs rather than hardcoded values</li>
 </ul>
 
 <hr />
@@ -482,7 +482,7 @@
 <ul>
   <li>Added outputs for the created bucket resource</li>
   <li>Returned module-created infrastructure to the root module through outputs</li>
-  <li>Reinforced Terraform’s modular composition pattern for passing resource attributes between layers :contentReference[oaicite:8]{index=8}</li>
+  <li>Reinforced Terraform’s modular composition pattern for passing resource attributes between layers</li>
 </ul>
 
 <hr />
@@ -502,7 +502,7 @@
       <li>lifecycle rules</li>
     </ul>
   </li>
-  <li>Initialized and applied the configuration to provision the bucket :contentReference[oaicite:9]{index=9}</li>
+  <li>Initialized and applied the configuration to provision the bucket</li>
 </ul>
 
 <hr />
@@ -512,7 +512,7 @@
   <li>Downloaded sample HTML files</li>
   <li>Uploaded them to the provisioned storage bucket</li>
   <li>Accessed the hosted files using the bucket URL</li>
-  <li>Demonstrated how the custom Terraform module could support static website hosting use cases :contentReference[oaicite:10]{index=10}</li>
+  <li>Demonstrated how the custom Terraform module could support static website hosting use cases</li>
 </ul>
 
 <hr />
@@ -520,7 +520,7 @@
 <h4 id="10-final-cleanup">10. Final Cleanup</h4>
 <ul>
   <li>Destroyed the bucket and related Terraform-managed resources</li>
-  <li>Completed the full lifecycle from module consumption and creation through cleanup :contentReference[oaicite:11]{index=11}</li>
+  <li>Completed the full lifecycle from module consumption and creation through cleanup</li>
 </ul>
 
 <hr />

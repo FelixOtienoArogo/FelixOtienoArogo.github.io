@@ -153,6 +153,15 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
     </div>
   </a>
 
+  <a class="project-card" href="/projects/cloud/gcp-manage-terraform-state/">
+    <img src="/assets/images/projects/cloud/gcp-manage-terraform-state/image2.png" alt="Managing Terraform State and Import Workflows on Google Cloud">
+    <div class="project-card__body">
+      <h3>Managing Terraform State (GCP)</h3>
+      <p><strong>Focus:</strong> State, Backends & Import</p>
+      <p>Terraform, GCS Backend, State Refresh, Import, Docker, Drift Management</p>
+    </div>
+  </a>
+
 </div>
 
 ---
