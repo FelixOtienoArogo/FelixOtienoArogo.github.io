@@ -144,6 +144,15 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
     </div>
   </a>
 
+  <a class="project-card" href="/projects/cloud/gcp-terraform-modules/">
+    <img src="/assets/images/projects/cloud/gcp-terraform-modules/image2.png" alt="Using and Building Terraform Modules on Google Cloud">
+    <div class="project-card__body">
+      <h3>Terraform Modules on GCP</h3>
+      <p><strong>Focus:</strong> Modular Infrastructure as Code</p>
+      <p>Terraform, Modules, VPC, Cloud Storage, Inputs, Outputs, Reuse</p>
+    </div>
+  </a>
+
 </div>
 
 ---

@@ -1,0 +1,659 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Using and Building Terraform Modules on Google Cloud - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Using and Building Terraform Modules on Google Cloud">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/gcp-terraform-modules/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/cloud/gcp-terraform-modules/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Using and Building Terraform Modules on Google Cloud">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/cloud/gcp-terraform-modules/" itemprop="url">Using and Building Terraform Modules on Google Cloud
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="using-and-building-terraform-modules-on-google-cloud">Using and Building Terraform Modules on Google Cloud</h2>
+
+<p><strong>Timeline:</strong> December 2025<br />
+<strong>Role:</strong> Cloud Engineer / Infrastructure Engineer<br />
+<strong>Skills:</strong> Terraform, Terraform Modules, Google Cloud, VPC, Cloud Storage, Infrastructure as Code (IaC), Module Inputs and Outputs, Reusable Infrastructure</p>
+
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project focused on using <strong>Terraform modules to improve infrastructure organization, reusability, and consistency</strong> on Google Cloud. The work involved first consuming a published module from the Terraform Registry to provision a VPC network with multiple subnets, and then designing a custom local module to provision a Cloud Storage bucket configured for static website hosting.</p>
+
+<p>The implementation demonstrated how Terraform modules help structure Infrastructure as Code into reusable, encapsulated components, making complex environments easier to maintain, standardize, and scale across teams and projects. :contentReference[oaicite:1]{index=1}</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+
+<ul>
+  <li>Use a Terraform module from the Registry</li>
+  <li>Configure module input variables</li>
+  <li>Consume module output values</li>
+  <li>Build a reusable local Terraform module</li>
+  <li>Provision Cloud Storage resources through a custom module</li>
+  <li>Structure Terraform code for modularity and reuse</li>
+  <li>Apply Terraform module best practices for maintainability</li>
+</ul>
+
+<hr />
+
+<h3 id="architecture-overview">Architecture Overview</h3>
+
+<p>The architecture consisted of:</p>
+
+<ul>
+  <li>A <strong>root Terraform configuration</strong> orchestrating module usage</li>
+  <li>A <strong>Registry VPC module</strong> used to provision:
+    <ul>
+      <li>a custom VPC network</li>
+      <li>multiple subnets</li>
+      <li>subnet-level configuration such as private access and flow logs</li>
+    </ul>
+  </li>
+  <li>A <strong>local Terraform module</strong> (<code class="language-plaintext highlighter-rouge">gcs-static-website-bucket</code>) used to provision:
+    <ul>
+      <li>a Cloud Storage bucket</li>
+      <li>lifecycle rules</li>
+      <li>versioning</li>
+      <li>retention and encryption options</li>
+    </ul>
+  </li>
+  <li><strong>variables.tf</strong> and <strong>outputs.tf</strong> files used to define module inputs and outputs</li>
+  <li>Uploaded HTML objects hosted in the bucket for static website access</li>
+</ul>
+
+<p><img src="./images/image2.png" alt="Architecture Diagram" /></p>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-using-a-registry-module">1. Using a Registry Module</h4>
+<ul>
+  <li>Cloned the Google Terraform Network module example project</li>
+  <li>Used the published <code class="language-plaintext highlighter-rouge">terraform-google-modules/network/google</code> module</li>
+  <li>Configured a custom VPC with three subnets</li>
+  <li>Enabled subnet-level options such as:
+    <ul>
+      <li>private Google access</li>
+      <li>flow logs</li>
+      <li>logging configuration</li>
+    </ul>
+  </li>
+  <li>Provisioned infrastructure using <code class="language-plaintext highlighter-rouge">terraform init</code> and <code class="language-plaintext highlighter-rouge">terraform apply</code> :contentReference[oaicite:2]{index=2}</li>
+</ul>
+
+<hr />
+
+<h4 id="2-defining-root-input-variables">2. Defining Root Input Variables</h4>
+<ul>
+  <li>Configured root variables for:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">project_id</code></li>
+      <li><code class="language-plaintext highlighter-rouge">network_name</code></li>
+    </ul>
+  </li>
+  <li>Replaced hardcoded values with variables for flexibility and reuse</li>
+  <li>Updated subnet regions and module arguments to align with the lab environment :contentReference[oaicite:3]{index=3}</li>
+</ul>
+
+<hr />
+
+<h4 id="3-consuming-module-outputs">3. Consuming Module Outputs</h4>
+<ul>
+  <li>Exposed and reviewed module outputs including:
+    <ul>
+      <li>network name</li>
+      <li>network self-link</li>
+      <li>subnet names</li>
+      <li>subnet CIDR ranges</li>
+      <li>subnet regions</li>
+      <li>flow log settings</li>
+    </ul>
+  </li>
+  <li>Used outputs to make provisioned infrastructure easier to reference and validate :contentReference[oaicite:4]{index=4}</li>
+</ul>
+
+<hr />
+
+<h4 id="4-cleaning-up-managed-infrastructure">4. Cleaning Up Managed Infrastructure</h4>
+<ul>
+  <li>Destroyed the module-provisioned VPC resources using <code class="language-plaintext highlighter-rouge">terraform destroy</code></li>
+  <li>Removed the downloaded example module directory</li>
+  <li>Reinforced safe lifecycle management for Terraform-based infrastructure :contentReference[oaicite:5]{index=5}</li>
+</ul>
+
+<hr />
+
+<h4 id="5-building-a-local-terraform-module">5. Building a Local Terraform Module</h4>
+<ul>
+  <li>Created a reusable local module directory:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">modules/gcs-static-website-bucket</code></li>
+    </ul>
+  </li>
+  <li>Added module files:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">website.tf</code></li>
+      <li><code class="language-plaintext highlighter-rouge">variables.tf</code></li>
+      <li><code class="language-plaintext highlighter-rouge">outputs.tf</code></li>
+      <li><code class="language-plaintext highlighter-rouge">README.md</code></li>
+      <li><code class="language-plaintext highlighter-rouge">LICENSE</code></li>
+    </ul>
+  </li>
+  <li>Structured the module according to Terraform module best practices for maintainability and sharing :contentReference[oaicite:6]{index=6}</li>
+</ul>
+
+<hr />
+
+<h4 id="6-implementing-the-storage-bucket-module">6. Implementing the Storage Bucket Module</h4>
+<ul>
+  <li>Defined a Cloud Storage bucket resource inside the local module</li>
+  <li>Added support for:
+    <ul>
+      <li>versioning</li>
+      <li>labels</li>
+      <li>force destroy</li>
+      <li>retention policies</li>
+      <li>encryption</li>
+      <li>lifecycle rules</li>
+    </ul>
+  </li>
+  <li>Designed the module to be reusable and configurable through inputs rather than hardcoded values :contentReference[oaicite:7]{index=7}</li>
+</ul>
+
+<hr />
+
+<h4 id="7-exposing-module-outputs">7. Exposing Module Outputs</h4>
+<ul>
+  <li>Added outputs for the created bucket resource</li>
+  <li>Returned module-created infrastructure to the root module through outputs</li>
+  <li>Reinforced Terraform’s modular composition pattern for passing resource attributes between layers :contentReference[oaicite:8]{index=8}</li>
+</ul>
+
+<hr />
+
+<h4 id="8-calling-the-local-module-from-the-root-module">8. Calling the Local Module from the Root Module</h4>
+<ul>
+  <li>Referenced the local module from the root configuration using:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">source = "./modules/gcs-static-website-bucket"</code></li>
+    </ul>
+  </li>
+  <li>Passed input variables such as:
+    <ul>
+      <li>bucket name</li>
+      <li>project ID</li>
+      <li>location</li>
+      <li>lifecycle rules</li>
+    </ul>
+  </li>
+  <li>Initialized and applied the configuration to provision the bucket :contentReference[oaicite:9]{index=9}</li>
+</ul>
+
+<hr />
+
+<h4 id="9-uploading-static-website-content">9. Uploading Static Website Content</h4>
+<ul>
+  <li>Downloaded sample HTML files</li>
+  <li>Uploaded them to the provisioned storage bucket</li>
+  <li>Accessed the hosted files using the bucket URL</li>
+  <li>Demonstrated how the custom Terraform module could support static website hosting use cases :contentReference[oaicite:10]{index=10}</li>
+</ul>
+
+<hr />
+
+<h4 id="10-final-cleanup">10. Final Cleanup</h4>
+<ul>
+  <li>Destroyed the bucket and related Terraform-managed resources</li>
+  <li>Completed the full lifecycle from module consumption and creation through cleanup :contentReference[oaicite:11]{index=11}</li>
+</ul>
+
+<hr />
+
+<h3 id="design-decisions">Design Decisions</h3>
+
+<ul>
+  <li>Used a <strong>published Registry module</strong> to accelerate VPC deployment and apply community-tested patterns</li>
+  <li>Used a <strong>local custom module</strong> to demonstrate reusable internal infrastructure design</li>
+  <li>Defined <strong>input variables</strong> to keep configurations flexible and reusable</li>
+  <li>Used <strong>outputs</strong> to expose provisioned resources cleanly between modules</li>
+  <li>Added <strong>README</strong> and <strong>LICENSE</strong> files to align with module-sharing best practices</li>
+  <li>Included <strong>lifecycle rules, retention, and encryption hooks</strong> to make the bucket module extensible for real-world use</li>
+</ul>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Successfully consumed a <strong>Terraform Registry module</strong> for VPC provisioning</li>
+  <li>Successfully built and used a <strong>custom local Terraform module</strong> for Cloud Storage</li>
+  <li>Demonstrated practical use of:
+    <ul>
+      <li>module reuse</li>
+      <li>encapsulation</li>
+      <li>variables</li>
+      <li>outputs</li>
+      <li>modular code structure</li>
+    </ul>
+  </li>
+  <li>Strengthened understanding of how Terraform modules improve scalability, consistency, and maintainability in Infrastructure as Code projects</li>
+  <li>Built a strong foundation for designing reusable internal Terraform modules for team and enterprise use</li>
+</ul>
+
+<hr />
+
+<h3 id="tools--technologies-used">Tools &amp; Technologies Used</h3>
+
+<ul>
+  <li><strong>Terraform</strong> – Infrastructure as Code engine</li>
+  <li><strong>Terraform Registry</strong> – Published module source</li>
+  <li><strong>Google Cloud VPC</strong> – Network provisioning</li>
+  <li><strong>Cloud Storage</strong> – Static website bucket hosting</li>
+  <li><strong>Terraform Modules</strong> – Reusable infrastructure abstraction</li>
+  <li><strong>Cloud Shell / Editor</strong> – Terraform execution and editing environment</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>This project demonstrates the ability to both <strong>consume and build Terraform modules</strong> on Google Cloud. It highlights practical skills in <strong>modular Infrastructure as Code design, reusable cloud provisioning, variable-driven configuration, and output-based composition</strong>, which are highly relevant to cloud engineering, DevOps, and platform engineering roles.</p>
+
+<hr />
+
+<p><a href="/projects/cloud/">Back to Cloud Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
