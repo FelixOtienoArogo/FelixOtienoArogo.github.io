@@ -349,4 +349,13 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
     </div>
   </a>
 
+  <a class="project-card" href="/projects/cloud/gcp-gke-multitenant-namespaces/">
+    <img src="/assets/images/projects/cloud/gcp-gke-multitenant-namespaces/image2.png" alt="Managing a Multi-Tenant GKE Cluster with Namespaces, RBAC, and Usage Metering">
+    <div class="project-card__body">
+      <h3>Multi-Tenant GKE Governance & Usage Metering</h3>
+      <p><strong>Focus:</strong> Namespace Isolation, Quotas & Cost Visibility</p>
+      <p>GKE, Namespaces, RBAC, IAM, Resource Quotas, Monitoring, BigQuery, Looker Studio</p>
+    </div>
+  </a>
+
 </div>

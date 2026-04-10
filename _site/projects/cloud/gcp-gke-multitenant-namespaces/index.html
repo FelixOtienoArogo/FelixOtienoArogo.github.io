@@ -1,0 +1,600 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Managing a Multi-Tenant GKE Cluster with Namespaces, RBAC, and Usage Metering - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Managing a Multi-Tenant GKE Cluster with Namespaces, RBAC, and Usage Metering">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/gcp-gke-multitenant-namespaces/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/cloud/gcp-gke-multitenant-namespaces/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Managing a Multi-Tenant GKE Cluster with Namespaces, RBAC, and Usage Metering">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/cloud/gcp-gke-multitenant-namespaces/" itemprop="url">Managing a Multi-Tenant GKE Cluster with Namespaces, RBAC, and Usage Metering
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="managing-a-multi-tenant-gke-cluster-with-namespaces-rbac-and-usage-metering">Managing a Multi-Tenant GKE Cluster with Namespaces, RBAC, and Usage Metering</h2>
+
+<p><strong>Timeline:</strong> December 2025<br />
+<strong>Role:</strong> Cloud Engineer / Site Reliability Engineer<br />
+<strong>Skills:</strong> Google Kubernetes Engine (GKE), Kubernetes Namespaces, RBAC, IAM, Resource Quotas, GKE Monitoring, Metrics Explorer, BigQuery, Looker Studio, Usage Metering, Cost Optimization</p>
+
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project focused on configuring a <strong>multi-tenant Google Kubernetes Engine (GKE) cluster</strong> to improve resource efficiency, tenant isolation, and cost visibility. The implementation used Kubernetes namespaces to segment workloads by team, applied IAM and Kubernetes RBAC for controlled namespace access, enforced fair-share consumption using object-count and CPU/memory quotas, and used Google Cloud observability tooling to monitor usage and cost allocation by namespace.</p>
+
+<p>The project demonstrated how a shared GKE cluster can be governed effectively without creating separate clusters per team, supporting both <strong>operational isolation</strong> and <strong>cost optimization</strong>.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+
+<ul>
+  <li>Create multiple namespaces in a GKE cluster</li>
+  <li>Configure RBAC and IAM for namespace-scoped access</li>
+  <li>Enforce fair resource sharing with Kubernetes resource quotas</li>
+  <li>Monitor namespace usage with GKE dashboards and Metrics Explorer</li>
+  <li>Enable GKE usage metering for more granular resource visibility</li>
+  <li>Build a Looker Studio report to analyze namespace-level cost breakdown</li>
+</ul>
+
+<hr />
+
+<h3 id="architecture-overview">Architecture Overview</h3>
+
+<p>The architecture consisted of:</p>
+
+<ul>
+  <li>A shared <strong>multi-tenant GKE cluster</strong> hosting workloads for multiple teams</li>
+  <li>Separate <strong>team namespaces</strong> (<code class="language-plaintext highlighter-rouge">team-a</code>, <code class="language-plaintext highlighter-rouge">team-b</code>) for logical isolation</li>
+  <li><strong>IAM roles</strong> granting minimal cluster-level access</li>
+  <li><strong>Kubernetes Roles and RoleBindings</strong> granting namespace-scoped permissions</li>
+  <li><strong>ResourceQuota objects</strong> enforcing pod-count and CPU/memory limits</li>
+  <li><strong>Cloud Monitoring dashboards</strong> and <strong>Metrics Explorer</strong> for namespace usage visibility</li>
+  <li><strong>BigQuery datasets</strong> storing usage metering and billing export data</li>
+  <li><strong>Looker Studio</strong> visualizations showing cost breakdown by namespace and resource type</li>
+</ul>
+
+<p><img src="./images/image2.png" alt="Architecture Diagram" /></p>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-multi-tenant-namespace-design">1. Multi-Tenant Namespace Design</h4>
+<ul>
+  <li>Connected to the provided GKE cluster</li>
+  <li>Reviewed default Kubernetes system namespaces</li>
+  <li>Created separate namespaces for:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">team-a</code></li>
+      <li><code class="language-plaintext highlighter-rouge">team-b</code></li>
+    </ul>
+  </li>
+  <li>Deployed workloads with the same resource name in different namespaces to demonstrate isolation</li>
+</ul>
+
+<hr />
+
+<h4 id="2-namespace-scoped-access-control">2. Namespace-Scoped Access Control</h4>
+<ul>
+  <li>Granted the <code class="language-plaintext highlighter-rouge">Kubernetes Engine Cluster Viewer</code> IAM role to a service account representing a developer</li>
+  <li>Created Kubernetes Roles for namespace-specific permissions</li>
+  <li>Bound the service account to the namespace role using a RoleBinding</li>
+  <li>Verified that the account could access <code class="language-plaintext highlighter-rouge">team-a</code> resources while being denied access to <code class="language-plaintext highlighter-rouge">team-b</code></li>
+</ul>
+
+<hr />
+
+<h4 id="3-resource-quotas-for-fair-sharing">3. Resource Quotas for Fair Sharing</h4>
+<ul>
+  <li>Created an initial quota limiting:
+    <ul>
+      <li>pod count</li>
+      <li>load balancer service count</li>
+    </ul>
+  </li>
+  <li>Verified quota enforcement by attempting to exceed the namespace pod limit</li>
+  <li>Updated the quota to allow more pods as workload requirements changed</li>
+</ul>
+
+<hr />
+
+<h4 id="4-cpu-and-memory-quotas">4. CPU and Memory Quotas</h4>
+<ul>
+  <li>Applied a second ResourceQuota object limiting:
+    <ul>
+      <li>CPU requests</li>
+      <li>CPU limits</li>
+      <li>memory requests</li>
+      <li>memory limits</li>
+    </ul>
+  </li>
+  <li>Created a workload with explicit resource requests and limits</li>
+  <li>Verified that namespace resource consumption was reflected correctly in quota usage</li>
+</ul>
+
+<hr />
+
+<h4 id="5-monitoring-and-namespace-visibility">5. Monitoring and Namespace Visibility</h4>
+<ul>
+  <li>Used the GKE Monitoring dashboard to inspect namespace-level utilization</li>
+  <li>Filtered workloads by namespace for tenant-specific visibility</li>
+  <li>Used Metrics Explorer to graph container CPU usage aggregated by namespace</li>
+  <li>Excluded <code class="language-plaintext highlighter-rouge">kube-system</code> to focus on tenant workloads</li>
+</ul>
+
+<hr />
+
+<h4 id="6-gke-usage-metering-and-cost-visibility">6. GKE Usage Metering and Cost Visibility</h4>
+<ul>
+  <li>Enabled GKE usage metering on the cluster</li>
+  <li>Used BigQuery datasets containing:
+    <ul>
+      <li>cluster resource usage</li>
+      <li>billing export data</li>
+    </ul>
+  </li>
+  <li>Generated a cost breakdown table using a scheduled query</li>
+  <li>Created a Looker Studio data source and report for:
+    <ul>
+      <li>cost by namespace</li>
+      <li>cost by resource type</li>
+      <li>namespace filtering via dropdown controls</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="design-decisions">Design Decisions</h3>
+
+<ul>
+  <li>Used <strong>one shared GKE cluster</strong> instead of separate clusters per team to reduce cluster sprawl and improve cost efficiency</li>
+  <li>Used <strong>namespaces</strong> as the primary isolation boundary for team workloads</li>
+  <li>Combined <strong>IAM + Kubernetes RBAC</strong> so cluster access stayed minimal while permissions remained granular</li>
+  <li>Applied <strong>resource quotas</strong> to prevent a single team from consuming disproportionate cluster resources</li>
+  <li>Used <strong>Monitoring + Metrics Explorer</strong> for operational visibility</li>
+  <li>Used <strong>BigQuery + Looker Studio</strong> to extend from operational monitoring into namespace-level cost analysis</li>
+</ul>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Successfully implemented a <strong>multi-tenant GKE governance model</strong></li>
+  <li>Demonstrated practical use of:
+    <ul>
+      <li>namespaces</li>
+      <li>IAM and RBAC</li>
+      <li>pod and resource quotas</li>
+      <li>observability dashboards</li>
+      <li>usage metering</li>
+      <li>namespace-level cost reporting</li>
+    </ul>
+  </li>
+  <li>Improved understanding of how shared Kubernetes environments can balance:
+    <ul>
+      <li>tenant isolation</li>
+      <li>fair resource allocation</li>
+      <li>operational visibility</li>
+      <li>cost optimization</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="tools--technologies-used">Tools &amp; Technologies Used</h3>
+
+<ul>
+  <li><strong>Google Kubernetes Engine (GKE)</strong> – Shared cluster platform</li>
+  <li><strong>Kubernetes Namespaces</strong> – Tenant isolation</li>
+  <li><strong>IAM</strong> – Cluster-level access</li>
+  <li><strong>Kubernetes RBAC</strong> – Namespace-level authorization</li>
+  <li><strong>ResourceQuota</strong> – Fair resource governance</li>
+  <li><strong>Cloud Monitoring</strong> – Dashboards and namespace visibility</li>
+  <li><strong>Metrics Explorer</strong> – Namespace CPU usage analysis</li>
+  <li><strong>BigQuery</strong> – Usage metering and billing datasets</li>
+  <li><strong>Looker Studio</strong> – Cost breakdown reporting</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>This project demonstrates the ability to design and govern a <strong>multi-tenant Kubernetes environment</strong> on Google Cloud using namespace isolation, RBAC, quotas, monitoring, and usage metering. It highlights practical skills in <strong>cluster governance, resource control, observability, and cost optimization</strong>, which are highly relevant to cloud engineering, platform engineering, and site reliability roles.</p>
+
+<hr />
+
+<p><a href="/projects/cloud/">Back to Cloud Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
