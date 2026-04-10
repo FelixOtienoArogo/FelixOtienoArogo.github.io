@@ -7,6 +7,9 @@
 <loc>http://localhost:4000/projects/development/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/projects/cloud/gcp-terraform-modules/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/projects/cloud/vpc-peering/</loc>
 </url>
 <url>
@@ -25,7 +28,7 @@
 <loc>http://localhost:4000/projects/cloud/gcp-terraform-iac/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/projects/cloud/gcp-terraform-modules/</loc>
+<loc>http://localhost:4000/projects/cloud/gcp-terraform-end-to-end-infrastructure/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/projects/cloud/serverless-inventory-intelligence/</loc>

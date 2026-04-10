@@ -1,203 +1,161 @@
 ---
 layout: single
-title: "Using and Building Terraform Modules on Google Cloud"
-permalink: /projects/cloud/gcp-terraform-modules/
+title: "End-to-End Infrastructure Provisioning with Terraform on Google Cloud"
+permalink: /projects/cloud/gcp-terraform-end-to-end-infrastructure/
 sidebar:
   nav: "projects"
 author_profile: true
-image: /assets/images/projects/cloud/gcp-terraform-modules/cover.jpg
+image: /assets/images/projects/cloud/gcp-terraform-end-to-end-infrastructure/cover.jpg
 ---
 
-## Using and Building Terraform Modules on Google Cloud
+## End-to-End Infrastructure Provisioning with Terraform on Google Cloud
 
 **Timeline:** December 2025  
-**Role:** Cloud Engineer / Infrastructure Engineer  
-**Skills:** Terraform, Terraform Modules, Google Cloud, VPC, Cloud Storage, Infrastructure as Code (IaC), Module Inputs and Outputs, Reusable Infrastructure
+**Role:** Cloud Engineer  
+**Skills:** Terraform, Google Cloud, VPC Design, Compute Engine, Modules, Remote State, Terraform Import, Networking, Firewall Configuration, Infrastructure Lifecycle Management
 
 ---
 
 ### Project Summary
 
-This project focused on using **Terraform modules to improve infrastructure organization, reusability, and consistency** on Google Cloud. The work involved first consuming a published module from the Terraform Registry to provision a VPC network with multiple subnets, and then designing a custom local module to provision a Cloud Storage bucket configured for static website hosting.
+This project involved designing and implementing a complete Google Cloud infrastructure using Terraform, including compute, networking, and security components. It combined infrastructure provisioning with the import of pre-existing resources, modular design, and remote state management to simulate a real-world cloud engineering scenario.
 
-The implementation demonstrated how Terraform modules help structure Infrastructure as Code into reusable, encapsulated components, making complex environments easier to maintain, standardize, and scale across teams and projects.
+The implementation demonstrated how to bring unmanaged infrastructure under Infrastructure as Code control, build reusable Terraform modules, and manage the full lifecycle of cloud resources from creation to modification and destruction. :contentReference[oaicite:1]{index=1}
 
 ---
 
 ### Objectives
 
-- Use a Terraform module from the Registry  
-- Configure module input variables  
-- Consume module output values  
-- Build a reusable local Terraform module  
-- Provision Cloud Storage resources through a custom module  
-- Structure Terraform code for modularity and reuse  
-- Apply Terraform module best practices for maintainability  
+- Import existing VM instances into Terraform  
+- Build reusable Terraform modules  
+- Configure a remote backend using Google Cloud Storage  
+- Use Terraform Registry modules for networking  
+- Provision VPC networks and subnetworks  
+- Deploy and manage Compute Engine instances  
+- Configure firewall rules for secure communication  
+- Perform infrastructure updates and controlled destruction  
 
 ---
 
 ### Architecture Overview
 
-The architecture consisted of:
+The architecture consists of:
 
-- A **root Terraform configuration** orchestrating module usage  
-- A **Registry VPC module** used to provision:
-  - a custom VPC network
-  - multiple subnets
-  - subnet-level configuration such as private access and flow logs
-- A **local Terraform module** (`gcs-static-website-bucket`) used to provision:
-  - a Cloud Storage bucket
-  - lifecycle rules
-  - versioning
-  - retention and encryption options
-- **variables.tf** and **outputs.tf** files used to define module inputs and outputs
-- Uploaded HTML objects hosted in the bucket for static website access  
+- A **Terraform root configuration** orchestrating infrastructure  
+- A **remote backend (GCS bucket)** for centralized state management  
+- A **custom instances module** for Compute Engine VMs  
+- A **custom storage module** for backend infrastructure  
+- A **Terraform Registry network module** for VPC and subnets  
+- **Three VM instances** connected across subnets  
+- A **firewall rule** enabling HTTP connectivity  
+- Imported infrastructure brought under Terraform control  
 
-![Architecture Diagram](./images/image2.png)
+![Architecture Diagram](./images/image3.png)
 
 ---
 
-### Implementation & Highlights
+### Key Components
 
-#### 1. Using a Registry Module
-- Cloned the Google Terraform Network module example project
-- Used the published `terraform-google-modules/network/google` module
-- Configured a custom VPC with three subnets
-- Enabled subnet-level options such as:
-  - private Google access
-  - flow logs
-  - logging configuration
-- Provisioned infrastructure using `terraform init` and `terraform apply` 
+#### 1. Terraform Modular Design
+- Root module orchestrates infrastructure
+- Custom modules:
+  - instances module (VMs)
+  - storage module (backend bucket)
+- Registry module:
+  - VPC network and subnets
 
 ---
 
-#### 2. Defining Root Input Variables
-- Configured root variables for:
-  - `project_id`
-  - `network_name`
-- Replaced hardcoded values with variables for flexibility and reuse
-- Updated subnet regions and module arguments to align with the lab environment 
+#### 2. Importing Existing Infrastructure
+- Imported pre-existing VM instances into Terraform
+- Created matching configuration manually
+- Attached infrastructure to Terraform state
+- Transitioned unmanaged resources into IaC control
 
 ---
 
-#### 3. Consuming Module Outputs
-- Exposed and reviewed module outputs including:
-  - network name
-  - network self-link
-  - subnet names
-  - subnet CIDR ranges
-  - subnet regions
-  - flow log settings
-- Used outputs to make provisioned infrastructure easier to reference and validate 
+#### 3. Remote Backend Configuration
+- Created a Cloud Storage bucket
+- Configured Terraform backend using GCS
+- Migrated state from local to remote backend
+- Enabled centralized state management
 
 ---
 
-#### 4. Cleaning Up Managed Infrastructure
-- Destroyed the module-provisioned VPC resources using `terraform destroy`
-- Removed the downloaded example module directory
-- Reinforced safe lifecycle management for Terraform-based infrastructure 
+#### 4. Networking (VPC + Subnets)
+- Created VPC using Terraform Registry module
+- Configured:
+  - subnet-01 (10.10.10.0/24)
+  - subnet-02 (10.10.20.0/24)
+- Connected instances to separate subnets
 
 ---
 
-#### 5. Building a Local Terraform Module
-- Created a reusable local module directory:
-  - `modules/gcs-static-website-bucket`
-- Added module files:
-  - `website.tf`
-  - `variables.tf`
-  - `outputs.tf`
-  - `README.md`
-  - `LICENSE`
-- Structured the module according to Terraform module best practices for maintainability and sharing 
+#### 5. Compute Infrastructure
+- Managed multiple VM instances:
+  - tf-instance-1
+  - tf-instance-2
+  - additional instance
+- Standardized machine types
+- Controlled updates via Terraform lifecycle
 
 ---
 
-#### 6. Implementing the Storage Bucket Module
-- Defined a Cloud Storage bucket resource inside the local module
-- Added support for:
-  - versioning
-  - labels
-  - force destroy
-  - retention policies
-  - encryption
-  - lifecycle rules
-- Designed the module to be reusable and configurable through inputs rather than hardcoded values 
+#### 6. Firewall Configuration
+- Created firewall rule:
+  - allows TCP port 80
+  - source range: 0.0.0.0/0
+- Enabled communication between instances
 
 ---
 
-#### 7. Exposing Module Outputs
-- Added outputs for the created bucket resource
-- Returned module-created infrastructure to the root module through outputs
-- Reinforced Terraform’s modular composition pattern for passing resource attributes between layers 
-
----
-
-#### 8. Calling the Local Module from the Root Module
-- Referenced the local module from the root configuration using:
-  - `source = "./modules/gcs-static-website-bucket"`
-- Passed input variables such as:
-  - bucket name
-  - project ID
-  - location
-  - lifecycle rules
-- Initialized and applied the configuration to provision the bucket 
-
----
-
-#### 9. Uploading Static Website Content
-- Downloaded sample HTML files
-- Uploaded them to the provisioned storage bucket
-- Accessed the hosted files using the bucket URL
-- Demonstrated how the custom Terraform module could support static website hosting use cases 
-
----
-
-#### 10. Final Cleanup
-- Destroyed the bucket and related Terraform-managed resources
-- Completed the full lifecycle from module consumption and creation through cleanup 
+#### 7. Infrastructure Lifecycle Management
+- Updated instance configurations
+- Added and removed resources
+- Destroyed infrastructure selectively
+- Demonstrated full Terraform lifecycle:
+  - create → update → destroy
 
 ---
 
 ### Design Decisions
 
-- Used a **published Registry module** to accelerate VPC deployment and apply community-tested patterns  
-- Used a **local custom module** to demonstrate reusable internal infrastructure design  
-- Defined **input variables** to keep configurations flexible and reusable  
-- Used **outputs** to expose provisioned resources cleanly between modules  
-- Added **README** and **LICENSE** files to align with module-sharing best practices  
-- Included **lifecycle rules, retention, and encryption hooks** to make the bucket module extensible for real-world use  
+- Used **modules** for reusability and separation of concerns  
+- Imported existing infrastructure instead of recreating  
+- Used **remote backend** for team-ready state management  
+- Leveraged **Terraform Registry module** to avoid reinventing networking  
+- Standardized instance configurations for consistency  
+- Applied minimal configuration during import to avoid unnecessary recreation  
 
 ---
 
 ### Results & Impact
 
-- Successfully consumed a **Terraform Registry module** for VPC provisioning  
-- Successfully built and used a **custom local Terraform module** for Cloud Storage  
-- Demonstrated practical use of:
-  - module reuse
-  - encapsulation
-  - variables
-  - outputs
-  - modular code structure
-- Strengthened understanding of how Terraform modules improve scalability, consistency, and maintainability in Infrastructure as Code projects  
-- Built a strong foundation for designing reusable internal Terraform modules for team and enterprise use  
+- Successfully deployed and managed full cloud infrastructure using Terraform  
+- Demonstrated ability to:
+  - import existing infrastructure  
+  - design modular IaC architecture  
+  - manage remote state  
+  - build production-style networking  
+- Reduced configuration complexity through modular design  
+- Showcased real-world Terraform workflows used in enterprise environments  
 
 ---
 
 ### Tools & Technologies Used
 
-- **Terraform** – Infrastructure as Code engine  
-- **Terraform Registry** – Published module source  
-- **Google Cloud VPC** – Network provisioning  
-- **Cloud Storage** – Static website bucket hosting  
-- **Terraform Modules** – Reusable infrastructure abstraction  
-- **Cloud Shell / Editor** – Terraform execution and editing environment  
+- **Terraform** – Infrastructure as Code  
+- **Google Cloud Platform (GCP)** – Cloud infrastructure  
+- **Compute Engine** – Virtual machines  
+- **Cloud Storage** – Remote state backend  
+- **Terraform Registry Modules** – Network provisioning  
+- **Docker (conceptual import workflow)** – Infrastructure import patterns  
 
 ---
 
 ### Outcome
 
-This project demonstrates the ability to both **consume and build Terraform modules** on Google Cloud. It highlights practical skills in **modular Infrastructure as Code design, reusable cloud provisioning, variable-driven configuration, and output-based composition**, which are highly relevant to cloud engineering, DevOps, and platform engineering roles.
+This project demonstrates end-to-end Terraform capabilities, including **modular infrastructure design, state management, networking, security, and lifecycle control**, making it a strong representation of real-world cloud engineering and DevOps practices.
 
 ---
 

@@ -1,0 +1,599 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>End-to-End Infrastructure Provisioning with Terraform on Google Cloud - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="End-to-End Infrastructure Provisioning with Terraform on Google Cloud">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/gcp-terraform-end-to-end-infrastructure/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/cloud/gcp-terraform-end-to-end-infrastructure/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="End-to-End Infrastructure Provisioning with Terraform on Google Cloud">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/cloud/gcp-terraform-end-to-end-infrastructure/" itemprop="url">End-to-End Infrastructure Provisioning with Terraform on Google Cloud
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="end-to-end-infrastructure-provisioning-with-terraform-on-google-cloud">End-to-End Infrastructure Provisioning with Terraform on Google Cloud</h2>
+
+<p><strong>Timeline:</strong> December 2025<br />
+<strong>Role:</strong> Cloud Engineer<br />
+<strong>Skills:</strong> Terraform, Google Cloud, VPC Design, Compute Engine, Modules, Remote State, Terraform Import, Networking, Firewall Configuration, Infrastructure Lifecycle Management</p>
+
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project involved designing and implementing a complete Google Cloud infrastructure using Terraform, including compute, networking, and security components. It combined infrastructure provisioning with the import of pre-existing resources, modular design, and remote state management to simulate a real-world cloud engineering scenario.</p>
+
+<p>The implementation demonstrated how to bring unmanaged infrastructure under Infrastructure as Code control, build reusable Terraform modules, and manage the full lifecycle of cloud resources from creation to modification and destruction. :contentReference[oaicite:1]{index=1}</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+
+<ul>
+  <li>Import existing VM instances into Terraform</li>
+  <li>Build reusable Terraform modules</li>
+  <li>Configure a remote backend using Google Cloud Storage</li>
+  <li>Use Terraform Registry modules for networking</li>
+  <li>Provision VPC networks and subnetworks</li>
+  <li>Deploy and manage Compute Engine instances</li>
+  <li>Configure firewall rules for secure communication</li>
+  <li>Perform infrastructure updates and controlled destruction</li>
+</ul>
+
+<hr />
+
+<h3 id="architecture-overview">Architecture Overview</h3>
+
+<p>The architecture consists of:</p>
+
+<ul>
+  <li>A <strong>Terraform root configuration</strong> orchestrating infrastructure</li>
+  <li>A <strong>remote backend (GCS bucket)</strong> for centralized state management</li>
+  <li>A <strong>custom instances module</strong> for Compute Engine VMs</li>
+  <li>A <strong>custom storage module</strong> for backend infrastructure</li>
+  <li>A <strong>Terraform Registry network module</strong> for VPC and subnets</li>
+  <li><strong>Three VM instances</strong> connected across subnets</li>
+  <li>A <strong>firewall rule</strong> enabling HTTP connectivity</li>
+  <li>Imported infrastructure brought under Terraform control</li>
+</ul>
+
+<p><img src="./images/image3.png" alt="Architecture Diagram" /></p>
+
+<hr />
+
+<h3 id="key-components">Key Components</h3>
+
+<h4 id="1-terraform-modular-design">1. Terraform Modular Design</h4>
+<ul>
+  <li>Root module orchestrates infrastructure</li>
+  <li>Custom modules:
+    <ul>
+      <li>instances module (VMs)</li>
+      <li>storage module (backend bucket)</li>
+    </ul>
+  </li>
+  <li>Registry module:
+    <ul>
+      <li>VPC network and subnets</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h4 id="2-importing-existing-infrastructure">2. Importing Existing Infrastructure</h4>
+<ul>
+  <li>Imported pre-existing VM instances into Terraform</li>
+  <li>Created matching configuration manually</li>
+  <li>Attached infrastructure to Terraform state</li>
+  <li>Transitioned unmanaged resources into IaC control</li>
+</ul>
+
+<hr />
+
+<h4 id="3-remote-backend-configuration">3. Remote Backend Configuration</h4>
+<ul>
+  <li>Created a Cloud Storage bucket</li>
+  <li>Configured Terraform backend using GCS</li>
+  <li>Migrated state from local to remote backend</li>
+  <li>Enabled centralized state management</li>
+</ul>
+
+<hr />
+
+<h4 id="4-networking-vpc--subnets">4. Networking (VPC + Subnets)</h4>
+<ul>
+  <li>Created VPC using Terraform Registry module</li>
+  <li>Configured:
+    <ul>
+      <li>subnet-01 (10.10.10.0/24)</li>
+      <li>subnet-02 (10.10.20.0/24)</li>
+    </ul>
+  </li>
+  <li>Connected instances to separate subnets</li>
+</ul>
+
+<hr />
+
+<h4 id="5-compute-infrastructure">5. Compute Infrastructure</h4>
+<ul>
+  <li>Managed multiple VM instances:
+    <ul>
+      <li>tf-instance-1</li>
+      <li>tf-instance-2</li>
+      <li>additional instance</li>
+    </ul>
+  </li>
+  <li>Standardized machine types</li>
+  <li>Controlled updates via Terraform lifecycle</li>
+</ul>
+
+<hr />
+
+<h4 id="6-firewall-configuration">6. Firewall Configuration</h4>
+<ul>
+  <li>Created firewall rule:
+    <ul>
+      <li>allows TCP port 80</li>
+      <li>source range: 0.0.0.0/0</li>
+    </ul>
+  </li>
+  <li>Enabled communication between instances</li>
+</ul>
+
+<hr />
+
+<h4 id="7-infrastructure-lifecycle-management">7. Infrastructure Lifecycle Management</h4>
+<ul>
+  <li>Updated instance configurations</li>
+  <li>Added and removed resources</li>
+  <li>Destroyed infrastructure selectively</li>
+  <li>Demonstrated full Terraform lifecycle:
+    <ul>
+      <li>create → update → destroy</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="design-decisions">Design Decisions</h3>
+
+<ul>
+  <li>Used <strong>modules</strong> for reusability and separation of concerns</li>
+  <li>Imported existing infrastructure instead of recreating</li>
+  <li>Used <strong>remote backend</strong> for team-ready state management</li>
+  <li>Leveraged <strong>Terraform Registry module</strong> to avoid reinventing networking</li>
+  <li>Standardized instance configurations for consistency</li>
+  <li>Applied minimal configuration during import to avoid unnecessary recreation</li>
+</ul>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Successfully deployed and managed full cloud infrastructure using Terraform</li>
+  <li>Demonstrated ability to:
+    <ul>
+      <li>import existing infrastructure</li>
+      <li>design modular IaC architecture</li>
+      <li>manage remote state</li>
+      <li>build production-style networking</li>
+    </ul>
+  </li>
+  <li>Reduced configuration complexity through modular design</li>
+  <li>Showcased real-world Terraform workflows used in enterprise environments</li>
+</ul>
+
+<hr />
+
+<h3 id="tools--technologies-used">Tools &amp; Technologies Used</h3>
+
+<ul>
+  <li><strong>Terraform</strong> – Infrastructure as Code</li>
+  <li><strong>Google Cloud Platform (GCP)</strong> – Cloud infrastructure</li>
+  <li><strong>Compute Engine</strong> – Virtual machines</li>
+  <li><strong>Cloud Storage</strong> – Remote state backend</li>
+  <li><strong>Terraform Registry Modules</strong> – Network provisioning</li>
+  <li><strong>Docker (conceptual import workflow)</strong> – Infrastructure import patterns</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>This project demonstrates end-to-end Terraform capabilities, including <strong>modular infrastructure design, state management, networking, security, and lifecycle control</strong>, making it a strong representation of real-world cloud engineering and DevOps practices.</p>
+
+<hr />
+
+<p><a href="/projects/cloud/">Back to Cloud Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

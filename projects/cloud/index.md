@@ -162,6 +162,15 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
     </div>
   </a>
 
+  <a class="project-card" href="/projects/cloud/gcp-terraform-end-to-end-infrastructure/">
+    <img src="/assets/images/projects/cloud/gcp-terraform-end-to-end-infrastructure/image2.png" alt="End-to-End Infrastructure Provisioning with Terraform on Google Cloud">
+    <div class="project-card__body">
+      <h3>End-to-End Terraform Infrastructure (GCP)</h3>
+      <p><strong>Focus:</strong> Modular Infrastructure Provisioning</p>
+      <p>Terraform, GCP, Remote State, Modules, VPC, Compute Engine, Firewall</p>
+    </div>
+  </a>
+
 </div>
 
 ---
