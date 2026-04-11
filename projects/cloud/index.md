@@ -358,4 +358,13 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
     </div>
   </a>
 
+  <a class="project-card" href="/projects/cloud/gcp-gke-cost-optimization-vms/">
+    <img src="/assets/images/projects/cloud/gcp-gke-cost-optimization-vms/image2.png" alt="Cost Optimization for GKE Nodes and Regional Workloads on Google Cloud">
+    <div class="project-card__body">
+      <h3>GKE Cost Optimization & Workload Placement</h3>
+      <p><strong>Focus:</strong> Node Efficiency & Cross-Zonal Cost Reduction</p>
+      <p>GKE, Node Pools, Machine Types, Regional Clusters, Flow Logs, BigQuery, Affinity</p>
+    </div>
+  </a>
+
 </div>

@@ -1,0 +1,590 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Cost Optimization for GKE Nodes and Regional Workloads on Google Cloud - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Cost Optimization for GKE Nodes and Regional Workloads on Google Cloud">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/gcp-gke-cost-optimization-vms/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/cloud/gcp-gke-cost-optimization-vms/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Cost Optimization for GKE Nodes and Regional Workloads on Google Cloud">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/cloud/gcp-gke-cost-optimization-vms/" itemprop="url">Cost Optimization for GKE Nodes and Regional Workloads on Google Cloud
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="cost-optimization-for-gke-nodes-and-regional-workloads-on-google-cloud">Cost Optimization for GKE Nodes and Regional Workloads on Google Cloud</h2>
+
+<p><strong>Timeline:</strong> December 2025<br />
+<strong>Role:</strong> Cloud Engineer / Site Reliability Engineer<br />
+<strong>Skills:</strong> Google Kubernetes Engine (GKE), Node Pools, Machine Type Optimization, Regional Clusters, Pod Scheduling, VPC Flow Logs, BigQuery, Cost Optimization, Kubernetes Affinity</p>
+
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project focused on optimizing the infrastructure cost of Google Kubernetes Engine (GKE) workloads by improving node pool sizing, workload placement, and inter-zonal traffic efficiency. The work involved analyzing the resource profile of a sample application, scaling the workload, migrating it to a more cost-efficient node pool with a better-shaped machine type, and then exploring the network cost implications of running chatty pods across zones in a regional cluster.</p>
+
+<p>The implementation demonstrated how cost optimization in GKE is not limited to choosing cheaper machine types, but also depends on <strong>bin-packing efficiency, regional architecture decisions, and reducing unnecessary cross-zonal traffic</strong>.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+
+<ul>
+  <li>Examine node-level resource utilization of a GKE workload</li>
+  <li>Scale an application and observe infrastructure impact</li>
+  <li>Migrate workloads to an optimized machine type in a new node pool</li>
+  <li>Explore regional cluster design tradeoffs</li>
+  <li>Enable and inspect VPC flow logs for pod communication</li>
+  <li>Reduce inter-zonal traffic costs by changing workload placement</li>
+</ul>
+
+<hr />
+
+<h3 id="architecture-overview">Architecture Overview</h3>
+
+<p>The architecture consisted of:</p>
+
+<ul>
+  <li>A <strong>zonal GKE cluster</strong> hosting a Hello application deployment</li>
+  <li>An initial node pool using smaller <strong>e2-medium</strong> machines</li>
+  <li>A second node pool using a larger <strong>e2-standard-2</strong> machine type for improved packing efficiency</li>
+  <li>A <strong>regional GKE cluster</strong> spanning multiple zones</li>
+  <li>Two application pods deployed across different nodes and zones</li>
+  <li><strong>VPC Flow Logs</strong> enabled for subnet-level traffic visibility</li>
+  <li>A <strong>BigQuery dataset</strong> used to inspect flow log data by source and destination zone</li>
+  <li>Pod scheduling changes using <strong>pod affinity / anti-affinity</strong> to influence zonal placement</li>
+</ul>
+
+<p><img src="./images/image3.png" alt="Architecture Diagram" /></p>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-understanding-the-initial-cluster-shape">1. Understanding the Initial Cluster Shape</h4>
+<ul>
+  <li>Examined the Hello demo cluster running on two <code class="language-plaintext highlighter-rouge">e2-medium</code> nodes</li>
+  <li>Reviewed node-level CPU and memory requests for the Hello application and GKE system components</li>
+  <li>Observed that CPU was constrained sooner than memory, indicating inefficient resource fit for the workload :contentReference[oaicite:1]{index=1}</li>
+</ul>
+
+<hr />
+
+<h4 id="2-scaling-the-hello-application">2. Scaling the Hello Application</h4>
+<ul>
+  <li>Increased the Hello application replicas from 1 to 2</li>
+  <li>Observed scheduling pressure and insufficient CPU conditions</li>
+  <li>Resized the existing node pool to three nodes to accommodate the added workload</li>
+  <li>Confirmed that scaling on the original machine type led to underutilized memory and suboptimal node efficiency :contentReference[oaicite:2]{index=2}</li>
+</ul>
+
+<hr />
+
+<h4 id="3-optimizing-node-pool-machine-type">3. Optimizing Node Pool Machine Type</h4>
+<ul>
+  <li>Created a new node pool using <code class="language-plaintext highlighter-rouge">e2-standard-2</code></li>
+  <li>Cordoned and drained the original node pool</li>
+  <li>Migrated workloads to the new pool</li>
+  <li>Deleted the old node pool after workload migration</li>
+  <li>Demonstrated that the same workload that required three <code class="language-plaintext highlighter-rouge">e2-medium</code> nodes could run on a single larger node more efficiently :contentReference[oaicite:3]{index=3}</li>
+</ul>
+
+<hr />
+
+<h4 id="4-cost-and-bin-packing-analysis">4. Cost and Bin-Packing Analysis</h4>
+<ul>
+  <li>Compared the cost and packing behavior of smaller shared-core nodes versus a larger standard node</li>
+  <li>Identified that better workload packing reduced waste and slowed cost growth during scale-out</li>
+  <li>Reinforced the importance of aligning machine type selection to application resource shape rather than assuming smaller nodes are always cheaper :contentReference[oaicite:4]{index=4}</li>
+</ul>
+
+<hr />
+
+<h4 id="5-exploring-regional-cluster-tradeoffs">5. Exploring Regional Cluster Tradeoffs</h4>
+<ul>
+  <li>Reviewed the tradeoffs between zonal, multi-zonal, and regional GKE clusters</li>
+  <li>Considered availability, performance, and cost implications across regions and zones</li>
+  <li>Positioned regional clusters as a strong availability option, but one that requires more careful traffic placement to avoid unnecessary network cost :contentReference[oaicite:5]{index=5}</li>
+</ul>
+
+<hr />
+
+<h4 id="6-creating-and-testing-a-regional-cluster">6. Creating and Testing a Regional Cluster</h4>
+<ul>
+  <li>Created a new regional cluster</li>
+  <li>Deployed two pods designed to run on separate nodes using pod anti-affinity</li>
+  <li>Generated traffic between pods using <code class="language-plaintext highlighter-rouge">ping</code></li>
+  <li>Verified that the pods were initially running in different zones and communicating across zone boundaries :contentReference[oaicite:6]{index=6}</li>
+</ul>
+
+<hr />
+
+<h4 id="7-enabling-flow-logs-and-exporting-to-bigquery">7. Enabling Flow Logs and Exporting to BigQuery</h4>
+<ul>
+  <li>Enabled VPC Flow Logs for the subnet used by the regional cluster</li>
+  <li>Exported flow logs through a sink into a BigQuery dataset</li>
+  <li>Queried source and destination zones to identify cross-zonal communications between cluster nodes</li>
+  <li>Used log analysis to make cost-aware placement decisions based on actual network behavior :contentReference[oaicite:7]{index=7}</li>
+</ul>
+
+<hr />
+
+<h4 id="8-minimizing-cross-zonal-traffic-costs">8. Minimizing Cross-Zonal Traffic Costs</h4>
+<ul>
+  <li>Changed pod scheduling behavior from anti-affinity to affinity</li>
+  <li>Recreated the second pod so it would land on the same node as the first</li>
+  <li>Verified lower latency and reduced inter-zonal communication</li>
+  <li>Connected the optimization to lower VM-to-VM egress cost for chatty workloads within a regional cluster :contentReference[oaicite:8]{index=8}</li>
+</ul>
+
+<hr />
+
+<h3 id="design-decisions">Design Decisions</h3>
+
+<ul>
+  <li>Used <strong>node pool migration</strong> instead of in-place reshaping to move workloads safely to a more efficient machine type</li>
+  <li>Used a <strong>regional cluster</strong> to study high-availability tradeoffs beyond a single-zone design</li>
+  <li>Enabled <strong>VPC Flow Logs</strong> and exported them to <strong>BigQuery</strong> to validate traffic patterns with data rather than assumptions</li>
+  <li>Used <strong>pod affinity and anti-affinity</strong> to control placement and reduce unnecessary cross-zonal communication</li>
+  <li>Treated cost optimization as a combination of:
+    <ul>
+      <li>workload fitting</li>
+      <li>node efficiency</li>
+      <li>cluster topology</li>
+      <li>network behavior</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Successfully optimized a GKE workload by moving from a less efficient node pool to a better-shaped machine type</li>
+  <li>Demonstrated practical use of:
+    <ul>
+      <li>node pool migration</li>
+      <li>workload scheduling controls</li>
+      <li>regional cluster cost analysis</li>
+      <li>flow log inspection</li>
+      <li>BigQuery-based traffic analysis</li>
+    </ul>
+  </li>
+  <li>Improved understanding of how GKE costs are influenced not only by node pricing, but also by bin-packing efficiency and network traffic patterns</li>
+  <li>Built a strong case study for <strong>cost-aware Kubernetes platform operations</strong></li>
+</ul>
+
+<hr />
+
+<h3 id="tools--technologies-used">Tools &amp; Technologies Used</h3>
+
+<ul>
+  <li><strong>Google Kubernetes Engine (GKE)</strong> – Container orchestration platform</li>
+  <li><strong>Compute Engine machine types</strong> – Node pool optimization</li>
+  <li><strong>Kubernetes Deployments</strong> – Workload scaling</li>
+  <li><strong>Node Pools</strong> – Infrastructure segmentation by machine type</li>
+  <li><strong>Pod Affinity / Anti-Affinity</strong> – Workload placement control</li>
+  <li><strong>VPC Flow Logs</strong> – Network traffic visibility</li>
+  <li><strong>BigQuery</strong> – Flow log analysis</li>
+  <li><strong>Cloud Logging</strong> – Traffic export and inspection</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>This project demonstrates the ability to optimize <strong>GKE infrastructure cost and efficiency</strong> by right-sizing node pools, analyzing scaling behavior, and minimizing unnecessary cross-zonal traffic in a regional cluster. It highlights practical skills in <strong>Kubernetes workload placement, infrastructure efficiency, observability-driven optimization, and cloud cost engineering</strong>, which are highly relevant to cloud engineering, platform engineering, and site reliability roles.</p>
+
+<hr />
+
+<p><a href="/projects/cloud/">Back to Cloud Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
