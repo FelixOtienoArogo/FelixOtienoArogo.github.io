@@ -57,7 +57,7 @@ The architecture consisted of:
 #### 1. Understanding the Initial Cluster Shape
 - Examined the Hello demo cluster running on two `e2-medium` nodes
 - Reviewed node-level CPU and memory requests for the Hello application and GKE system components
-- Observed that CPU was constrained sooner than memory, indicating inefficient resource fit for the workload :contentReference[oaicite:1]{index=1}
+- Observed that CPU was constrained sooner than memory, indicating inefficient resource fit for the workload 
 
 ---
 
@@ -65,7 +65,7 @@ The architecture consisted of:
 - Increased the Hello application replicas from 1 to 2
 - Observed scheduling pressure and insufficient CPU conditions
 - Resized the existing node pool to three nodes to accommodate the added workload
-- Confirmed that scaling on the original machine type led to underutilized memory and suboptimal node efficiency :contentReference[oaicite:2]{index=2}
+- Confirmed that scaling on the original machine type led to underutilized memory and suboptimal node efficiency
 
 ---
 
@@ -74,21 +74,21 @@ The architecture consisted of:
 - Cordoned and drained the original node pool
 - Migrated workloads to the new pool
 - Deleted the old node pool after workload migration
-- Demonstrated that the same workload that required three `e2-medium` nodes could run on a single larger node more efficiently :contentReference[oaicite:3]{index=3}
+- Demonstrated that the same workload that required three `e2-medium` nodes could run on a single larger node more efficiently 
 
 ---
 
 #### 4. Cost and Bin-Packing Analysis
 - Compared the cost and packing behavior of smaller shared-core nodes versus a larger standard node
 - Identified that better workload packing reduced waste and slowed cost growth during scale-out
-- Reinforced the importance of aligning machine type selection to application resource shape rather than assuming smaller nodes are always cheaper :contentReference[oaicite:4]{index=4}
+- Reinforced the importance of aligning machine type selection to application resource shape rather than assuming smaller nodes are always cheaper
 
 ---
 
 #### 5. Exploring Regional Cluster Tradeoffs
 - Reviewed the tradeoffs between zonal, multi-zonal, and regional GKE clusters
 - Considered availability, performance, and cost implications across regions and zones
-- Positioned regional clusters as a strong availability option, but one that requires more careful traffic placement to avoid unnecessary network cost :contentReference[oaicite:5]{index=5}
+- Positioned regional clusters as a strong availability option, but one that requires more careful traffic placement to avoid unnecessary network cost
 
 ---
 
@@ -96,7 +96,7 @@ The architecture consisted of:
 - Created a new regional cluster
 - Deployed two pods designed to run on separate nodes using pod anti-affinity
 - Generated traffic between pods using `ping`
-- Verified that the pods were initially running in different zones and communicating across zone boundaries :contentReference[oaicite:6]{index=6}
+- Verified that the pods were initially running in different zones and communicating across zone boundaries
 
 ---
 
@@ -104,7 +104,7 @@ The architecture consisted of:
 - Enabled VPC Flow Logs for the subnet used by the regional cluster
 - Exported flow logs through a sink into a BigQuery dataset
 - Queried source and destination zones to identify cross-zonal communications between cluster nodes
-- Used log analysis to make cost-aware placement decisions based on actual network behavior :contentReference[oaicite:7]{index=7}
+- Used log analysis to make cost-aware placement decisions based on actual network behavior 
 
 ---
 
@@ -112,7 +112,7 @@ The architecture consisted of:
 - Changed pod scheduling behavior from anti-affinity to affinity
 - Recreated the second pod so it would land on the same node as the first
 - Verified lower latency and reduced inter-zonal communication
-- Connected the optimization to lower VM-to-VM egress cost for chatty workloads within a regional cluster :contentReference[oaicite:8]{index=8}
+- Connected the optimization to lower VM-to-VM egress cost for chatty workloads within a regional cluster
 
 ---
 

@@ -367,4 +367,13 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
     </div>
   </a>
 
+  <a class="project-card" href="/projects/cloud/gcp-gke-autoscaling-strategies/">
+    <img src="/assets/images/projects/cloud/gcp-gke-autoscaling-strategies/cover.png" alt="Combining GKE Autoscaling Strategies for Cost and Availability Optimization">
+    <div class="project-card__body">
+      <h3>GKE Autoscaling Strategies for Cost & Availability</h3>
+      <p><strong>Focus:</strong> HPA, VPA, Cluster Autoscaler & NAP</p>
+      <p>GKE, HPA, VPA, Cluster Autoscaler, Node Auto Provisioning, PDBs, Pause Pods</p>
+    </div>
+  </a>
+
 </div>

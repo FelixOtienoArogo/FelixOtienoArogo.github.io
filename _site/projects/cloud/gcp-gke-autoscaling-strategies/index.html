@@ -1,0 +1,584 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Combining GKE Autoscaling Strategies for Cost and Availability Optimization - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Combining GKE Autoscaling Strategies for Cost and Availability Optimization">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/gcp-gke-autoscaling-strategies/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/cloud/gcp-gke-autoscaling-strategies/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Combining GKE Autoscaling Strategies for Cost and Availability Optimization">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/cloud/gcp-gke-autoscaling-strategies/" itemprop="url">Combining GKE Autoscaling Strategies for Cost and Availability Optimization
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="combining-gke-autoscaling-strategies-for-cost-and-availability-optimization">Combining GKE Autoscaling Strategies for Cost and Availability Optimization</h2>
+
+<p><strong>Timeline:</strong> December 2025<br />
+<strong>Role:</strong> Cloud Engineer / Site Reliability Engineer<br />
+<strong>Skills:</strong> Google Kubernetes Engine (GKE), Horizontal Pod Autoscaling (HPA), Vertical Pod Autoscaling (VPA), Cluster Autoscaler, Node Auto Provisioning (NAP), Pod Disruption Budgets, Kubernetes PriorityClass, Pause Pods, Cost Optimization</p>
+
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project focused on using multiple autoscaling strategies in Google Kubernetes Engine (GKE) to improve both <strong>cost efficiency</strong> and <strong>application availability</strong>. The implementation combined Horizontal Pod Autoscaling (HPA), Vertical Pod Autoscaling (VPA), Cluster Autoscaler, and Node Auto Provisioning (NAP) to reduce unused resources during low demand, scale efficiently during increased demand, and improve workload responsiveness through overprovisioning with pause pods.</p>
+
+<p>The project demonstrated how autoscaling in Kubernetes is most effective when viewed as a <strong>coordinated system across both pods and nodes</strong>, rather than as isolated mechanisms.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+
+<ul>
+  <li>Reduce deployment replica count with Horizontal Pod Autoscaling</li>
+  <li>Reduce CPU requests with Vertical Pod Autoscaling</li>
+  <li>Decrease cluster node count with Cluster Autoscaler</li>
+  <li>Automatically create optimized node pools with Node Auto Provisioning</li>
+  <li>Test autoscaling behavior under increased demand</li>
+  <li>Improve response time during traffic spikes using pause pods</li>
+</ul>
+
+<hr />
+
+<h3 id="architecture-overview">Architecture Overview</h3>
+
+<p>The architecture consisted of:</p>
+
+<ul>
+  <li>A <strong>GKE cluster</strong> (<code class="language-plaintext highlighter-rouge">scaling-demo</code>) created with Vertical Pod Autoscaling enabled</li>
+  <li>A <strong>php-apache deployment</strong> used to demonstrate Horizontal Pod Autoscaling</li>
+  <li>A <strong>hello-server deployment</strong> used to demonstrate Vertical Pod Autoscaling</li>
+  <li><strong>Cluster Autoscaler</strong> to reduce or add nodes based on scheduling demand</li>
+  <li><strong>Node Auto Provisioning</strong> to create right-sized node pools dynamically</li>
+  <li><strong>Pod Disruption Budgets</strong> for kube-system workloads to make scale-down possible</li>
+  <li>A <strong>load generator pod</strong> used to simulate a spike in traffic</li>
+  <li><strong>Pause pods</strong> in <code class="language-plaintext highlighter-rouge">kube-system</code> to reserve capacity and reduce autoscaling lag during bursts</li>
+</ul>
+
+<p><img src="./images/image2.png" alt="Architecture Diagram" /></p>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-provisioning-the-test-environment">1. Provisioning the Test Environment</h4>
+<ul>
+  <li>Created a three-node GKE cluster with Vertical Pod Autoscaling enabled</li>
+  <li>Deployed a CPU-intensive <code class="language-plaintext highlighter-rouge">php-apache</code> application with defined CPU requests and limits</li>
+  <li>Exposed the deployment with a Kubernetes Service for autoscaling tests</li>
+</ul>
+
+<hr />
+
+<h4 id="2-horizontal-pod-autoscaling-hpa">2. Horizontal Pod Autoscaling (HPA)</h4>
+<ul>
+  <li>Applied a Horizontal Pod Autoscaler to the <code class="language-plaintext highlighter-rouge">php-apache</code> deployment</li>
+  <li>Configured the autoscaler to maintain between 1 and 10 replicas</li>
+  <li>Used a target CPU utilization of 50%</li>
+  <li>Observed that under low demand the deployment scaled down toward the minimum replica count, reducing idle resource usage</li>
+</ul>
+
+<hr />
+
+<h4 id="3-vertical-pod-autoscaling-vpa">3. Vertical Pod Autoscaling (VPA)</h4>
+<ul>
+  <li>Deployed a <code class="language-plaintext highlighter-rouge">hello-server</code> workload with an intentionally oversized CPU request</li>
+  <li>Created a Vertical Pod Autoscaler for the deployment</li>
+  <li>Started with <code class="language-plaintext highlighter-rouge">Off</code> mode to view recommendations, then switched to <code class="language-plaintext highlighter-rouge">Auto</code></li>
+  <li>Observed VPA reduce the CPU request dramatically from the original value to a smaller recommendation, improving node-level resource efficiency</li>
+</ul>
+
+<hr />
+
+<h4 id="4-interpreting-hpa-and-vpa-outcomes">4. Interpreting HPA and VPA Outcomes</h4>
+<ul>
+  <li>Confirmed that HPA reduced the number of <code class="language-plaintext highlighter-rouge">php-apache</code> pods during low traffic</li>
+  <li>Verified that VPA resized <code class="language-plaintext highlighter-rouge">hello-server</code> pods based on observed usage</li>
+  <li>Highlighted the practical tradeoff between aggressive automatic resizing and availability risk, especially during rapid spikes</li>
+</ul>
+
+<hr />
+
+<h4 id="5-cluster-autoscaler">5. Cluster Autoscaler</h4>
+<ul>
+  <li>Enabled autoscaling for the cluster with min/max node thresholds</li>
+  <li>Switched to the <code class="language-plaintext highlighter-rouge">optimize-utilization</code> profile to encourage more aggressive scale-down</li>
+  <li>Created Pod Disruption Budgets for key <code class="language-plaintext highlighter-rouge">kube-system</code> components so system pods could be rescheduled safely</li>
+  <li>Observed the cluster scale down from three nodes to two when utilization dropped sufficiently</li>
+</ul>
+
+<hr />
+
+<h4 id="6-node-auto-provisioning-nap">6. Node Auto Provisioning (NAP)</h4>
+<ul>
+  <li>Enabled Node Auto Provisioning with cluster-wide CPU and memory bounds</li>
+  <li>Allowed GKE to create new node pools automatically when workload demand required a better machine shape</li>
+  <li>Positioned NAP as the vertical infrastructure scaling mechanism complementing the horizontal behavior of Cluster Autoscaler</li>
+</ul>
+
+<hr />
+
+<h4 id="7-testing-under-increased-demand">7. Testing Under Increased Demand</h4>
+<ul>
+  <li>Ran a load generator against the <code class="language-plaintext highlighter-rouge">php-apache</code> service to simulate sustained traffic</li>
+  <li>Observed HPA scale the deployment up as CPU utilization exceeded the target</li>
+  <li>Observed Cluster Autoscaler add nodes to accommodate unschedulable pods</li>
+  <li>Observed Node Auto Provisioning create an optimized node pool suited to the workload’s CPU-heavy demand profile</li>
+</ul>
+
+<hr />
+
+<h4 id="8-overprovisioning-with-pause-pods">8. Overprovisioning with Pause Pods</h4>
+<ul>
+  <li>Created a low-priority pause pod deployment in the <code class="language-plaintext highlighter-rouge">kube-system</code> namespace</li>
+  <li>Used a custom <code class="language-plaintext highlighter-rouge">PriorityClass</code> so pause pods could be preempted by higher-priority application workloads</li>
+  <li>Forced the cluster to provision extra capacity in advance</li>
+  <li>Improved the cluster’s ability to absorb future traffic spikes more quickly by keeping a schedulable buffer available</li>
+</ul>
+
+<hr />
+
+<h3 id="design-decisions">Design Decisions</h3>
+
+<ul>
+  <li>Used <strong>HPA</strong> to match replica count to traffic-driven CPU demand</li>
+  <li>Used <strong>VPA</strong> to right-size pod CPU requests based on observed historical usage</li>
+  <li>Used <strong>Cluster Autoscaler</strong> to remove excess nodes during low demand and add nodes under scheduling pressure</li>
+  <li>Used <strong>Node Auto Provisioning</strong> to let GKE choose better-suited node pools automatically instead of relying only on fixed node types</li>
+  <li>Added <strong>Pod Disruption Budgets</strong> so system pods could be consolidated safely during scale-down</li>
+  <li>Used <strong>pause pods</strong> to strike a practical balance between strict cost minimization and scale-up responsiveness</li>
+</ul>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Successfully demonstrated how multiple GKE autoscaling layers can work together</li>
+  <li>Reduced unnecessary replica and node usage during low-demand periods</li>
+  <li>Improved node-level resource efficiency by resizing oversized pod requests</li>
+  <li>Enabled infrastructure to scale up automatically during load spikes</li>
+  <li>Improved autoscaling responsiveness by reserving spare capacity with low-priority pause pods</li>
+  <li>Built a strong practical understanding of the tradeoffs between:
+    <ul>
+      <li>cost efficiency</li>
+      <li>scaling speed</li>
+      <li>availability</li>
+      <li>right-sizing</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="tools--technologies-used">Tools &amp; Technologies Used</h3>
+
+<ul>
+  <li><strong>Google Kubernetes Engine (GKE)</strong> – Cluster platform</li>
+  <li><strong>Horizontal Pod Autoscaler (HPA)</strong> – Pod replica scaling</li>
+  <li><strong>Vertical Pod Autoscaler (VPA)</strong> – Pod request sizing</li>
+  <li><strong>Cluster Autoscaler</strong> – Node count scaling</li>
+  <li><strong>Node Auto Provisioning (NAP)</strong> – Automatic node pool creation</li>
+  <li><strong>Pod Disruption Budgets (PDBs)</strong> – Safe scale-down behavior</li>
+  <li><strong>PriorityClass / Pause Pods</strong> – Buffer capacity strategy</li>
+  <li><strong>Cloud Shell</strong> – Cluster management and load testing</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>This project demonstrates the ability to design and tune <strong>multi-layer autoscaling strategies on GKE</strong> to improve both cost and availability. It highlights practical skills in <strong>pod scaling, node scaling, rightsizing, autoscaling governance, and capacity buffering</strong>, which are highly relevant to cloud engineering, platform engineering, and site reliability roles.</p>
+
+<hr />
+
+<p><a href="/projects/cloud/">Back to Cloud Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
