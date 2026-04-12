@@ -322,6 +322,15 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
     </div>
   </a>
 
+  <a class="project-card" href="/projects/cloud/gcp-application-load-balancer/">
+    <img src="/assets/images/projects/cloud/gcp-application-load-balancer/cover.png" alt="Configuring an Application Load Balancer on Google Cloud">
+    <div class="project-card__body">
+      <h3>Application Load Balancer on Google Cloud</h3>
+      <p><strong>Focus:</strong> Layer 7 Application Delivery</p>
+      <p>Compute Engine, MIGs, Backend Services, URL Maps, Health Checks, Forwarding Rules</p>
+    </div>
+  </a>
+
 </div>
 
 

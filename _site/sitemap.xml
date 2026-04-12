@@ -55,6 +55,9 @@
 <loc>http://localhost:4000/projects/cloud/gcp-cloudsql-migration/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/projects/cloud/gcp-application-load-balancer/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/projects/cloud/gcp-terraform-fundamentals/</loc>
 </url>
 <url>
