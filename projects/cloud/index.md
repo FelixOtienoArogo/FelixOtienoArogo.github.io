@@ -385,4 +385,13 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
     </div>
   </a>
 
+  <a class="project-card" href="/projects/cloud/gcp-gke-onlineboutique-cost-optimization/">
+    <img src="/assets/images/projects/cloud/gcp-gke-onlineboutique-cost-optimization/cover.png" alt="Optimizing Cost and Scalability for OnlineBoutique on Google Kubernetes Engine">
+    <div class="project-card__body">
+      <h3>OnlineBoutique Cost & Scaling Optimization on GKE</h3>
+      <p><strong>Focus:</strong> Rightsizing, Safe Updates & Autoscaling</p>
+      <p>GKE, Namespaces, Custom Node Pools, PDBs, HPA, Cluster Autoscaler, Load Testing</p>
+    </div>
+  </a>
+
 </div>

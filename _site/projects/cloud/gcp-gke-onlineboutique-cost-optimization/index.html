@@ -1,0 +1,604 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Optimizing Cost and Scalability for OnlineBoutique on Google Kubernetes Engine - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Optimizing Cost and Scalability for OnlineBoutique on Google Kubernetes Engine">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/gcp-gke-onlineboutique-cost-optimization/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/cloud/gcp-gke-onlineboutique-cost-optimization/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Optimizing Cost and Scalability for OnlineBoutique on Google Kubernetes Engine">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/cloud/gcp-gke-onlineboutique-cost-optimization/" itemprop="url">Optimizing Cost and Scalability for OnlineBoutique on Google Kubernetes Engine
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="optimizing-cost-and-scalability-for-onlineboutique-on-google-kubernetes-engine">Optimizing Cost and Scalability for OnlineBoutique on Google Kubernetes Engine</h2>
+
+<p><strong>Timeline:</strong> December 2025<br />
+<strong>Role:</strong> Cloud Engineer / Site Reliability Engineer<br />
+<strong>Skills:</strong> Google Kubernetes Engine (GKE), Kubernetes Namespaces, Node Pools, Custom Machine Types, Pod Disruption Budgets, Horizontal Pod Autoscaling, Cluster Autoscaler, Rolling Updates, Load Testing, Cost Optimization</p>
+
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project focused on deploying and optimizing the <strong>OnlineBoutique microservices application</strong> on Google Kubernetes Engine (GKE) with an emphasis on <strong>cost efficiency, scalability, and service availability</strong>. The work included provisioning a right-sized GKE cluster, separating resources across development and production namespaces, migrating workloads to a more efficient custom machine type node pool, applying a safe frontend update using a Pod Disruption Budget, and configuring autoscaling to respond automatically to a major traffic surge.</p>
+
+<p>The implementation demonstrated how Kubernetes platform decisions at the cluster, node pool, and workload levels can work together to reduce infrastructure waste while maintaining application resilience during change and growth.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+
+<ul>
+  <li>Create a zonal GKE cluster for OnlineBoutique</li>
+  <li>Separate environments using Kubernetes namespaces</li>
+  <li>Deploy the OnlineBoutique application to the development namespace</li>
+  <li>Migrate workloads to a more cost-efficient custom machine type node pool</li>
+  <li>Apply a frontend update without downtime</li>
+  <li>Configure autoscaling for frontend and backend services</li>
+  <li>Enable cluster autoscaling to respond to demand spikes</li>
+</ul>
+
+<hr />
+
+<h3 id="architecture-overview">Architecture Overview</h3>
+
+<p>The architecture consisted of:</p>
+
+<ul>
+  <li>A <strong>zonal GKE cluster</strong> running on the rapid release channel</li>
+  <li>Separate <strong><code class="language-plaintext highlighter-rouge">dev</code></strong> and <strong><code class="language-plaintext highlighter-rouge">prod</code></strong> namespaces for environment segregation</li>
+  <li>The <strong>OnlineBoutique microservices application</strong> deployed into the <code class="language-plaintext highlighter-rouge">dev</code> namespace</li>
+  <li>An initial default node pool using <code class="language-plaintext highlighter-rouge">e2-standard-2</code> machines</li>
+  <li>A second optimized node pool using the <code class="language-plaintext highlighter-rouge">custom-2-3584</code> machine type</li>
+  <li>A <strong>frontend Pod Disruption Budget</strong> to preserve service availability during updates</li>
+  <li><strong>Horizontal Pod Autoscalers</strong> for <code class="language-plaintext highlighter-rouge">frontend</code> and <code class="language-plaintext highlighter-rouge">recommendationservice</code></li>
+  <li><strong>Cluster Autoscaler</strong> configured with node count bounds to expand and shrink infrastructure automatically</li>
+  <li>A <strong>loadgenerator pod</strong> simulating a high-concurrency traffic surge against the frontend service</li>
+</ul>
+
+<p><img src="./images/image1.png" alt="Architecture Diagram" /></p>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-cluster-provisioning-and-environment-separation">1. Cluster Provisioning and Environment Separation</h4>
+<ul>
+  <li>Created a zonal GKE cluster on the rapid release channel</li>
+  <li>Started with a small two-node cluster using <code class="language-plaintext highlighter-rouge">e2-standard-2</code> machines</li>
+  <li>Created separate namespaces for:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">dev</code></li>
+      <li><code class="language-plaintext highlighter-rouge">prod</code></li>
+    </ul>
+  </li>
+  <li>Deployed the OnlineBoutique application to the <code class="language-plaintext highlighter-rouge">dev</code> namespace</li>
+  <li>Established an initial environment layout that balanced simplicity with basic separation of concerns</li>
+</ul>
+
+<hr />
+
+<h4 id="2-node-pool-rightsizing-for-cost-optimization">2. Node Pool Rightsizing for Cost Optimization</h4>
+<ul>
+  <li>Reviewed the resource shape of the deployed workloads</li>
+  <li>Identified that the current nodes had excess RAM and that smaller resource increments would likely fit workload growth more efficiently</li>
+  <li>Created a new node pool using the <code class="language-plaintext highlighter-rouge">custom-2-3584</code> machine type</li>
+  <li>Configured the new pool with two nodes</li>
+  <li>Cordoned and drained the default pool to migrate the application safely</li>
+  <li>Deleted the default node pool after workloads had moved successfully</li>
+  <li>Demonstrated practical node pool optimization by aligning machine shape more closely with application requirements</li>
+</ul>
+
+<hr />
+
+<h4 id="3-frontend-update-with-availability-protection">3. Frontend Update with Availability Protection</h4>
+<ul>
+  <li>Created a Pod Disruption Budget named <code class="language-plaintext highlighter-rouge">onlineboutique-frontend-pdb</code></li>
+  <li>Configured the frontend deployment with <code class="language-plaintext highlighter-rouge">minAvailable: 1</code></li>
+  <li>Updated the frontend image to:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">gcr.io/qwiklabs-resources/onlineboutique-frontend:v2.1</code></li>
+    </ul>
+  </li>
+  <li>Changed <code class="language-plaintext highlighter-rouge">imagePullPolicy</code> to <code class="language-plaintext highlighter-rouge">Always</code></li>
+  <li>Applied the update while preserving service availability</li>
+  <li>Demonstrated safer release management for a customer-facing microservice</li>
+</ul>
+
+<hr />
+
+<h4 id="4-frontend-autoscaling-for-traffic-growth">4. Frontend Autoscaling for Traffic Growth</h4>
+<ul>
+  <li>Applied Horizontal Pod Autoscaling to the <code class="language-plaintext highlighter-rouge">frontend</code> deployment</li>
+  <li>Used:
+    <ul>
+      <li>target CPU utilization of 50%</li>
+      <li>minimum replicas of 1</li>
+      <li>defined maximum replica count</li>
+    </ul>
+  </li>
+  <li>Designed the autoscaling threshold to leave sufficient CPU headroom while pods scaled</li>
+  <li>Improved the application’s ability to absorb a marketing-driven traffic surge without relying entirely on manual intervention</li>
+</ul>
+
+<hr />
+
+<h4 id="5-cluster-autoscaling-for-infrastructure-elasticity">5. Cluster Autoscaling for Infrastructure Elasticity</h4>
+<ul>
+  <li>Configured cluster autoscaling with:
+    <ul>
+      <li>minimum nodes: 1</li>
+      <li>maximum nodes: 6</li>
+    </ul>
+  </li>
+  <li>Enabled the cluster to add nodes automatically under scheduling pressure and shrink during lower demand</li>
+  <li>Extended optimization beyond pod count to include infrastructure elasticity, helping reduce the cost of overprovisioned capacity</li>
+</ul>
+
+<hr />
+
+<h4 id="6-traffic-surge-simulation-and-bottleneck-identification">6. Traffic Surge Simulation and Bottleneck Identification</h4>
+<ul>
+  <li>Ran a high-concurrency load test from the <code class="language-plaintext highlighter-rouge">loadgenerator</code> pod against the external frontend service</li>
+  <li>Simulated approximately 8,000 concurrent users</li>
+  <li>Observed how the cluster responded to the surge in the GKE Workloads view</li>
+  <li>Identified <code class="language-plaintext highlighter-rouge">recommendationservice</code> as a stressed component under the increased demand</li>
+  <li>Used load testing as an operational validation step rather than assuming the original scaling profile was sufficient</li>
+</ul>
+
+<hr />
+
+<h4 id="7-backend-service-autoscaling">7. Backend Service Autoscaling</h4>
+<ul>
+  <li>Applied Horizontal Pod Autoscaling to the <code class="language-plaintext highlighter-rouge">recommendationservice</code></li>
+  <li>Configured scaling with:
+    <ul>
+      <li>target CPU utilization of 50%</li>
+      <li>minimum replicas of 1</li>
+      <li>maximum replicas of 5</li>
+    </ul>
+  </li>
+  <li>Reduced the likelihood that a single downstream service would become a bottleneck during peak traffic</li>
+  <li>Demonstrated that cost optimization must include both the entry-point service and its dependent backend services</li>
+</ul>
+
+<hr />
+
+<h3 id="design-decisions">Design Decisions</h3>
+
+<ul>
+  <li>Used separate <strong>namespaces</strong> for <code class="language-plaintext highlighter-rouge">dev</code> and <code class="language-plaintext highlighter-rouge">prod</code> to introduce lightweight environment separation from the start</li>
+  <li>Started with a <strong>small initial cluster</strong> to keep baseline costs low</li>
+  <li>Migrated to a <strong>custom machine type</strong> after observing workload characteristics instead of blindly retaining the default node shape</li>
+  <li>Used a <strong>Pod Disruption Budget</strong> on the frontend to reduce the risk of downtime during update and maintenance actions</li>
+  <li>Combined <strong>HPA</strong> and <strong>Cluster Autoscaler</strong> so both pod count and infrastructure size could respond to demand</li>
+  <li>Used <strong>load testing</strong> to reveal actual weak points in the application path before making scaling decisions</li>
+</ul>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Successfully deployed OnlineBoutique to GKE with namespace-based environment separation</li>
+  <li>Reduced infrastructure waste by moving to a more efficient custom machine type node pool</li>
+  <li>Performed a frontend update with better availability protection</li>
+  <li>Enabled workload-level and cluster-level autoscaling</li>
+  <li>Identified and mitigated backend bottlenecks exposed by a large traffic simulation</li>
+  <li>Built a practical example of cost-aware Kubernetes operations for a microservices workload</li>
+</ul>
+
+<hr />
+
+<h3 id="tools--technologies-used">Tools &amp; Technologies Used</h3>
+
+<ul>
+  <li><strong>Google Kubernetes Engine (GKE)</strong> – Cluster platform</li>
+  <li><strong>Kubernetes Namespaces</strong> – Environment separation</li>
+  <li><strong>Node Pools</strong> – Infrastructure shaping</li>
+  <li><strong>Custom Machine Types</strong> – Cost optimization</li>
+  <li><strong>Pod Disruption Budgets (PDBs)</strong> – Update safety and availability</li>
+  <li><strong>Horizontal Pod Autoscaler (HPA)</strong> – Workload scaling</li>
+  <li><strong>Cluster Autoscaler</strong> – Node count scaling</li>
+  <li><strong>Loadgenerator / Locust-style traffic simulation</strong> – Demand testing</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>This project demonstrates the ability to optimize a <strong>microservices application on GKE for both cost and scalability</strong> by combining right-sized infrastructure, safer rollout practices, and demand-driven autoscaling. It highlights practical skills in <strong>Kubernetes platform operations, workload tuning, traffic-based scaling, and reliability-aware cost optimization</strong>, which are highly relevant to cloud engineering, platform engineering, and site reliability roles.</p>
+
+<hr />
+
+<p><a href="/projects/cloud/">Back to Cloud Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
