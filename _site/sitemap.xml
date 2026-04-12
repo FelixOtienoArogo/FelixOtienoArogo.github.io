@@ -28,6 +28,9 @@
 <loc>http://localhost:4000/projects/cloud/gcp-terraform-iac/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/projects/cloud/gcp-gke-workload-optimization/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/projects/cloud/gcp-terraform-end-to-end-infrastructure/</loc>
 </url>
 <url>

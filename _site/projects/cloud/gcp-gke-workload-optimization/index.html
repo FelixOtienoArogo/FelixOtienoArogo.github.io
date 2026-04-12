@@ -1,0 +1,577 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Optimizing GKE Workloads with Container-Native Load Balancing and Reliability Controls - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Optimizing GKE Workloads with Container-Native Load Balancing and Reliability Controls">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/gcp-gke-workload-optimization/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/cloud/gcp-gke-workload-optimization/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Optimizing GKE Workloads with Container-Native Load Balancing and Reliability Controls">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/cloud/gcp-gke-workload-optimization/" itemprop="url">Optimizing GKE Workloads with Container-Native Load Balancing and Reliability Controls
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="optimizing-gke-workloads-with-container-native-load-balancing-and-reliability-controls">Optimizing GKE Workloads with Container-Native Load Balancing and Reliability Controls</h2>
+
+<p><strong>Timeline:</strong> December 2025<br />
+<strong>Role:</strong> Cloud Engineer / Site Reliability Engineer<br />
+<strong>Skills:</strong> Google Kubernetes Engine (GKE), Kubernetes Ingress, Network Endpoint Groups (NEGs), Container-Native Load Balancing, Locust, Liveness Probes, Readiness Probes, Pod Disruption Budgets, Availability Engineering</p>
+
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project focused on improving the <strong>efficiency, resilience, and availability</strong> of workloads running on Google Kubernetes Engine (GKE). The implementation used container-native load balancing through Kubernetes Ingress and NEGs, load-tested the application to understand real usage patterns, configured liveness and readiness probes for safer traffic handling and self-healing, and applied Pod Disruption Budgets to reduce downtime during voluntary disruptions.</p>
+
+<p>The project demonstrated how GKE workload optimization is not only about resource sizing, but also about improving <strong>traffic flow, health-aware routing, and disruption tolerance</strong>.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+
+<ul>
+  <li>Create a container-native load balancer through Ingress</li>
+  <li>Load test an application to observe runtime capacity</li>
+  <li>Configure liveness probes for container self-healing</li>
+  <li>Configure readiness probes for safe traffic admission</li>
+  <li>Apply Pod Disruption Budgets to improve availability during voluntary disruptions</li>
+</ul>
+
+<hr />
+
+<h3 id="architecture-overview">Architecture Overview</h3>
+
+<p>The architecture consisted of:</p>
+
+<ul>
+  <li>A <strong>GKE cluster</strong> with VPC-native / alias IP networking enabled</li>
+  <li>A frontend application (<code class="language-plaintext highlighter-rouge">gb-frontend</code>) initially deployed as a single pod</li>
+  <li>A <strong>ClusterIP service</strong> annotated to enable <strong>Network Endpoint Groups (NEGs)</strong></li>
+  <li>A <strong>Kubernetes Ingress</strong> that created a Google Cloud HTTP(S) Load Balancer</li>
+  <li><strong>Container-native load balancing</strong> targeting pods directly through NEGs</li>
+  <li>A <strong>Locust-based load testing setup</strong> with one main service and multiple workers</li>
+  <li>A <strong>liveness probe demo pod</strong> for restart behavior validation</li>
+  <li>A <strong>readiness probe demo pod and LoadBalancer service</strong> for traffic gating validation</li>
+  <li>A replicated <code class="language-plaintext highlighter-rouge">gb-frontend</code> deployment protected by a <strong>Pod Disruption Budget (PDB)</strong></li>
+</ul>
+
+<p><img src="./images/image3.png" alt="Architecture Diagram" /></p>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-provisioning-the-gke-environment">1. Provisioning the GKE Environment</h4>
+<ul>
+  <li>Created a three-node GKE cluster with <code class="language-plaintext highlighter-rouge">--enable-ip-alias</code></li>
+  <li>Deployed the <code class="language-plaintext highlighter-rouge">gb-frontend</code> web application as an initial single pod</li>
+  <li>
+    <h2 id="prepared-the-environment-for-container-native-load-balancing-and-workload-optimization-testing">Prepared the environment for container-native load balancing and workload optimization testing</h2>
+  </li>
+</ul>
+
+<h4 id="2-container-native-load-balancing-through-ingress">2. Container-Native Load Balancing Through Ingress</h4>
+<ul>
+  <li>Created a <code class="language-plaintext highlighter-rouge">ClusterIP</code> service annotated with <code class="language-plaintext highlighter-rouge">cloud.google.com/neg</code></li>
+  <li>Created an Ingress resource to expose the application</li>
+  <li>Triggered provisioning of:
+    <ul>
+      <li>a Google Cloud HTTP(S) Load Balancer</li>
+      <li>zonal Network Endpoint Groups (NEGs)</li>
+    </ul>
+  </li>
+  <li>Verified backend health using the Compute Engine backend service health check</li>
+  <li>Enabled direct pod-level traffic targeting, reducing extra network hops compared with node-based routing</li>
+</ul>
+
+<hr />
+
+<h4 id="3-load-testing-the-application">3. Load Testing the Application</h4>
+<ul>
+  <li>Built and stored a custom Locust image in the project container registry</li>
+  <li>Deployed Locust main and worker pods to generate traffic</li>
+  <li>Simulated moderate and burst traffic scenarios against the frontend service</li>
+  <li>Observed CPU and memory behavior of the <code class="language-plaintext highlighter-rouge">gb-frontend</code> pod under load</li>
+  <li>Established a more realistic baseline for future decisions around requests, limits, and autoscaling strategy</li>
+</ul>
+
+<hr />
+
+<h4 id="4-liveness-probe-configuration">4. Liveness Probe Configuration</h4>
+<ul>
+  <li>Created a demo pod with an exec-based liveness probe</li>
+  <li>Used the probe to monitor the existence of a file in the container filesystem</li>
+  <li>Simulated failure by removing the file</li>
+  <li>Observed Kubernetes detect the unhealthy state and restart the container automatically</li>
+  <li>Demonstrated self-healing behavior for failed but still-running containers</li>
+</ul>
+
+<hr />
+
+<h4 id="5-readiness-probe-configuration">5. Readiness Probe Configuration</h4>
+<ul>
+  <li>Created a demo pod with an exec-based readiness probe and exposed it through a LoadBalancer service</li>
+  <li>Verified that the service did not route traffic while the readiness condition was failing</li>
+  <li>Created the required file inside the container to satisfy the readiness probe</li>
+  <li>Confirmed that the pod became Ready and traffic began flowing successfully</li>
+  <li>Demonstrated health-aware traffic admission and safer service exposure</li>
+</ul>
+
+<hr />
+
+<h4 id="6-pod-disruption-budget-for-application-availability">6. Pod Disruption Budget for Application Availability</h4>
+<ul>
+  <li>Replaced the single frontend pod with a 5-replica deployment</li>
+  <li>Drained cluster nodes to observe the impact of voluntary disruption</li>
+  <li>Verified that without a PDB, the deployment could temporarily lose all available replicas</li>
+  <li>Created a Pod Disruption Budget requiring at least 4 replicas to remain available</li>
+  <li>Repeated the drain operation and confirmed that Kubernetes blocked further eviction when doing so would violate the budget</li>
+  <li>Demonstrated controlled availability protection during operational maintenance and node disruption events</li>
+</ul>
+
+<hr />
+
+<h3 id="design-decisions">Design Decisions</h3>
+
+<ul>
+  <li>Used <strong>container-native load balancing</strong> to improve routing efficiency by letting the load balancer target pods directly</li>
+  <li>Used <strong>load testing</strong> before optimization decisions so changes would be informed by observed workload behavior rather than guesswork</li>
+  <li>Configured <strong>liveness probes</strong> to enable automatic restart of unhealthy containers</li>
+  <li>Configured <strong>readiness probes</strong> to ensure traffic would only reach pods that were truly ready to serve</li>
+  <li>Used a <strong>Pod Disruption Budget</strong> to preserve service availability during voluntary cluster operations such as drain and rescheduling</li>
+  <li>Treated optimization as a balance between:
+    <ul>
+      <li>routing efficiency</li>
+      <li>application responsiveness</li>
+      <li>health-aware operations</li>
+      <li>resilience during disruption</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Successfully implemented <strong>container-native load balancing</strong> for a GKE workload</li>
+  <li>Measured application behavior under different traffic levels using Locust</li>
+  <li>Demonstrated automated container recovery using liveness probes</li>
+  <li>Demonstrated controlled service exposure using readiness probes</li>
+  <li>Protected a replicated application from excessive disruption during node drain through a Pod Disruption Budget</li>
+  <li>Built practical experience in improving both <strong>efficiency</strong> and <strong>availability</strong> of Kubernetes workloads</li>
+</ul>
+
+<hr />
+
+<h3 id="tools--technologies-used">Tools &amp; Technologies Used</h3>
+
+<ul>
+  <li><strong>Google Kubernetes Engine (GKE)</strong> – Cluster platform</li>
+  <li><strong>Kubernetes Ingress</strong> – External traffic entry</li>
+  <li><strong>Network Endpoint Groups (NEGs)</strong> – Pod-level load balancing targets</li>
+  <li><strong>Google Cloud HTTP(S) Load Balancer</strong> – External application access</li>
+  <li><strong>Locust</strong> – Load testing framework</li>
+  <li><strong>Liveness Probes</strong> – Self-healing controls</li>
+  <li><strong>Readiness Probes</strong> – Safe traffic routing controls</li>
+  <li><strong>Pod Disruption Budgets (PDBs)</strong> – Voluntary disruption protection</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>This project demonstrates the ability to optimize <strong>GKE workload efficiency and reliability</strong> by combining better traffic routing, load testing, health-aware pod management, and disruption controls. It highlights practical skills in <strong>Kubernetes networking, application health management, and availability engineering</strong>, which are highly relevant to cloud engineering, platform engineering, and site reliability roles.</p>
+
+<hr />
+
+<p><a href="/projects/cloud/">Back to Cloud Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
