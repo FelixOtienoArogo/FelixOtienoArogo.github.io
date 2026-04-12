@@ -313,6 +313,15 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
     </div>
   </a>
 
+  <a class="project-card" href="/projects/cloud/gcp-network-load-balancer/">
+    <img src="/assets/images/projects/cloud/gcp-network-load-balancer/cover.png" alt="Configuring a Passthrough Network Load Balancer on Google Cloud">
+    <div class="project-card__body">
+      <h3>Network Load Balancer on Google Cloud</h3>
+      <p><strong>Focus:</strong> Layer 4 Traffic Distribution</p>
+      <p>Compute Engine, Network Load Balancer, Target Pools, Forwarding Rules, Health Checks</p>
+    </div>
+  </a>
+
 </div>
 
 

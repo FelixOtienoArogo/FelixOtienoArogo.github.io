@@ -15,7 +15,7 @@
 <meta charset="utf-8">
 
 
-<!-- begin _includes/seo.html --><title>Designing a Custom VPC Network and Firewall Rules on Google Cloud - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<!-- begin _includes/seo.html --><title>Configuring a Passthrough Network Load Balancer on Google Cloud - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
 <meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
 
 
@@ -26,8 +26,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
-<meta property="og:title" content="Designing a Custom VPC Network and Firewall Rules on Google Cloud">
-<meta property="og:url" content="http://localhost:4000/projects/cloud/gcp-custom-vpc-networking/">
+<meta property="og:title" content="Configuring a Passthrough Network Load Balancer on Google Cloud">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/gcp-network-load-balancer/">
 
 
   <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/projects/cloud/gcp-custom-vpc-networking/">
+<link rel="canonical" href="http://localhost:4000/projects/cloud/gcp-network-load-balancer/">
 
 
 
@@ -300,7 +300,7 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Designing a Custom VPC Network and Firewall Rules on Google Cloud">
+    <meta itemprop="headline" content="Configuring a Passthrough Network Load Balancer on Google Cloud">
     
     
     
@@ -309,7 +309,7 @@
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/projects/cloud/gcp-custom-vpc-networking/" itemprop="url">Designing a Custom VPC Network and Firewall Rules on Google Cloud
+            <a href="http://localhost:4000/projects/cloud/gcp-network-load-balancer/" itemprop="url">Configuring a Passthrough Network Load Balancer on Google Cloud
 </a>
           </h1>
           
@@ -321,31 +321,32 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <h2 id="designing-a-custom-vpc-network-and-firewall-rules-on-google-cloud">Designing a Custom VPC Network and Firewall Rules on Google Cloud</h2>
+        <h2 id="configuring-a-passthrough-network-load-balancer-on-google-cloud">Configuring a Passthrough Network Load Balancer on Google Cloud</h2>
 
 <p><strong>Timeline:</strong> December 2025<br />
 <strong>Role:</strong> Cloud Engineer<br />
-<strong>Skills:</strong> Google Cloud VPC, Subnets, Firewall Rules, Network Tags, Routes, Regions and Zones, Compute Engine Networking</p>
+<strong>Skills:</strong> Google Cloud Load Balancing, Compute Engine, Network Load Balancer, Target Pools, Forwarding Rules, Health Checks, Static IP Addresses, Firewall Rules</p>
 
 <hr />
 
 <h3 id="project-summary">Project Summary</h3>
 
-<p>This project focused on building a <strong>custom Virtual Private Cloud (VPC) network</strong> in Google Cloud and configuring the foundational networking controls required for secure connectivity. The implementation involved reviewing the default network model, creating a custom-mode VPC, defining regional subnetworks, and applying targeted firewall rules for HTTP, ICMP, SSH, RDP, and internal communication.</p>
+<p>This project focused on configuring a <strong>passthrough external Network Load Balancer</strong> on Google Cloud to distribute Layer 4 traffic across multiple Compute Engine web server instances. The implementation involved provisioning a small fleet of Apache-based web servers, exposing them through a firewall rule, assigning a static regional IP address, configuring a health check, creating a target pool, and binding traffic to the backend pool through a forwarding rule.</p>
 
-<p>The project demonstrated core Google Cloud networking concepts including <strong>global VPC design, regional subnet segmentation, route behavior, and tag-based firewall targeting</strong>, which form the basis for more advanced cloud architectures.</p>
+<p>The project demonstrated the fundamentals of <strong>L4 load balancing on Google Cloud</strong>, including how traffic is distributed to healthy backend instances without inspecting HTTP content, making it well suited for simple network-level traffic distribution scenarios.</p>
 
 <hr />
 
 <h3 id="objectives">Objectives</h3>
 
 <ul>
-  <li>Review the default Google Cloud network and firewall behavior</li>
-  <li>Create a custom-mode VPC network</li>
-  <li>Define subnetworks across multiple regions</li>
-  <li>Configure firewall rules for web, admin, and internal traffic</li>
-  <li>Use instance tags to scope firewall access</li>
-  <li>Understand route behavior in Google Cloud networking</li>
+  <li>Configure the default region and zone for resources</li>
+  <li>Create multiple web server VM instances</li>
+  <li>Expose the instances to HTTP traffic with a firewall rule</li>
+  <li>Create a static external IP for a load balancer</li>
+  <li>Configure a health check for backend validation</li>
+  <li>Build a target pool of backend web servers</li>
+  <li>Create a forwarding rule to distribute traffic across instances</li>
 </ul>
 
 <hr />
@@ -355,107 +356,79 @@
 <p>The architecture consisted of:</p>
 
 <ul>
-  <li>A <strong>custom-mode VPC</strong> named <code class="language-plaintext highlighter-rouge">taw-custom-network</code></li>
-  <li>Three regional subnetworks:
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">subnet-us-central</code></li>
-      <li><code class="language-plaintext highlighter-rouge">subnet-europe-west</code></li>
-      <li><code class="language-plaintext highlighter-rouge">subnet-asia-east</code></li>
-    </ul>
-  </li>
-  <li>Automatically created system routes for:
-    <ul>
-      <li>internet egress</li>
-      <li>inter-subnet communication</li>
-    </ul>
-  </li>
-  <li>Firewall rules allowing:
-    <ul>
-      <li>HTTP access from the internet</li>
-      <li>ICMP</li>
-      <li>SSH</li>
-      <li>RDP</li>
-      <li>internal TCP/UDP/ICMP communication between subnets</li>
-    </ul>
-  </li>
-  <li><strong>instance tags</strong> used to apply rules selectively to workloads</li>
+  <li>Three <strong>Compute Engine VM instances</strong> (<code class="language-plaintext highlighter-rouge">www1</code>, <code class="language-plaintext highlighter-rouge">www2</code>, <code class="language-plaintext highlighter-rouge">www3</code>) running Apache</li>
+  <li>A shared <strong>network tag</strong> applied to backend instances for firewall targeting</li>
+  <li>A firewall rule allowing inbound HTTP traffic on TCP port 80</li>
+  <li>A <strong>regional static external IP address</strong> for the load balancer</li>
+  <li>A <strong>legacy HTTP health check</strong> used to validate backend health</li>
+  <li>A <strong>target pool</strong> containing the three backend instances</li>
+  <li>A <strong>forwarding rule</strong> listening on TCP port 80 and routing traffic to the target pool</li>
 </ul>
 
-<p><img src="./images/image2.png" alt="Architecture Diagram" /></p>
+<p><img src="./images/image.png" alt="Architecture Diagram" /></p>
 
 <hr />
 
 <h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
 
-<h4 id="1-reviewing-the-default-network">1. Reviewing the Default Network</h4>
+<h4 id="1-setting-region-and-zone-defaults">1. Setting Region and Zone Defaults</h4>
 <ul>
-  <li>Examined the default VPC network created automatically in a new Google Cloud project</li>
-  <li>Reviewed its auto-mode subnet behavior and preconfigured firewall rules</li>
-  <li>Compared default networking behavior with the more controlled custom VPC model</li>
+  <li>Configured the default Compute Engine region and zone for the lab environment</li>
+  <li>Established a consistent placement model for the load balancer resources and VM instances</li>
 </ul>
 
 <hr />
 
-<h4 id="2-designing-a-custom-vpc">2. Designing a Custom VPC</h4>
+<h4 id="2-creating-backend-web-servers">2. Creating Backend Web Servers</h4>
 <ul>
-  <li>Created a custom-mode VPC named <code class="language-plaintext highlighter-rouge">taw-custom-network</code></li>
-  <li>Chose custom mode to control subnet creation manually instead of relying on auto-created regional subnets</li>
-  <li>Used the VPC as a globally scoped network foundation for resources across multiple regions</li>
-</ul>
-
-<hr />
-
-<h4 id="3-creating-regional-subnets">3. Creating Regional Subnets</h4>
-<ul>
-  <li>Defined three subnetworks in different regions</li>
-  <li>Used separate private IP ranges for each subnet:
+  <li>Provisioned three Compute Engine instances:
     <ul>
-      <li><code class="language-plaintext highlighter-rouge">10.0.0.0/16</code></li>
-      <li><code class="language-plaintext highlighter-rouge">10.1.0.0/16</code></li>
-      <li><code class="language-plaintext highlighter-rouge">10.2.0.0/16</code></li>
+      <li><code class="language-plaintext highlighter-rouge">www1</code></li>
+      <li><code class="language-plaintext highlighter-rouge">www2</code></li>
+      <li><code class="language-plaintext highlighter-rouge">www3</code></li>
     </ul>
   </li>
-  <li>Established regional segmentation while keeping all subnets connected through the same global VPC</li>
+  <li>Used startup scripts to install Apache automatically</li>
+  <li>Wrote a unique landing page on each VM to make traffic distribution visible during testing</li>
+  <li>Applied a common instance tag to simplify firewall targeting</li>
 </ul>
 
 <hr />
 
-<h4 id="4-configuring-firewall-rules">4. Configuring Firewall Rules</h4>
+<h4 id="3-opening-http-access-with-firewall-rules">3. Opening HTTP Access with Firewall Rules</h4>
 <ul>
-  <li>Created targeted firewall rules for:
-    <ul>
-      <li>HTTP (<code class="language-plaintext highlighter-rouge">tcp:80</code>)</li>
-      <li>ICMP</li>
-      <li>SSH (<code class="language-plaintext highlighter-rouge">tcp:22</code>)</li>
-      <li>RDP (<code class="language-plaintext highlighter-rouge">tcp:3389</code>)</li>
-      <li>internal communication across all subnets</li>
-    </ul>
-  </li>
-  <li>Applied least-privilege thinking by scoping some rules with tags instead of exposing all instances broadly</li>
+  <li>Created a firewall rule allowing inbound TCP port 80</li>
+  <li>Scoped the rule to instances with the shared network tag</li>
+  <li>Verified that each VM responded successfully over HTTP using its external IP address</li>
 </ul>
 
 <hr />
 
-<h4 id="5-using-network-tags">5. Using Network Tags</h4>
+<h4 id="4-creating-the-load-balancer-frontend">4. Creating the Load Balancer Frontend</h4>
 <ul>
-  <li>Used instance tags such as:
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">http</code></li>
-      <li><code class="language-plaintext highlighter-rouge">ssh</code></li>
-      <li><code class="language-plaintext highlighter-rouge">rules</code></li>
-    </ul>
-  </li>
-  <li>Applied firewall policies selectively based on instance role</li>
-  <li>Reinforced a cleaner and more scalable firewall administration model compared with broad network-wide rules</li>
+  <li>Reserved a static regional external IP address for the load balancer</li>
+  <li>Created an HTTP health check resource to monitor backend availability</li>
+  <li>Prepared the frontend entry point and backend validation mechanism required by the passthrough network load balancer</li>
 </ul>
 
 <hr />
 
-<h4 id="6-understanding-routes-and-connectivity">6. Understanding Routes and Connectivity</h4>
+<h4 id="5-building-the-backend-pool">5. Building the Backend Pool</h4>
 <ul>
-  <li>Reviewed automatically created routes for internet access and subnet-to-subnet communication</li>
-  <li>Connected the role of routes and firewall policies in controlling actual traffic flow</li>
-  <li>Built a practical foundation for understanding more advanced network architectures such as shared VPCs and peering</li>
+  <li>Created a target pool for the load balancing service</li>
+  <li>Associated the health check with the target pool</li>
+  <li>Added all three Apache web server instances to the pool</li>
+  <li>Established the backend group that would receive traffic from the forwarding rule</li>
+</ul>
+
+<hr />
+
+<h4 id="6-configuring-traffic-distribution">6. Configuring Traffic Distribution</h4>
+<ul>
+  <li>Created a forwarding rule on TCP port 80</li>
+  <li>Bound the forwarding rule to the static IP and target pool</li>
+  <li>Verified that traffic sent to the load balancer IP was distributed across the backend instances</li>
+  <li>Observed alternating responses from the three servers during repeated curl requests</li>
 </ul>
 
 <hr />
@@ -463,11 +436,12 @@
 <h3 id="design-decisions">Design Decisions</h3>
 
 <ul>
-  <li>Used a <strong>custom-mode VPC</strong> to retain full control over subnetwork layout</li>
-  <li>Distributed subnets across <strong>multiple regions</strong> to reflect Google Cloud’s global VPC model</li>
-  <li>Used <strong>RFC1918 private address ranges</strong> for subnet design</li>
-  <li>Used <strong>firewall rules with tags</strong> to target intended workloads instead of opening access unnecessarily</li>
-  <li>Kept internal communication explicit through a dedicated firewall rule covering the defined subnet ranges</li>
+  <li>Used <strong>multiple small web servers</strong> to demonstrate load distribution clearly</li>
+  <li>Used <strong>startup scripts</strong> for lightweight, repeatable server provisioning</li>
+  <li>Applied a <strong>network tag</strong> to backend instances to keep the firewall rule targeted and reusable</li>
+  <li>Used a <strong>static IP</strong> to provide a stable frontend entry point</li>
+  <li>Used a <strong>health check + target pool</strong> model to ensure traffic was only sent to healthy instances</li>
+  <li>Chose a <strong>passthrough L4 load balancer</strong> to focus on network-level balancing rather than HTTP-aware request inspection</li>
 </ul>
 
 <hr />
@@ -475,17 +449,18 @@
 <h3 id="results--impact">Results &amp; Impact</h3>
 
 <ul>
-  <li>Successfully designed and configured a <strong>custom Google Cloud VPC</strong></li>
+  <li>Successfully configured an external passthrough Network Load Balancer on Google Cloud</li>
   <li>Demonstrated practical use of:
     <ul>
-      <li>regional subnetting</li>
-      <li>firewall rule creation</li>
-      <li>tag-based access control</li>
-      <li>route awareness</li>
+      <li>backend VM groups</li>
+      <li>health checks</li>
+      <li>target pools</li>
+      <li>forwarding rules</li>
+      <li>static frontend IPs</li>
     </ul>
   </li>
-  <li>Strengthened understanding of how Google Cloud networking differs from traditional on-premises and default-cloud networking models</li>
-  <li>Built a strong foundation for future projects involving load balancers, GKE, hybrid networking, and multi-tier cloud environments</li>
+  <li>Verified that the load balancer distributed traffic across multiple instances rather than relying on a single server</li>
+  <li>Built a strong foundational understanding of Google Cloud traffic distribution patterns that supports later work with more advanced load balancing architectures</li>
 </ul>
 
 <hr />
@@ -493,19 +468,21 @@
 <h3 id="tools--technologies-used">Tools &amp; Technologies Used</h3>
 
 <ul>
-  <li><strong>Google Cloud VPC</strong> – Global virtual networking</li>
-  <li><strong>Subnets</strong> – Regional IP segmentation</li>
-  <li><strong>Firewall Rules</strong> – Traffic control</li>
-  <li><strong>Network Tags</strong> – Selective rule targeting</li>
-  <li><strong>Routes</strong> – Connectivity paths within the VPC and to the internet</li>
-  <li><strong>Compute Engine Networking</strong> – Instance-level attachment and traffic policy context</li>
+  <li><strong>Google Compute Engine</strong> – Backend virtual machines</li>
+  <li><strong>Apache HTTP Server</strong> – Sample web workload</li>
+  <li><strong>Google Cloud Network Load Balancer</strong> – L4 traffic distribution</li>
+  <li><strong>Target Pools</strong> – Backend grouping</li>
+  <li><strong>Forwarding Rules</strong> – Traffic steering</li>
+  <li><strong>HTTP Health Checks</strong> – Backend health validation</li>
+  <li><strong>Firewall Rules</strong> – Controlled network exposure</li>
+  <li><strong>Static External IP Address</strong> – Stable frontend endpoint</li>
 </ul>
 
 <hr />
 
 <h3 id="outcome">Outcome</h3>
 
-<p>This project demonstrates the ability to design a <strong>custom Google Cloud network foundation</strong> using VPCs, subnetworks, routes, and firewall controls. It highlights practical skills in <strong>cloud networking, segmentation, and access control</strong>, which are essential for cloud engineering, infrastructure, and security-focused roles.</p>
+<p>This project demonstrates the ability to configure a <strong>Google Cloud passthrough Network Load Balancer</strong> for resilient traffic distribution across multiple backend VMs. It highlights practical skills in <strong>Compute Engine networking, health-aware backend design, and Layer 4 load balancing</strong>, which are useful for cloud engineering, infrastructure, and network-focused roles.</p>
 
 <hr />
 

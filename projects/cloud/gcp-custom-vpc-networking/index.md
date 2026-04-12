@@ -64,14 +64,14 @@ The architecture consisted of:
 #### 1. Reviewing the Default Network
 - Examined the default VPC network created automatically in a new Google Cloud project
 - Reviewed its auto-mode subnet behavior and preconfigured firewall rules
-- Compared default networking behavior with the more controlled custom VPC model :contentReference[oaicite:1]{index=1}
+- Compared default networking behavior with the more controlled custom VPC model 
 
 ---
 
 #### 2. Designing a Custom VPC
 - Created a custom-mode VPC named `taw-custom-network`
 - Chose custom mode to control subnet creation manually instead of relying on auto-created regional subnets
-- Used the VPC as a globally scoped network foundation for resources across multiple regions :contentReference[oaicite:2]{index=2}
+- Used the VPC as a globally scoped network foundation for resources across multiple regions 
 
 ---
 
@@ -81,7 +81,7 @@ The architecture consisted of:
   - `10.0.0.0/16`
   - `10.1.0.0/16`
   - `10.2.0.0/16`
-- Established regional segmentation while keeping all subnets connected through the same global VPC :contentReference[oaicite:3]{index=3}
+- Established regional segmentation while keeping all subnets connected through the same global VPC 
 
 ---
 
@@ -92,7 +92,7 @@ The architecture consisted of:
   - SSH (`tcp:22`)
   - RDP (`tcp:3389`)
   - internal communication across all subnets
-- Applied least-privilege thinking by scoping some rules with tags instead of exposing all instances broadly :contentReference[oaicite:4]{index=4}
+- Applied least-privilege thinking by scoping some rules with tags instead of exposing all instances broadly
 
 ---
 
@@ -102,14 +102,14 @@ The architecture consisted of:
   - `ssh`
   - `rules`
 - Applied firewall policies selectively based on instance role
-- Reinforced a cleaner and more scalable firewall administration model compared with broad network-wide rules :contentReference[oaicite:5]{index=5}
+- Reinforced a cleaner and more scalable firewall administration model compared with broad network-wide rules
 
 ---
 
 #### 6. Understanding Routes and Connectivity
 - Reviewed automatically created routes for internet access and subnet-to-subnet communication
 - Connected the role of routes and firewall policies in controlling actual traffic flow
-- Built a practical foundation for understanding more advanced network architectures such as shared VPCs and peering :contentReference[oaicite:6]{index=6}
+- Built a practical foundation for understanding more advanced network architectures such as shared VPCs and peering
 
 ---
 
