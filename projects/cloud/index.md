@@ -304,6 +304,15 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
     </div>
   </a>
 
+  <a class="project-card" href="/projects/cloud/gcp-custom-vpc-networking/">
+    <img src="/assets/images/projects/cloud/gcp-custom-vpc-networking/cover.png" alt="Designing a Custom VPC Network and Firewall Rules on Google Cloud">
+    <div class="project-card__body">
+      <h3>Custom VPC Networking on Google Cloud</h3>
+      <p><strong>Focus:</strong> VPC Design, Subnets & Firewall Rules</p>
+      <p>Google Cloud VPC, Subnets, Firewall Rules, Network Tags, Routes</p>
+    </div>
+  </a>
+
 </div>
 
 
