@@ -121,6 +121,9 @@
 <loc>http://localhost:4000/projects/cloud/infrastructure-automation-cloudformation/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/projects/cloud/gcp-internal-application-load-balancer/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/projects/cloud/gcp-gke-onlineboutique-cost-optimization/</loc>
 </url>
 <url>

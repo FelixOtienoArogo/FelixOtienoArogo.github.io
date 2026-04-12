@@ -331,6 +331,15 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
     </div>
   </a>
 
+  <a class="project-card" href="/projects/cloud/gcp-internal-application-load-balancer/">
+    <img src="/assets/images/projects/cloud/gcp-internal-application-load-balancer/cover.png" alt="Building a Two-Tier Application with an Internal Application Load Balancer on Google Cloud">
+    <div class="project-card__body">
+      <h3>Internal Application Load Balancer on Google Cloud</h3>
+      <p><strong>Focus:</strong> Private Service Delivery & Two-Tier Architecture</p>
+      <p>Internal ALB, MIGs, Backend Services, Forwarding Rules, Health Checks, Compute Engine</p>
+    </div>
+  </a>
+
 </div>
 
 
