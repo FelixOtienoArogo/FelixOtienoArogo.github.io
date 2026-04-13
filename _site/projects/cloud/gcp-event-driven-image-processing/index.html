@@ -1,0 +1,557 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.0 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Event-Driven Image Processing Pipeline with Cloud Run Functions on Google Cloud - Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</title>
+<meta name="description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+  <meta name="author" content="Felix Otieno Arogo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP">
+<meta property="og:title" content="Event-Driven Image Processing Pipeline with Cloud Run Functions on Google Cloud">
+<meta property="og:url" content="http://localhost:4000/projects/cloud/gcp-event-driven-image-processing/">
+
+
+  <meta property="og:description" content="Felix Otieno Arogo - Multi-cloud Solutions Architect with hands-on experience in AWS, GCP, and Azure. Security-focused engineer building scalable cloud solutions. View projects, CV, and verified certifications.">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/cloud/gcp-event-driven-image-processing/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Felix Otieno Arogo | Cloud Solutions Architect | AWS & GCP Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/">
+          Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/assets/cv/Felix_Arogo_cv_ms1.pdf"
+                
+                
+              >CV</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/felix_image.jpg" alt="Felix Otieno Arogo" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Felix Otieno Arogo</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <table>
+  <tbody>
+    <tr>
+      <td>Cloud Solutions Architect</td>
+      <td>AWS &amp; GCP</td>
+      <td>Security-focused engineer building scalable, secure cloud solutions</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="mailto:felixarogo@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-envelope" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/felixotienoarogo" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/felix-otieno-arogo/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Event-Driven Image Processing Pipeline with Cloud Run Functions on Google Cloud">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/projects/cloud/gcp-event-driven-image-processing/" itemprop="url">Event-Driven Image Processing Pipeline with Cloud Run Functions on Google Cloud
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="event-driven-image-processing-pipeline-with-cloud-run-functions-on-google-cloud">Event-Driven Image Processing Pipeline with Cloud Run Functions on Google Cloud</h2>
+
+<p><strong>Timeline:</strong> December 2025<br />
+<strong>Role:</strong> Cloud Engineer / Serverless Developer<br />
+<strong>Skills:</strong> Cloud Storage, Cloud Run Functions (2nd Gen), Pub/Sub, Eventarc, Node.js, Image Processing, Serverless Architecture, IAM</p>
+
+<hr />
+
+<h3 id="project-summary">Project Summary</h3>
+
+<p>This project implemented an <strong>event-driven image processing pipeline</strong> on Google Cloud. When an image is uploaded to a Cloud Storage bucket, a Cloud Run Function is automatically triggered to generate a thumbnail version of the image and store it back in the bucket. The function then publishes a message to a Pub/Sub topic, enabling further downstream processing or notification workflows.</p>
+
+<p>The solution demonstrates how to design a <strong>serverless, event-driven system</strong> that reacts to data changes in real time without requiring manual intervention or persistent infrastructure.</p>
+
+<hr />
+
+<h3 id="objectives">Objectives</h3>
+
+<ul>
+  <li>Create a storage bucket for image uploads</li>
+  <li>Trigger processing automatically when new images are added</li>
+  <li>Generate thumbnail images programmatically</li>
+  <li>Publish processing events to a messaging system</li>
+  <li>Apply basic IAM governance by removing unnecessary access</li>
+</ul>
+
+<hr />
+
+<h3 id="architecture-overview">Architecture Overview</h3>
+
+<p>The architecture consisted of:</p>
+
+<ul>
+  <li>A <strong>Cloud Storage bucket</strong> for storing uploaded images</li>
+  <li>A <strong>Cloud Run Function (2nd Gen)</strong> triggered on object creation events</li>
+  <li>Image processing logic using the <code class="language-plaintext highlighter-rouge">sharp</code> Node.js library</li>
+  <li>Automatic thumbnail generation (64x64)</li>
+  <li>A <strong>Pub/Sub topic</strong> receiving messages after processing</li>
+  <li>Event-driven communication using <strong>Eventarc</strong></li>
+  <li>IAM configuration ensuring only required users had access</li>
+</ul>
+
+<p><img src="./images/image.png" alt="Architecture Diagram" /></p>
+
+<hr />
+
+<h3 id="implementation--highlights">Implementation &amp; Highlights</h3>
+
+<h4 id="1-storage-layer">1. Storage Layer</h4>
+<ul>
+  <li>Created a Cloud Storage bucket for image uploads</li>
+  <li>Used object creation as the trigger event</li>
+  <li>Ensured images are stored centrally for processing and retrieval</li>
+</ul>
+
+<hr />
+
+<h4 id="2-event-driven-processing-with-cloud-run-functions">2. Event-Driven Processing with Cloud Run Functions</h4>
+<ul>
+  <li>Created a Cloud Run Function (2nd generation)</li>
+  <li>Configured trigger:
+    <ul>
+      <li>Cloud Storage object creation</li>
+    </ul>
+  </li>
+  <li>Used Node.js runtime</li>
+  <li>Implemented event-driven execution without polling or manual invocation</li>
+</ul>
+
+<hr />
+
+<h4 id="3-image-transformation-logic">3. Image Transformation Logic</h4>
+<ul>
+  <li>Used the <code class="language-plaintext highlighter-rouge">sharp</code> library to resize images</li>
+  <li>Generated thumbnails at 64x64 resolution</li>
+  <li>Ensured original images were preserved</li>
+  <li>Stored processed images back into the same bucket with a new filename suffix</li>
+</ul>
+
+<hr />
+
+<h4 id="4-messaging-integration-with-pubsub">4. Messaging Integration with Pub/Sub</h4>
+<ul>
+  <li>Created a Pub/Sub topic</li>
+  <li>Published a message after each successful thumbnail generation</li>
+  <li>Enabled asynchronous communication for downstream workflows (e.g., notifications, indexing, analytics)</li>
+</ul>
+
+<hr />
+
+<h4 id="5-event-filtering-and-idempotency">5. Event Filtering and Idempotency</h4>
+<ul>
+  <li>Ensured the function ignored already processed thumbnails</li>
+  <li>Prevented infinite trigger loops by checking filename patterns</li>
+  <li>Applied basic event filtering logic within the function</li>
+</ul>
+
+<hr />
+
+<h4 id="6-security-and-access-control">6. Security and Access Control</h4>
+<ul>
+  <li>Reviewed IAM users in the project</li>
+  <li>Removed access for a previous cloud engineer</li>
+  <li>Reinforced least-privilege access principles for shared cloud environments</li>
+</ul>
+
+<hr />
+
+<h3 id="design-decisions">Design Decisions</h3>
+
+<ul>
+  <li>Used <strong>Cloud Storage events</strong> to trigger processing instead of polling</li>
+  <li>Used <strong>Cloud Run Functions (2nd Gen)</strong> for scalability and event integration</li>
+  <li>Used <strong>Pub/Sub</strong> to decouple processing from downstream systems</li>
+  <li>Used <strong>sharp</strong> for efficient in-memory image processing</li>
+  <li>Implemented <strong>idempotency checks</strong> to prevent duplicate processing</li>
+  <li>Kept infrastructure serverless to reduce operational overhead</li>
+</ul>
+
+<hr />
+
+<h3 id="results--impact">Results &amp; Impact</h3>
+
+<ul>
+  <li>Built a fully functional <strong>event-driven processing pipeline</strong></li>
+  <li>Eliminated need for manual image processing workflows</li>
+  <li>Enabled real-time transformation of uploaded content</li>
+  <li>Created a scalable architecture that can handle bursts of uploads</li>
+  <li>Introduced asynchronous messaging for future extensibility</li>
+  <li>Applied security best practices in IAM management</li>
+</ul>
+
+<hr />
+
+<h3 id="tools--technologies-used">Tools &amp; Technologies Used</h3>
+
+<ul>
+  <li><strong>Cloud Storage</strong> – Object storage and event source</li>
+  <li><strong>Cloud Run Functions (2nd Gen)</strong> – Serverless compute</li>
+  <li><strong>Pub/Sub</strong> – Event messaging</li>
+  <li><strong>Eventarc</strong> – Event routing</li>
+  <li><strong>Node.js</strong> – Runtime environment</li>
+  <li><strong>sharp</strong> – Image processing library</li>
+  <li><strong>IAM</strong> – Access control</li>
+</ul>
+
+<hr />
+
+<h3 id="outcome">Outcome</h3>
+
+<p>This project demonstrates the ability to design and implement a <strong>serverless event-driven architecture</strong> on Google Cloud that processes data automatically in response to real-world events. It highlights practical skills in <strong>event handling, serverless compute, asynchronous messaging, and data transformation</strong>, which are highly relevant to modern cloud-native and platform engineering roles.</p>
+
+<hr />
+
+<p><a href="/projects/cloud/">Back to Cloud Projects</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Felix Otieno Arogo | Cloud Solutions Architect | AWS &amp; GCP</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

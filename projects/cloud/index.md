@@ -91,6 +91,15 @@ A curated collection of cloud architecture case studies across **AWS** and **Goo
     </div>
   </a>
 
+  <a class="project-card" href="/projects/cloud/gcp-event-driven-image-processing/">
+    <img src="/assets/images/projects/cloud/gcp-event-driven-image-processing/cover.png" alt="Event-Driven Image Processing Pipeline on Google Cloud">
+    <div class="project-card__body">
+      <h3>Event-Driven Image Processing Pipeline (GCP)</h3>
+      <p><strong>Focus:</strong> Serverless Event-Driven Architecture</p>
+      <p>Cloud Storage, Cloud Run Functions, Pub/Sub, Eventarc, Node.js</p>
+    </div>
+  </a>
+
 </div>
 
 ---

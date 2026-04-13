@@ -106,6 +106,9 @@
 <loc>http://localhost:4000/projects/cloud/cafe-autoscaling/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/projects/cloud/gcp-event-driven-image-processing/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/projects/cloud/gcp-iam-access-control/</loc>
 </url>
 <url>
